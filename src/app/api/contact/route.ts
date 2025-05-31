@@ -41,9 +41,11 @@ export async function POST(request: NextRequest) {
     // Create email HTML content using React template
     const emailHtml = await renderEmailToHtml(
       React.createElement(ContactFormEmail, {
-        contact: summary.contact,
-        project: summary.project,
-        timeline: summary.timeline,
+        data: {
+          contact: summary.contact,
+          project: summary.project,
+          timeline: summary.timeline,
+        }
       })
     );
     
@@ -104,9 +106,11 @@ export async function POST(request: NextRequest) {
     if (process.env.SEND_AUTO_REPLY === 'true') {
       const autoReplyHtml = await renderEmailToHtml(
         React.createElement(AutoReplyEmail, {
-          recipientName: summary.contact.name,
-          agencyName: summary.contact.agency,
-          projectType: summary.project.type,
+          data: {
+            contact: summary.contact,
+            project: summary.project,
+            timeline: summary.timeline,
+          }
         })
       );
       
