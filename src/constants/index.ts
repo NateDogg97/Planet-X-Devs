@@ -44,8 +44,7 @@ export {
 export {
   socialLinks,
   contactInfo,
-  type SocialLink,
-  type ContactInfo
+  type SocialLink
 } from './social';
 
 // Testimonial-related exports
