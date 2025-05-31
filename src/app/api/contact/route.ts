@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
       await resend.emails.send({
         from: FROM_EMAIL,
         to: summary.contact.email as string,
-        subject: 'Thank you for your inquiry - Planet X Solutions',
+        subject: 'Thank you for your inquiry - Planet X Devs',
         html: autoReplyHtml,
         text: autoReplyText,
         headers: {

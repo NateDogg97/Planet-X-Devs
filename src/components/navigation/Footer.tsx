@@ -10,9 +10,9 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center mb-4">
               <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-                <span className="text-white font-bold text-xl">P</span>
+                <span className="text-white font-bold text-xl">X</span>
               </div>
-              <span className="text-xl font-bold">Planet X Solutions</span>
+              <span className="text-xl font-bold">Planet X Devs</span>
             </Link>
             <p className="text-gray-400">
               Premium white-label web development for agencies who refuse to compromise on quality
@@ -61,7 +61,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 Planet X Solutions. All rights reserved.</p>
+          <p>&copy; 2024 Planet X Devs. All rights reserved.</p>
         </div>
       </div>
     </footer>

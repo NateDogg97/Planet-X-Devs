@@ -52,7 +52,7 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const contactInfo = {
-  email: 'hello@planetxsolutions.com',
+  email: 'nathaniel@planetxdevs.com',
   responseTime: 'Within 24 hours',
   phone: '(555) 123-4567',
   address: 'Remote - Serving agencies worldwide'

@@ -159,7 +159,7 @@ export default function ContactForm() {
                   {submitMessage}
                 </p>
                 <p className="mt-2 text-sm text-red-700 dark:text-red-400">
-                  You can also email directly at <a href="mailto:hello@planetxsolutions.com" className="underline">hello@planetxsolutions.com</a>
+                  You can also email directly at <a href="mailto:nathaniel@planetxdevs.com" className="underline">nathaniel@planetxdevs.com</a>
                 </p>
               </div>
             </div>

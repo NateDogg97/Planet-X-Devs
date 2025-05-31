@@ -1,6 +1,6 @@
 # ErrorBoundary Integration Guide
 
-This guide shows how to integrate the ErrorBoundary component into different parts of the Planet X Solutions website.
+This guide shows how to integrate the ErrorBoundary component into different parts of the Planet X Devs website.
 
 ## Quick Start
 

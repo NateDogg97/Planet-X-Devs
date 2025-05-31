@@ -9,7 +9,7 @@ export default function About() {
   return (
     <div className="min-h-screen">
       <HeroSection
-        title="About Planet X Solutions"
+        title="About Planet X Devs"
         subtitle="Your trusted white-label development partner for delivering exceptional websites"
       />
 

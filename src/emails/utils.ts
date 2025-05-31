@@ -76,7 +76,7 @@ export function createPlainTextEmail(data: {
     return `
 Hi ${data.recipientName},
 
-Thank you for reaching out to Planet X Solutions! I've received your project inquiry and I'm excited to learn more about how I can help ${data.agencyName} with your ${data.projectType.toLowerCase()} needs.
+Thank you for reaching out to Planet X Devs! I've received your project inquiry and I'm excited to learn more about how I can help ${data.agencyName} with your ${data.projectType.toLowerCase()} needs.
 
 WHAT HAPPENS NEXT?
 • I'll review your project details within the next 24 hours
@@ -94,11 +94,11 @@ I typically respond to all inquiries within 24 hours during business days. If yo
 Looking forward to working with you!
 
 Best regards,
-Planet X Solutions Team
+Planet X Devs Team
 
 ---
 This is an automated response to confirm we've received your inquiry.
-Planet X Solutions | Building Digital Excellence
+Planet X Devs | Building Digital Excellence
     `.trim();
   }
   
@@ -125,7 +125,7 @@ Timeline: ${timeline.timeline}
 Budget Range: ${timeline.budget}
 
 ---
-This email was sent from the Planet X Solutions contact form.
+This email was sent from the Planet X Devs contact form.
 To reply, please email ${contact.email}
     `.trim();
   }

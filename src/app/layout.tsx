@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Planet X Solutions - Web Development for Marketing Agencies",
+  title: "Planet X Devs - Web Development for Marketing Agencies",
   description: "Professional web development services tailored for digital marketing agencies. White-label solutions, fast turnarounds, and agency-friendly pricing.",
 };
 

@@ -39,7 +39,7 @@ export const extendedTestimonials: Testimonial[] = [
   },
   {
     id: 'testimonial-5',
-    quote: 'We\'ve tried offshore teams and freelancers. Planet X Solutions is the only partner that consistently delivers quality on time.',
+    quote: 'We\'ve tried offshore teams and freelancers. Planet X Devs is the only partner that consistently delivers quality on time.',
     author: 'Project Manager',
     company: 'Creative Studios',
     rating: 5

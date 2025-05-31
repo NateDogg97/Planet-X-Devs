@@ -17,7 +17,7 @@ interface AboutStorySectionProps {
 const defaultStory = {
   intro: "After years of working with marketing agencies, I noticed a pattern: talented agencies were losing opportunities because they couldn't find reliable development partners.",
   problem: "Some were burned by offshore teams that overpromised and underdelivered. Others struggled with freelancers who disappeared mid-project. And many were frustrated by developers who couldn't communicate effectively with non-technical clients.",
-  solution: "I created Planet X Solutions to be the development partner I wish existed when I was on the agency side - reliable, communicative, and focused on making agencies look good."
+  solution: "I created Planet X Devs to be the development partner I wish existed when I was on the agency side - reliable, communicative, and focused on making agencies look good."
 };
 
 const defaultHighlights = {
@@ -31,7 +31,7 @@ const defaultHighlights = {
 };
 
 export default function AboutStorySection({
-  title = "Why I Started Planet X Solutions",
+  title = "Why I Started Planet X Devs",
   story = defaultStory,
   highlights = defaultHighlights,
   className = ""

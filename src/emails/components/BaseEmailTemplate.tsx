@@ -15,7 +15,7 @@ export const BaseEmailTemplate: React.FC<BaseEmailTemplateProps> = ({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <title>Planet X Solutions</title>
+        <title>Planet X Devs</title>
         
         {previewText && (
           <>
@@ -333,7 +333,7 @@ export const EmailFooter: React.FC<EmailFooterProps> = ({ children }) => {
                 color: '#6b7280',
               }}
             >
-              {children || 'This email was sent from Planet X Solutions'}
+              {children || 'This email was sent from Planet X Devs'}
             </p>
             <p
               style={{
@@ -342,7 +342,7 @@ export const EmailFooter: React.FC<EmailFooterProps> = ({ children }) => {
                 color: '#9ca3af',
               }}
             >
-              © {new Date().getFullYear()} Planet X Solutions. All rights reserved.
+              © {new Date().getFullYear()} Planet X Devs. All rights reserved.
             </p>
           </td>
         </tr>

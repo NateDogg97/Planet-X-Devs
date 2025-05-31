@@ -1,8 +1,12 @@
-// Export all email templates
-export { ContactFormEmail } from './templates/ContactFormEmail';
-export { AutoReplyEmail } from './templates/AutoReplyEmail';
+// Export the consolidated email template
+export { 
+  default as EmailTemplate,
+  ContactFormEmail,
+  AutoReplyEmail,
+  type EmailType 
+} from './EmailTemplate';
 
-// Export email components
+// Export email components (for advanced usage)
 export {
   BaseEmailTemplate,
   EmailContainer,
