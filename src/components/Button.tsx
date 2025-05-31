@@ -23,7 +23,7 @@ export default function Button({
   disabled = false,
   fullWidth = false
 }: ButtonProps) {
-  const baseStyles = 'font-semibold rounded-lg transition-colors inline-block text-center';
+  const baseStyles = `font-semibold rounded-lg transition-colors text-center ${fullWidth ? 'block' : 'inline-block'}`;
   
   const variantStyles = {
     primary: 'bg-blue-600 text-white hover:bg-blue-700',

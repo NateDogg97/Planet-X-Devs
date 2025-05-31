@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Button from './Button';
 
 interface CTAButton {
   text: string;
@@ -33,17 +33,15 @@ export default function CTASection({
         {buttons.length > 0 && (
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {buttons.map((button, index) => (
-              <Link
+              <Button
                 key={index}
                 href={button.href}
-                className={`px-8 py-4 font-semibold rounded-lg transition-colors inline-block ${
-                  button.variant === 'secondary'
-                    ? 'bg-blue-500 text-white hover:bg-blue-400'
-                    : 'bg-white text-blue-600 hover:bg-gray-100'
-                }`}
+                variant={button.variant === 'secondary' ? 'secondary' : 'primary'}
+                size="large"
+                className={button.variant === 'secondary' ? 'bg-blue-500 hover:bg-blue-400' : ''}
               >
                 {button.text}
-              </Link>
+              </Button>
             ))}
           </div>
         )}
