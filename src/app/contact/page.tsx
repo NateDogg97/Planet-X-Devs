@@ -1,11 +1,11 @@
-import Footer from '@/components/Footer';
-import ContactForm from '@/components/ContactForm';
-import ContactInfo from '@/components/ContactForm/ContactInfo';
-import SocialLinks from '@/components/ContactForm/SocialLinks';
-import Section from '@/components/Section';
-import Container from '@/components/Container';
-import Hero from '@/components/Hero';
-import Button from '@/components/Button';
+import Footer from '@/components/navigation/Footer';
+import ContactForm from '@/components/forms/ContactForm';
+import ContactInfo from '@/components/forms/ContactForm/ContactInfo';
+import SocialLinks from '@/components/forms/ContactForm/SocialLinks';
+import Section from '@/components/layout/Section';
+import Container from '@/components/layout/Container';
+import Hero from '@/components/layout/Hero';
+import Button from '@/components/ui/Button';
 
 export default function Contact() {
   return (

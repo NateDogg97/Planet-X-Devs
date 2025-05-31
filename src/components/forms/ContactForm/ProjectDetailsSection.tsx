@@ -1,5 +1,5 @@
 import FormField from '../FormField';
-import { projectTypes } from '@/constants/faqs';
+import { projectTypes } from '@/constants';
 
 interface ProjectDetailsSectionProps {
   formData: {

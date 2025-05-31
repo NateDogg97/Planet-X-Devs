@@ -1,5 +1,5 @@
 import FormField from '../FormField';
-import { timelines, budgetRanges } from '@/constants/faqs';
+import { timelines, budgetRanges } from '@/constants';
 
 interface BudgetTimelineSectionProps {
   formData: {

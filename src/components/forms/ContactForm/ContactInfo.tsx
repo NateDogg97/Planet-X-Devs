@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Card from '../Card';
-import Icon from '../Icon';
-import { contactInfo } from '@/constants/social';
+import Card from '../../ui/Card';
+import Icon from '../../ui/Icon';
+import { contactInfo } from '@/constants';
 
 export default function ContactInfo() {
   return (

@@ -1,10 +1,5 @@
-import Button from './Button';
-
-interface CTAButton {
-  text: string;
-  href: string;
-  variant?: 'primary' | 'secondary';
-}
+import Button from '../ui/Button';
+import { CTAButton } from '@/types';
 
 interface CTASectionProps {
   title: string;

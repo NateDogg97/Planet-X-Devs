@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Card from '../Card';
-import SocialIcon from '../SocialIcon';
-import { socialLinks } from '@/constants/social';
+import Card from '../../ui/Card';
+import SocialIcon from '../../content/SocialIcon';
+import { socialLinks } from '@/constants';
 
 export default function SocialLinks() {
   return (

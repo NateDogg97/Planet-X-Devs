@@ -1,12 +1,12 @@
 'use client';
 
 import { theme } from '@/config/theme';
-import ThemedSection from '@/components/ThemedSection';
-import ThemedContainer from '@/components/ThemedContainer';
-import ThemedHeading from '@/components/ThemedHeading';
-import ThemedCard from '@/components/ThemedCard';
-import ThemedButton from '@/components/ThemedButton';
-import Footer from '@/components/Footer';
+import ThemedSection from '@/components/layout/ThemedSection';
+import ThemedContainer from '@/components/layout/ThemedContainer';
+import ThemedHeading from '@/components/ui/ThemedHeading';
+import ThemedCard from '@/components/ui/ThemedCard';
+import ThemedButton from '@/components/ui/ThemedButton';
+import Footer from '@/components/navigation/Footer';
 
 export default function StyleGuide() {
   return (

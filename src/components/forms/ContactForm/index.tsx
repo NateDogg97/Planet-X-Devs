@@ -4,31 +4,9 @@ import { useState } from 'react';
 import ContactInfoSection from './ContactInfoSection';
 import ProjectDetailsSection from './ProjectDetailsSection';
 import BudgetTimelineSection from './BudgetTimelineSection';
-import Button from '../Button';
-import Card from '../Card';
-
-interface FormData {
-  // Contact Info
-  name: string;
-  email: string;
-  agency: string;
-  phone: string;
-  howHeard: string;
-  
-  // Project Details
-  projectType: string;
-  projectScope: string;
-  additionalInfo: string;
-  whiteLabel: boolean;
-  
-  // Budget & Timeline
-  timeline: string;
-  budget: string;
-}
-
-interface FormErrors {
-  [key: string]: string;
-}
+import Button from '../../ui/Button';
+import Card from '../../ui/Card';
+import { FormData, FormErrors } from '@/types';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
