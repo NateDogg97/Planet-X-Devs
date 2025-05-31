@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="text-xl font-bold">Planet X Solutions</span>
             </Link>
             <p className="text-gray-400">
-              Web development solutions for forward-thinking digital marketing agencies.
+              Premium white-label web development for agencies who refuse to compromise on quality
             </p>
           </div>
           <div>
@@ -47,6 +47,11 @@ export default function Footer() {
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
                   Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-white transition-colors">
+                  About
                 </Link>
               </li>
               <li>

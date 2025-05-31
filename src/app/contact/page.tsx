@@ -11,7 +11,7 @@ export default function Contact() {
               Let's Build Something Great Together
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
-              Tell me about your project and let's discuss how I can help your agency deliver exceptional results
+              Whether you're a solo freelancer or an established agency, let's talk about how I can help you deliver exceptional websites without the development headaches.
             </p>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default function Contact() {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="agency" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Agency Name *
+                        Agency Name (or 'Freelancer' if solo) *
                       </label>
                       <input
                         type="text"
@@ -68,7 +68,7 @@ export default function Contact() {
                         name="agency"
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                        placeholder="Digital Marketing Agency"
+                        placeholder="Digital Marketing Agency or Freelancer"
                       />
                     </div>
                     <div>
@@ -83,6 +83,19 @@ export default function Contact() {
                         placeholder="(555) 123-4567"
                       />
                     </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="how-heard" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      How did you hear about us?
+                    </label>
+                    <input
+                      type="text"
+                      id="how-heard"
+                      name="how-heard"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                      placeholder="Google, referral, social media, etc."
+                    />
                   </div>
 
                   <div>

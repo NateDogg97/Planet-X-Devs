@@ -8,17 +8,37 @@ export default function Home() {
         <div className="container mx-auto px-6 py-24 lg:py-32">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Web Development Solutions for Digital Marketing Agencies
+              Your Agency's Secret Weapon for Premium Web Development
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
-              Transform your agency's digital presence with custom, high-performance websites that convert visitors into clients
+              White-label development partner who makes you look good. Custom designs, flawless execution, and communication that actually works.
             </p>
+            <div className="space-y-3 mb-8 text-left max-w-2xl mx-auto">
+              <div className="flex items-center text-lg text-gray-700 dark:text-gray-200">
+                <svg className="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>From single-person agencies to large teams</span>
+              </div>
+              <div className="flex items-center text-lg text-gray-700 dark:text-gray-200">
+                <svg className="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Custom code or page builders - whatever works best</span>
+              </div>
+              <div className="flex items-center text-lg text-gray-700 dark:text-gray-200">
+                <svg className="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Your brand, your client relationships, our expertise</span>
+              </div>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/services" className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors inline-block">
                 View Services & Pricing
               </a>
               <a href="/contact" className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-colors inline-block">
-                Get Started Today
+                Schedule a No-Pressure Chat
               </a>
             </div>
           </div>
@@ -131,7 +151,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                Why Marketing Agencies Choose Us
+                Why Agencies Choose Us
               </h2>
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -142,10 +162,10 @@ export default function Home() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      White-Label Solutions
+                      Actually Easy to Work With
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      Present our work as your own with fully brandable deliverables
+                      No ego, no jargon, just clear communication and reliable delivery
                     </p>
                   </div>
                 </div>
@@ -158,10 +178,10 @@ export default function Home() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Quick Turnaround
+                      Quality You Can Stake Your Reputation On
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      Meet tight deadlines without compromising on quality
+                      We build websites that make your agency shine
                     </p>
                   </div>
                 </div>
@@ -174,10 +194,10 @@ export default function Home() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Transparent Communication
+                      Flexible Solutions
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      Regular updates and clear project timelines keep you informed
+                      Custom development, Elementor, WordPress - we adapt to your project needs
                     </p>
                   </div>
                 </div>
@@ -190,10 +210,10 @@ export default function Home() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Competitive Pricing
+                      True White-Label Partnership
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      Agency-friendly rates that help you maintain healthy margins
+                      Your clients never know we exist unless you want them to
                     </p>
                   </div>
                 </div>
@@ -238,31 +258,9 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                "They transformed our web development capabilities overnight. Our clients love the results!"
+                "Finally, a developer who actually communicates! Updates without asking, realistic timelines, and work that exceeds expectations."
               </p>
               <div className="font-semibold text-gray-900 dark:text-white">
-                Sarah Johnson
-              </div>
-              <div className="text-sm text-gray-500">
-                Digital Marketing Director
-              </div>
-            </div>
-
-            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                "Reliable, fast, and professional. They're an extension of our team."
-              </p>
-              <div className="font-semibold text-gray-900 dark:text-white">
-                Michael Chen
-              </div>
-              <div className="text-sm text-gray-500">
                 Agency Owner
               </div>
             </div>
@@ -276,13 +274,26 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                "The quality of work exceeded our expectations. Highly recommended!"
+                "They transformed our client's dated site into something modern while keeping their brand personality intact. Our client was thrilled."
               </p>
               <div className="font-semibold text-gray-900 dark:text-white">
-                Emily Rodriguez
-              </div>
-              <div className="text-sm text-gray-500">
                 Creative Director
+              </div>
+            </div>
+
+            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                ))}
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                "From solo projects to our enterprise clients, they scale with us. It's like having a senior developer on the team."
+              </p>
+              <div className="font-semibold text-gray-900 dark:text-white">
+                Digital Marketing Director
               </div>
             </div>
           </div>
@@ -303,7 +314,7 @@ export default function Home() {
               href="/contact"
               className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors inline-block"
             >
-              Start Your Project
+              Let's Discuss Your Project
             </a>
             <a
               href="/services"

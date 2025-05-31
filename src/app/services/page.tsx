@@ -37,8 +37,19 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Introduction Section */}
+      <section className="py-12 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              Whether you're a solo consultant or a 50-person agency, I understand that your reputation is on the line with every project. That's why I don't do cheap, cookie-cutter work. Every website is crafted to reflect your client's unique brand while incorporating modern design principles that convert.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Main Services Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -51,6 +62,57 @@ export default function Services() {
 
           {/* Service Cards */}
           <div className="grid lg:grid-cols-2 gap-8 mb-20">
+            {/* Custom Website Development Service */}
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="flex items-start justify-between mb-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                    Custom Website Development
+                  </h3>
+                  <p className="text-blue-600 font-semibold text-lg">$5,000 - $15,000</p>
+                </div>
+                <div className="bg-blue-100 dark:bg-blue-900 p-3 rounded-lg">
+                  <svg className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                  </svg>
+                </div>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                Completely custom websites built from scratch. Perfect for agencies with clients who need unique functionality and distinctive design.
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Hand-coded for perfect performance</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Unique designs that stand out</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Advanced functionality and integrations</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Full ownership of clean, documented code</span>
+                </li>
+              </ul>
+              <div className="border-t pt-6">
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <strong>Timeline:</strong> 4-8 weeks
+                </p>
+              </div>
+            </div>
+
             {/* E-Commerce Service */}
             <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-start justify-between mb-6">
@@ -381,6 +443,43 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Coming Soon Section */}
+      <section className="py-20 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl p-8 md:p-12 overflow-hidden">
+              <div className="absolute top-4 right-4">
+                <span className="bg-yellow-400 text-gray-900 text-sm font-bold px-4 py-2 rounded-full">
+                  COMING SOON
+                </span>
+              </div>
+              <div className="max-w-3xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 mt-4">
+                  Full Website Management Solutions
+                </h2>
+                <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                  Complete website care from hosting to maintenance. Let us handle everything while you focus on strategy and client relationships.
+                </p>
+                <div className="bg-white dark:bg-gray-900 rounded-lg p-6 inline-block">
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
+                    Interested? Contact us to be first in line when we launch.
+                  </p>
+                  <a 
+                    href="/contact" 
+                    className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                  >
+                    Get Early Access
+                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-6">
@@ -514,7 +613,7 @@ export default function Services() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/contact" className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors">
-              Start Your Project
+              Let's Discuss Your Project
             </a>
             <a href="/contact" className="px-8 py-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition-colors">
               Get a Quote
