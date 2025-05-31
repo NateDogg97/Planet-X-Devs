@@ -1,4 +1,5 @@
 import FormField from '../FormField';
+import ErrorBoundary from '../../ErrorBoundary';
 import { projectTypes } from '@/constants';
 
 interface ProjectDetailsSectionProps {
@@ -18,7 +19,13 @@ export default function ProjectDetailsSection({
   errors = {} 
 }: ProjectDetailsSectionProps) {
   return (
-    <div className="space-y-6">
+    <ErrorBoundary
+      fallback="inline"
+      title="Project Details Error"
+      message="Unable to load project details section."
+      context={{ component: 'ProjectDetailsSection' }}
+    >
+      <div className="space-y-6">
       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
         Project Details
       </h3>
@@ -63,5 +70,6 @@ export default function ProjectDetailsSection({
         onChange={(e) => onChange('whiteLabel', (e.target as HTMLInputElement).checked)}
       />
     </div>
+    </ErrorBoundary>
   );
 }

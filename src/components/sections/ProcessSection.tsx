@@ -1,4 +1,5 @@
 import { processSteps } from '@/constants';
+import ErrorBoundary from '../ErrorBoundary';
 
 interface ProcessSectionProps {
   title?: string;
@@ -14,7 +15,13 @@ export default function ProcessSection({
   className = ""
 }: ProcessSectionProps) {
   return (
-    <section className={`py-20 bg-gray-50 dark:bg-gray-800 ${className}`}>
+    <ErrorBoundary
+      fallback="inline"
+      title="Process Section Error"
+      message="Unable to load process section. Please try refreshing the page."
+      context={{ component: 'ProcessSection', stepsCount: steps.length }}
+    >
+      <section className={`py-20 bg-gray-50 dark:bg-gray-800 ${className}`}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -42,5 +49,6 @@ export default function ProcessSection({
         </div>
       </div>
     </section>
+    </ErrorBoundary>
   );
 }

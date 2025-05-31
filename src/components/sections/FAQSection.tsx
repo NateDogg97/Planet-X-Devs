@@ -1,4 +1,5 @@
 import { faqItems } from '@/constants';
+import ErrorBoundary from '../ErrorBoundary';
 
 interface FAQSectionProps {
   title?: string;
@@ -12,7 +13,13 @@ export default function FAQSection({
   className = ""
 }: FAQSectionProps) {
   return (
-    <section className={`py-20 bg-white dark:bg-gray-900 ${className}`}>
+    <ErrorBoundary
+      fallback="inline"
+      title="FAQ Section Error"
+      message="Unable to load FAQ section. Please try refreshing the page."
+      context={{ component: 'FAQSection', faqCount: faqs.length }}
+    >
+      <section className={`py-20 bg-white dark:bg-gray-900 ${className}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
@@ -34,5 +41,6 @@ export default function FAQSection({
         </div>
       </div>
     </section>
+    </ErrorBoundary>
   );
 }

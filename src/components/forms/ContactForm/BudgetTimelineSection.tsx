@@ -1,4 +1,5 @@
 import FormField from '../FormField';
+import ErrorBoundary from '../../ErrorBoundary';
 import { timelines, budgetRanges } from '@/constants';
 
 interface BudgetTimelineSectionProps {
@@ -16,7 +17,13 @@ export default function BudgetTimelineSection({
   errors = {} 
 }: BudgetTimelineSectionProps) {
   return (
-    <div className="space-y-6">
+    <ErrorBoundary
+      fallback="inline"
+      title="Budget & Timeline Error"
+      message="Unable to load budget and timeline section."
+      context={{ component: 'BudgetTimelineSection' }}
+    >
+      <div className="space-y-6">
       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
         Budget & Timeline
       </h3>
@@ -51,5 +58,6 @@ export default function BudgetTimelineSection({
         </p>
       </div>
     </div>
+    </ErrorBoundary>
   );
 }

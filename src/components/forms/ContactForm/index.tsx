@@ -7,6 +7,7 @@ import BudgetTimelineSection from './BudgetTimelineSection';
 import Button from '../../ui/Button';
 import Card from '../../ui/Card';
 import Icon from '../../ui/Icon';
+import ErrorBoundary from '../../ErrorBoundary';
 import { FormData, FormErrors } from '@/types';
 import {
   validateContactForm,
@@ -89,12 +90,19 @@ export default function ContactForm() {
   };
   
   return (
-    <Card>
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-        Project Intake Form
-      </h2>
-      
-      <form onSubmit={handleSubmit} className="space-y-8">
+    <ErrorBoundary
+      fallback="default"
+      title="Contact Form Error"
+      message="There was an error loading the contact form. Please refresh the page and try again."
+      context={{ component: 'ContactForm', formData: Object.keys(formData) }}
+      showRetry={true}
+    >
+      <Card>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          Project Intake Form
+        </h2>
+        
+        <form onSubmit={handleSubmit} className="space-y-8">
         <ContactInfoSection
           formData={{
             name: formData.name,
@@ -175,5 +183,6 @@ export default function ContactForm() {
         </div>
       </form>
     </Card>
+    </ErrorBoundary>
   );
 }

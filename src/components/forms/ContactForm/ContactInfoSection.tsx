@@ -1,4 +1,5 @@
 import FormField from '../FormField';
+import ErrorBoundary from '../../ErrorBoundary';
 
 interface ContactInfoSectionProps {
   formData: {
@@ -18,7 +19,13 @@ export default function ContactInfoSection({
   errors = {} 
 }: ContactInfoSectionProps) {
   return (
-    <div className="space-y-6">
+    <ErrorBoundary
+      fallback="inline"
+      title="Contact Info Error"
+      message="Unable to load contact information section."
+      context={{ component: 'ContactInfoSection' }}
+    >
+      <div className="space-y-6">
       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
         Contact Information
       </h3>
@@ -79,5 +86,6 @@ export default function ContactInfoSection({
         onChange={(e) => onChange('howHeard', e.target.value)}
       />
     </div>
+    </ErrorBoundary>
   );
 }

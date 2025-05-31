@@ -1,5 +1,6 @@
 import Icon from '../ui/Icon';
 import { ServiceCardProps } from '@/types';
+import ErrorBoundary from '../ErrorBoundary';
 
 export default function ServiceCard({
   title,
@@ -11,7 +12,13 @@ export default function ServiceCard({
   className = ""
 }: ServiceCardProps) {
   return (
-    <div className={`bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow ${className}`}>
+    <ErrorBoundary
+      fallback="minimal"
+      message="Unable to load service card"
+      showRetry={false}
+      context={{ component: 'ServiceCard', title }}
+    >
+      <div className={`bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow ${className}`}>
       <div className="flex items-start justify-between mb-6">
         <div>
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -42,5 +49,6 @@ export default function ServiceCard({
         </div>
       )}
     </div>
+    </ErrorBoundary>
   );
 }

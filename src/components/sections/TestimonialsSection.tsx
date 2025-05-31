@@ -1,5 +1,6 @@
 import TestimonialCard from '../content/TestimonialCard';
 import { testimonials } from '@/constants';
+import ErrorBoundary from '../ErrorBoundary';
 
 interface TestimonialsSectionProps {
   title?: string;
@@ -15,7 +16,13 @@ export default function TestimonialsSection({
   className = ""
 }: TestimonialsSectionProps) {
   return (
-    <section className={`py-20 bg-white dark:bg-gray-900 ${className}`}>
+    <ErrorBoundary
+      fallback="inline"
+      title="Testimonials Section Error"
+      message="Unable to load testimonials. Please try refreshing the page."
+      context={{ component: 'TestimonialsSection', testimonialsCount: testimonialsData.length }}
+    >
+      <section className={`py-20 bg-white dark:bg-gray-900 ${className}`}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -39,5 +46,6 @@ export default function TestimonialsSection({
         </div>
       </div>
     </section>
+    </ErrorBoundary>
   );
 }

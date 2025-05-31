@@ -13,9 +13,8 @@ import {
 } from '@/emails';
 
 // Email configuration
-const FROM_EMAIL = 'Planet X Solutions <noreply@planetxsolutions.com>';
-const TO_EMAIL = process.env.CONTACT_EMAIL || 'hello@planetxsolutions.com';
-const BCC_EMAIL = process.env.BCC_EMAIL; // Optional BCC for record keeping
+const FROM_EMAIL = `Planet X Devs <${process.env.RESEND_FROM_EMAIL}>`;
+const TO_EMAIL = process.env.RESEND_TO_EMAIL || 'nathaniel@planetxdevs.com';
 
 export async function POST(request: NextRequest) {
   try {
@@ -68,7 +67,6 @@ export async function POST(request: NextRequest) {
     const emailData = {
       from: FROM_EMAIL,
       to: TO_EMAIL,
-      bcc: BCC_EMAIL || undefined,
       subject,
       html: emailHtml,
       text: emailText,

@@ -1,6 +1,7 @@
 import Icon from '../ui/Icon';
 import { homePageFeatures } from '@/constants';
 import { FeatureCardProps } from '@/types';
+import ErrorBoundary from '../ErrorBoundary';
 
 interface FeaturesSectionProps {
   title?: string;
@@ -16,7 +17,13 @@ export default function FeaturesSection({
   className = ""
 }: FeaturesSectionProps) {
   return (
-    <section className={`py-20 bg-white dark:bg-gray-900 ${className}`}>
+    <ErrorBoundary
+      fallback="inline"
+      title="Features Section Error"
+      message="Unable to load features section. Please try refreshing the page."
+      context={{ component: 'FeaturesSection', featuresCount: features.length }}
+    >
+      <section className={`py-20 bg-white dark:bg-gray-900 ${className}`}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -44,5 +51,6 @@ export default function FeaturesSection({
         </div>
       </div>
     </section>
+    </ErrorBoundary>
   );
 }

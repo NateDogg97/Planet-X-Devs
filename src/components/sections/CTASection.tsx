@@ -1,5 +1,6 @@
 import Button from '../ui/Button';
 import { CTAButton } from '@/types';
+import ErrorBoundary from '../ErrorBoundary';
 
 interface CTASectionProps {
   title: string;
@@ -15,7 +16,13 @@ export default function CTASection({
   className = ""
 }: CTASectionProps) {
   return (
-    <section className={`py-20 bg-gradient-to-r from-blue-600 to-indigo-700 ${className}`}>
+    <ErrorBoundary
+      fallback="inline"
+      title="CTA Section Error"
+      message="Unable to load call-to-action section. Please try refreshing the page."
+      context={{ component: 'CTASection', buttonsCount: buttons.length }}
+    >
+      <section className={`py-20 bg-gradient-to-r from-blue-600 to-indigo-700 ${className}`}>
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
           {title}
@@ -42,5 +49,6 @@ export default function CTASection({
         )}
       </div>
     </section>
+    </ErrorBoundary>
   );
 }

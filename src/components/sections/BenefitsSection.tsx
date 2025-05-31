@@ -1,5 +1,6 @@
 import Icon from '../ui/Icon';
 import { benefits } from '@/constants';
+import ErrorBoundary from '../ErrorBoundary';
 
 interface BenefitsSectionProps {
   title?: string;
@@ -15,7 +16,13 @@ export default function BenefitsSection({
   className = ""
 }: BenefitsSectionProps) {
   return (
-    <section className={`py-20 bg-gray-50 dark:bg-gray-800 ${className}`}>
+    <ErrorBoundary
+      fallback="inline"
+      title="Benefits Section Error"
+      message="Unable to load benefits section. Please try refreshing the page."
+      context={{ component: 'BenefitsSection', benefitsCount: benefitsData.length }}
+    >
+      <section className={`py-20 bg-gray-50 dark:bg-gray-800 ${className}`}>
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -58,5 +65,6 @@ export default function BenefitsSection({
         </div>
       </div>
     </section>
+    </ErrorBoundary>
   );
 }
