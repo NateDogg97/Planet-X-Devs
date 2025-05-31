@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Card from '../../ui/Card';
-import SocialIcon from '../../content/SocialIcon';
+import Icon from '../../ui/Icon';
 import { socialLinks } from '@/constants';
 
 export default function SocialLinks() {
@@ -18,7 +18,7 @@ export default function SocialLinks() {
             rel="noopener noreferrer"
             className="flex items-center p-3 bg-white dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
           >
-            <SocialIcon 
+            <Icon 
               name={social.name.toLowerCase() as any} 
               className={social.color} 
             />

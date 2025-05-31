@@ -6,6 +6,7 @@ import ProjectDetailsSection from './ProjectDetailsSection';
 import BudgetTimelineSection from './BudgetTimelineSection';
 import Button from '../../ui/Button';
 import Card from '../../ui/Card';
+import Icon from '../../ui/Icon';
 import { FormData, FormErrors } from '@/types';
 import {
   validateContactForm,
@@ -133,9 +134,7 @@ export default function ContactForm() {
         {submitStatus === 'success' && (
           <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4" role="alert">
             <div className="flex">
-              <svg className="h-5 w-5 text-green-400 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
+              <Icon name="check-circle" className="h-5 w-5 text-green-400 mt-0.5" />
               <p className="ml-3 text-green-800 dark:text-green-300">
                 {submitMessage}
               </p>
@@ -146,9 +145,7 @@ export default function ContactForm() {
         {submitStatus === 'error' && !Object.keys(errors).length && (
           <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4" role="alert">
             <div className="flex">
-              <svg className="h-5 w-5 text-red-400 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-              </svg>
+              <Icon name="x-circle" className="h-5 w-5 text-red-400 mt-0.5" />
               <div className="ml-3">
                 <p className="text-red-800 dark:text-red-300">
                   {submitMessage}

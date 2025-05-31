@@ -5,6 +5,7 @@ import ServicesSection from '@/components/sections/ServicesSection';
 import ProcessSection from '@/components/sections/ProcessSection';
 import FAQSection from '@/components/sections/FAQSection';
 import CTASection from '@/components/sections/CTASection';
+import Icon from '@/components/ui/Icon';
 
 export default function Services() {
   return (
@@ -45,21 +46,15 @@ export default function Services() {
                   <p className="text-3xl font-bold mb-4">$1,500<span className="text-lg font-normal">/month</span></p>
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                      <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
                       <span>20 hours of development</span>
                     </li>
                     <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                      <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
                       <span>2-3 day turnaround</span>
                     </li>
                     <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                      <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
                       <span>Perfect for maintenance</span>
                     </li>
                   </ul>
@@ -74,21 +69,15 @@ export default function Services() {
                   <p className="text-3xl font-bold mb-4">$3,000<span className="text-lg font-normal">/month</span></p>
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                      <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
                       <span>40 hours of development</span>
                     </li>
                     <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                      <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
                       <span>24-48 hour turnaround</span>
                     </li>
                     <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                      <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
                       <span>Priority support</span>
                     </li>
                   </ul>
@@ -100,21 +89,15 @@ export default function Services() {
                   <p className="text-3xl font-bold mb-4">$5,000<span className="text-lg font-normal">/month</span></p>
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                      <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
                       <span>80 hours of development</span>
                     </li>
                     <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                      <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
                       <span>Same-day turnaround</span>
                     </li>
                     <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                      <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
                       <span>Dedicated developer</span>
                     </li>
                   </ul>
@@ -155,9 +138,7 @@ export default function Services() {
                     className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
                   >
                     Get Early Access
-                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                    </svg>
+                    <Icon name="arrow-right" className="w-5 h-5 ml-2" />
                   </a>
                 </div>
               </div>
