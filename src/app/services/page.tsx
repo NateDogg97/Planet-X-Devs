@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Footer from '@/components/navigation/Footer';
 import Hero from '@/components/layout/Hero';
 import IntroSection from '@/components/sections/IntroSection';
@@ -6,24 +7,56 @@ import ProcessSection from '@/components/sections/ProcessSection';
 import FAQSection from '@/components/sections/FAQSection';
 import CTASection from '@/components/sections/CTASection';
 import Icon from '@/components/ui/Icon';
+import { faqItems } from '@/constants/content';
+
+export const metadata: Metadata = {
+  title: "Web Development Services for Marketing Agencies | Planet X Devs",
+  description: "Custom websites, e-commerce, and WordPress development exclusively for marketing agencies. White-label services, 30-day support, starting at $2,000.",
+  keywords: "white label web development, agency web developer, marketing agency websites, wordpress development, ecommerce development",
+  openGraph: {
+    title: "Web Development Services for Marketing Agencies",
+    description: "Your secret weapon for premium web development. White-label services that make you look good.",
+    images: ['/og-image.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+  }
+};
 
 export default function Services() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
   return (
-    <div className="min-h-screen">
-      <Hero
-        title="Web Development Services for Marketing Agencies"
-        subtitle="I help marketing agencies deliver web projects without hiring developers"
-        bullets={[
-          "White-label services",
-          "Fast turnarounds", 
-          "Agency-friendly communication"
-        ]}
-        centered={true}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <div className="min-h-screen">
+        <Hero
+          title="Web Development Services for Marketing Agencies"
+          subtitle="I help marketing agencies deliver web projects without hiring developers"
+          bullets={[
+            "White-label services",
+            "Fast turnarounds", 
+            "Agency-friendly communication"
+          ]}
+          centered={true}
+        />
 
-      <IntroSection
-        content="Whether you're a solo consultant or a 50-person agency, I understand that your reputation is on the line with every project. That's why I don't do cheap, cookie-cutter work. Every website is crafted to reflect your client's unique brand while incorporating modern design principles that convert."
-      />
+        <IntroSection
+          content="Whether you're a solo consultant or a 50-person agency, I understand that your reputation is on the line with every project. That's why I don't do cheap, cookie-cutter work. Every website is crafted to reflect your client's unique brand while incorporating modern design principles that convert."
+        />
 
       <ServicesSection />
 
@@ -167,6 +200,7 @@ export default function Services() {
       />
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 }

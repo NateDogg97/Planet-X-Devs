@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Footer from '@/components/navigation/Footer';
 import ContactForm from '@/components/forms/ContactForm';
 import ContactInfo from '@/components/forms/ContactForm/ContactInfo';
@@ -6,6 +7,20 @@ import Section from '@/components/layout/Section';
 import Container from '@/components/layout/Container';
 import Hero from '@/components/layout/Hero';
 import Button from '@/components/ui/Button';
+
+export const metadata: Metadata = {
+  title: "Contact Planet X Devs | Get a Quote for Your Web Project",
+  description: "Ready to start your web development project? Contact Planet X Devs for white-label web development services. Get a quote within 24 hours.",
+  keywords: "contact planet x devs, web development quote, hire web developer, agency web development",
+  openGraph: {
+    title: "Contact Planet X Devs | Get a Quote for Your Web Project",
+    description: "Let's discuss your next web development project. White-label services for marketing agencies.",
+    images: ['/og-image.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+  }
+};
 
 export default function Contact() {
   return (
