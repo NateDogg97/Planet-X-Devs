@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Footer from '@/components/navigation/Footer';
 import Hero from '@/components/layout/Hero';
+import Section from '@/components/layout/Section';
+import Container from '@/components/layout/Container';
 import IntroSection from '@/components/sections/IntroSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import ProcessSection from '@/components/sections/ProcessSection';
@@ -61,8 +63,8 @@ export default function Services() {
       <ServicesSection />
 
       {/* Retainer Plans Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-6">
+      <Section background="white">
+        <Container>
           <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 md:p-12 text-white">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
@@ -142,12 +144,12 @@ export default function Services() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Coming Soon Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-6">
+      <Section background="white">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl p-8 md:p-12 overflow-hidden">
               <div className="absolute top-4 right-4">
@@ -177,8 +179,8 @@ export default function Services() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       <ProcessSection />
 

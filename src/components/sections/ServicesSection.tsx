@@ -2,6 +2,8 @@ import ServiceCard from '../content/ServiceCard';
 import Icon from '../ui/Icon';
 import { services } from '@/constants';
 import ErrorBoundary from '../ErrorBoundary';
+import Section from '../layout/Section';
+import Container from '../layout/Container';
 
 interface ServicesSectionProps {
   title?: string;
@@ -23,11 +25,12 @@ export default function ServicesSection({
       message="Unable to load services section. Please try refreshing the page."
       context={{ component: 'ServicesSection', servicesCount: servicesData.length }}
     >
-      <section 
-        className={`py-20 bg-gray-50 dark:bg-gray-800 ${className}`}
+      <Section 
+        background="gray"
+        className={className}
         aria-labelledby="services-heading"
       >
-        <div className="container mx-auto px-6">
+        <Container>
           <header className="text-center mb-16">
             <h2 
               id="services-heading"
@@ -67,8 +70,8 @@ export default function ServicesSection({
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </ErrorBoundary>
   );
 }

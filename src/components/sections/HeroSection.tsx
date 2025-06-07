@@ -1,3 +1,6 @@
+import Section from '../layout/Section';
+import Container from '../layout/Container';
+
 interface HeroSectionProps {
   title: string;
   subtitle?: string;
@@ -12,8 +15,8 @@ export default function HeroSection({
   className = ""
 }: HeroSectionProps) {
   return (
-    <section className={`bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 py-20 ${className}`}>
-      <div className="container mx-auto px-6">
+    <Section background="gradient" className={className}>
+      <Container>
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
             {title}
@@ -25,7 +28,7 @@ export default function HeroSection({
           )}
           {children}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

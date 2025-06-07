@@ -1,5 +1,7 @@
 import { faqItems } from '@/constants';
 import ErrorBoundary from '../ErrorBoundary';
+import Section from '../layout/Section';
+import Container from '../layout/Container';
 
 interface FAQSectionProps {
   title?: string;
@@ -19,11 +21,12 @@ export default function FAQSection({
       message="Unable to load FAQ section. Please try refreshing the page."
       context={{ component: 'FAQSection', faqCount: faqs.length }}
     >
-      <section 
-        className={`py-20 bg-white dark:bg-gray-900 ${className}`}
+      <Section 
+        background="white"
+        className={className}
         aria-labelledby="faq-heading"
       >
-        <div className="container mx-auto px-6">
+        <Container>
           <div className="max-w-3xl mx-auto">
             <h2 
               id="faq-heading"
@@ -60,8 +63,8 @@ export default function FAQSection({
               ))}
             </dl>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </ErrorBoundary>
   );
 }

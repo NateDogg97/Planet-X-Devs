@@ -1,5 +1,7 @@
 import Footer from '@/components/navigation/Footer';
 import Hero from '@/components/layout/Hero';
+import Section from '@/components/layout/Section';
+import Container from '@/components/layout/Container';
 import CTASection from '@/components/sections/CTASection';
 
 export default function Home() {
@@ -24,8 +26,8 @@ export default function Home() {
       />
 
       {/* Features Section - Static HTML */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-6">
+      <Section background="white">
+        <Container>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Services Tailored for Marketing Agencies
@@ -120,12 +122,12 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Benefits Section - Static HTML */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-6">
+      <Section background="gray">
+        <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
@@ -211,12 +213,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Testimonials Section - Static HTML */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-6">
+      <Section background="white">
+        <Container>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               What Agencies Say About Us
@@ -311,8 +313,8 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       <CTASection
         title="Ready to Elevate Your Agency's Web Development?"

@@ -1,4 +1,6 @@
 import Icon from '../ui/Icon';
+import Section from '../layout/Section';
+import Container from '../layout/Container';
 
 interface AboutStorySectionProps {
   title?: string;
@@ -37,8 +39,8 @@ export default function AboutStorySection({
   className = ""
 }: AboutStorySectionProps) {
   return (
-    <section className={`py-20 bg-gray-50 dark:bg-gray-800 ${className}`}>
-      <div className="container mx-auto px-6">
+    <Section background="gray" className={className}>
+      <Container>
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -72,7 +74,7 @@ export default function AboutStorySection({
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

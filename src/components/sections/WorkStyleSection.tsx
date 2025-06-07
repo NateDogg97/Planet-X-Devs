@@ -1,4 +1,6 @@
 import Icon from '../ui/Icon';
+import Section from '../layout/Section';
+import Container from '../layout/Container';
 
 interface WorkStyleItem {
   id: string;
@@ -46,8 +48,8 @@ export default function WorkStyleSection({
   className = ""
 }: WorkStyleSectionProps) {
   return (
-    <section className={`py-20 bg-white dark:bg-gray-900 ${className}`}>
-      <div className="container mx-auto px-6">
+    <Section background="white" className={className}>
+      <Container>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
             {title}
@@ -73,7 +75,7 @@ export default function WorkStyleSection({
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }
