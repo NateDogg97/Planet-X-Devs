@@ -1,31 +1,31 @@
 'use client';
 
 import { theme } from '@/config/theme';
-import ThemedSection from '@/components/layout/ThemedSection';
-import ThemedContainer from '@/components/layout/ThemedContainer';
-import ThemedHeading from '@/components/ui/ThemedHeading';
-import ThemedCard from '@/components/ui/ThemedCard';
-import ThemedButton from '@/components/ui/ThemedButton';
+import Section from '@/components/layout/Section';
+import Container from '@/components/layout/Container';
+import Heading from '@/components/ui/Heading';
+import Card from '@/components/ui/Card';
+import Button from '@/components/ui/Button';
 import Footer from '@/components/navigation/Footer';
 
 export default function StyleGuide() {
   return (
     <div className="min-h-screen">
-      <ThemedSection background="gradient" padding="large">
-        <ThemedContainer>
-          <ThemedHeading as="h1" centered color="default">
+      <Section background="gradient" padding="large">
+        <Container>
+          <Heading as="h1" centered color="default">
             Style Guide
-          </ThemedHeading>
+          </Heading>
           <p className="text-center text-xl text-gray-600 dark:text-gray-300 mt-4">
             Theme configuration and design system reference
           </p>
-        </ThemedContainer>
-      </ThemedSection>
+        </Container>
+      </Section>
 
       {/* Colors */}
-      <ThemedSection padding="large">
-        <ThemedContainer>
-          <ThemedHeading as="h2" className="mb-8">Colors</ThemedHeading>
+      <Section padding="large">
+        <Container>
+          <Heading as="h2" className="mb-8">Colors</Heading>
           
           <div className="space-y-8">
             <div>
@@ -54,77 +54,77 @@ export default function StyleGuide() {
               </div>
             </div>
           </div>
-        </ThemedContainer>
-      </ThemedSection>
+        </Container>
+      </Section>
 
       {/* Typography */}
-      <ThemedSection padding="large" background="gray">
-        <ThemedContainer>
-          <ThemedHeading as="h2" className="mb-8">Typography</ThemedHeading>
+      <Section padding="large" background="gray">
+        <Container>
+          <Heading as="h2" className="mb-8">Typography</Heading>
           
           <div className="space-y-6">
-            <ThemedCard>
-              <ThemedHeading as="h1">Heading 1</ThemedHeading>
-              <ThemedHeading as="h2">Heading 2</ThemedHeading>
-              <ThemedHeading as="h3">Heading 3</ThemedHeading>
-              <ThemedHeading as="h4">Heading 4</ThemedHeading>
-              <ThemedHeading as="h5">Heading 5</ThemedHeading>
-              <ThemedHeading as="h6">Heading 6</ThemedHeading>
-            </ThemedCard>
+            <Card>
+              <Heading as="h1">Heading 1</Heading>
+              <Heading as="h2">Heading 2</Heading>
+              <Heading as="h3">Heading 3</Heading>
+              <Heading as="h4">Heading 4</Heading>
+              <Heading as="h5">Heading 5</Heading>
+              <Heading as="h6">Heading 6</Heading>
+            </Card>
 
-            <ThemedCard>
+            <Card>
               <h3 className="text-xl font-semibold mb-4">Paragraph Styles</h3>
               <p className={theme.typography.paragraph.small}>Small paragraph text</p>
               <p className={theme.typography.paragraph.base}>Base paragraph text</p>
               <p className={theme.typography.paragraph.large}>Large paragraph text</p>
               <p className={theme.typography.paragraph.xlarge}>Extra large paragraph text</p>
-            </ThemedCard>
+            </Card>
           </div>
-        </ThemedContainer>
-      </ThemedSection>
+        </Container>
+      </Section>
 
       {/* Buttons */}
-      <ThemedSection padding="large">
-        <ThemedContainer>
-          <ThemedHeading as="h2" className="mb-8">Buttons</ThemedHeading>
+      <Section padding="large">
+        <Container>
+          <Heading as="h2" className="mb-8">Buttons</Heading>
           
           <div className="space-y-6">
-            <ThemedCard>
+            <Card>
               <h3 className="text-xl font-semibold mb-4">Button Variants</h3>
               <div className="flex flex-wrap gap-4">
-                <ThemedButton variant="primary">Primary Button</ThemedButton>
-                <ThemedButton variant="secondary">Secondary Button</ThemedButton>
-                <ThemedButton variant="outline">Outline Button</ThemedButton>
+                <Button variant="primary">Primary Button</Button>
+                <Button variant="secondary">Secondary Button</Button>
+                <Button variant="outline">Outline Button</Button>
               </div>
-            </ThemedCard>
+            </Card>
 
-            <ThemedCard>
+            <Card>
               <h3 className="text-xl font-semibold mb-4">Button Sizes</h3>
               <div className="flex flex-wrap gap-4 items-center">
-                <ThemedButton size="small">Small</ThemedButton>
-                <ThemedButton size="medium">Medium</ThemedButton>
-                <ThemedButton size="large">Large</ThemedButton>
+                <Button size="small">Small</Button>
+                <Button size="medium">Medium</Button>
+                <Button size="large">Large</Button>
               </div>
-            </ThemedCard>
+            </Card>
 
-            <ThemedCard>
+            <Card>
               <h3 className="text-xl font-semibold mb-4">Button States</h3>
               <div className="flex flex-wrap gap-4">
-                <ThemedButton>Normal</ThemedButton>
-                <ThemedButton disabled>Disabled</ThemedButton>
-                <ThemedButton fullWidth>Full Width</ThemedButton>
+                <Button>Normal</Button>
+                <Button disabled>Disabled</Button>
+                <Button fullWidth>Full Width</Button>
               </div>
-            </ThemedCard>
+            </Card>
           </div>
-        </ThemedContainer>
-      </ThemedSection>
+        </Container>
+      </Section>
 
       {/* Spacing */}
-      <ThemedSection padding="large" background="gray">
-        <ThemedContainer>
-          <ThemedHeading as="h2" className="mb-8">Spacing</ThemedHeading>
+      <Section padding="large" background="gray">
+        <Container>
+          <Heading as="h2" className="mb-8">Spacing</Heading>
           
-          <ThemedCard>
+          <Card>
             <h3 className="text-xl font-semibold mb-4">Section Padding</h3>
             <div className="space-y-4">
               {Object.entries(theme.spacing.section).map(([size, value]) => (
@@ -136,38 +136,38 @@ export default function StyleGuide() {
                 </div>
               ))}
             </div>
-          </ThemedCard>
-        </ThemedContainer>
-      </ThemedSection>
+          </Card>
+        </Container>
+      </Section>
 
       {/* Cards & Shadows */}
-      <ThemedSection padding="large">
-        <ThemedContainer>
-          <ThemedHeading as="h2" className="mb-8">Cards & Shadows</ThemedHeading>
+      <Section padding="large">
+        <Container>
+          <Heading as="h2" className="mb-8">Cards & Shadows</Heading>
           
           <div className="grid md:grid-cols-3 gap-6">
-            <ThemedCard shadow="small">
+            <Card shadow="small">
               <h3 className="text-lg font-semibold mb-2">Small Shadow</h3>
               <p className="text-gray-600">Card with small shadow</p>
-            </ThemedCard>
+            </Card>
             
-            <ThemedCard shadow="medium">
+            <Card shadow="medium">
               <h3 className="text-lg font-semibold mb-2">Medium Shadow</h3>
               <p className="text-gray-600">Card with medium shadow</p>
-            </ThemedCard>
+            </Card>
             
-            <ThemedCard shadow="large" hover>
+            <Card shadow="large" hover>
               <h3 className="text-lg font-semibold mb-2">Large Shadow + Hover</h3>
               <p className="text-gray-600">Card with large shadow and hover effect</p>
-            </ThemedCard>
+            </Card>
           </div>
-        </ThemedContainer>
-      </ThemedSection>
+        </Container>
+      </Section>
 
       {/* Gradients */}
-      <ThemedSection padding="large" background="gray">
-        <ThemedContainer>
-          <ThemedHeading as="h2" className="mb-8">Gradients</ThemedHeading>
+      <Section padding="large" background="gray">
+        <Container>
+          <Heading as="h2" className="mb-8">Gradients</Heading>
           
           <div className="grid md:grid-cols-2 gap-6">
             {Object.entries(theme.gradients).map(([name, value]) => (
@@ -177,8 +177,8 @@ export default function StyleGuide() {
               </div>
             ))}
           </div>
-        </ThemedContainer>
-      </ThemedSection>
+        </Container>
+      </Section>
 
       <Footer />
     </div>

@@ -1,6 +1,6 @@
-import { theme, cn, getTypographyClass } from '@/config/theme';
+import { theme } from '@/config/theme';
 
-interface ThemedHeadingProps {
+interface HeadingProps {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   children: React.ReactNode;
   className?: string;
@@ -8,16 +8,16 @@ interface ThemedHeadingProps {
   centered?: boolean;
 }
 
-export default function ThemedHeading({
+export default function Heading({
   as = 'h2',
   children,
   className = '',
   color = 'default',
   centered = false
-}: ThemedHeadingProps) {
+}: HeadingProps) {
   const Component = as;
   
-  const headingClass = getTypographyClass('heading', as);
+  const headingClass = theme.typography.heading[as];
   
   const colorClasses = {
     default: 'text-gray-900 dark:text-white',
@@ -28,12 +28,7 @@ export default function ThemedHeading({
   const alignmentClass = centered ? 'text-center' : '';
   
   return (
-    <Component className={cn(
-      headingClass,
-      colorClasses[color],
-      alignmentClass,
-      className
-    )}>
+    <Component className={`${headingClass} ${colorClasses[color]} ${alignmentClass} ${className}`}>
       {children}
     </Component>
   );

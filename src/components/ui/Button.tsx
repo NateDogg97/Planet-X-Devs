@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { theme } from '@/config/theme';
 
 interface ButtonProps {
   href?: string;
@@ -23,18 +24,18 @@ export default function Button({
   disabled = false,
   fullWidth = false
 }: ButtonProps) {
-  const baseStyles = `font-semibold rounded-lg transition-colors text-center ${fullWidth ? 'block' : 'inline-block'}`;
+  const baseStyles = `font-semibold ${theme.borderRadius.medium} ${theme.animation.transition.medium} text-center ${fullWidth ? 'block' : 'inline-block'}`;
   
   const variantStyles = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700',
-    secondary: 'bg-white text-blue-600 hover:bg-gray-100',
-    outline: 'bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-50'
+    primary: `bg-${theme.colors.primary.DEFAULT} text-white hover:bg-${theme.colors.primary.hover}`,
+    secondary: `bg-white text-${theme.colors.primary.DEFAULT} hover:bg-gray-100`,
+    outline: `bg-white text-${theme.colors.primary.DEFAULT} ${theme.borders.primary} hover:bg-blue-50`
   };
   
   const sizeStyles = {
-    small: 'px-4 py-2 text-sm',
-    medium: 'px-6 py-3',
-    large: 'px-8 py-4'
+    small: theme.spacing.padding.button.small + ' text-sm',
+    medium: theme.spacing.padding.button.medium,
+    large: theme.spacing.padding.button.large
   };
   
   const widthStyle = fullWidth ? 'w-full' : '';

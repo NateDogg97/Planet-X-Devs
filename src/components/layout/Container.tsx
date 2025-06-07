@@ -1,23 +1,20 @@
+import { theme } from '@/config/theme';
+
 interface ContainerProps {
   children: React.ReactNode;
   className?: string;
-  size?: 'small' | 'medium' | 'large' | 'full';
+  size?: 'small' | 'medium' | 'large' | 'full' | 'DEFAULT';
 }
 
 export default function Container({
   children,
   className = '',
-  size = 'large'
+  size = 'DEFAULT'
 }: ContainerProps) {
-  const sizes = {
-    small: 'max-w-2xl',
-    medium: 'max-w-4xl',
-    large: 'max-w-6xl',
-    full: 'max-w-full'
-  };
+  const containerClass = theme.spacing.container[size] || theme.spacing.container.DEFAULT;
   
   return (
-    <div className={`container mx-auto px-6 ${sizes[size]} ${className}`}>
+    <div className={`${containerClass} ${className}`}>
       {children}
     </div>
   );

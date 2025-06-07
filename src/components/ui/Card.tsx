@@ -1,3 +1,5 @@
+import { theme } from '@/config/theme';
+
 interface CardProps {
   children: React.ReactNode;
   className?: string;
@@ -17,23 +19,18 @@ export default function Card({
 }: CardProps) {
   const paddings = {
     none: '',
-    small: 'p-4',
-    medium: 'p-6',
-    large: 'p-8'
+    small: theme.spacing.padding.card.small,
+    medium: theme.spacing.padding.card.medium,
+    large: theme.spacing.padding.card.large
   };
   
-  const shadows = {
-    none: '',
-    small: 'shadow',
-    medium: 'shadow-md',
-    large: 'shadow-lg'
-  };
+  const shadows = theme.shadow;
   
-  const hoverEffect = hover ? 'hover:shadow-xl transition-shadow' : '';
-  const roundedClass = rounded ? 'rounded-2xl' : '';
+  const hoverEffect = hover ? `${theme.animation.hover.shadow} ${theme.animation.transition.medium}` : '';
+  const roundedClass = rounded ? theme.borderRadius.xlarge : '';
   
   return (
-    <div className={`bg-gray-50 dark:bg-gray-800 ${paddings[padding]} ${shadows[shadow]} ${hoverEffect} ${roundedClass} ${className}`}>
+    <div className={`${theme.backgrounds.gray} ${paddings[padding]} ${shadows[shadow]} ${hoverEffect} ${roundedClass} ${className}`}>
       {children}
     </div>
   );

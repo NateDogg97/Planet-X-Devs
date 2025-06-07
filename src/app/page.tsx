@@ -8,11 +8,7 @@ export default function Home() {
       <Hero
         title="Your Agency's Secret Weapon for Premium Web Development"
         subtitle="White-label development partner who makes you look good. Custom designs, flawless execution, and communication that actually works."
-        bullets={[
-          "From single-person agencies to large teams",
-          "Custom code or page builders - whatever works best",
-          "Your brand, your client relationships, our expertise"
-        ]}
+        bullets={[]}
         actions={[
           {
             text: "View Services & Pricing",

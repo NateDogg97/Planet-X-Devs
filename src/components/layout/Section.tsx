@@ -1,3 +1,5 @@
+import { theme } from '@/config/theme';
+
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
@@ -12,20 +14,16 @@ export default function Section({
   padding = 'large'
 }: SectionProps) {
   const backgrounds = {
-    white: 'bg-white dark:bg-gray-900',
-    gray: 'bg-gray-50 dark:bg-gray-800',
-    gradient: 'bg-gradient-to-r from-blue-600 to-indigo-700',
-    dark: 'bg-gray-900 text-white'
+    white: theme.backgrounds.white,
+    gray: theme.backgrounds.gray,
+    gradient: theme.gradients.hero,
+    dark: theme.backgrounds.dark
   };
   
-  const paddings = {
-    small: 'py-12',
-    medium: 'py-16',
-    large: 'py-20'
-  };
+  const paddingClass = theme.spacing.section[padding];
   
   return (
-    <section className={`${paddings[padding]} ${backgrounds[background]} ${className}`}>
+    <section className={`${paddingClass} ${backgrounds[background]} ${className}`}>
       {children}
     </section>
   );
