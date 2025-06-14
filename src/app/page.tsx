@@ -1,9 +1,11 @@
+import Link from 'next/link';
 import Footer from '@/components/navigation/Footer';
 import Hero from '@/components/layout/Hero';
 import Section from '@/components/layout/Section';
 import Container from '@/components/layout/Container';
 import CTASection from '@/components/sections/CTASection';
 import ServiceCard from '@/components/ui/ServiceCard';
+import NebulaGraphic from '@/components/ui/NebulaGraphic';
 import Icon from '@/components/ui/Icon';
 import { services } from '@/constants/services';
 
@@ -52,6 +54,32 @@ export default function Home() {
                 />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Section */}
+      <section className="py-20 bg-nebula-black">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
+                Your Technical Co-Pilot
+              </h2>
+              <p className="text-lg text-nebula-white/70 mb-6">
+                After years of working with marketing agencies, I noticed a pattern: talented agencies were losing opportunities because they couldn't find reliable development partners.
+              </p>
+              <p className="text-lg text-nebula-white/70 mb-8">
+                I created Planet X Devs to be the development partner I wish existed when I was on the agency side - reliable, communicative, and focused on making agencies look good.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-block px-8 py-4 rounded-full bg-gradient-nebula text-white font-semibold shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300"
+              >
+                Start Partnership
+              </Link>
+            </div>
+            <NebulaGraphic />
           </div>
         </div>
       </section>

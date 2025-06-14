@@ -1,5 +1,7 @@
 // Shared interfaces and types for the application
 
+import { IconName } from "@/components/ui/Icon";
+
 // Service related types
 export interface ServiceFeature {
   text: string;
@@ -12,7 +14,7 @@ export interface Service {
   description: string;
   features: string[];
   timeline?: string;
-  icon: string;
+  icon: IconName;
 }
 
 export interface ServiceCardProps {
