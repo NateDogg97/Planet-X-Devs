@@ -1,5 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import Icon from '../ui/Icon';
+import StarField from '../ui/StarField';
+import FloatingPlanet from '../ui/FloatingPlanet';
+import { motion } from 'framer-motion';
+import CountUp from 'react-countup';
 import { HeroProps } from '@/types';
 
 export default function Hero({
@@ -11,20 +17,34 @@ export default function Hero({
   className = ''
 }: HeroProps) {
   return (
-    <section className={`relative bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 ${className}`}>
-      <div className="container mx-auto px-6 py-24 lg:py-32">
+    <section className={`relative bg-nebula-black min-h-screen flex items-center overflow-hidden ${className}`}>
+      <StarField />
+      <FloatingPlanet size="medium" position={{ top: '20%', right: '10%' }} delay={0} />
+      <FloatingPlanet size="large" position={{ bottom: '30%', left: '5%' }} delay={2} />
+      
+      <div className="relative z-10 container mx-auto px-6 py-24">
         <div className={`max-w-4xl ${centered ? 'mx-auto text-center' : ''}`}>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            {title}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-nebula-white mb-6">
+            {title.split(' ').map((word, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="inline-block mr-2"
+              >
+                {word}
+              </motion.span>
+            ))}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
+          <p className="text-xl md:text-2xl text-nebula-white opacity-90 mb-8">
             {subtitle}
           </p>
           
           {bullets && bullets.length > 0 && (
             <div className={`space-y-3 mb-8 ${centered ? 'text-left max-w-2xl mx-auto' : ''}`}>
               {bullets.map((bullet, index) => (
-                <div key={index} className="flex items-center text-lg text-gray-700 dark:text-gray-200">
+                <div key={index} className="flex items-center text-lg text-nebula-white">
                   <Icon name="check" className="text-green-500 mr-3 flex-shrink-0" />
                   <span>{bullet}</span>
                 </div>
@@ -38,10 +58,10 @@ export default function Hero({
                 <Link
                   key={index}
                   href={action.href}
-                  className={`px-8 py-4 font-semibold rounded-lg transition-colors inline-block ${
+                  className={`px-8 py-4 font-semibold rounded-full transition-all duration-300 inline-block ${
                     action.variant === 'primary'
-                      ? 'bg-blue-600 text-white hover:bg-blue-700'
-                      : 'bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-50'
+                      ? 'bg-gradient-nebula text-white shadow-glow hover:shadow-nebula-lg hover:scale-105'
+                      : 'border-2 border-nebula-purple text-nebula-violet hover:bg-nebula-purple hover:text-white'
                   }`}
                 >
                   {action.text}
@@ -49,6 +69,27 @@ export default function Hero({
               ))}
             </div>
           )}
+          
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12 mt-16 pt-16 border-t border-nebula-purple-30">
+            <div className="text-center">
+              <div className="text-3xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-purple bg-clip-text text-transparent">
+                <CountUp end={50} duration={2.5} suffix="+" />
+              </div>
+              <p className="text-nebula-white/70 mt-2">Agencies Served</p>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-purple bg-clip-text text-transparent">
+                <CountUp end={200} duration={2.5} suffix="+" />
+              </div>
+              <p className="text-nebula-white/70 mt-2">Projects Delivered</p>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-purple bg-clip-text text-transparent">
+                <CountUp end={10} duration={2.5} suffix="+" />
+              </div>
+              <p className="text-nebula-white/70 mt-2">Platforms Mastered</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

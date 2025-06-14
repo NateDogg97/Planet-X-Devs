@@ -3,18 +3,143 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --nebula-black: #0A0A0B;
-  --nebula-purple: #6B46C1;
-  --nebula-violet: #9333EA;
-  --nebula-blue: #312E81;
-  --nebula-white: #FAFAFA;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Nebula colors */
+  --color-nebula-black: #0A0A0B;
+  --color-nebula-purple: #6B46C1;
+  --color-nebula-violet: #9333EA;
+  --color-nebula-blue: #312E81;
+  --color-nebula-white: #FAFAFA;
+  --color-nebula-cyan: #06B6D4;
+  
+  /* Nebula color opacity variants */
+  --color-nebula-purple-20: rgb(107 70 193 / 0.2);
+  --color-nebula-purple-30: rgb(107 70 193 / 0.3);
+  --color-nebula-violet-10: rgb(147 51 234 / 0.1);
+  --color-nebula-violet-20: rgb(147 51 234 / 0.2);
+  --color-nebula-violet-30: rgb(147 51 234 / 0.3);
+  --color-nebula-violet-50: rgb(147 51 234 / 0.5);
+}
+
+/* All keyframes defined here */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes floatUp {
+  from { transform: translateY(100vh) scale(0); }
+  to { transform: translateY(-100vh) scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@layer utilities {
+  /* Gradient utilities */
+  .bg-gradient-nebula {
+    background-image: linear-gradient(135deg, var(--color-nebula-purple), var(--color-nebula-violet), var(--color-nebula-blue));
+  }
+  
+  .bg-gradient-space {
+    background-image: linear-gradient(180deg, var(--color-nebula-black), var(--color-nebula-blue));
+  }
+  
+  .bg-gradient-radial-nebula {
+    background-image: radial-gradient(circle, var(--color-nebula-violet-10), transparent);
+  }
+  
+  .bg-gradient-planet {
+    background-image: radial-gradient(circle, var(--color-nebula-violet), var(--color-nebula-blue));
+  }
+  
+  /* Shadow utilities */
+  .shadow-nebula {
+    box-shadow: 0 10px 40px rgb(147 51 234 / 0.3);
+  }
+  
+  .shadow-nebula-lg {
+    box-shadow: 0 20px 60px rgb(147 51 234 / 0.4);
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 30px rgb(147 51 234 / 0.5);
+  }
+  
+  /* Animation utilities */
+  .animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .animate-orbit {
+    animation: orbit 20s linear infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-float-up {
+    animation: floatUp 15s linear infinite;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  /* Performance utilities */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .motion-reduce\:animate-none {
+      animation: none !important;
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
