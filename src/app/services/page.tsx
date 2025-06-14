@@ -78,7 +78,7 @@ export default function Services() {
                 {/* Starter Plan */}
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6">
                   <h3 className="text-2xl font-bold mb-2">Starter</h3>
-                  <p className="text-3xl font-bold mb-4">$1,500<span className="text-lg font-normal">/month</span></p>
+                  <p className="text-3xl font-bold mb-4">$900-1,100<span className="text-lg font-normal">/month</span></p>
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start">
                       <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
@@ -86,11 +86,11 @@ export default function Services() {
                     </li>
                     <li className="flex items-start">
                       <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>2-3 day turnaround</span>
+                      <span>$45-55/hour effective rate</span>
                     </li>
                     <li className="flex items-start">
                       <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Perfect for maintenance</span>
+                      <span>Basic maintenance, updates, small changes</span>
                     </li>
                   </ul>
                 </div>
@@ -101,7 +101,7 @@ export default function Services() {
                     MOST POPULAR
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Growth</h3>
-                  <p className="text-3xl font-bold mb-4">$3,000<span className="text-lg font-normal">/month</span></p>
+                  <p className="text-3xl font-bold mb-4">$1,600-2,000<span className="text-lg font-normal">/month</span></p>
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start">
                       <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
@@ -109,11 +109,11 @@ export default function Services() {
                     </li>
                     <li className="flex items-start">
                       <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>24-48 hour turnaround</span>
+                      <span>$40-50/hour effective rate</span>
                     </li>
                     <li className="flex items-start">
                       <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Priority support</span>
+                      <span>Ongoing development, regular features</span>
                     </li>
                   </ul>
                 </div>
@@ -121,7 +121,7 @@ export default function Services() {
                 {/* Scale Plan */}
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6">
                   <h3 className="text-2xl font-bold mb-2">Scale</h3>
-                  <p className="text-3xl font-bold mb-4">$5,000<span className="text-lg font-normal">/month</span></p>
+                  <p className="text-3xl font-bold mb-4">$2,800-3,600<span className="text-lg font-normal">/month</span></p>
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-start">
                       <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
@@ -129,11 +129,11 @@ export default function Services() {
                     </li>
                     <li className="flex items-start">
                       <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Same-day turnaround</span>
+                      <span>$35-45/hour effective rate</span>
                     </li>
                     <li className="flex items-start">
                       <Icon name="check" className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Dedicated developer</span>
+                      <span>Major projects, dedicated support</span>
                     </li>
                   </ul>
                 </div>

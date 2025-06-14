@@ -15,6 +15,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 1. **Primary**: Digital marketing agencies needing developer support
 2. **Secondary**: Small businesses needing web services
 
+### Brand Identity
+- **Theme**: Deep Space / Distant Planet (nebula-inspired)
+- **Colors**: Deep Space Black (#0A0A0B), Nebula Purple (#6B46C1), Cosmic Violet (#9333EA), Stellar Blue (#312E81)
+- **Voice**: Professional yet approachable, technically competent without being intimidating
+- **Tagline**: "Your Agency's Technical Partner"
+
 ### Content Update Frequency
 - Testimonials/Case studies: 1-2 times per month
 - Service descriptions: Several times per year (more frequent initially)
@@ -26,20 +32,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 1. **Performance First**: This is primarily a static marketing site. Minimize JavaScript and bundle size.
 2. **Simplicity Over Complexity**: Use static HTML/CSS where possible, components only when truly needed.
 3. **Maintainability**: Keep it simple since it's a solo developer project.
+4. **Animation Balance**: Subtle, performant animations that enhance without overwhelming.
 
 ### When to Use Components vs Static Content
 
 **USE COMPONENTS FOR:**
-- Interactive elements (ContactForm)
+- Interactive elements (ContactForm, navigation with mobile menu)
 - Truly reusable UI elements used across multiple pages (Button, Card)
 - Content that updates frequently (testimonials, if displayed in multiple places)
-- Layout elements that must be reused for each section (Containers, Sections)`
+- Layout elements that must be reused for each section (Containers, Sections)
+- Animated elements (StarField, FloatingPlanet, ProcessTimeline)
 
 **USE STATIC HTML/CSS FOR:**
 - Page sections that rarely change
 - Content-heavy areas with minimal interactivity
 - One-off layouts or designs
-- Hero sections, about content, service descriptions
+- Static content sections without animations
 
 ## Technical Guidelines
 
@@ -48,11 +56,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 2. **Over-componentization**: Many section components should be static HTML
 3. **Redundant Theming**: Themed component variants add unnecessary complexity
 
+### Homepage Implementation Priority
+The homepage is being redesigned with a nebula/space theme. Key implementation tasks:
+1. **Update Tailwind Config**: Add nebula color palette and custom animations
+2. **Create Animation Components**: StarField, FloatingPlanet, NebulaGraphic
+3. **Update Navigation**: Add logo glow effect and nebula color transitions
+4. **Hero Section**: Implement typewriter effect, floating planets, star field
+5. **Service Cards**: Add orbit rings and hover effects
+6. **Process Timeline**: Animated line fill and sequential step lighting
+7. **Performance**: Use CSS transforms, limit particles, add will-change property
+
 ### Refactoring Priorities
-1. Convert most `/src/components/sections/` to static JSX or HTML in page files
+1. Convert most `/src/components/sections/` to static JSX or HTML in page files (except animated ones)
 2. Remove themed component variants (ThemedButton, ThemedCard) - use base components with className
 3. Keep only essential components in `/src/components/ui/`
 4. Optimize images and implement lazy loading
+5. Implement proper animation performance optimizations
 
 ### Performance Goals
 - Implement Core Web Vitals tracking
@@ -61,6 +80,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   - FID: < 100ms  
   - CLS: < 0.1
 - Reduce JavaScript bundle by 50%+
+- Ensure animations don't block initial render
 
 ## Commands
 
@@ -71,55 +91,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run lint` - Run ESLint checks
 
 ### Environment Setup
-Required environment variable:
+Required environment variables:
 - `RESEND_API_KEY` - API key for Resend email service
+- `RESEND_FROM_EMAIL` - From email address for Resend
+- `RESEND_TO_EMAIL` - To email address for contact form submissions
 
-## Architecture Overview
-
-### Essential Features
-1. **Contact Form**: Keep React-based with validation and Resend integration
-2. **Error Boundaries**: Production-ready error handling
-3. **Email System**: Current implementation is appropriate
-
-### Planned Features
-1. **Portfolio Section**: Plan for static generation with MDX
-2. **Blog**: Consider MDX or markdown-based content
-3. **Core Web Vitals Tracking**: Implement monitoring
-
-### Simplification Opportunities
-1. **Remove**: Themed component system
-2. **Convert to Static**: Most section components
-3. **Optimize**: Image loading and bundle splitting
-4. **Consider**: MDX for content pages to separate content from code
-
-## Best Practices for This Project
-
-1. **Before creating a component, ask**: "Will this be reused? Does it need interactivity?"
-2. **Prefer inline styles or Tailwind classes** over complex theme systems
-3. **Write content directly in page files** unless it needs to be shared
-4. **Measure performance impact** before adding new dependencies
-5. **Document why** when adding JavaScript functionality
-
-## Content Management Strategy
-
-Since only developers update the site:
-- Keep content in code for now (no CMS needed)
-- Consider MDX for blog/portfolio when added
-- Use TypeScript interfaces for content structure
-- Keep testimonials in a simple data file
-
-## DO NOT:
-- Add unnecessary abstractions
-- Create components for single-use layouts  
-- Implement features "just in case"
-- Over-optimize for non-existent scale
-- Add complex state management
-- Use heavy animation libraries
-
-## DO:
-- Write clear, maintainable code
-- Optimize for page speed
-- Use semantic HTML
-- Implement proper SEO tags
-- Keep accessibility in mind
-- Test on real devices
+### New Dependencies for Homepage
+```bash
+npm install framer-motion react-countup swiper

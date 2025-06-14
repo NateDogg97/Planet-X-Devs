@@ -81,24 +81,24 @@ export const retainerPlans = [
   {
     id: 'starter',
     name: 'Starter',
-    price: '$1,500',
+    price: '$900-1,100',
     period: '/month',
     features: [
       '20 hours of development',
-      '2-3 day turnaround',
-      'Perfect for maintenance'
+      '$45-55/hour effective rate',
+      'Basic maintenance, updates, small changes'
     ],
     highlighted: false
   },
   {
     id: 'growth',
     name: 'Growth',
-    price: '$3,000',
+    price: '$1,600-2,000',
     period: '/month',
     features: [
       '40 hours of development',
-      '24-48 hour turnaround',
-      'Priority support'
+      '$40-50/hour effective rate',
+      'Ongoing development, regular features'
     ],
     highlighted: true,
     badge: 'MOST POPULAR'
@@ -106,12 +106,12 @@ export const retainerPlans = [
   {
     id: 'scale',
     name: 'Scale',
-    price: '$5,000',
+    price: '$2,800-3,600',
     period: '/month',
     features: [
       '80 hours of development',
-      'Same-day turnaround',
-      'Dedicated developer'
+      '$35-45/hour effective rate',
+      'Major projects, dedicated support'
     ],
     highlighted: false
   }

@@ -3,6 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --nebula-black: #0A0A0B;
+  --nebula-purple: #6B46C1;
+  --nebula-violet: #9333EA;
+  --nebula-blue: #312E81;
+  --nebula-white: #FAFAFA;
 }
 
 @theme inline {
