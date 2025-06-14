@@ -8,9 +8,9 @@ export default function ServiceCard({ title, description, icon }: ServiceCardPro
   return (
     <div className="relative group">
       {/* Orbit ring */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-32 h-32 border border-nebula-violet-20 rounded-full animate-orbit pointer-events-none" />
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-32 h-32 border border-nebula-violet-20 rounded-full animate-orbit pointer-events-none will-change-transform motion-reduce:animate-none" />
       
-      <div className="relative bg-nebula-purple/10 border border-nebula-violet-30 rounded-2xl p-8 text-center hover:-translate-y-2 hover:shadow-nebula transition-all duration-300">
+      <div className="relative bg-nebula-purple/10 border border-nebula-violet-30 rounded-2xl p-8 text-center hover:-translate-y-2 hover:shadow-nebula transition-all duration-300 will-change-transform">
         <div className="w-20 h-20 mx-auto mb-6 bg-gradient-nebula rounded-full flex items-center justify-center">
           {icon}
         </div>

@@ -33,7 +33,7 @@ export default function StarField() {
       {stars.map((star) => (
         <div
           key={star.id}
-          className="absolute w-[2px] h-[2px] bg-white rounded-full animate-twinkle"
+          className="absolute w-[2px] h-[2px] bg-white rounded-full animate-twinkle will-change-transform motion-reduce:animate-none"
           style={{
             top: `${star.top}%`,
             left: `${star.left}%`,

@@ -15,7 +15,7 @@ export default function FloatingPlanet({ size, position, delay = 0 }: FloatingPl
 
   return (
     <div
-      className={`absolute ${sizes[size]} bg-gradient-planet rounded-full opacity-50 animate-float will-change-transform`}
+      className={`absolute ${sizes[size]} bg-gradient-planet rounded-full opacity-50 animate-float will-change-transform motion-reduce:animate-none`}
       style={{
         ...position,
         animationDelay: `${delay}s`,

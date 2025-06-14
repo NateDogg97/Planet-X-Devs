@@ -46,10 +46,10 @@ export default function ProcessTimeline() {
         {steps.map((step, index) => (
           <div 
             key={step.number} 
-            className="relative text-center opacity-0 animate-fade-in-up"
+            className="relative text-center opacity-0 animate-fade-in-up will-change-transform motion-reduce:animate-none"
             style={{ animationDelay: `${index * 0.2 + 0.5}s` }}
           >
-            <div className="w-20 h-20 mx-auto bg-nebula-black border-[3px] border-nebula-violet rounded-full flex items-center justify-center text-2xl font-bold text-nebula-white hover:bg-nebula-violet hover:border-nebula-white transition-all duration-300 cursor-pointer">
+            <div className="w-20 h-20 mx-auto bg-nebula-black border-[3px] border-nebula-violet rounded-full flex items-center justify-center text-2xl font-bold text-nebula-white hover:bg-nebula-violet hover:border-nebula-white transition-all duration-300 cursor-pointer will-change-transform">
               {step.number}
             </div>
             <h4 className="mt-4 text-lg font-semibold text-nebula-white">{step.title}</h4>
