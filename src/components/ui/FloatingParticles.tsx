@@ -13,12 +13,25 @@ interface Particle {
   birthTime: number;
 }
 
+// Pre-calculated initial particles for server-side rendering
+const INITIAL_PARTICLES = [
+  { id: 'static-1', x: 55, y: 45, size: 1.5, opacity: 0.3 },
+  { id: 'static-2', x: 45, y: 55, size: 2, opacity: 0.5 },
+  { id: 'static-3', x: 60, y: 50, size: 1.8, opacity: 0.7 },
+  { id: 'static-4', x: 40, y: 48, size: 1.2, opacity: 0.4 },
+  { id: 'static-5', x: 52, y: 62, size: 1.6, opacity: 0.6 },
+  { id: 'static-6', x: 48, y: 38, size: 1.4, opacity: 0.8 },
+  { id: 'static-7', x: 65, y: 45, size: 1.7, opacity: 0.9 },
+  { id: 'static-8', x: 35, y: 55, size: 1.3, opacity: 0.5 },
+];
+
 export default function FloatingParticles() {
   const [isClient, setIsClient] = useState(false);
   const [particles, setParticles] = useState<Particle[]>([]);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
   const lastSpawnTimeRef = useRef<number>(0);
   const particleCounterRef = useRef<number>(0);
+  const hasInitialized = useRef<boolean>(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -33,7 +46,35 @@ export default function FloatingParticles() {
     
     if (prefersReducedMotion || isMobile) return;
 
-    const spawnInterval = 400; // Spawn a new particle every 400ms (25 particles over 10 seconds)
+    const spawnInterval = 400; // Spawn a new particle every 400ms
+
+    // Initialize with some particles already in motion
+    if (!hasInitialized.current) {
+      hasInitialized.current = true;
+      
+      const initialAnimatedParticles: Particle[] = [];
+      const now = Date.now();
+      
+      // Create particles at various stages of their journey
+      for (let i = 0; i < 8; i++) {
+        const progress = (i / 8) * 0.8; // 0 to 0.8 progress
+        const angle = (Math.PI * 2 * i) / 8 + Math.random() * 0.5; // Evenly distributed with some randomness
+        const distance = progress * 50; // How far from center
+        
+        initialAnimatedParticles.push({
+          id: `initial-${i}`,
+          x: 50 + Math.cos(angle) * distance,
+          y: 50 + Math.sin(angle) * distance,
+          size: Math.random() * 2 + 1,
+          speed: 0.02,
+          angle: angle,
+          opacity: Math.min(1, distance / 40),
+          birthTime: now - (progress * 10000) // Simulate being born in the past
+        });
+      }
+      
+      setParticles(initialAnimatedParticles);
+    }
 
     // Animation loop
     const animate = (timestamp: number) => {
@@ -97,13 +138,13 @@ export default function FloatingParticles() {
     animate(0);
     
     return () => {
-      if (animationRef.current) {
+      if (animationRef.current !== null) {
         cancelAnimationFrame(animationRef.current);
       }
     };
   }, [isClient]);
 
-  // Server-side render
+  // Server-side render with static particles
   if (!isClient) {
     return (
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
@@ -113,6 +154,35 @@ export default function FloatingParticles() {
             background: 'radial-gradient(circle at center, rgba(107, 70, 193, 0.1) 0%, transparent 50%)'
           }}
         />
+        
+        {/* Center glow */}
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          style={{
+            width: '200px',
+            height: '200px',
+            background: 'radial-gradient(circle, rgba(147, 51, 234, 0.3) 0%, transparent 70%)',
+            filter: 'blur(40px)'
+          }}
+        />
+        
+        {/* Static particles for immediate visual feedback */}
+        {INITIAL_PARTICLES.map((particle) => (
+          <div
+            key={particle.id}
+            className="absolute rounded-full"
+            style={{
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              backgroundColor: 'white',
+              opacity: particle.opacity,
+              transform: 'translate(-50%, -50%)',
+              boxShadow: `0 0 ${particle.size * 3}px rgba(255, 255, 255, ${particle.opacity * 0.5})`
+            }}
+          />
+        ))}
       </div>
     );
   }
