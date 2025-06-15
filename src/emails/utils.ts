@@ -1,5 +1,27 @@
 import React from 'react';
 
+interface ContactFormData {
+  contact: {
+    name: string;
+    email: string;
+    agency: string;
+  };
+  project: {
+    type: string;
+    scope: string;
+  };
+  timeline: {
+    timeline: string;
+    budget: string;
+  };
+}
+
+interface AutoReplyData {
+  recipientName: string;
+  agencyName: string;
+  projectType: string;
+}
+
 /**
  * Renders a React email component to an HTML string
  * @param component - React component to render
@@ -134,37 +156,6 @@ To reply, please email ${contact.email}
 }
 
 /**
- * Validates email template data
- * @param data - Data to validate
- * @returns True if data is valid
- */
-export function validateEmailData(data: unknown): boolean {
-  if (!data || typeof data !== 'object') {
-    return false;
-  }
-  
-  // For contact form emails
-  if (data.contact && data.project && data.timeline) {
-    return !!(
-      data.contact.name &&
-      data.contact.email &&
-      data.contact.agency &&
-      data.project.type &&
-      data.project.scope &&
-      data.timeline.timeline &&
-      data.timeline.budget
-    );
-  }
-  
-  // For auto-reply emails
-  if (data.recipientName && data.agencyName && data.projectType) {
-    return true;
-  }
-  
-  return false;
-}
-
-/**
  * Sanitizes email content to prevent injection
  * @param content - Content to sanitize
  * @returns Sanitized content
@@ -197,4 +188,33 @@ export function formatEmailSubject(template: string, data: Record<string, string
   });
   
   return subject;
+}
+
+function isContactFormData(data: any): data is ContactFormData {
+  return data?.contact?.name && 
+         data?.contact?.email && 
+         data?.contact?.agency &&
+         data?.project?.type && 
+         data?.project?.scope &&
+         data?.timeline?.timeline && 
+         data?.timeline?.budget;
+}
+
+function isAutoReplyData(data: any): data is AutoReplyData {
+  return data?.recipientName && 
+         data?.agencyName && 
+         data?.projectType;
+}
+
+/**
+ * Validates email template data
+ * @param data - Data to validate
+ * @returns True if data is valid
+ */
+export function validateEmailData(data: unknown): boolean {
+  if (!data || typeof data !== 'object') {
+    return false;
+  }
+  
+  return isContactFormData(data) || isAutoReplyData(data);
 }

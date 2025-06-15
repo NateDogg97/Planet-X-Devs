@@ -56,15 +56,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 2. **Over-componentization**: Many section components should be static HTML
 3. **Redundant Theming**: Themed component variants add unnecessary complexity
 
-### Homepage Implementation Priority
-The homepage is being redesigned with a nebula/space theme. Key implementation tasks:
-1. **Update Tailwind Config**: Add nebula color palette and custom animations
-2. **Create Animation Components**: StarField, FloatingPlanet, NebulaGraphic
-3. **Update Navigation**: Add logo glow effect and nebula color transitions
-4. **Hero Section**: Implement typewriter effect, floating planets, star field
-5. **Service Cards**: Add orbit rings and hover effects
-6. **Process Timeline**: Animated line fill and sequential step lighting
-7. **Performance**: Use CSS transforms, limit particles, add will-change property
+### Services Page Implementation Priority
+The services page is being implemented with the nebula/space theme. Key implementation tasks:
+1. **Reuse Existing Components**: StarField, FloatingPlanet, Hero, Section, Container from homepage
+2. **Create New Components**: ServiceDetailCard, RetainerPlanCard, VerticalTimeline
+3. **Static Sections**: FAQ items, coming soon section, intro text
+4. **Performance Focus**: Lazy load heavy components, optimize animations
+5. **Clean Code**: Remove unused imports and components after refactoring
 
 ### Refactoring Priorities
 1. Convert most `/src/components/sections/` to static JSX or HTML in page files (except animated ones)
@@ -82,6 +80,35 @@ The homepage is being redesigned with a nebula/space theme. Key implementation t
 - Reduce JavaScript bundle by 50%+
 - Ensure animations don't block initial render
 
+## Services Page Specific Guidelines
+
+### Component Reuse from Homepage
+- `StarField` - For hero background
+- `FloatingPlanet` - Remove from services page for performance
+- `Hero` - Modify to accept bullets prop
+- `Section` & `Container` - For consistent spacing
+- `ProcessTimeline` - Convert to vertical layout
+- `CTASection` - Reuse for final CTA
+- `TestimonialCarousel` - Not needed on services page
+
+### New Components Needed
+- `ServiceDetailCard` - For detailed service offerings with pricing
+- `RetainerPlanCard` - For monthly retainer options
+- `VerticalTimeline` - Modified process timeline
+- `FAQItem` - Expandable FAQ component
+
+### Static Content Sections
+- Introduction paragraph after hero
+- Coming soon section (full HTML)
+- Service descriptions within cards
+
+### Animation Performance
+- Limit particles to final CTA only
+- Remove floating planets on this page
+- Use CSS transforms only
+- Add will-change property sparingly
+- Implement intersection observer for scroll animations
+
 ## Commands
 
 ### Development
@@ -96,6 +123,8 @@ Required environment variables:
 - `RESEND_FROM_EMAIL` - From email address for Resend
 - `RESEND_TO_EMAIL` - To email address for contact form submissions
 
-### New Dependencies for Homepage
-```bash
-npm install framer-motion react-countup swiper
+### Dependencies
+Core dependencies for nebula theme:
+- `framer-motion` - For hero text animations
+- `react-countup` - For number animations
+- `swiper` - For testimonial carousel (not needed on services page)
