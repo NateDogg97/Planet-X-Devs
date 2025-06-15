@@ -144,6 +144,7 @@ export interface HeroProps {
   actions?: HeroAction[];
   centered?: boolean;
   className?: string;
+  showPlanets?: boolean;
 }
 
 // Social related types

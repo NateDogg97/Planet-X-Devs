@@ -14,13 +14,18 @@ export default function Hero({
   bullets,
   actions,
   centered = true,
-  className = ''
+  className = '',
+  showPlanets = true
 }: HeroProps) {
   return (
     <section className={`relative bg-nebula-black min-h-screen flex items-center overflow-hidden ${className}`}>
       <StarField />
-      <FloatingPlanet size="medium" position={{ top: '20%', right: '10%' }} delay={0} />
-      <FloatingPlanet size="large" position={{ bottom: '30%', left: '5%' }} delay={2} />
+      {showPlanets && (
+        <>
+          <FloatingPlanet size="medium" position={{ top: '20%', right: '10%' }} delay={0} />
+          <FloatingPlanet size="large" position={{ bottom: '30%', left: '5%' }} delay={2} />
+        </>
+      )}
       
       <div className="relative z-10 container mx-auto px-6 py-24">
         <div className={`max-w-4xl ${centered ? 'mx-auto text-center' : ''}`}>
@@ -44,10 +49,16 @@ export default function Hero({
           {bullets && bullets.length > 0 && (
             <div className={`space-y-3 mb-8 ${centered ? 'text-left max-w-2xl mx-auto' : ''}`}>
               {bullets.map((bullet, index) => (
-                <div key={index} className="flex items-center text-lg text-nebula-white">
-                  <Icon name="check" className="text-green-500 mr-3 flex-shrink-0" />
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                  className="flex items-center text-lg text-nebula-white"
+                >
+                  <Icon name="check" className="text-nebula-cyan mr-3 flex-shrink-0" />
                   <span>{bullet}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
           )}

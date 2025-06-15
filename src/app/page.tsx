@@ -1,9 +1,6 @@
 import Link from 'next/link';
 import Footer from '@/components/navigation/Footer';
 import Hero from '@/components/layout/Hero';
-import Section from '@/components/layout/Section';
-import Container from '@/components/layout/Container';
-import CTASection from '@/components/sections/CTASection';
 import ServiceCard from '@/components/ui/ServiceCard';
 import NebulaGraphic from '@/components/ui/NebulaGraphic';
 import ProcessTimeline from '@/components/ui/ProcessTimeline';
@@ -39,7 +36,6 @@ export default function Home() {
       <Hero
         title="Your Agency's Secret Weapon for Premium Web Development"
         subtitle="White-label development partner who makes you look good. Custom designs, flawless execution, and communication that actually works."
-        bullets={[]}
         actions={[
           {
             text: "View Services & Pricing",
