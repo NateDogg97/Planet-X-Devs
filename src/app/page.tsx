@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import Footer from '@/components/navigation/Footer';
 import Hero from '@/components/layout/Hero';
 import Section from '@/components/layout/Section';
@@ -9,24 +8,9 @@ import ServiceCard from '@/components/ui/ServiceCard';
 import NebulaGraphic from '@/components/ui/NebulaGraphic';
 import ProcessTimeline from '@/components/ui/ProcessTimeline';
 import FloatingParticles from '@/components/ui/FloatingParticles';
+import TestimonialCarousel from '@/components/ui/TestimonialCarousel';
 import Icon from '@/components/ui/Icon';
 import { services } from '@/constants/services';
-
-const TestimonialCarousel = dynamic(
-  () => import('@/components/ui/TestimonialCarousel'),
-  { 
-    loading: () => <div className="max-w-4xl mx-auto h-64 bg-nebula-violet-10 rounded-3xl animate-pulse" />,
-    ssr: false 
-  }
-);
-
-const FloatingParticlesDynamic = dynamic(
-  () => import('@/components/ui/FloatingParticles'),
-  { 
-    loading: () => null,
-    ssr: false 
-  }
-);
 
 const testimonials = [
   {
@@ -45,6 +29,9 @@ const testimonials = [
     role: "Digital Marketing Director"
   }
 ];
+
+// Only show featured services on homepage for better performance
+const featuredServices = services.slice(0, 6);
 
 export default function Home() {
   return (
@@ -70,7 +57,7 @@ export default function Home() {
       {/* Services Section */}
       <section className="py-20 bg-nebula-black">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-nebula-cyan to-nebula-purple">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-nebula-white">
             Your Development Mission Control
           </h2>
           <p className="text-xl text-center text-nebula-white/70 mb-16 max-w-3xl mx-auto">
@@ -78,7 +65,7 @@ export default function Home() {
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.slice(0, 6).map((service, index) => (
+            {featuredServices.map((service, index) => (
               <div
                 key={service.id}
                 className="opacity-0 animate-fade-in-up will-change-transform motion-reduce:animate-none"
@@ -136,102 +123,178 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Benefits Section - Static HTML */}
-      <Section background="gray">
-        <Container>
+      {/* Benefits Section - Nebula Theme */}
+      <section className="py-20 bg-nebula-black relative overflow-hidden">
+        {/* Background nebula effect */}
+        <div className="absolute inset-0 opacity-30 pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-nebula-violet-20 rounded-full blur-3xl animate-pulse-slow" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-nebula-purple-20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Benefits List */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-nebula-cyan to-nebula-violet mb-8">
                 Why Agencies Choose Us
               </h2>
+              
               <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Actually Easy to Work With
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      No ego, no jargon, just clear communication and reliable delivery
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Quality You Can Stake Your Reputation On
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      We build websites that make your agency shine
-                    </p>
+                {/* Benefit 1 */}
+                <div className="group relative">
+                  <div className="absolute -inset-2 bg-nebula-violet-10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative flex items-start">
+                    <div className="flex-shrink-0 relative">
+                      <div className="absolute inset-0 bg-nebula-violet rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="relative w-12 h-12 bg-gradient-nebula rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+                        <Icon name="chat" className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    
+                    <div className="ml-4">
+                      <h3 className="text-lg font-semibold text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-cyan">
+                        Actually Easy to Work With
+                      </h3>
+                      <p className="text-nebula-white/70 transition-colors duration-300 group-hover:text-nebula-white/90">
+                        No ego, no jargon, just clear communication and reliable delivery
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Flexible Solutions
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      Custom development, Elementor, WordPress - we adapt to your project needs
-                    </p>
+                {/* Benefit 2 */}
+                <div className="group relative">
+                  <div className="absolute -inset-2 bg-nebula-violet-10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative flex items-start">
+                    <div className="flex-shrink-0 relative">
+                      <div className="absolute inset-0 bg-nebula-violet rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="relative w-12 h-12 bg-gradient-nebula rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+                        <Icon name="badge-check" className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    
+                    <div className="ml-4">
+                      <h3 className="text-lg font-semibold text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-cyan">
+                        Quality You Can Stake Your Reputation On
+                      </h3>
+                      <p className="text-nebula-white/70 transition-colors duration-300 group-hover:text-nebula-white/90">
+                        We build websites that make your agency shine
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
+                {/* Benefit 3 */}
+                <div className="group relative">
+                  <div className="absolute -inset-2 bg-nebula-violet-10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative flex items-start">
+                    <div className="flex-shrink-0 relative">
+                      <div className="absolute inset-0 bg-nebula-violet rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="relative w-12 h-12 bg-gradient-nebula rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+                        <Icon name="refresh" className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    
+                    <div className="ml-4">
+                      <h3 className="text-lg font-semibold text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-cyan">
+                        Flexible Solutions
+                      </h3>
+                      <p className="text-nebula-white/70 transition-colors duration-300 group-hover:text-nebula-white/90">
+                        Custom development, Elementor, WordPress - we adapt to your project needs
+                      </p>
+                    </div>
                   </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      True White-Label Partnership
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      Your clients never know we exist unless you want them to
-                    </p>
+                </div>
+
+                {/* Benefit 4 */}
+                <div className="group relative">
+                  <div className="absolute -inset-2 bg-nebula-violet-10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative flex items-start">
+                    <div className="flex-shrink-0 relative">
+                      <div className="absolute inset-0 bg-nebula-violet rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="relative w-12 h-12 bg-gradient-nebula rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+                        <Icon name="eye-off" className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    
+                    <div className="ml-4">
+                      <h3 className="text-lg font-semibold text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-cyan">
+                        True White-Label Partnership
+                      </h3>
+                      <p className="text-nebula-white/70 transition-colors duration-300 group-hover:text-nebula-white/90">
+                        Your clients never know we exist unless you want them to
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl">
-              <div className="text-center">
-                <div className="text-5xl font-bold text-blue-600 mb-2">95%</div>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">Client Satisfaction Rate</p>
+            {/* Stats Card */}
+            <div className="relative">
+              {/* Orbit rings */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="absolute w-[400px] h-[400px] border border-nebula-violet-20 rounded-full animate-orbit" />
+                <div className="absolute w-[500px] h-[500px] border border-nebula-purple-20 rounded-full animate-orbit" style={{ animationDirection: 'reverse', animationDuration: '30s' }} />
+              </div>
+              
+              <div className="relative bg-gradient-to-br from-nebula-purple/20 to-nebula-violet/20 backdrop-blur-sm border border-nebula-violet-30 p-8 rounded-3xl shadow-nebula">
+                <div className="text-center space-y-8">
+                  {/* Stat 1 */}
+                  <div className="animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                    <div className="relative inline-block">
+                      <div className="absolute inset-0 bg-nebula-cyan blur-2xl opacity-50 animate-pulse-slow" />
+                      <div className="relative text-5xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent">
+                        95%
+                      </div>
+                    </div>
+                    <p className="text-nebula-white/70 mt-2">Client Satisfaction Rate</p>
+                  </div>
+                  
+                  {/* Stat 2 */}
+                  <div className="animate-fade-in-up" style={{ animationDelay: '0.75s' }}>
+                    <div className="relative inline-block">
+                      <div className="absolute inset-0 bg-nebula-cyan blur-2xl opacity-50 animate-pulse-slow" style={{ animationDelay: '0.5s' }} />
+                      <div className="relative text-5xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent">
+                        200+
+                      </div>
+                    </div>
+                    <p className="text-nebula-white/70 mt-2">Projects Delivered</p>
+                  </div>
+                  
+                  {/* Stat 3 */}
+                  <div className="animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
+                    <div className="relative inline-block">
+                      <div className="absolute inset-0 bg-nebula-cyan blur-2xl opacity-50 animate-pulse-slow" style={{ animationDelay: '1s' }} />
+                      <div className="relative text-5xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent">
+                        48hrs
+                      </div>
+                    </div>
+                    <p className="text-nebula-white/70 mt-2">Average Response Time</p>
+                  </div>
+                </div>
                 
-                <div className="text-5xl font-bold text-blue-600 mb-2">200+</div>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">Projects Delivered</p>
-                
-                <div className="text-5xl font-bold text-blue-600 mb-2">48hrs</div>
-                <p className="text-gray-600 dark:text-gray-300">Average Response Time</p>
+                {/* Floating particles inside card */}
+                <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
+                  <div className="absolute w-2 h-2 bg-nebula-cyan rounded-full animate-float" style={{ top: '20%', left: '10%' }} />
+                  <div className="absolute w-1.5 h-1.5 bg-nebula-violet rounded-full animate-float" style={{ top: '60%', right: '20%', animationDelay: '1s' }} />
+                  <div className="absolute w-2 h-2 bg-nebula-purple rounded-full animate-float" style={{ bottom: '30%', left: '30%', animationDelay: '2s' }} />
+                </div>
               </div>
             </div>
           </div>
-        </Container>
-      </Section>
+        </div>
+      </section>
 
       {/* Testimonials Section */}
       <section className="py-20 bg-nebula-black">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-nebula-purple to-nebula-violet mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-4">
               What Agencies Say About Us
             </h2>
             <p className="text-xl text-nebula-white/70">
@@ -245,7 +308,7 @@ export default function Home() {
 
       {/* Final CTA Section */}
       <section className="relative py-20 bg-gradient-radial-nebula overflow-hidden">
-        <FloatingParticlesDynamic />
+        <FloatingParticles />
         
         <div className="relative z-10 container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
