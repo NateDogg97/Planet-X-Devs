@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import Footer from '@/components/navigation/Footer';
 import Hero from '@/components/layout/Hero';
 import ServiceDetailCard from '@/components/ui/ServiceDetailCard';
 import RetainerPlanCard from '@/components/ui/RetainerPlanCard';
 import VerticalTimeline from '@/components/ui/VerticalTimeline';
 import FAQItem from '@/components/ui/FAQItem';
-import CTASection from '@/components/sections/CTASection';
 import FloatingParticles from '@/components/ui/FloatingParticles';
 import { services } from '@/constants/services';
 import { faqItems } from '@/constants/faq';
@@ -418,26 +418,26 @@ export default function Services() {
       </section>
 
       {/* Final CTA Section */}
-      <div className="relative">
+      <section className="relative py-20 bg-gradient-radial-nebula overflow-hidden">
         <FloatingParticles />
-        <CTASection
-          title="Ready to Elevate Your Agency&apos;s Technical Capabilities?"
-          subtitle="Join the agencies that trust Planet X Devs as their white-label development partner. Get started with a project or explore our retainer plans."
-          buttons={[
-            {
-              text: "Start Your First Project",
-              href: "/contact",
-              variant: "primary"
-            },
-            {
-              text: "View Retainer Plans",
-              href: "#pricing",
-              variant: "secondary"
-            }
-          ]}
-          className="relative z-10"
-        />
-      </div>
+        
+        <div className="relative z-10 container mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
+            Ready to Elevate Your Agency&apos;s Technical Capabilities?
+          </h2>
+          <p className="text-xl text-nebula-white/70 mb-10 max-w-2xl mx-auto">
+            Join the agencies that trust Planet X Devs as their white-label development partner. Get started with a project or explore our retainer plans.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-block px-10 py-5 rounded-full bg-gradient-nebula text-white font-bold text-lg shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300"
+            >
+              Start Your First Project
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
