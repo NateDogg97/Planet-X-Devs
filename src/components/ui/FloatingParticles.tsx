@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 export default function FloatingParticles() {
   const [isClient, setIsClient] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -13,25 +14,36 @@ export default function FloatingParticles() {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
     
-    const handleChange = (e: MediaQueryListEvent) => {
+    // Check for mobile devices
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mobileQuery.matches);
+    
+    const handleMotionChange = (e: MediaQueryListEvent) => {
       setPrefersReducedMotion(e.matches);
     };
     
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
+    const handleMobileChange = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+    };
+    
+    mediaQuery.addEventListener('change', handleMotionChange);
+    mobileQuery.addEventListener('change', handleMobileChange);
+    
+    return () => {
+      mediaQuery.removeEventListener('change', handleMotionChange);
+      mobileQuery.removeEventListener('change', handleMobileChange);
+    };
   }, []);
 
-  // Server-side: render static particles with CSS animation
+  // Server-side: render static particles with CSS animation (desktop only)
   if (!isClient) {
     return (
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        {/* Static particles that will animate with pure CSS */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block" aria-hidden="true">
+        {/* Static particles that will animate with pure CSS - reduced count */}
         <div className="particle-container">
           <div className="particle particle-1" />
           <div className="particle particle-2" />
           <div className="particle particle-3" />
-          <div className="particle particle-4" />
-          <div className="particle particle-5" />
         </div>
         <style jsx>{`
           .particle-container {
@@ -49,11 +61,9 @@ export default function FloatingParticles() {
             will-change: transform;
           }
           
-          .particle-1 { left: 10%; animation-delay: 0s; animation-duration: 18s; }
-          .particle-2 { left: 30%; animation-delay: 3s; animation-duration: 20s; }
-          .particle-3 { left: 50%; animation-delay: 6s; animation-duration: 22s; }
-          .particle-4 { left: 70%; animation-delay: 9s; animation-duration: 19s; }
-          .particle-5 { left: 90%; animation-delay: 12s; animation-duration: 21s; }
+          .particle-1 { left: 20%; animation-delay: 0s; animation-duration: 25s; }
+          .particle-2 { left: 50%; animation-delay: 8s; animation-duration: 30s; }
+          .particle-3 { left: 80%; animation-delay: 16s; animation-duration: 28s; }
           
           @keyframes floatUp {
             from {
@@ -83,41 +93,51 @@ export default function FloatingParticles() {
     );
   }
 
-  // Don't animate if user prefers reduced motion
-  if (prefersReducedMotion) {
-    return (
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="absolute top-20 left-[10%] w-2 h-2 bg-nebula-violet-30 rounded-full" />
-        <div className="absolute top-40 left-[30%] w-2 h-2 bg-nebula-violet-30 rounded-full" />
-        <div className="absolute top-60 left-[50%] w-2 h-2 bg-nebula-violet-30 rounded-full" />
-        <div className="absolute top-32 left-[70%] w-2 h-2 bg-nebula-violet-30 rounded-full" />
-        <div className="absolute top-52 left-[90%] w-2 h-2 bg-nebula-violet-30 rounded-full" />
-      </div>
-    );
+  // Don't render on mobile or if user prefers reduced motion
+  if (prefersReducedMotion || isMobile) {
+    return null;
   }
 
-  // Client-side: enhanced particles with better distribution
-  const particles = Array.from({ length: 10 }, (_, i) => ({
+  // Client-side: limited particles for desktop only
+  const particles = Array.from({ length: 5 }, (_, i) => ({
     id: i,
-    left: `${(i * 10) + Math.random() * 10}%`,
-    delay: i * 1.5,
-    duration: 15 + Math.random() * 10,
-    size: Math.random() > 0.5 ? 'w-2 h-2' : 'w-1.5 h-1.5'
+    left: `${20 + (i * 15)}%`,
+    delay: i * 3,
+    duration: 25 + (i * 2),
+    size: i % 2 === 0 ? 'w-2 h-2' : 'w-1.5 h-1.5'
   }));
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block" aria-hidden="true">
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className={`absolute ${particle.size} bg-nebula-violet-50 rounded-full animate-float-up will-change-transform`}
+          className={`absolute ${particle.size} bg-nebula-violet-30 rounded-full opacity-60`}
           style={{
             left: particle.left,
-            animationDelay: `${particle.delay}s`,
-            animationDuration: `${particle.duration}s`
+            animation: `floatUp ${particle.duration}s linear infinite`,
+            animationDelay: `${particle.delay}s`
           }}
         />
       ))}
+      <style jsx>{`
+        @keyframes floatUp {
+          from {
+            transform: translateY(100vh) scale(0);
+            opacity: 0;
+          }
+          10% {
+            opacity: 0.6;
+          }
+          90% {
+            opacity: 0.6;
+          }
+          to {
+            transform: translateY(-100vh) scale(1);
+            opacity: 0;
+          }
+        }
+      `}</style>
     </div>
   );
 }
