@@ -1,57 +1,28 @@
 import { Metadata } from 'next';
-import Footer from '@/components/navigation/Footer';
-import HeroSection from '@/components/sections/HeroSection';
-import WorkStyleSection from '@/components/sections/WorkStyleSection';
-import AboutStorySection from '@/components/sections/AboutStorySection';
-import CoreValuesSection from '@/components/sections/CoreValuesSection';
-import CTASection from '@/components/sections/CTASection';
+import AboutPageClient from './AboutPageClient';
 
 export const metadata: Metadata = {
-  title: "About Planet X Devs | Your White-Label Development Partner",
-  description: "Learn about Planet X Devs - Your reliable white-label web development partner helping marketing agencies deliver exceptional websites without the overhead.",
-  keywords: "about planet x devs, white label developer, agency partner, web development partner",
+  title: "About Planet X Devs | White-Label Web Development for Agencies",
+  description: "Meet Nathaniel Gonzalez, founder of Planet X Devs. After 10+ years in agencies, I created the reliable development partnership agencies desperately need. No more missed deadlines or ghosting freelancers.",
+  keywords: "white label web development, agency developer, Nathaniel Gonzalez, Planet X Devs, web development for agencies, reliable developer partner, agency technical partner, WordPress developer for agencies, React developer for agencies",
   openGraph: {
-    title: "About Planet X Devs | Your White-Label Development Partner",
-    description: "Experienced developer helping marketing agencies scale their web development capacity with reliable white-label services.",
-    images: ['/og-image.jpg'],
+    title: "About Planet X Devs | Your Agency's Reliable Developer",
+    description: "Built by an agency veteran who gets it. Planet X Devs is the white-label development partner that helps agencies deliver exceptional websites without the headaches.",
+    images: ['/og-about.jpg'],
+    type: 'website',
+    url: 'https://planetxdevs.com/about'
   },
   twitter: {
     card: 'summary_large_image',
+    title: "About Planet X Devs | White-Label Development Partner",
+    description: "Meet the agency veteran behind Planet X Devs - your reliable technical partner for delivering exceptional websites.",
+    images: ['/og-about.jpg']
+  },
+  alternates: {
+    canonical: 'https://planetxdevs.com/about'
   }
 };
 
-export default function About() {
-  return (
-    <div className="min-h-screen">
-      <HeroSection
-        title="About Planet X Devs"
-        subtitle="Your trusted white-label development partner for delivering exceptional websites"
-      />
-
-      <WorkStyleSection />
-
-      <AboutStorySection />
-
-      <CoreValuesSection />
-
-      <CTASection
-        title="Ready to Work with a Development Partner Who Gets It?"
-        subtitle="Let's talk about how I can help your agency deliver exceptional websites without the headaches"
-        buttons={[
-          {
-            text: "Let's Discuss Your Project",
-            href: "/contact",
-            variant: "secondary"
-          },
-          {
-            text: "View Services & Pricing",
-            href: "/services",
-            variant: "primary"
-          }
-        ]}
-      />
-
-      <Footer />
-    </div>
-  );
+export default function AboutPage() {
+  return <AboutPageClient />;
 }

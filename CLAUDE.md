@@ -51,20 +51,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Technical Guidelines
 
-### Current Issues to Address
-1. **Bundle Size**: Too large for a marketing site, affecting load speeds
-2. **Over-componentization**: Many section components should be static HTML
-3. **Redundant Theming**: Themed component variants add unnecessary complexity
-4. **Homepage Performance**: Multiple animation-heavy components affecting Core Web Vitals
-
-### Homepage Performance Optimization Priority
-The homepage requires immediate performance optimization. A comprehensive checklist has been created at `/docs/homepage-optimization-checklist.md` for systematic improvements. Key areas:
-1. **Optimize Animations**: Make FloatingPlanets non-render-blocking, simplify particle effects
-2. **Reduce Dependencies**: Remove/replace framer-motion, react-countup, swiper
-3. **Static Conversion**: Convert non-interactive sections to static HTML
-4. **Lazy Loading**: Implement for below-fold components
-5. **Bundle Optimization**: Code splitting and tree shaking
-
 ### Services Page Implementation Status
 The services page has been implemented with the nebula/space theme. Future optimizations:
 1. **Performance Monitoring**: Track page-specific metrics
@@ -95,42 +81,83 @@ The services page has been implemented with the nebula/space theme. Future optim
 - **Real User Monitoring (RUM)** in production environment
 - **Bundle size monitoring** with 160KB total budget
 
-## Homepage Specific Guidelines
+# About Page Implementation Guidelines
 
-### Components to Optimize
-- `StarField` - Reduce star count, optimize animations
-- `FloatingPlanet` - Make non-render-blocking, add fade-in animation
-- `Hero` - Replace framer-motion with CSS animations
-- `ProcessTimeline` - Simplify particle effects
-- `TestimonialCarousel` - Lazy load below fold
+Add this section to your CLAUDE.md file:
 
-### Dependencies to Remove/Replace
-- `framer-motion` - Replace with CSS animations
-- `react-countup` - Use CSS counters or vanilla JS
-- `swiper` - Remove if unused
+## About Page Specific Guidelines
 
-### Static Content Candidates
-- Benefits section
-- Partnership section
-- Footer content
-- Any section without interactivity
+### Purpose and Goals
+The About page builds trust and credibility by:
+- Telling the agency partnership story
+- Showcasing values that resonate with agencies
+- Demonstrating expertise without overwhelming
+- Maintaining the nebula/space theme consistently
 
-## Services Page Specific Guidelines
-
-### Component Reuse from Homepage
-- `StarField` - For hero background
-- `FloatingPlanet` - Optimize performance but keep for visual appeal
-- `Hero` - Modify to accept bullets prop
+### Component Reuse from Homepage/Services
+- `StarField` - For hero background only
+- `Hero` - Without bullet points prop
 - `Section` & `Container` - For consistent spacing
-- `ProcessTimeline` - Convert to vertical layout
-- `CTASection` - Reuse for final CTA
-- `TestimonialCarousel` - Not needed on services page
+- `CTASection` - For final call-to-action
+- `Footer` - No modifications needed
 
-### New Components Needed
-- `ServiceDetailCard` - For detailed service offerings with pricing
-- `RetainerPlanCard` - For monthly retainer options
-- `VerticalTimeline` - Modified process timeline
-- `FAQItem` - Expandable FAQ component
+### New Components (Keep Minimal)
+- `ValueCard` - Only if significantly different from existing Card
+- `TimelineItem` - Only if ProcessTimeline can't be adapted
+- Prefer static HTML with CSS classes over new components
+
+### Static Content Sections
+- Story/Origin section - Pure JSX/HTML
+- Team member bio and details
+- Most timeline content (except animation wrapper)
+- Skill tags and badges
+
+### Animation Guidelines
+- **Hero**: Keep existing StarField, simple fade-ins
+- **Story Section**: CSS-only floating elements
+- **Values Grid**: Staggered fade-in on scroll, CSS hover states
+- **Timeline**: CSS line drawing, sequential item appearance
+- **Team Avatar**: CSS rotation animation for border
+- **CTA**: Minimal particles, reuse existing
+
+### Performance Requirements
+- Total JavaScript for animations: < 10KB
+- Use Intersection Observer for all scroll triggers
+- CSS transforms only, no JavaScript physics
+- Lazy load any images below fold
+- Target same Core Web Vitals as other pages
+
+### Content Management
+- Team section will need periodic updates
+- Timeline should be updated quarterly/annually
+- Values should remain stable (brand consistency)
+- Make content sections easy to edit without breaking layout
+
+### Mobile Considerations
+- Timeline should stack vertically on mobile
+- Values grid: 3 columns → 1 column
+- Story section: Side-by-side → stacked
+- Maintain readability of all text
+
+### Implementation Priority
+1. Structure and content first
+2. Basic styling and layout
+3. Add animations last
+4. Test performance at each step
+
+### Common Pitfalls to Avoid
+- Don't over-animate the timeline
+- Keep floating elements subtle
+- Don't create components for one-time use sections
+- Avoid complex grid layouts that break on mobile
+- Don't add personality at the cost of professionalism
+
+### Testing Focus Areas
+- Timeline renders correctly at all breakpoints
+- Animations don't cause layout shifts
+- Page performs well on mobile devices
+- Content is scannable and engaging
+- CTAs are prominent and compelling
 
 ### Static Content Sections
 - Introduction paragraph after hero

@@ -75,6 +75,7 @@ export default function Home() {
             variant: "secondary"
           }
         ]}
+        showPlanets={false}
       />
 
       {/* Services Section */}

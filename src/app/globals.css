@@ -75,6 +75,26 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes drawLine {
+  from {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  to {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.8);
+  }
+}
+
 @layer utilities {
   /* Gradient utilities */
   .bg-gradient-nebula {
@@ -87,6 +107,14 @@
   
   .bg-gradient-radial-nebula {
     background-image: radial-gradient(circle, var(--color-nebula-violet-10), transparent);
+  }
+  
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to));
+  }
+  
+  .bg-gradient-conic {
+    background-image: conic-gradient(var(--tw-gradient-stops));
   }
   
   .bg-gradient-planet {
@@ -115,6 +143,11 @@
     animation: float 8s ease-in-out infinite;
   }
   
+  .animate-float-delayed {
+    animation: float 8s ease-in-out infinite;
+    animation-delay: 4s;
+  }
+  
   .animate-orbit {
     animation: orbit 20s linear infinite;
   }
@@ -131,6 +164,23 @@
     animation: fadeIn 1s ease-out;
   }
   
+  /* Performance optimized will-change for hover effects */
+  .value-card {
+    will-change: auto;
+  }
+  
+  .value-card:hover {
+    will-change: transform;
+  }
+  
+  .value-card-icon {
+    will-change: auto;
+  }
+  
+  .value-card:hover .value-card-icon {
+    will-change: transform;
+  }
+  
   .animate-fade-in-up {
     animation: fadeInUp 0.5s ease-out forwards;
     will-change: transform, opacity;
@@ -144,13 +194,251 @@
     animation: rotate 10s linear infinite;
   }
   
+  /* Timeline animations */
+  .animate-draw-line {
+    animation: drawLine 1.5s ease-out forwards;
+  }
+  
+  .animate-glow-pulse {
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+  
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Timeline Container */
+  .timeline-container {
+    position: relative;
+    padding-left: 2rem; /* Space for timeline line and dots on mobile */
+  }
+  
+  /* Main timeline line (background line) */
+  .timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem; /* Position from container edge on mobile */
+    top: 1.5rem; /* Start from first dot */
+    bottom: 3rem; /* End before last dot */
+    width: 2px;
+    background: linear-gradient(180deg, 
+      transparent 0%, 
+      var(--color-nebula-purple-30) 5%,
+      var(--color-nebula-purple-50) 25%,
+      var(--color-nebula-violet) 50%,
+      var(--color-nebula-purple-50) 75%,
+      var(--color-nebula-purple-30) 95%,
+      transparent 100%
+    );
+    z-index: 1;
+    border-radius: 1px;
+  }
+  
+  /* Desktop centered timeline */
+  @media (min-width: 768px) {
+    .timeline-container {
+      padding-left: 0; /* Remove mobile padding */
+    }
+    
+    .timeline-container::before {
+      left: 50%; /* Center the timeline line */
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Mobile responsive timeline */
+  @media (max-width: 767px) {
+    .timeline-container {
+      padding-left: 1.5rem;
+    }
+    
+    .timeline-container::before {
+      left: 0.375rem;
+    }
+  }
+  
+  /* Timeline gradient line (individual item lines) */
+  .timeline-line-gradient {
+    background: linear-gradient(180deg, 
+      transparent 0%, 
+      var(--color-nebula-purple-30) 10%,
+      var(--color-nebula-purple) 50%,
+      var(--color-nebula-purple-30) 90%,
+      transparent 100%
+    );
+  }
+  
+  /* Timeline line drawing animation */
+  .timeline-container::after {
+    content: '';
+    position: absolute;
+    left: 0.5rem; /* Match ::before positioning */
+    top: 1.5rem;
+    bottom: 3rem;
+    width: 2px;
+    background: linear-gradient(180deg, 
+      transparent 0%, 
+      var(--color-nebula-cyan) 5%,
+      var(--color-nebula-violet) 50%,
+      var(--color-nebula-cyan) 95%,
+      transparent 100%
+    );
+    z-index: 2;
+    border-radius: 1px;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 2s ease-out;
+    will-change: transform;
+  }
+  
+  /* Desktop centered animated line */
+  @media (min-width: 768px) {
+    .timeline-container::after {
+      left: calc(50% - 1px);
+      transform: translateX(-50%) scaleY(0);
+    }
+    
+    .timeline-container.animate-line::after {
+      transform: translateX(-50%) scaleY(1);
+    }
+  }
+  
+  /* Mobile animated line */
+  @media (max-width: 767px) {
+    .timeline-container::after {
+      left: 0.375rem;
+    }
+  }
+  
+  .timeline-container.animate-line::after {
+    transform: scaleY(1);
+    will-change: auto;
+  }
+  
+  /* Timeline item animations */
+  .timeline-item-wrapper {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+    will-change: transform, opacity;
+  }
+  
+  .timeline-item-wrapper.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto;
+  }
+  
+  /* Timeline dot scale animation */
+  .timeline-dot {
+    transform: scale(0);
+    transition: transform 0.6s ease-out 0.2s; /* Slight delay for better effect */
+  }
+  
+  .timeline-item-wrapper.animate-in .timeline-dot {
+    transform: scale(1);
+  }
+  
+  /* Enhanced glow pulse for animated dots */
+  .timeline-item-wrapper.animate-in .timeline-dot.animate-glow-pulse {
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+  
+  /* Content fade-in with slight delay */
+  .timeline-content {
+    transition: opacity 0.6s ease-out 0.3s;
+  }
+  
+  .timeline-item-wrapper:not(.animate-in) .timeline-content {
+    opacity: 0.3;
+  }
+  
+  .timeline-item-wrapper.animate-in .timeline-content {
+    opacity: 1;
+  }
+
+  @media (max-width: 767px) {
+    .timeline-marker {
+      left: -17px;
+    }
+  }
+  
   /* Performance utilities */
   .will-change-transform {
     will-change: transform;
   }
   
+  /* Avatar Container Styles */
+  .avatar-container {
+    width: 128px;
+    height: 128px;
+  }
+  
+  @media (min-width: 768px) {
+    .avatar-container {
+      width: 160px;
+      height: 160px;
+    }
+  }
+  
+  /* Enhanced avatar animations */
+  .avatar-border {
+    filter: blur(0.5px);
+  }
+  
+  .avatar-container:hover .avatar-border {
+    animation-duration: 4s;
+  }
+  
+  .avatar-glow {
+    will-change: opacity;
+  }
+  
+  .avatar-content {
+    backdrop-filter: blur(1px);
+    box-shadow: 
+      0 0 20px rgba(107, 70, 193, 0.3),
+      0 0 40px rgba(107, 70, 193, 0.1),
+      inset 0 0 20px rgba(147, 51, 234, 0.1);
+  }
+  
+  .avatar-content:hover {
+    box-shadow: 
+      0 0 30px rgba(107, 70, 193, 0.5),
+      0 0 60px rgba(107, 70, 193, 0.2),
+      inset 0 0 30px rgba(147, 51, 234, 0.2);
+  }
+  
+  /* Floating particles around avatar */
+  .particle {
+    will-change: transform;
+  }
+  
+  /* Enhanced conic gradient for avatar border */
+  .bg-gradient-conic {
+    background: conic-gradient(
+      from 0deg,
+      var(--color-nebula-purple),
+      var(--color-nebula-violet),
+      var(--color-nebula-cyan),
+      var(--color-stellar-blue),
+      var(--color-nebula-purple)
+    );
+  }
+  
   @media (prefers-reduced-motion: reduce) {
-    .motion-reduce\:animate-none {
+    .motion-reduce\:animate-none,
+    .avatar-border,
+    .avatar-glow,
+    .particle {
+      animation: none !important;
+    }
+    
+    .avatar-container:hover .avatar-border {
       animation: none !important;
     }
   }
