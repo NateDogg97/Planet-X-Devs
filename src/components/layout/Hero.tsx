@@ -3,10 +3,15 @@
 import Link from 'next/link';
 import Icon from '../ui/Icon';
 import StarField from '../ui/StarField';
-import FloatingPlanet from '../ui/FloatingPlanet';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import { HeroProps } from '@/types';
+
+const FloatingPlanet = dynamic(() => import('../ui/FloatingPlanet'), {
+  ssr: false,
+  loading: () => null
+});
 
 export default function Hero({
   title,
@@ -22,8 +27,8 @@ export default function Hero({
       <StarField />
       {showPlanets && (
         <>
-          <FloatingPlanet size="medium" position={{ top: '20%', right: '10%' }} delay={0} />
-          <FloatingPlanet size="large" position={{ bottom: '30%', left: '5%' }} delay={2} />
+          <FloatingPlanet size="medium" position={{ top: '20%', right: '10%' }} delay={1} />
+          <FloatingPlanet size="large" position={{ bottom: '30%', left: '5%' }} delay={2.5} />
         </>
       )}
       

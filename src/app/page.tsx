@@ -1,13 +1,40 @@
+'use client';
+
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import Footer from '@/components/navigation/Footer';
 import Hero from '@/components/layout/Hero';
 import ServiceCard from '@/components/ui/ServiceCard';
 import NebulaGraphic from '@/components/ui/NebulaGraphic';
 import ProcessTimeline from '@/components/ui/ProcessTimeline';
-import FloatingParticles from '@/components/ui/FloatingParticles';
-import TestimonialCarousel from '@/components/ui/TestimonialCarousel';
 import Icon from '@/components/ui/Icon';
 import { services } from '@/constants/services';
+
+const TestimonialCarousel = dynamic(() => import('@/components/ui/TestimonialCarousel'), {
+  ssr: false,
+  loading: () => (
+    <div className="relative max-w-4xl mx-auto">
+      <div className="absolute -top-8 -left-4 text-6xl text-nebula-violet-30 animate-pulse-slow">"</div>
+      <div className="bg-nebula-violet-10 rounded-3xl p-8 md:p-12">
+        <div className="text-center animate-pulse">
+          <div className="h-6 bg-nebula-violet-20 rounded mx-auto mb-4 max-w-3xl"></div>
+          <div className="h-6 bg-nebula-violet-20 rounded mx-auto mb-6 max-w-2xl"></div>
+          <div className="h-4 bg-nebula-violet-20 rounded mx-auto max-w-xs"></div>
+        </div>
+        <div className="flex justify-center gap-2 mt-6">
+          <div className="w-8 h-2 bg-nebula-violet rounded-full"></div>
+          <div className="w-2 h-2 bg-nebula-violet-30 rounded-full"></div>
+          <div className="w-2 h-2 bg-nebula-violet-30 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  )
+});
+
+const FloatingParticles = dynamic(() => import('@/components/ui/FloatingParticles'), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0" />
+});
 
 const testimonials = [
   {

@@ -15,10 +15,18 @@ export default function FloatingPlanet({ size, position, delay = 0 }: FloatingPl
 
   return (
     <div
-      className={`absolute ${sizes[size]} bg-gradient-planet rounded-full opacity-50 animate-float will-change-transform motion-reduce:animate-none`}
+      className={`absolute ${sizes[size]} bg-gradient-planet rounded-full opacity-0 animate-fade-in will-change-transform motion-reduce:animate-none motion-reduce:opacity-50`}
       style={{
         ...position,
         animationDelay: `${delay}s`,
+        animationFillMode: 'forwards',
+        animationDuration: '1.5s'
+      }}
+      onAnimationEnd={(e) => {
+        if (e.animationName === 'fadeIn') {
+          e.currentTarget.classList.add('animate-float');
+          e.currentTarget.style.willChange = 'auto';
+        }
       }}
     />
   );
