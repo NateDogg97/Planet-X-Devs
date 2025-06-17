@@ -233,7 +233,7 @@ export default function AboutPageClient() {
         }
       });
     }, {
-      threshold: 0.2,
+      threshold: 0.15,
       rootMargin: '0px 0px -50px 0px'
     });
 
@@ -471,7 +471,7 @@ export default function AboutPageClient() {
               {/* Name and Title */}
               <div className="mb-8">
                 <h3 className="text-2xl md:text-3xl font-bold text-nebula-white mb-2">
-                  Nathaniel Gonzalez
+                  Nathaniel Mays
                 </h3>
                 <p className="text-lg text-nebula-cyan font-semibold mb-3">
                   Founder & Lead Developer

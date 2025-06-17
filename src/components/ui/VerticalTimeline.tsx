@@ -40,10 +40,11 @@ export default function VerticalTimeline({ steps, className = '' }: VerticalTime
   return (
     <div ref={timelineRef} className={`relative ${className}`}>
       {/* Vertical timeline line */}
-      <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-800 md:-translate-x-1/2">
+      <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 md:-translate-x-1/2">
         <div 
-          className="w-full bg-gradient-to-b from-nebula-blue via-nebula-purple to-nebula-violet transition-all duration-2000 ease-out"
-          style={{ height: `${lineHeight}%` }}
+          className={`w-full bg-gradient-to-b from-transparent via-nebula-purple through-nebula-violet to-transparent ${
+            lineHeight > 0 ? 'animate-grow-vertical' : ''
+          }`}
         />
       </div>
       
@@ -51,7 +52,7 @@ export default function VerticalTimeline({ steps, className = '' }: VerticalTime
         {steps.map((step, index) => (
           <div 
             key={step.number} 
-            className={`relative flex items-center gap-8 opacity-0 animate-fade-in-up will-change-transform motion-reduce:animate-none ${
+            className={`relative flex items-center gap-12 opacity-0 animate-fade-in-up will-change-transform motion-reduce:animate-none ${
               index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
             }`}
             style={{ animationDelay: `${index * 0.2 + 0.3}s`, animationFillMode: 'forwards' }}
@@ -74,7 +75,7 @@ export default function VerticalTimeline({ steps, className = '' }: VerticalTime
             </div>
             
             {/* Step number circle */}
-            <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-12 h-12 bg-nebula-black border-[3px] border-nebula-violet rounded-full flex items-center justify-center text-lg font-bold text-nebula-white hover:bg-nebula-violet hover:border-nebula-white transition-all duration-300 cursor-pointer will-change-transform z-10">
+            <div className="w-12 h-12 bg-nebula-purple rounded-full flex items-center justify-center font-bold text-nebula-white text-lg flex-shrink-0 relative z-10">
               {step.number}
             </div>
             
