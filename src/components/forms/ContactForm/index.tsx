@@ -1,6 +1,6 @@
 'use client';
 
-import TabInterface, { TabItem } from './TabInterface';
+import TabInterface, { TabItem } from '../../ui/TabInterface';
 import ProjectInquiryForm from './ProjectInquiryForm';
 import QuickConsultationForm from './QuickConsultationForm';
 import SupportMaintenanceForm from './SupportMaintenanceForm';
