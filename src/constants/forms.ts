@@ -1,5 +1,58 @@
 // Form-related constants for ContactForm and other forms
 
+// Form type enum for different contact forms
+export enum ContactFormType {
+  PROJECT_INQUIRY = 'project-inquiry',
+  QUICK_CONSULTATION = 'quick-consultation',
+  SUPPORT_REQUEST = 'support-request'
+}
+
+// Form display names
+export const FORM_DISPLAY_NAMES: Record<ContactFormType, string> = {
+  [ContactFormType.PROJECT_INQUIRY]: 'Project Inquiry',
+  [ContactFormType.QUICK_CONSULTATION]: 'Quick Consultation',
+  [ContactFormType.SUPPORT_REQUEST]: 'Support Request'
+};
+
+// Form-specific field configurations
+export const FORM_FIELD_CONFIG: Record<ContactFormType, {
+  requiredFields: string[];
+  optionalFields: string[];
+  hiddenFields: string[];
+}> = {
+  [ContactFormType.PROJECT_INQUIRY]: {
+    requiredFields: ['name', 'email', 'agency', 'projectType', 'projectScope', 'timeline', 'budget'],
+    optionalFields: ['phone', 'howHeard', 'additionalInfo'],
+    hiddenFields: []
+  },
+  [ContactFormType.QUICK_CONSULTATION]: {
+    requiredFields: ['name', 'email'],
+    optionalFields: ['company', 'phone', 'interests', 'challenge', 'preferredContact', 'businessType'],
+    hiddenFields: ['budget', 'timeline', 'projectScope']
+  },
+  [ContactFormType.SUPPORT_REQUEST]: {
+    requiredFields: ['name', 'email', 'issueDescription'],
+    optionalFields: ['existingClient', 'priority', 'supportType', 'websiteUrl', 'platform', 'maintenanceInterest'],
+    hiddenFields: ['budget', 'projectType', 'howHeard']
+  }
+};
+
+// Conditional field rules
+export const CONDITIONAL_FIELD_RULES = {
+  // Show maintenance interest only if not existing client
+  maintenanceInterest: {
+    showWhen: { existingClient: false }
+  },
+  // Show website URL for support requests
+  websiteUrl: {
+    showWhen: { formType: ContactFormType.SUPPORT_REQUEST }
+  },
+  // Show budget details only for project inquiries
+  budgetDetails: {
+    showWhen: { formType: ContactFormType.PROJECT_INQUIRY }
+  }
+};
+
 // Project type options for contact form
 export interface ProjectTypeOption {
   value: string;
@@ -63,6 +116,23 @@ export const howHeardOptions: HowHeardOption[] = [
   { value: 'other', label: 'Other' }
 ];
 
+// Support-specific options
+export const supportTypes = [
+  { value: 'bug', label: 'Bug Fix' },
+  { value: 'update', label: 'Content Update' },
+  { value: 'feature', label: 'New Feature' },
+  { value: 'performance', label: 'Performance Issue' },
+  { value: 'security', label: 'Security Concern' },
+  { value: 'other', label: 'Other' }
+];
+
+export const priorityLevels = [
+  { value: 'low', label: 'Low - Can wait a few days' },
+  { value: 'medium', label: 'Medium - Within 48 hours' },
+  { value: 'high', label: 'High - Within 24 hours' },
+  { value: 'urgent', label: 'Urgent - ASAP' }
+];
+
 // Form validation messages
 export const formValidationMessages = {
   required: 'This field is required',
@@ -77,21 +147,23 @@ export const formLabels = {
   name: 'Full Name',
   email: 'Email Address',
   agency: 'Agency Name',
+  company: 'Company Name',
   phone: 'Phone Number',
   howHeard: 'How did you hear about us?',
   projectType: 'Project Type',
   projectScope: 'Project Description',
+  timeline: 'Timeline',
+  budget: 'Budget Range',
   additionalInfo: 'Additional Information',
-  whiteLabel: 'This is a white-label project',
-  timeline: 'Desired Timeline',
-  budget: 'Project Budget'
-};
-
-export const formHelpText = {
-  phone: 'Optional - for urgent project discussions',
-  projectScope: 'Brief description of what you need built',
-  additionalInfo: 'Any specific requirements, integrations, or constraints',
-  whiteLabel: 'Check if you want completely white-label service',
-  timeline: 'When do you need this completed?',
-  budget: 'What\'s your budget range for this project?'
+  interests: 'Areas of Interest',
+  challenge: 'Current Challenge',
+  preferredContact: 'Preferred Contact Method',
+  businessType: 'Business Type',
+  existingClient: 'I am an existing client',
+  priority: 'Priority Level',
+  supportType: 'Support Type',
+  websiteUrl: 'Website URL',
+  platform: 'Platform/CMS',
+  issueDescription: 'Issue Description',
+  maintenanceInterest: 'Interested in maintenance plan'
 };
