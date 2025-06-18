@@ -72,7 +72,7 @@ export default function SupportMaintenanceForm() {
       // Add form type to submission data
       const submissionData = {
         ...formData,
-        formType: 'support-maintenance'
+        formType: 'support_maintenance' as const
       };
       
       await submitContactForm(submissionData);

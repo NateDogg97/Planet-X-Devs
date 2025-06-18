@@ -62,7 +62,7 @@ export default function QuickConsultationForm() {
       // Add form type to submission data
       const submissionData = {
         ...formData,
-        formType: 'quick-consultation'
+        formType: 'quick_consultation' as const
       };
       
       await submitContactForm(submissionData);

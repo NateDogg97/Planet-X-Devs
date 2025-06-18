@@ -72,7 +72,23 @@ export interface FormData {
   maintenanceInterest?: boolean;
   
   // Form type identifier
-  formType?: string;
+  formType?: 'project_inquiry' | 'quick_consultation' | 'support_maintenance';
+}
+
+// Form submission status
+export interface FormSubmissionStatus {
+  isSubmitting: boolean;
+  isSuccess: boolean;
+  isError: boolean;
+  errorMessage?: string;
+  successMessage?: string;
+}
+
+// Form validation result
+export interface FormValidationResult {
+  isValid: boolean;
+  errors: FormErrors;
+  firstErrorField?: string;
 }
 
 export interface FormErrors {

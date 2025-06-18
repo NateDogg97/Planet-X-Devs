@@ -89,12 +89,12 @@ export function getInitialFormData(formType?: string): FormData {
   const baseData: FormData = {
     name: '',
     email: '',
-    formType: formType || 'project-inquiry'
+    formType: (formType as FormData['formType']) || 'project_inquiry'
   };
 
   // Add fields based on form type
   switch (formType) {
-    case 'project-inquiry':
+    case 'project_inquiry':
       return {
         ...baseData,
         agency: '',
@@ -108,7 +108,7 @@ export function getInitialFormData(formType?: string): FormData {
         budget: ''
       };
       
-    case 'quick-consultation':
+    case 'quick_consultation':
       return {
         ...baseData,
         company: '',
@@ -119,7 +119,7 @@ export function getInitialFormData(formType?: string): FormData {
         businessType: ''
       };
       
-    case 'support-maintenance':
+    case 'support_maintenance':
       return {
         ...baseData,
         existingClient: false,

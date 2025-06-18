@@ -54,7 +54,7 @@ export default function ProjectInquiryForm() {
       // Add form type to submission data
       const submissionData = {
         ...formData,
-        formType: 'project-inquiry'
+        formType: 'project_inquiry' as const
       };
       
       const response = await submitContactForm(submissionData);

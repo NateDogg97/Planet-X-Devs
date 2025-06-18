@@ -2,11 +2,9 @@
 
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import Footer from '@/components/navigation/Footer';
 import Hero from '@/components/layout/Hero';
 import ServiceCard from '@/components/ui/ServiceCard';
 import NebulaGraphic from '@/components/ui/NebulaGraphic';
-import ProcessTimeline from '@/components/ui/ProcessTimeline';
 import Icon from '@/components/ui/Icon';
 import { services } from '@/constants/services';
 
@@ -34,6 +32,47 @@ const TestimonialCarousel = dynamic(() => import('@/components/ui/TestimonialCar
 const FloatingParticles = dynamic(() => import('@/components/ui/FloatingParticles'), {
   ssr: false,
   loading: () => <div className="absolute inset-0" />
+});
+
+const ProcessTimeline = dynamic(() => import('@/components/ui/ProcessTimeline'), {
+  loading: () => (
+    <div className="space-y-12 animate-pulse">
+      {[...Array(4)].map((_, i) => (
+        <div key={i} className="flex items-start gap-6">
+          <div className="w-16 h-16 bg-nebula-violet rounded-full flex-shrink-0"></div>
+          <div className="flex-1 space-y-4">
+            <div className="h-8 bg-nebula-purple-20 rounded w-1/3"></div>
+            <div className="space-y-2">
+              <div className="h-4 bg-nebula-purple-10 rounded w-full"></div>
+              <div className="h-4 bg-nebula-purple-10 rounded w-5/6"></div>
+              <div className="h-4 bg-nebula-purple-10 rounded w-3/4"></div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+});
+
+const Footer = dynamic(() => import('@/components/navigation/Footer'), {
+  loading: () => (
+    <div className="bg-nebula-black h-64 animate-pulse border-t border-nebula-purple-30">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid md:grid-cols-4 gap-8">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="space-y-4">
+              <div className="h-6 bg-nebula-purple-30 rounded w-24"></div>
+              <div className="space-y-2">
+                <div className="h-4 bg-nebula-purple-20 rounded w-32"></div>
+                <div className="h-4 bg-nebula-purple-20 rounded w-28"></div>
+                <div className="h-4 bg-nebula-purple-20 rounded w-36"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
 });
 
 const testimonials = [
