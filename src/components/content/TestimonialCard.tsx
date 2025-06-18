@@ -1,6 +1,5 @@
 import Icon from '../ui/Icon';
 import { TestimonialCardProps } from '@/types';
-import ErrorBoundary from '../ErrorBoundary';
 
 export default function TestimonialCard({
   quote,
@@ -10,13 +9,7 @@ export default function TestimonialCard({
   className = ""
 }: TestimonialCardProps) {
   return (
-    <ErrorBoundary
-      fallback="minimal"
-      message="Unable to load testimonial"
-      showRetry={false}
-      context={{ component: 'TestimonialCard', author }}
-    >
-      <div className={`bg-gray-50 dark:bg-gray-800 p-8 rounded-xl ${className}`}>
+    <div className={`bg-gray-50 dark:bg-gray-800 p-8 rounded-xl ${className}`}>
       {rating > 0 && (
         <div className="flex mb-4">
           {[...Array(rating)].map((_, i) => (
@@ -36,6 +29,5 @@ export default function TestimonialCard({
         </div>
       )}
     </div>
-    </ErrorBoundary>
   );
 }

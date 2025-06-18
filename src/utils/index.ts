@@ -40,3 +40,12 @@ export {
   scrollToFirstError,
   handleFieldChange
 } from './formSubmission';
+
+// Contact form URL utilities
+export {
+  getContactFormUrl,
+  CONTACT_FORM_URLS,
+  isValidFormType,
+  getFormDisplayName,
+  type ContactFormType
+} from './contactFormUrls';
