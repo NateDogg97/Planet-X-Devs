@@ -147,7 +147,7 @@ export default function TabInterface({
                 className={`accordion-body ${activeTab === tab.id ? 'accordion-body--expanded' : ''}`}
               >
                 <div className="accordion-body-content">
-                  {tab.content}
+                  {activeTab === tab.id && tab.content}
                 </div>
               </div>
             </div>
