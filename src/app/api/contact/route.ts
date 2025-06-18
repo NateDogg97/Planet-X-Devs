@@ -11,6 +11,14 @@ import {
   createPlainTextEmail,
   formatEmailSubject,
 } from '@/emails';
+import {
+  QuickConsultationClientEmail,
+  QuickConsultationAutoReply,
+} from '@/emails/templates/QuickConsultationEmail';
+import {
+  SupportRequestClientEmail,
+  SupportRequestAutoReply,
+} from '@/emails/templates/SupportRequestEmail';
 
 // Email configuration
 const FROM_EMAIL = `Planet X Devs <${process.env.RESEND_FROM_EMAIL}>`;
@@ -39,16 +47,53 @@ export async function POST(request: NextRequest) {
     const formattedData = formatFormData(body);
     const summary = createFormSummary(formattedData);
     
-    // Create email HTML content using React template
-    const emailHtml = await renderEmailToHtml(
-      React.createElement(ContactFormEmail, {
-        data: {
-          contact: summary.contact,
-          project: summary.project,
-          timeline: summary.timeline,
-        }
-      })
-    );
+    // Create email HTML content using form-specific React template
+    const getEmailTemplate = (formType: string) => {
+      switch (formType) {
+        case 'project-inquiry':
+          return React.createElement(ContactFormEmail, {
+            data: {
+              contact: summary.contact,
+              project: summary.project,
+              timeline: summary.timeline,
+            }
+          });
+        case 'quick-consultation':
+          return React.createElement(QuickConsultationClientEmail, {
+            data: {
+              contact: summary.contact,
+              consultation: {
+                interests: body.interests || 'General Consultation',
+                challenge: body.challenge || 'Technical challenge',
+                timeline: body.timeline,
+              }
+            }
+          });
+        case 'support-maintenance':
+          return React.createElement(SupportRequestClientEmail, {
+            data: {
+              contact: summary.contact,
+              support: {
+                websiteUrl: body.websiteUrl || 'Not provided',
+                supportType: body.supportType || 'General Support',
+                priority: body.priority || 'medium',
+                issueDescription: body.issueDescription || 'No description provided',
+                platform: body.platform,
+              }
+            }
+          });
+        default:
+          return React.createElement(ContactFormEmail, {
+            data: {
+              contact: summary.contact,
+              project: summary.project,
+              timeline: summary.timeline,
+            }
+          });
+      }
+    };
+    
+    const emailHtml = await renderEmailToHtml(getEmailTemplate(formType));
     
     // Create plain text version
     const emailText = createPlainTextEmail({
@@ -145,15 +190,52 @@ export async function POST(request: NextRequest) {
     
     // Send auto-reply to the user (optional)
     if (process.env.SEND_AUTO_REPLY === 'true') {
-      const autoReplyHtml = await renderEmailToHtml(
-        React.createElement(AutoReplyEmail, {
-          data: {
-            contact: summary.contact,
-            project: summary.project,
-            timeline: summary.timeline,
-          }
-        })
-      );
+      const getAutoReplyTemplate = (formType: string) => {
+        switch (formType) {
+          case 'project-inquiry':
+            return React.createElement(AutoReplyEmail, {
+              data: {
+                contact: summary.contact,
+                project: summary.project,
+                timeline: summary.timeline,
+              }
+            });
+          case 'quick-consultation':
+            return React.createElement(QuickConsultationAutoReply, {
+              data: {
+                contact: summary.contact,
+                consultation: {
+                  interests: body.interests || 'General Consultation',
+                  challenge: body.challenge || 'Technical challenge',
+                  timeline: body.timeline,
+                }
+              }
+            });
+          case 'support-maintenance':
+            return React.createElement(SupportRequestAutoReply, {
+              data: {
+                contact: summary.contact,
+                support: {
+                  websiteUrl: body.websiteUrl || 'Not provided',
+                  supportType: body.supportType || 'General Support',
+                  priority: body.priority || 'medium',
+                  issueDescription: body.issueDescription || 'No description provided',
+                  platform: body.platform,
+                }
+              }
+            });
+          default:
+            return React.createElement(AutoReplyEmail, {
+              data: {
+                contact: summary.contact,
+                project: summary.project,
+                timeline: summary.timeline,
+              }
+            });
+        }
+      };
+      
+      const autoReplyHtml = await renderEmailToHtml(getAutoReplyTemplate(formType));
       
       const autoReplyText = createPlainTextEmail({
         recipientName: summary.contact.name,
@@ -162,10 +244,24 @@ export async function POST(request: NextRequest) {
         isAutoReply: true,
       });
       
+      const getAutoReplySubject = (formType: string) => {
+        switch (formType) {
+          case 'project-inquiry':
+            return 'Thank you for your project inquiry - Planet X Devs';
+          case 'quick-consultation':
+            return 'Quick consultation request received - Planet X Devs';
+          case 'support-maintenance':
+            const priority = body.priority || 'medium';
+            return `Support request received - Response within ${priority === 'urgent' ? '2-4 hours' : '48 hours'}`;
+          default:
+            return 'Thank you for your inquiry - Planet X Devs';
+        }
+      };
+      
       await resend.emails.send({
         from: FROM_EMAIL,
         to: summary.contact.email as string,
-        subject: 'Thank you for your inquiry - Planet X Devs',
+        subject: getAutoReplySubject(formType),
         html: autoReplyHtml,
         text: autoReplyText,
         headers: {
@@ -175,6 +271,10 @@ export async function POST(request: NextRequest) {
           {
             name: 'category',
             value: 'auto-reply',
+          },
+          {
+            name: 'form-type',
+            value: formType,
           },
         ],
       });
