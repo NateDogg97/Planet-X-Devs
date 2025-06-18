@@ -29,7 +29,7 @@ export default function ServiceDetailCard({
   timeline,
   popular = false,
   ctaText = "Get Started",
-  ctaHref = "#contact"
+  ctaHref = "/contact"
 }: ServiceDetailCardProps) {
   return (
     <div 
@@ -60,7 +60,7 @@ export default function ServiceDetailCard({
       {price && (
         <div className="mb-6 pb-6 border-b border-nebula-purple/20">
           <div className="flex items-baseline gap-1">
-            <span className="text-4xl font-bold text-nebula-violet">{price.amount}</span>
+            <span className="text-4xl font-bold text-nebula-white">{price.amount}</span>
             {price.period && (
               <span className="text-gray-400">/{price.period}</span>
             )}

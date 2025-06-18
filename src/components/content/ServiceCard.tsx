@@ -1,6 +1,5 @@
 import Icon from '../ui/Icon';
 import { ServiceCardProps } from '@/types';
-import ErrorBoundary from '../ErrorBoundary';
 
 export default function ServiceCard({
   title,
@@ -12,13 +11,7 @@ export default function ServiceCard({
   className = ""
 }: ServiceCardProps) {
   return (
-    <ErrorBoundary
-      fallback="minimal"
-      message="Unable to load service card"
-      showRetry={false}
-      context={{ component: 'ServiceCard', title }}
-    >
-      <article 
+    <article 
         itemScope 
         itemType="https://schema.org/Service" 
         className={`bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow ${className}`}
@@ -64,6 +57,5 @@ export default function ServiceCard({
           </footer>
         )}
       </article>
-    </ErrorBoundary>
   );
 }

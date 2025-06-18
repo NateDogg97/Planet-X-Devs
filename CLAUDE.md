@@ -25,6 +25,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Testimonials/Case studies: 1-2 times per month
 - Service descriptions: Several times per year (more frequent initially)
 - Team/About section: Periodic updates needed
+- Contact forms: May need updates based on business needs
 
 ## Development Philosophy
 
@@ -33,182 +34,293 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 2. **Simplicity Over Complexity**: Use static HTML/CSS where possible, components only when truly needed.
 3. **Maintainability**: Keep it simple since it's a solo developer project.
 4. **Animation Balance**: Subtle, performant animations that enhance without overwhelming.
+5. **SEO Focus**: Implement best practices for search engine visibility.
 
 ### When to Use Components vs Static Content
 
 **USE COMPONENTS FOR:**
-- Interactive elements (ContactForm, navigation with mobile menu)
+- Interactive elements (ContactForm, TabInterface, navigation with mobile menu)
 - Truly reusable UI elements used across multiple pages (Button, Card)
 - Content that updates frequently (testimonials, if displayed in multiple places)
 - Layout elements that must be reused for each section (Containers, Sections)
 - Animated elements (StarField, FloatingPlanet, ProcessTimeline)
+- Form logic and validation
 
 **USE STATIC HTML/CSS FOR:**
 - Page sections that rarely change
 - Content-heavy areas with minimal interactivity
 - One-off layouts or designs
 - Static content sections without animations
+- Trust badges and simple info sections
+
+## Contact Page Implementation Guidelines
+
+### Page Structure
+The contact page will use a three-form tabbed interface to segment different user intents:
+1. **Project Inquiry Form** - Primary revenue driver
+2. **Quick Consultation Form** - Low-friction lead capture
+3. **Support/Maintenance Form** - Existing client support
+
+### Key Components to Implement
+
+#### 1. TabInterface Component
+- Manages switching between three forms
+- CSS-based transitions, no heavy JavaScript
+- Accessible keyboard navigation
+- Mobile-responsive (converts to accordion on small screens)
+
+#### 2. Enhanced ContactForm Components
+- Split existing form into three distinct variations
+- Implement conditional field visibility
+- Add form-specific validation rules
+- Maintain existing email integration
+
+#### 3. SocialLinks Component (Existing)
+- Keep current implementation
+- Ensure it works in new sidebar layout
+
+### Performance Requirements
+- **Initial Load**: < 3s on 3G
+- **Form Interactions**: Instant feedback (< 100ms)
+- **Tab Switching**: CSS transitions only
+- **Bundle Size**: Keep form JavaScript under 50KB
+
+### SEO Optimization
+1. **Meta Tags**:
+   - Unique title for each form type (consider URL params)
+   - Rich snippets for contact information
+   - Local business schema markup
+
+2. **Content Structure**:
+   - H1: Clear value proposition
+   - H2s: Form types and trust indicators
+   - Alt text for all decorative elements
+
+3. **Performance SEO**:
+   - Lazy load below-fold content
+   - Optimize critical rendering path
+   - Implement proper caching headers
+
+### Accessibility Requirements
+- **WCAG 2.1 AA Compliance**
+- Tab navigation for all interactive elements
+- ARIA labels for form fields and tabs
+- Error messages announced to screen readers
+- Color contrast ratio of at least 4.5:1
+
+### Form Analytics & Tracking
+Implement tracking for:
+- Form views by type
+- Field abandonment rates
+- Submission success/failure
+- Time to complete each form
+- Source/medium attribution
+
+### Testing Strategy
+
+#### Terminal-Based Testing
+```bash
+# TypeScript compilation
+npx tsc --noEmit
+
+# ESLint checks
+npm run lint
+
+# Build size analysis
+npm run build && npm run analyze
+
+# Accessibility testing
+npx pa11y http://localhost:3000/contact
+
+# SEO testing
+npx lighthouse http://localhost:3000/contact --only-categories=seo
+
+# Bundle size check
+npx bundlephobia ./out/_next/static/chunks/*.js
+```
+
+#### Visual Testing
+- Use browser DevTools for responsive testing
+- Test tab keyboard navigation manually
+- Verify form validation messages appear correctly
+- Check animations at different frame rates
+
+### Implementation Phases
+
+#### Phase 1: Structure & Layout
+- Create tab interface component
+- Set up three form variations
+- Implement responsive grid layout
+- Add social links to sidebar
+
+#### Phase 2: Form Logic
+- Implement field validation
+- Add conditional logic
+- Set up form submission handlers
+- Test email integration
+
+#### Phase 3: Polish & Optimize
+- Add animations and transitions
+- Implement lazy loading
+- Optimize images and assets
+- Add analytics tracking
+
+#### Phase 4: SEO & Performance
+- Run full performance audit
+- Implement SEO improvements
+- Add schema markup
+- Test and optimize Core Web Vitals
+
+### State Management
+- Use React's built-in useState for form state
+- Consider useReducer for complex form logic
+- No external state management libraries needed
+- Persist form data in sessionStorage (not localStorage)
+
+### Error Handling
+- Client-side validation before submission
+- Clear error messages next to fields
+- Global error state for submission failures
+- Fallback email link if form fails
+- Log errors to monitoring service (if available)
+
+### Mobile Considerations
+- Touch-friendly form inputs (min 44x44px)
+- Simplified navigation on mobile
+- Single-column layout for forms
+- Reduced animations on low-power devices
+- Test on real devices, not just DevTools
 
 ## Technical Guidelines
 
-### Services Page Implementation Status
-The services page has been implemented with the nebula/space theme. Future optimizations:
-1. **Performance Monitoring**: Track page-specific metrics
-2. **Component Reuse**: Ensure efficient sharing between pages
-3. **Static Content**: Continue converting appropriate sections
-4. **Animation Performance**: Monitor and optimize as needed
+### Code Quality Standards
+1. **Type Safety**: Full TypeScript coverage, no `any` types
+2. **Component Size**: Keep under 200 lines, split if larger
+3. **Function Complexity**: Max cyclomatic complexity of 10
+4. **Import Order**: React → Next → External → Internal → Types → Styles
+5. **Naming Conventions**: 
+   - Components: PascalCase
+   - Functions/variables: camelCase
+   - Constants: UPPER_SNAKE_CASE
+   - CSS classes: kebab-case
 
-### Refactoring Priorities
-1. Convert most `/src/components/sections/` to static JSX or HTML in page files (except animated ones)
-2. Remove themed component variants (ThemedButton, ThemedCard) - use base components with className
-3. Keep only essential components in `/src/components/ui/`
-4. Optimize images and implement lazy loading
-5. Implement proper animation performance optimizations
+### Performance Optimization Checklist
+- [ ] Images optimized and using next/image
+- [ ] Fonts subset and preloaded
+- [ ] Critical CSS inlined
+- [ ] JavaScript code-split appropriately
+- [ ] Third-party scripts loaded asynchronously
+- [ ] Animations use CSS transforms only
+- [ ] No layout shifts from lazy-loaded content
 
-### Performance Goals
-- ✅ **Implement Core Web Vitals tracking** - Comprehensive monitoring system implemented
-- Target scores:
-  - LCP: < 2.5s
-  - INP: < 200ms (replaces FID)  
-  - CLS: < 0.1
-- ✅ **Reduce JavaScript bundle by 50%+** - Achieved through dynamic imports and optimization
-- ✅ **Ensure animations don't block initial render** - Intersection observer lazy loading implemented
+### Git Workflow
+```bash
+# Feature branch naming
+git checkout -b feature/contact-page-redesign
 
-### Performance Monitoring System
-- **Core Web Vitals tracking** via web-vitals library (LCP, INP, CLS, FCP, TTFB)
-- **Custom performance marks** for key interactions (hero render, CTA clicks, particle loading)
-- **Performance budgets** with automated alerts for regressions
-- **Real User Monitoring (RUM)** in production environment
-- **Bundle size monitoring** with 160KB total budget
+# Commit message format
+# type(scope): subject
+# Example: feat(contact): add tabbed form interface
 
-# About Page Implementation Guidelines
+# Before pushing
+npm run lint
+npm run build
+git add .
+git commit -m "feat(contact): implement three-form tab interface"
+```
 
-Add this section to your CLAUDE.md file:
+### Monitoring & Analytics
+- Set up Google Analytics 4 events for form interactions
+- Monitor Core Web Vitals in Google Search Console
+- Track form conversion rates by type
+- Set up alerts for form submission failures
+- Monitor 404s and other errors
 
-## About Page Specific Guidelines
-
-### Purpose and Goals
-The About page builds trust and credibility by:
-- Telling the agency partnership story
-- Showcasing values that resonate with agencies
-- Demonstrating expertise without overwhelming
-- Maintaining the nebula/space theme consistently
-
-### Component Reuse from Homepage/Services
-- `StarField` - For hero background only
-- `Hero` - Without bullet points prop
-- `Section` & `Container` - For consistent spacing
-- `CTASection` - For final call-to-action
-- `Footer` - No modifications needed
-
-### New Components (Keep Minimal)
-- `ValueCard` - Only if significantly different from existing Card
-- `TimelineItem` - Only if ProcessTimeline can't be adapted
-- Prefer static HTML with CSS classes over new components
-
-### Static Content Sections
-- Story/Origin section - Pure JSX/HTML
-- Team member bio and details
-- Most timeline content (except animation wrapper)
-- Skill tags and badges
-
-### Animation Guidelines
-- **Hero**: Keep existing StarField, simple fade-ins
-- **Story Section**: CSS-only floating elements
-- **Values Grid**: Staggered fade-in on scroll, CSS hover states
-- **Timeline**: CSS line drawing, sequential item appearance
-- **Team Avatar**: CSS rotation animation for border
-- **CTA**: Minimal particles, reuse existing
-
-### Performance Requirements
-- Total JavaScript for animations: < 10KB
-- Use Intersection Observer for all scroll triggers
-- CSS transforms only, no JavaScript physics
-- Lazy load any images below fold
-- Target same Core Web Vitals as other pages
-
-### Content Management
-- Team section will need periodic updates
-- Timeline should be updated quarterly/annually
-- Values should remain stable (brand consistency)
-- Make content sections easy to edit without breaking layout
-
-### Mobile Considerations
-- Timeline should stack vertically on mobile
-- Values grid: 3 columns → 1 column
-- Story section: Side-by-side → stacked
-- Maintain readability of all text
-
-### Implementation Priority
-1. Structure and content first
-2. Basic styling and layout
-3. Add animations last
-4. Test performance at each step
-
-### Common Pitfalls to Avoid
-- Don't over-animate the timeline
-- Keep floating elements subtle
-- Don't create components for one-time use sections
-- Avoid complex grid layouts that break on mobile
-- Don't add personality at the cost of professionalism
-
-### Testing Focus Areas
-- Timeline renders correctly at all breakpoints
-- Animations don't cause layout shifts
-- Page performs well on mobile devices
-- Content is scannable and engaging
-- CTAs are prominent and compelling
-
-### Static Content Sections
-- Introduction paragraph after hero
-- Coming soon section (full HTML)
-- Service descriptions within cards
-
-### Animation Performance
-- Limit particles to final CTA only
-- Keep floating planets but optimize loading
-- Use CSS transforms only
-- Add will-change property sparingly
-- Implement intersection observer for scroll animations
+### Documentation Requirements
+- Update this file with any new patterns
+- Document complex form logic inline
+- Add JSDoc comments to utility functions
+- Create user guide for form management
+- Document email template variables
 
 ## Commands
 
 ### Development
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build production bundle
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint checks
+```bash
+npm run dev          # Start development server with Turbopack
+npm run build        # Build production bundle
+npm run start        # Start production server
+npm run lint         # Run ESLint checks
+npm run type-check   # Run TypeScript compiler check
+```
 
-### Performance Testing
-- `npm run build` - Check bundle size in output
-- Use Chrome DevTools Lighthouse for performance audits
-- Monitor Core Web Vitals in production
+### Testing & Analysis
+```bash
+# Bundle analysis
+npm run build && npm run analyze
 
-### Environment Setup
-Required environment variables:
-- `RESEND_API_KEY` - API key for Resend email service
-- `RESEND_FROM_EMAIL` - From email address for Resend
-- `RESEND_TO_EMAIL` - To email address for contact form submissions
+# Accessibility audit
+npx pa11y http://localhost:3000/contact
 
-### Dependencies
-Core dependencies for nebula theme:
-- `framer-motion` - To be removed/replaced with CSS
-- `react-countup` - To be removed/replaced with CSS
-- `swiper` - To be removed if unused
-- `resend` - Keep for email functionality
+# Performance audit
+npx lighthouse http://localhost:3000/contact
 
-## Performance Optimization Workflow
+# SEO audit
+npx @sitespeed.io/sitespeed.io http://localhost:3000/contact
+```
 
-1. **Measure**: Always measure before optimizing
-2. **Quick Wins**: Start with easy, high-impact changes
-3. **Bundle Size**: Remove unnecessary dependencies
-4. **Static Content**: Convert components to static HTML where possible
-5. **Lazy Loading**: Implement for below-fold content
-6. **Test**: Verify no visual regressions
-7. **Monitor**: Set up ongoing performance monitoring
+### Deployment
+```bash
+# Pre-deployment checklist
+npm run preflight    # Runs lint, type-check, and build
 
-## Documentation
+# Deploy to production
+npm run deploy       # Platform-specific deployment command
+```
 
-- Homepage optimization checklist: `/docs/homepage-optimization-checklist.md`
-- Performance best practices: To be created
-- Component guidelines: To be created
+## Environment Variables
+```bash
+# Email Service
+RESEND_API_KEY=          # Resend API key
+RESEND_FROM_EMAIL=       # From email address
+RESEND_TO_EMAIL=         # To email address for form submissions
+
+# Analytics (Optional)
+NEXT_PUBLIC_GA_ID=       # Google Analytics ID
+NEXT_PUBLIC_GTM_ID=      # Google Tag Manager ID
+
+# Feature Flags (Optional)
+NEXT_PUBLIC_ENABLE_CHAT= # Enable/disable chat widget
+```
+
+## Troubleshooting Guide
+
+### Common Issues
+
+#### Form Not Submitting
+1. Check browser console for errors
+2. Verify environment variables are set
+3. Check network tab for failed requests
+4. Ensure CORS is properly configured
+
+#### Poor Performance Scores
+1. Run `npm run analyze` to check bundle size
+2. Look for large dependencies
+3. Ensure images are optimized
+4. Check for render-blocking resources
+
+#### TypeScript Errors
+1. Run `npx tsc --noEmit` for detailed errors
+2. Check for missing type definitions
+3. Ensure all imports have proper types
+4. Update @types packages if needed
+
+## Future Enhancements
+- A/B testing for form variations
+- Progressive form disclosure
+- Appointment scheduling integration
+- Live chat integration
+- Multi-language support
+- Advanced analytics dashboard
+- Automated lead scoring
+- CRM integration
