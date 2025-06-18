@@ -20,7 +20,6 @@ export {
   howHeardOptions,
   formValidationMessages,
   formLabels,
-  formHelpText,
   type ProjectTypeOption,
   type TimelineOption,
   type BudgetRangeOption,

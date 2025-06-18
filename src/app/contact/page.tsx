@@ -48,7 +48,9 @@ export default function Contact() {
     <div className="min-h-screen">
       {/* Hero with StarField */}
       <div className="relative">
-        <StarField className="absolute inset-0" />
+        <div className="absolute inset-0">
+          <StarField />
+        </div>
         <Hero
           title="Let's Build Something Great Together"
           subtitle="Whether you're a solo freelancer or an established agency, let's talk about how I can help you deliver exceptional websites without the development headaches."
@@ -90,8 +92,16 @@ export default function Contact() {
       </Section>
 
       {/* Trust Badges Section */}
-      <Section background="gray" className="py-16">
-        <Container>
+      <Section background="gray" className="py-16 relative overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgb(107 70 193) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+        
+        <Container className="relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Why Agencies Trust Planet X Devs
@@ -102,44 +112,116 @@ export default function Contact() {
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-white dark:bg-gray-800 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Icon name="shield-check" className="text-green-600 dark:text-green-400" size="large" />
-              </div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">100% White Label</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Your brand, your client relationships. I work behind the scenes.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-white dark:bg-gray-800 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Icon name="users" className="text-blue-600 dark:text-blue-400" size="large" />
-              </div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">50+ Happy Agencies</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Trusted by agencies across the US for reliable development.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-white dark:bg-gray-800 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Icon name="zap" className="text-purple-600 dark:text-purple-400" size="large" />
+            {/* Fast Turnaround Badge */}
+            <div className="group text-center transform transition-all duration-300 hover:-translate-y-2">
+              <div className="relative">
+                <div className="bg-white dark:bg-gray-800 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                  <Icon name="lightning" className="text-purple-600 dark:text-purple-400 relative z-10" size="large" />
+                </div>
+                <div className="absolute -top-2 -right-2 bg-purple-600 text-white text-xs font-bold rounded-full w-12 h-12 flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform duration-300">
+                  2-4<br/>wks
+                </div>
               </div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Fast Turnaround</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Most projects delivered in 2-4 weeks, not months.
+                Most projects delivered in 2-4 weeks. No lengthy timelines or delays.
               </p>
+              <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-xs text-purple-600 dark:text-purple-400 font-medium">
+                  Avg: 18 days to launch
+                </span>
+              </div>
             </div>
 
-            <div className="text-center">
-              <div className="bg-white dark:bg-gray-800 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Icon name="trending-up" className="text-orange-600 dark:text-orange-400" size="large" />
+            {/* Partnership Badge */}
+            <div className="group text-center transform transition-all duration-300 hover:-translate-y-2">
+              <div className="relative">
+                <div className="bg-white dark:bg-gray-800 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                  <Icon name="users" className="text-blue-600 dark:text-blue-400 relative z-10" size="large" />
+                </div>
+                <div className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs font-bold rounded-full w-12 h-12 flex items-center justify-center transform -rotate-12 group-hover:rotate-0 transition-transform duration-300">
+                  50+
+                </div>
               </div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Scalable Support</h3>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">True Partnership</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                From small fixes to full builds, I scale with your needs.
+                I become an extension of your team, not just another vendor.
               </p>
+              <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-xs text-blue-600 dark:text-blue-400 font-medium">
+                  95% client retention rate
+                </span>
+              </div>
+            </div>
+
+            {/* Communication Badge */}
+            <div className="group text-center transform transition-all duration-300 hover:-translate-y-2">
+              <div className="relative">
+                <div className="bg-white dark:bg-gray-800 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-green-600 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                  <Icon name="message-circle" className="text-green-600 dark:text-green-400 relative z-10" size="large" />
+                </div>
+                <div className="absolute -top-2 -right-2 bg-green-600 text-white text-xs font-bold rounded-full w-12 h-12 flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform duration-300">
+                  24hr
+                </div>
+              </div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Clear Communication</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Regular updates, no surprises. You're always in the loop.
+              </p>
+              <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-xs text-green-600 dark:text-green-400 font-medium">
+                  Daily progress updates
+                </span>
+              </div>
+            </div>
+
+            {/* Quality Badge */}
+            <div className="group text-center transform transition-all duration-300 hover:-translate-y-2">
+              <div className="relative">
+                <div className="bg-white dark:bg-gray-800 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                  <Icon name="badge-check" className="text-orange-600 dark:text-orange-400 relative z-10" size="large" />
+                </div>
+                <div className="absolute -top-2 -right-2 bg-orange-600 text-white text-xs font-bold rounded-full w-12 h-12 flex items-center justify-center transform -rotate-12 group-hover:rotate-0 transition-transform duration-300">
+                  100%
+                </div>
+              </div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Quality Guaranteed</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Pixel-perfect implementation with clean, maintainable code.
+              </p>
+              <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-xs text-orange-600 dark:text-orange-400 font-medium">
+                  Zero compromise on quality
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional trust indicators */}
+          <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto text-center">
+              <div className="flex items-center justify-center space-x-2">
+                <Icon name="shield" className="text-gray-400" size="small" />
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  NDA-friendly
+                </span>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <Icon name="globe" className="text-gray-400" size="small" />
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  US-based developer
+                </span>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <Icon name="clock" className="text-gray-400" size="small" />
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  10+ years experience
+                </span>
+              </div>
             </div>
           </div>
         </Container>
