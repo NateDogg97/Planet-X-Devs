@@ -5,35 +5,19 @@ import Button from '../../ui/Button';
 import Card from '../../ui/Card';
 import Icon from '../../ui/Icon';
 import FormField from '../FormField';
-
-interface SupportFormData {
-  name: string;
-  email: string;
-  company: string;
-  website: string;
-  issueType: string;
-  priority: string;
-  description: string;
-  currentProvider: string;
-}
-
-interface SupportFormErrors {
-  [key: string]: string;
-}
+import { FormData, FormErrors } from '@/types';
+import {
+  validateContactForm,
+  isFormValid,
+  submitContactForm,
+  getInitialFormData,
+  scrollToFirstError,
+  handleFieldChange
+} from '@/utils';
 
 export default function SupportMaintenanceForm() {
-  const [formData, setFormData] = useState<SupportFormData>({
-    name: '',
-    email: '',
-    company: '',
-    website: '',
-    issueType: '',
-    priority: '',
-    description: '',
-    currentProvider: ''
-  });
-  
-  const [errors, setErrors] = useState<SupportFormErrors>({});
+  const [formData, setFormData] = useState<FormData>(getInitialFormData('support-maintenance'));
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [submitMessage, setSubmitMessage] = useState<string>('');
@@ -58,16 +42,8 @@ export default function SupportMaintenanceForm() {
     { value: 'low', label: 'Low (When Convenient)' }
   ];
   
-  const handleChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    
-    if (errors[field]) {
-      setErrors(prev => {
-        const newErrors = { ...prev };
-        delete newErrors[field];
-        return newErrors;
-      });
-    }
+  const handleChange = (field: string, value: string | boolean) => {
+    handleFieldChange(field, value, setFormData, errors, setErrors);
     
     if (submitStatus !== 'idle') {
       setSubmitStatus('idle');
@@ -76,46 +52,16 @@ export default function SupportMaintenanceForm() {
   };
   
   const validateForm = (): boolean => {
-    const newErrors: SupportFormErrors = {};
-    
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-    
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-    
-    if (!formData.website.trim()) {
-      newErrors.website = 'Website URL is required';
-    } else if (!formData.website.includes('.')) {
-      newErrors.website = 'Please enter a valid website URL';
-    }
-    
-    if (!formData.issueType) {
-      newErrors.issueType = 'Please select an issue type';
-    }
-    
-    if (!formData.priority) {
-      newErrors.priority = 'Please select a priority level';
-    }
-    
-    if (!formData.description.trim()) {
-      newErrors.description = 'Please describe the issue or request';
-    } else if (formData.description.length < 20) {
-      newErrors.description = 'Please provide more details (at least 20 characters)';
-    }
-    
+    const newErrors = validateContactForm(formData);
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return isFormValid(newErrors);
   };
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!validateForm()) {
+      scrollToFirstError();
       return;
     }
     
@@ -123,46 +69,45 @@ export default function SupportMaintenanceForm() {
     setSubmitStatus('idle');
     
     try {
+      // Add form type to submission data
       const submissionData = {
         ...formData,
         formType: 'support-maintenance'
       };
       
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(submissionData),
-      });
-      
-      if (!response.ok) {
-        throw new Error('Failed to submit form');
-      }
-      
+      await submitContactForm(submissionData);
       setSubmitStatus('success');
       
-      const responseTime = formData.priority === 'urgent' ? '1-2 hours' : 
-                          formData.priority === 'high' ? '4-6 hours' : '24 hours';
+      const priority = formData.priority || 'medium';
+      const responseTime = priority === 'urgent' ? '2-4 hours' : 
+                          priority === 'high' ? '24 hours' : '48 hours';
       
-      setSubmitMessage(`Support request received! I'll respond within ${responseTime} based on the priority level.`);
+      setSubmitMessage(`Your support request has been received! I'll respond within ${responseTime}.`);
       
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        website: '',
-        issueType: '',
-        priority: '',
-        description: '',
-        currentProvider: ''
-      });
+      setFormData(getInitialFormData('support-maintenance'));
       setErrors({});
       
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
-      setSubmitMessage('There was an error submitting your support request. Please try again or email directly.');
+      
+      if (error instanceof Error) {
+        try {
+          const validationErrors = JSON.parse(error.message);
+          if (typeof validationErrors === 'object') {
+            setErrors(validationErrors);
+            scrollToFirstError();
+            setSubmitMessage('Please correct the errors and try again.');
+          } else {
+            setSubmitMessage(error.message || 'There was an error submitting your form. Please try again.');
+          }
+        } catch {
+          setSubmitMessage(error.message || 'There was an error submitting your form. Please try again.');
+        }
+      } else {
+        setSubmitMessage('There was an error submitting your form. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -207,7 +152,7 @@ export default function SupportMaintenanceForm() {
             name="support-company"
             type="text"
             label="Company/Agency"
-            value={formData.company}
+            value={formData.company || ''}
             onChange={(e) => handleChange('company', e.target.value)}
           />
           
@@ -215,10 +160,10 @@ export default function SupportMaintenanceForm() {
             name="support-website"
             type="text"
             label="Website URL"
-            value={formData.website}
-            onChange={(e) => handleChange('website', e.target.value)}
+            value={formData.websiteUrl || ''}
+            onChange={(e) => handleChange('websiteUrl', e.target.value)}
             placeholder="https://example.com"
-            error={errors.website}
+            error={errors.websiteUrl}
             required
           />
         </div>
@@ -228,10 +173,10 @@ export default function SupportMaintenanceForm() {
             name="support-issue-type"
             type="select"
             label="Issue Type"
-            value={formData.issueType}
-            onChange={(e) => handleChange('issueType', e.target.value)}
+            value={formData.supportType || ''}
+            onChange={(e) => handleChange('supportType', e.target.value)}
             options={issueTypes}
-            error={errors.issueType}
+            error={errors.supportType}
             required
           />
           
@@ -239,7 +184,7 @@ export default function SupportMaintenanceForm() {
             name="support-priority"
             type="select"
             label="Priority Level"
-            value={formData.priority}
+            value={formData.priority || ''}
             onChange={(e) => handleChange('priority', e.target.value)}
             options={priorities}
             error={errors.priority}
@@ -248,27 +193,27 @@ export default function SupportMaintenanceForm() {
         </div>
         
         <FormField
-          name="support-current-provider"
+          name="support-platform"
           type="text"
-          label="Current Developer/Agency (Optional)"
-          value={formData.currentProvider}
-          onChange={(e) => handleChange('currentProvider', e.target.value)}
-          placeholder="Who currently maintains this site?"
+          label="Platform/CMS (Optional)"
+          value={formData.platform || ''}
+          onChange={(e) => handleChange('platform', e.target.value)}
+          placeholder="WordPress, React, Shopify, etc."
         />
         
         <FormField
           name="support-description"
           type="textarea"
           label="Describe the issue or request"
-          value={formData.description}
-          onChange={(e) => handleChange('description', e.target.value)}
+          value={formData.issueDescription || ''}
+          onChange={(e) => handleChange('issueDescription', e.target.value)}
           rows={5}
           placeholder="Please provide as much detail as possible, including:
 • What's not working correctly?
 • When did you first notice the issue?
 • What steps have you already tried?
 • Any error messages you've seen?"
-          error={errors.description}
+          error={errors.issueDescription}
           required
         />
         

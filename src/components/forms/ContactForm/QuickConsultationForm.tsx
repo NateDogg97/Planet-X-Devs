@@ -5,29 +5,19 @@ import Button from '../../ui/Button';
 import Card from '../../ui/Card';
 import Icon from '../../ui/Icon';
 import FormField from '../FormField';
-
-interface QuickFormData {
-  name: string;
-  email: string;
-  agency: string;
-  consultationType: string;
-  message: string;
-}
-
-interface QuickFormErrors {
-  [key: string]: string;
-}
+import { FormData, FormErrors } from '@/types';
+import {
+  validateContactForm,
+  isFormValid,
+  submitContactForm,
+  getInitialFormData,
+  scrollToFirstError,
+  handleFieldChange
+} from '@/utils';
 
 export default function QuickConsultationForm() {
-  const [formData, setFormData] = useState<QuickFormData>({
-    name: '',
-    email: '',
-    agency: '',
-    consultationType: '',
-    message: ''
-  });
-  
-  const [errors, setErrors] = useState<QuickFormErrors>({});
+  const [formData, setFormData] = useState<FormData>(getInitialFormData('quick-consultation'));
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [submitMessage, setSubmitMessage] = useState<string>('');
@@ -42,17 +32,8 @@ export default function QuickConsultationForm() {
     { value: 'other', label: 'Other' }
   ];
   
-  const handleChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    
-    // Clear error for this field
-    if (errors[field]) {
-      setErrors(prev => {
-        const newErrors = { ...prev };
-        delete newErrors[field];
-        return newErrors;
-      });
-    }
+  const handleChange = (field: string, value: string | boolean) => {
+    handleFieldChange(field, value, setFormData, errors, setErrors);
     
     if (submitStatus !== 'idle') {
       setSubmitStatus('idle');
@@ -61,36 +42,16 @@ export default function QuickConsultationForm() {
   };
   
   const validateForm = (): boolean => {
-    const newErrors: QuickFormErrors = {};
-    
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-    
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-    
-    if (!formData.consultationType) {
-      newErrors.consultationType = 'Please select a consultation type';
-    }
-    
-    if (!formData.message.trim()) {
-      newErrors.message = 'Please describe what you need help with';
-    } else if (formData.message.length < 10) {
-      newErrors.message = 'Please provide more details (at least 10 characters)';
-    }
-    
+    const newErrors = validateContactForm(formData);
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return isFormValid(newErrors);
   };
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!validateForm()) {
+      scrollToFirstError();
       return;
     }
     
@@ -98,39 +59,40 @@ export default function QuickConsultationForm() {
     setSubmitStatus('idle');
     
     try {
+      // Add form type to submission data
       const submissionData = {
         ...formData,
         formType: 'quick-consultation'
       };
       
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(submissionData),
-      });
-      
-      if (!response.ok) {
-        throw new Error('Failed to submit form');
-      }
-      
+      await submitContactForm(submissionData);
       setSubmitStatus('success');
-      setSubmitMessage('Thanks for reaching out! I\'ll get back to you within a few hours to discuss your consultation needs.');
+      setSubmitMessage('Thank you for your consultation request! I\'ll reach out within 4-6 hours to schedule our call.');
       
-      setFormData({
-        name: '',
-        email: '',
-        agency: '',
-        consultationType: '',
-        message: ''
-      });
+      setFormData(getInitialFormData('quick-consultation'));
       setErrors({});
       
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
-      setSubmitMessage('There was an error submitting your request. Please try again or email directly.');
+      
+      if (error instanceof Error) {
+        try {
+          const validationErrors = JSON.parse(error.message);
+          if (typeof validationErrors === 'object') {
+            setErrors(validationErrors);
+            scrollToFirstError();
+            setSubmitMessage('Please correct the errors and try again.');
+          } else {
+            setSubmitMessage(error.message || 'There was an error submitting your form. Please try again.');
+          }
+        } catch {
+          setSubmitMessage(error.message || 'There was an error submitting your form. Please try again.');
+        }
+      } else {
+        setSubmitMessage('There was an error submitting your form. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -171,33 +133,33 @@ export default function QuickConsultationForm() {
         </div>
         
         <FormField
-          name="quick-agency"
+          name="quick-company"
           type="text"
-          label="Agency/Company (Optional)"
-          value={formData.agency}
-          onChange={(e) => handleChange('agency', e.target.value)}
+          label="Company (Optional)"
+          value={formData.company || ''}
+          onChange={(e) => handleChange('company', e.target.value)}
         />
         
         <FormField
-          name="quick-consultation-type"
+          name="quick-interests"
           type="select"
           label="What do you need help with?"
-          value={formData.consultationType}
-          onChange={(e) => handleChange('consultationType', e.target.value)}
+          value={formData.interests || ''}
+          onChange={(e) => handleChange('interests', e.target.value)}
           options={consultationTypes}
-          error={errors.consultationType}
+          error={errors.interests}
           required
         />
         
         <FormField
-          name="quick-message"
+          name="quick-challenge"
           type="textarea"
           label="Tell me more about your situation"
-          value={formData.message}
-          onChange={(e) => handleChange('message', e.target.value)}
+          value={formData.challenge || ''}
+          onChange={(e) => handleChange('challenge', e.target.value)}
           rows={4}
           placeholder="Describe your technical challenge, timeline, or what you're hoping to achieve..."
-          error={errors.message}
+          error={errors.challenge}
           required
         />
         

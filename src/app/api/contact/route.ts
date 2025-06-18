@@ -20,6 +20,7 @@ export async function POST(request: NextRequest) {
   try {
     // Parse request body
     const body = await request.json();
+    const formType = body.formType || 'project-inquiry';
     
     // Validate the form data
     const validationErrors = validateContactForm(body as FormData);
@@ -56,14 +57,42 @@ export async function POST(request: NextRequest) {
       timeline: summary.timeline,
     });
     
-    // Format email subject
-    const subject = formatEmailSubject(
-      'New Project Inquiry: {{projectType}} - {{agency}}',
-      {
-        projectType: summary.project.type,
-        agency: summary.contact.agency,
+    // Format email subject based on form type
+    const getEmailSubject = (formType: string, summary: any) => {
+      switch (formType) {
+        case 'project-inquiry':
+          return formatEmailSubject(
+            'New Project Inquiry: {{projectType}} - {{agency}}',
+            {
+              projectType: summary.project?.type || 'General Project',
+              agency: summary.contact.agency || summary.contact.company || 'Unknown Agency',
+            }
+          );
+        case 'quick-consultation':
+          return formatEmailSubject(
+            'Quick Consultation Request - {{name}} ({{company}})',
+            {
+              name: summary.contact.name,
+              company: summary.contact.company || 'No Company',
+            }
+          );
+        case 'support-maintenance':
+          const priority = body.priority || 'medium';
+          const priorityPrefix = priority === 'urgent' ? '[URGENT] ' : priority === 'high' ? '[HIGH] ' : '';
+          return formatEmailSubject(
+            '{{priority}}Support Request: {{supportType}} - {{name}}',
+            {
+              priority: priorityPrefix,
+              supportType: body.supportType || 'General Support',
+              name: summary.contact.name,
+            }
+          );
+        default:
+          return 'New Contact Form Submission';
       }
-    );
+    };
+    
+    const subject = getEmailSubject(formType, summary);
     
     // Send email using Resend
     const emailData = {
@@ -82,9 +111,21 @@ export async function POST(request: NextRequest) {
           value: 'contact-form',
         },
         {
-          name: 'project-type',
-          value: String(formattedData.projectType || ''),
+          name: 'form-type',
+          value: formType,
         },
+        {
+          name: 'priority',
+          value: body.priority || 'medium',
+        },
+        ...(formattedData.projectType ? [{
+          name: 'project-type',
+          value: String(formattedData.projectType),
+        }] : []),
+        ...(body.supportType ? [{
+          name: 'support-type',
+          value: String(body.supportType),
+        }] : []),
       ],
     };
     
@@ -139,10 +180,32 @@ export async function POST(request: NextRequest) {
       });
     }
     
+    // Get success message based on form type
+    const getSuccessMessage = (formType: string) => {
+      switch (formType) {
+        case 'project-inquiry':
+          return 'Thank you for your project inquiry! I\'ll get back to you within 24 hours with a detailed proposal.';
+        case 'quick-consultation':
+          return 'Thank you for your consultation request! I\'ll reach out within 4-6 hours to schedule our call.';
+        case 'support-maintenance':
+          const priority = body.priority || 'medium';
+          if (priority === 'urgent') {
+            return 'Your urgent support request has been received! I\'ll respond within 2-4 hours.';
+          } else if (priority === 'high') {
+            return 'Your support request has been received! I\'ll respond within 24 hours.';
+          } else {
+            return 'Your support request has been received! I\'ll respond within 48 hours.';
+          }
+        default:
+          return 'Thank you for your submission! I\'ll get back to you soon.';
+      }
+    };
+
     return NextResponse.json(
       { 
         success: true, 
-        message: 'Thank you for your submission! We\'ll get back to you within 24 hours.',
+        message: getSuccessMessage(formType),
+        formType,
         id: data?.id
       },
       { status: 200 }

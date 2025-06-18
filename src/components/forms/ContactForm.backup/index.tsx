@@ -99,9 +99,9 @@ export default function ContactForm() {
           formData={{
             name: formData.name,
             email: formData.email,
-            agency: formData.agency,
-            phone: formData.phone,
-            howHeard: formData.howHeard
+            agency: formData.agency || '',
+            phone: formData.phone || '',
+            howHeard: formData.howHeard || ''
           }}
           onChange={handleChange}
           errors={errors}
@@ -110,10 +110,10 @@ export default function ContactForm() {
         <div className="border-t dark:border-gray-700 pt-8">
           <ProjectDetailsSection
             formData={{
-              projectType: formData.projectType,
-              projectScope: formData.projectScope,
-              additionalInfo: formData.additionalInfo,
-              whiteLabel: formData.whiteLabel
+              projectType: formData.projectType || '',
+              projectScope: formData.projectScope || '',
+              additionalInfo: formData.additionalInfo || '',
+              whiteLabel: formData.whiteLabel || false
             }}
             onChange={handleChange}
             errors={errors}
@@ -123,8 +123,8 @@ export default function ContactForm() {
         <div className="border-t dark:border-gray-700 pt-8">
           <BudgetTimelineSection
             formData={{
-              timeline: formData.timeline,
-              budget: formData.budget
+              timeline: formData.timeline || '',
+              budget: formData.budget || ''
             }}
             onChange={handleChange}
             errors={errors}

@@ -18,7 +18,7 @@ import {
 } from '@/utils';
 
 export default function ProjectInquiryForm() {
-  const [formData, setFormData] = useState<FormData>(getInitialFormData());
+  const [formData, setFormData] = useState<FormData>(getInitialFormData('project-inquiry'));
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -57,11 +57,11 @@ export default function ProjectInquiryForm() {
         formType: 'project-inquiry'
       };
       
-      await submitContactForm(submissionData);
+      const response = await submitContactForm(submissionData);
       setSubmitStatus('success');
-      setSubmitMessage('Thank you for your project inquiry! We\'ll get back to you within 24 hours with a detailed proposal.');
+      setSubmitMessage('Thank you for your project inquiry! I\'ll get back to you within 24 hours with a detailed proposal.');
       
-      setFormData(getInitialFormData());
+      setFormData(getInitialFormData('project-inquiry'));
       setErrors({});
       
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -106,9 +106,9 @@ export default function ProjectInquiryForm() {
           formData={{
             name: formData.name,
             email: formData.email,
-            agency: formData.agency,
-            phone: formData.phone,
-            howHeard: formData.howHeard
+            agency: formData.agency || '',
+            phone: formData.phone || '',
+            howHeard: formData.howHeard || ''
           }}
           onChange={handleChange}
           errors={errors}
@@ -117,10 +117,10 @@ export default function ProjectInquiryForm() {
         <div className="border-t dark:border-gray-700 pt-8">
           <ProjectDetailsSection
             formData={{
-              projectType: formData.projectType,
-              projectScope: formData.projectScope,
-              additionalInfo: formData.additionalInfo,
-              whiteLabel: formData.whiteLabel
+              projectType: formData.projectType || '',
+              projectScope: formData.projectScope || '',
+              additionalInfo: formData.additionalInfo || '',
+              whiteLabel: formData.whiteLabel || false
             }}
             onChange={handleChange}
             errors={errors}
@@ -130,8 +130,8 @@ export default function ProjectInquiryForm() {
         <div className="border-t dark:border-gray-700 pt-8">
           <BudgetTimelineSection
             formData={{
-              timeline: formData.timeline,
-              budget: formData.budget
+              timeline: formData.timeline || '',
+              budget: formData.budget || ''
             }}
             onChange={handleChange}
             errors={errors}

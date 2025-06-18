@@ -38,22 +38,41 @@ export interface TestimonialCardProps {
 
 // Form related types
 export interface FormData {
-  // Contact Info
+  // Contact Info (shared across all forms)
   name: string;
   email: string;
-  agency: string;
-  phone: string;
-  howHeard: string;
+  agency?: string;
+  company?: string;
+  phone?: string;
+  howHeard?: string;
   
-  // Project Details
-  projectType: string;
-  projectScope: string;
-  additionalInfo: string;
-  whiteLabel: boolean;
+  // Project Details (project inquiry form)
+  projectType?: string;
+  projectScope?: string;
+  additionalInfo?: string;
+  whiteLabel?: boolean;
   
-  // Budget & Timeline
-  timeline: string;
-  budget: string;
+  // Budget & Timeline (project inquiry form)
+  timeline?: string;
+  budget?: string;
+  
+  // Quick Consultation fields
+  interests?: string;
+  challenge?: string;
+  preferredContact?: string;
+  businessType?: string;
+  
+  // Support/Maintenance fields
+  existingClient?: boolean;
+  priority?: string;
+  supportType?: string;
+  websiteUrl?: string;
+  platform?: string;
+  issueDescription?: string;
+  maintenanceInterest?: boolean;
+  
+  // Form type identifier
+  formType?: string;
 }
 
 export interface FormErrors {
