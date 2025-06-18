@@ -44,7 +44,7 @@ export default function ContactForm() {
         defaultActiveTab="project-inquiry"
         className="max-w-4xl mx-auto"
         queryParamName="form"
-        updateUrl={true}
+        updateUrl={false}
       />
     </div>
   );

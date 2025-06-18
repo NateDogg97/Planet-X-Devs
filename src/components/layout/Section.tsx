@@ -5,6 +5,7 @@ interface SectionProps {
   className?: string;
   background?: 'white' | 'gray' | 'gradient' | 'dark';
   padding?: 'small' | 'medium' | 'large';
+  id?: string;
 }
 
 export default function Section({
@@ -23,7 +24,7 @@ export default function Section({
   const paddingClass = theme.spacing.section[padding];
   
   return (
-    <section className={`${paddingClass} ${backgrounds[background]} ${className}`}>
+    <section id={'forms'} className={`${paddingClass} ${backgrounds[background]} ${className}`}>
       {children}
     </section>
   );

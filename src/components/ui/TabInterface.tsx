@@ -16,7 +16,7 @@ interface TabInterfaceProps {
   defaultActiveTab?: string;
   className?: string;
   queryParamName?: string; // Name of the query parameter (default: 'tab')
-  updateUrl?: boolean; // Whether to update URL when tab changes (default: true)
+  updateUrl?: boolean; // Whether to update URL when tab changes (default: false)
 }
 
 export default function TabInterface({ 
@@ -24,7 +24,7 @@ export default function TabInterface({
   defaultActiveTab, 
   className = '',
   queryParamName = 'tab',
-  updateUrl = true
+  updateUrl = false // Changed default to false
 }: TabInterfaceProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -46,23 +46,35 @@ export default function TabInterface({
   
   const [activeTab, setActiveTab] = useState(getInitialTab());
   const [focusedTabIndex, setFocusedTabIndex] = useState(0);
+  const [hasInitialized, setHasInitialized] = useState(false);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   
   const activeTabData = tabs.find(tab => tab.id === activeTab);
   const activeIndex = tabs.findIndex(tab => tab.id === activeTab);
 
-  // Update URL when tab changes
+  // Initialize from URL on mount, then clear the URL parameter
+  useEffect(() => {
+    if (!hasInitialized) {
+      try {
+        const urlTab = searchParams.get(queryParamName);
+        if (urlTab && tabs.some(tab => tab.id === urlTab)) {
+          setActiveTab(urlTab);
+        }
+      } catch (error) {
+        console.warn('Unable to initialize from URL');
+      }
+      setHasInitialized(true);
+    }
+  }, [hasInitialized, searchParams, queryParamName, tabs, pathname, router]);
+
+  // Optional: Update URL when tab changes (disabled by default)
   const updateUrlParam = (tabId: string) => {
     if (!updateUrl) return;
     
     const current = new URLSearchParams(searchParams.toString());
     
-    if (tabId === (defaultActiveTab || tabs[0]?.id)) {
-      // Remove query param if it's the default tab
-      current.delete(queryParamName);
-    } else {
-      current.set(queryParamName, tabId);
-    }
+    // Only update URL if explicitly enabled
+    current.set(queryParamName, tabId);
     
     const search = current.toString();
     const query = search ? `?${search}` : '';
@@ -76,21 +88,6 @@ export default function TabInterface({
     setActiveTab(tabId);
     updateUrlParam(tabId);
   };
-
-  // Listen for URL changes (e.g., browser back/forward)
-  useEffect(() => {
-    try {
-      const urlTab = searchParams.get(queryParamName);
-      if (urlTab && tabs.some(tab => tab.id === urlTab) && urlTab !== activeTab) {
-        setActiveTab(urlTab);
-      } else if (!urlTab && activeTab !== (defaultActiveTab || tabs[0]?.id)) {
-        setActiveTab(defaultActiveTab || tabs[0]?.id);
-      }
-    } catch (error) {
-      // Gracefully handle SSR issues
-      console.warn('Unable to read search params during render');
-    }
-  }, [searchParams, queryParamName, tabs, activeTab, defaultActiveTab]);
 
   // Handle keyboard navigation
   const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
@@ -155,7 +152,7 @@ export default function TabInterface({
               aria-selected={activeTab === tab.id}
               aria-controls={`tabpanel-${tab.id}`}
               id={`tab-${tab.id}`}
-              tabIndex={activeTab === tab.id ? 0 : -1}
+              tabIndex={activeTab === tab.id ? 0 : focusedTabIndex === index ? 0 : -1}
             >
               <div className="accordion-content">
                 <div className="tab-label">
@@ -178,40 +175,50 @@ export default function TabInterface({
           {tabs.map((tab, index) => (
             <div key={tab.id} className={`accordion-item ${activeTab === tab.id ? 'accordion-item--active' : ''}`}>
               <button
-                onClick={() => activateTab(activeTab === tab.id ? '' : tab.id)}
-                className="accordion-header"
+                ref={(el) => { tabRefs.current[index] = el; }}
+                onClick={() => activateTab(tab.id)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
+                className="accordion-header flex justify-between items-center"
+                role="tab"
+                aria-selected={activeTab === tab.id}
+                aria-controls={`tabpanel-${tab.id}`}
                 aria-expanded={activeTab === tab.id}
-                aria-controls={`mobile-content-${tab.id}`}
+                id={`accordion-${tab.id}`}
+                tabIndex={activeTab === tab.id ? 0 : focusedTabIndex === index ? 0 : -1}
               >
-                <div className="flex items-center justify-between">
-                  <div className="accordion-content">
-                    <div className="accordion-title">{tab.label}</div>
-                    {tab.subtitle && (
-                      <div className="accordion-subtitle">
-                        {tab.subtitle}
-                      </div>
-                    )}
+                <div className="accordion-content">
+                  <div className="accordion-title">
+                    {tab.label}
                   </div>
-                  
-                  {/* Chevron icon */}
-                  <svg
-                    className={`accordion-chevron ${activeTab === tab.id ? 'accordion-chevron--expanded' : ''}`}
-                    fill="none"
+                  {tab.subtitle && (
+                    <div className="accordion-subtitle">
+                      {tab.subtitle}
+                    </div>
+                  )}
+                </div>
+                {/* Accordion indicator */}
+                <div className="accordion-indicator" aria-hidden="true">
+                  <svg 
+                    className={`w-5 h-5 transform transition-transform ${activeTab === tab.id ? 'rotate-180' : ''}`}
+                    fill="none" 
+                    viewBox="0 0 24 24" 
                     stroke="currentColor"
-                    viewBox="0 0 24 24"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
               </button>
               
-              {/* Mobile accordion content */}
+              {/* Accordion content */}
               <div 
-                id={`mobile-content-${tab.id}`}
-                className={`accordion-body ${activeTab === tab.id ? 'accordion-body--expanded' : ''}`}
+                className={`accordion-panel ${activeTab === tab.id ? 'accordion-panel--active' : ''}`}
+                id={`tabpanel-${tab.id}`}
+                role="tabpanel"
+                aria-labelledby={`accordion-${tab.id}`}
+                aria-hidden={activeTab !== tab.id}
               >
-                <div className="accordion-body-content">
-                  {activeTab === tab.id && tab.content}
+                <div className="accordion-panel-content">
+                  {activeTab === tab.id && activeTabData?.content}
                 </div>
               </div>
             </div>
@@ -219,29 +226,19 @@ export default function TabInterface({
         </div>
       </div>
 
-      {/* Desktop Tab Content */}
+      {/* Desktop Tab Panels */}
       <div className="tab-content hidden md:block">
-        {activeTabData && (
-          <div
-            id={`tabpanel-${activeTab}`}
-            role="tabpanel"
-            aria-labelledby={`tab-${activeTab}`}
-            className={`tab-panel tab-panel--active focus:outline-none`}
-            tabIndex={0}
-            key={activeTab} // Force re-render for animation
-          >
-            {activeTabData.content}
-          </div>
-        )}
-      </div>
-
-      {/* Progress indicator for desktop */}
-      <div className="progress-indicator hidden md:flex">
-        {tabs.map((tab, index) => (
+        {tabs.map((tab) => (
           <div
             key={tab.id}
-            className={`progress-dot ${activeTab === tab.id ? 'progress-dot--active' : 'progress-dot--inactive'}`}
-          />
+            id={`tabpanel-${tab.id}`}
+            role="tabpanel"
+            aria-labelledby={`tab-${tab.id}`}
+            aria-hidden={activeTab !== tab.id}
+            className={`tab-panel ${activeTab === tab.id ? 'tab-panel--active' : ''}`}
+          >
+            {activeTab === tab.id && tab.content}
+          </div>
         ))}
       </div>
     </div>
