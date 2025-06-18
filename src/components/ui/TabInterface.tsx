@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, ReactNode, KeyboardEvent } from 'react';
+import '../../styles/components/tab-interface.css';
 
 export interface TabItem {
   id: string;
@@ -68,9 +69,9 @@ export default function TabInterface({
   }, [activeTab, tabs]);
 
   return (
-    <div className={`w-full ${className}`}>
+    <div className={`tab-interface w-full ${className}`}>
       {/* Desktop Tab Navigation */}
-      <div className="hidden md:block border-b border-gray-200 dark:border-gray-700 mb-8">
+      <div className="tab-nav-desktop hidden md:block">
         <nav 
           className="-mb-px flex space-x-8 overflow-x-auto" 
           aria-label="Contact form types"
@@ -83,13 +84,8 @@ export default function TabInterface({
               onClick={() => setActiveTab(tab.id)}
               onKeyDown={(e) => handleKeyDown(e, index)}
               className={`
-                group relative whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm 
-                transition-all duration-300 ease-in-out transform
-                focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900
-                ${activeTab === tab.id
-                  ? 'border-purple-500 text-purple-600 dark:text-purple-400 scale-105'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300 hover:scale-102'
-                }
+                tab-button group
+                ${activeTab === tab.id ? 'tab-button--active' : ''}
               `}
               role="tab"
               aria-selected={activeTab === tab.id}
@@ -97,52 +93,37 @@ export default function TabInterface({
               id={`tab-${tab.id}`}
               tabIndex={activeTab === tab.id ? 0 : -1}
             >
-              <div className="text-left">
-                <div className="font-semibold transition-colors duration-200">
+              <div className="accordion-content">
+                <div className="tab-label">
                   {tab.label}
                 </div>
                 {tab.subtitle && (
-                  <div className="text-xs text-gray-400 dark:text-gray-500 mt-1 transition-colors duration-200 group-hover:text-gray-500 dark:group-hover:text-gray-400">
+                  <div className="tab-subtitle">
                     {tab.subtitle}
                   </div>
                 )}
               </div>
-              
-              {/* Active indicator line with animation */}
-              <div 
-                className={`
-                  absolute bottom-0 left-0 h-0.5 bg-purple-500 transition-all duration-300 ease-in-out
-                  ${activeTab === tab.id ? 'w-full opacity-100' : 'w-0 opacity-0'}
-                `}
-              />
             </button>
           ))}
         </nav>
       </div>
 
       {/* Mobile Accordion Navigation */}
-      <div className="block md:hidden mb-8">
+      <div className="accordion-container block md:hidden">
         <div className="space-y-2">
           {tabs.map((tab, index) => (
-            <div key={tab.id} className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+            <div key={tab.id} className={`accordion-item ${activeTab === tab.id ? 'accordion-item--active' : ''}`}>
               <button
                 onClick={() => setActiveTab(activeTab === tab.id ? '' : tab.id)}
-                className={`
-                  w-full px-4 py-4 text-left transition-all duration-300 ease-in-out
-                  focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-inset
-                  ${activeTab === tab.id
-                    ? 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300'
-                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-                  }
-                `}
+                className="accordion-header"
                 aria-expanded={activeTab === tab.id}
                 aria-controls={`mobile-content-${tab.id}`}
               >
                 <div className="flex items-center justify-between">
-                  <div>
-                    <div className="font-semibold text-base">{tab.label}</div>
+                  <div className="accordion-content">
+                    <div className="accordion-title">{tab.label}</div>
                     {tab.subtitle && (
-                      <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                      <div className="accordion-subtitle">
                         {tab.subtitle}
                       </div>
                     )}
@@ -150,10 +131,7 @@ export default function TabInterface({
                   
                   {/* Chevron icon */}
                   <svg
-                    className={`
-                      w-5 h-5 transition-transform duration-300 ease-in-out
-                      ${activeTab === tab.id ? 'rotate-180' : 'rotate-0'}
-                    `}
+                    className={`accordion-chevron ${activeTab === tab.id ? 'accordion-chevron--expanded' : ''}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -166,18 +144,10 @@ export default function TabInterface({
               {/* Mobile accordion content */}
               <div 
                 id={`mobile-content-${tab.id}`}
-                className={`
-                  overflow-hidden transition-all duration-300 ease-in-out
-                  ${activeTab === tab.id 
-                    ? 'max-h-screen opacity-100' 
-                    : 'max-h-0 opacity-0'
-                  }
-                `}
+                className={`accordion-body ${activeTab === tab.id ? 'accordion-body--expanded' : ''}`}
               >
-                <div className="px-4 pb-4 border-t border-gray-200 dark:border-gray-700">
-                  <div className="pt-4">
-                    {tab.content}
-                  </div>
+                <div className="accordion-body-content">
+                  {tab.content}
                 </div>
               </div>
             </div>
@@ -186,41 +156,27 @@ export default function TabInterface({
       </div>
 
       {/* Desktop Tab Content */}
-      <div className="hidden md:block">
+      <div className="tab-content hidden md:block">
         {activeTabData && (
           <div
             id={`tabpanel-${activeTab}`}
             role="tabpanel"
             aria-labelledby={`tab-${activeTab}`}
-            className="focus:outline-none"
+            className={`tab-panel tab-panel--active focus:outline-none`}
             tabIndex={0}
+            key={activeTab} // Force re-render for animation
           >
-            {/* Content container with fade-in animation */}
-            <div 
-              className={`
-                transition-all duration-500 ease-in-out transform
-                ${activeTabData ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}
-              `}
-              key={activeTab} // Force re-render for animation
-            >
-              {activeTabData.content}
-            </div>
+            {activeTabData.content}
           </div>
         )}
       </div>
 
       {/* Progress indicator for desktop */}
-      <div className="hidden md:flex justify-center mt-8 space-x-2">
+      <div className="progress-indicator hidden md:flex">
         {tabs.map((tab, index) => (
           <div
             key={tab.id}
-            className={`
-              h-1 rounded-full transition-all duration-300 ease-in-out
-              ${activeTab === tab.id 
-                ? 'w-8 bg-purple-500' 
-                : 'w-2 bg-gray-300 dark:bg-gray-600'
-              }
-            `}
+            className={`progress-dot ${activeTab === tab.id ? 'progress-dot--active' : 'progress-dot--inactive'}`}
           />
         ))}
       </div>
