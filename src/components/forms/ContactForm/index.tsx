@@ -1,6 +1,7 @@
 'use client';
 
-import TabInterface, { TabItem } from '../../ui/TabInterface';
+import TabInterfaceClient from '../../ui/TabInterfaceClient';
+import { TabItem } from '../../ui/TabInterface';
 import ProjectInquiryForm from './ProjectInquiryForm';
 import QuickConsultationForm from './QuickConsultationForm';
 import SupportMaintenanceForm from './SupportMaintenanceForm';
@@ -38,10 +39,12 @@ export default function ContactForm() {
         </p>
       </div>
       
-      <TabInterface 
+      <TabInterfaceClient 
         tabs={tabs} 
         defaultActiveTab="project-inquiry"
         className="max-w-4xl mx-auto"
+        queryParamName="form"
+        updateUrl={true}
       />
     </div>
   );

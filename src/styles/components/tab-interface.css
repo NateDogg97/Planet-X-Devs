@@ -300,7 +300,6 @@
 .accordion-body-content {
   min-height: 0;
   overflow: hidden;
-  padding: 1.25rem;
   border-top: 1px solid var(--color-nebula-violet-20);
   background: linear-gradient(180deg, 
     var(--color-nebula-violet-10) 0%, 

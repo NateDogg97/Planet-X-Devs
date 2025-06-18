@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import TabInterface, { TabItem } from '@/components/ui/TabInterface';
+import TabInterfaceClient from '@/components/ui/TabInterfaceClient';
+import { TabItem } from '@/components/ui/TabInterface';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 
@@ -134,7 +135,7 @@ export default function TabsTestPage() {
         </div>
 
         {/* Main TabInterface Test */}
-        <TabInterface 
+        <TabInterfaceClient 
           tabs={testTabs}
           defaultActiveTab="tab1"
           className="max-w-4xl mx-auto"

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, ReactNode, KeyboardEvent } from 'react';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import '../../styles/components/tab-interface.css';
 
 export interface TabItem {
@@ -14,19 +15,82 @@ interface TabInterfaceProps {
   tabs: TabItem[];
   defaultActiveTab?: string;
   className?: string;
+  queryParamName?: string; // Name of the query parameter (default: 'tab')
+  updateUrl?: boolean; // Whether to update URL when tab changes (default: true)
 }
 
 export default function TabInterface({ 
   tabs, 
   defaultActiveTab, 
-  className = '' 
+  className = '',
+  queryParamName = 'tab',
+  updateUrl = true
 }: TabInterfaceProps) {
-  const [activeTab, setActiveTab] = useState(defaultActiveTab || tabs[0]?.id);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  
+  // Get initial tab from URL or fallback to default
+  const getInitialTab = () => {
+    try {
+      const urlTab = searchParams.get(queryParamName);
+      if (urlTab && tabs.some(tab => tab.id === urlTab)) {
+        return urlTab;
+      }
+    } catch (error) {
+      // During SSR, searchParams might not be available
+      console.warn('SearchParams not available during SSR');
+    }
+    return defaultActiveTab || tabs[0]?.id;
+  };
+  
+  const [activeTab, setActiveTab] = useState(getInitialTab());
   const [focusedTabIndex, setFocusedTabIndex] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   
   const activeTabData = tabs.find(tab => tab.id === activeTab);
   const activeIndex = tabs.findIndex(tab => tab.id === activeTab);
+
+  // Update URL when tab changes
+  const updateUrlParam = (tabId: string) => {
+    if (!updateUrl) return;
+    
+    const current = new URLSearchParams(searchParams.toString());
+    
+    if (tabId === (defaultActiveTab || tabs[0]?.id)) {
+      // Remove query param if it's the default tab
+      current.delete(queryParamName);
+    } else {
+      current.set(queryParamName, tabId);
+    }
+    
+    const search = current.toString();
+    const query = search ? `?${search}` : '';
+    
+    // Use replace to avoid adding to browser history for every tab click
+    router.replace(`${pathname}${query}`, { scroll: false });
+  };
+
+  // Handle tab activation
+  const activateTab = (tabId: string) => {
+    setActiveTab(tabId);
+    updateUrlParam(tabId);
+  };
+
+  // Listen for URL changes (e.g., browser back/forward)
+  useEffect(() => {
+    try {
+      const urlTab = searchParams.get(queryParamName);
+      if (urlTab && tabs.some(tab => tab.id === urlTab) && urlTab !== activeTab) {
+        setActiveTab(urlTab);
+      } else if (!urlTab && activeTab !== (defaultActiveTab || tabs[0]?.id)) {
+        setActiveTab(defaultActiveTab || tabs[0]?.id);
+      }
+    } catch (error) {
+      // Gracefully handle SSR issues
+      console.warn('Unable to read search params during render');
+    }
+  }, [searchParams, queryParamName, tabs, activeTab, defaultActiveTab]);
 
   // Handle keyboard navigation
   const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
@@ -52,7 +116,7 @@ export default function TabInterface({
       case 'Enter':
       case ' ':
         event.preventDefault();
-        setActiveTab(tabs[index].id);
+        activateTab(tabs[index].id);
         return;
       default:
         return;
@@ -81,7 +145,7 @@ export default function TabInterface({
             <button
               key={tab.id}
               ref={(el) => { tabRefs.current[index] = el; }}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => activateTab(tab.id)}
               onKeyDown={(e) => handleKeyDown(e, index)}
               className={`
                 tab-button group
@@ -114,7 +178,7 @@ export default function TabInterface({
           {tabs.map((tab, index) => (
             <div key={tab.id} className={`accordion-item ${activeTab === tab.id ? 'accordion-item--active' : ''}`}>
               <button
-                onClick={() => setActiveTab(activeTab === tab.id ? '' : tab.id)}
+                onClick={() => activateTab(activeTab === tab.id ? '' : tab.id)}
                 className="accordion-header"
                 aria-expanded={activeTab === tab.id}
                 aria-controls={`mobile-content-${tab.id}`}
