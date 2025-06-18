@@ -84,14 +84,13 @@
   box-shadow: 
     0 0 0 3px var(--color-nebula-violet-30),
     var(--tab-glow);
-  border-radius: 0.5rem;
 }
 
 /* Active tab styles */
 .tab-button--active {
-  color: var(--color-nebula-violet);
+  color: rgb(209 213 219);
   border-bottom-color: var(--color-nebula-violet);
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-2px);
   box-shadow: var(--tab-shadow-active);
   background: linear-gradient(135deg, var(--color-nebula-violet-10), var(--color-nebula-purple-10));
 }
@@ -126,10 +125,6 @@
   color: rgb(156 163 175); /* gray-400 */
   margin-top: 0.25rem;
   transition: color var(--tab-transition-fast);
-}
-
-.tab-button--active .tab-subtitle {
-  color: var(--color-nebula-purple);
 }
 
 /* Progress indicator dots */
@@ -196,16 +191,12 @@
 }
 
 .accordion-item:hover {
-  box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.05),
-    0 2px 4px rgba(0, 0, 0, 0.06),
-    var(--tab-shadow-nebula);
   border-color: var(--color-nebula-violet-20);
 }
 
 .accordion-item--active {
   border-color: var(--color-nebula-violet);
-  box-shadow: var(--tab-shadow-active);
+  /* box-shadow: var(--tab-shadow-active); */
   background: linear-gradient(135deg, 
     var(--color-nebula-violet-10) 0%, 
     rgb(255 255 255) 100%
@@ -265,14 +256,6 @@
   transition: color var(--tab-transition-fast);
 }
 
-.accordion-item--active .accordion-title {
-  color: var(--color-nebula-violet);
-}
-
-.accordion-item--active .accordion-subtitle {
-  color: var(--color-nebula-purple);
-}
-
 /* Accordion chevron */
 .accordion-chevron {
   width: 1.25rem;
@@ -289,21 +272,36 @@
 
 /* Accordion body */
 .accordion-body {
-  overflow: hidden;
-  transition: all var(--tab-transition-smooth);
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--tab-transition-smooth), opacity var(--tab-transition-smooth);
   opacity: 0;
 }
 
 .accordion-body--expanded {
-  max-height: 100vh;
+  grid-template-rows: 1fr;
   opacity: 1;
 }
 
+/* Fallback for browsers without grid animation support */
+@supports not (grid-template-rows: 0fr) {
+  .accordion-body {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--tab-transition-smooth), opacity var(--tab-transition-smooth);
+  }
+  
+  .accordion-body--expanded {
+    max-height: 200vh; /* Large enough for longest forms */
+  }
+}
+
 .accordion-body-content {
-  padding: 0 1.25rem 1.25rem;
+  min-height: 0;
+  overflow: hidden;
+  padding: 1.25rem;
   border-top: 1px solid var(--color-nebula-violet-20);
-  margin-top: 0;
   background: linear-gradient(180deg, 
     var(--color-nebula-violet-10) 0%, 
     transparent 100%
@@ -325,7 +323,7 @@
   }
 
   .tab-button--active {
-    color: var(--color-nebula-violet);
+    color: rgb(209 213 219);
     background: linear-gradient(135deg, var(--color-nebula-violet-20), var(--color-nebula-purple-20));
   }
 
