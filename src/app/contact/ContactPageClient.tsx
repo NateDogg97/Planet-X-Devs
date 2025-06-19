@@ -7,6 +7,7 @@ import SocialLinks from '@/components/forms/ContactForm/SocialLinks';
 import Section from '@/components/layout/Section';
 import Container from '@/components/layout/Container';
 import Hero from '@/components/layout/Hero';
+import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import Button from '@/components/ui/Button';
 import Icon from '@/components/ui/Icon';
 import Card from '@/components/ui/Card';
@@ -160,6 +161,36 @@ export default function ContactPageClient() {
           "@type": "ContactPage",
           "name": "Contact Planet X Devs"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://planetxdevs.com/contact#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How quickly can you start on my project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I typically begin new projects within 3-5 business days after our initial consultation. For urgent requests, I offer expedited timelines."
+            }
+          },
+          {
+            "@type": "Question", 
+            "name": "Do you work with agencies outside the US?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! I work with agencies worldwide. All communication is handled via email, Slack, or your preferred platform, making timezone differences manageable."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I need changes after the project is complete?",
+            "acceptedAnswer": {
+              "@type": "Answer", 
+              "text": "I offer post-launch support packages and can handle ongoing maintenance. Small tweaks are often included, and larger changes are billed hourly or through a retainer."
+            }
+          }
+        ]
       }
     ]
   };
@@ -183,6 +214,13 @@ export default function ContactPageClient() {
           showPlanets={false}
         />
       </div>
+
+      {/* Breadcrumbs */}
+      <section className="py-4 bg-nebula-black">
+        <Container>
+          <Breadcrumbs />
+        </Container>
+      </section>
 
       {/* Main Contact Section with Grid Layout */}
       <Section className="relative" id="contact-form">

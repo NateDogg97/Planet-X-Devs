@@ -3,8 +3,8 @@ import AboutPageClient from './AboutPageClient';
 
 export const metadata: Metadata = {
   title: "About Planet X Devs | White-Label Web Development for Agencies",
-  description: "Meet Nathaniel Gonzalez, founder of Planet X Devs. After 10+ years in agencies, I created the reliable development partnership agencies desperately need. No more missed deadlines or ghosting freelancers.",
-  keywords: "white label web development, agency developer, Nathaniel Gonzalez, Planet X Devs, web development for agencies, reliable developer partner, agency technical partner, WordPress developer for agencies, React developer for agencies",
+  description: "Meet Nathaniel Gonzalez, founder of Planet X Devs - your trusted digital marketing agency partner. After 10+ years in agencies, I created the reliable white-label development partnership agencies desperately need.",
+  keywords: "white label web development, digital marketing agency partner, agency developer, Nathaniel Gonzalez, Planet X Devs, web development for agencies, reliable developer partner, agency technical partner, WordPress developer for agencies, React developer for agencies",
   openGraph: {
     title: "About Planet X Devs | Your Agency's Reliable Developer",
     description: "Built by an agency veteran who gets it. Planet X Devs is the white-label development partner that helps agencies deliver exceptional websites without the headaches.",

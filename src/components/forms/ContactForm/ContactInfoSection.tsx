@@ -7,6 +7,7 @@ interface ContactInfoSectionProps {
     agency: string;
     phone: string;
     howHeard: string;
+    preferredCommMethod?: string;
   };
   onChange: (field: string, value: string) => void;
   errors?: Record<string, string>;
@@ -19,7 +20,7 @@ export default function ContactInfoSection({
 }: ContactInfoSectionProps) {
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+      <h3 className="text-lg font-semibold text-nebula-white">
         Contact Information
       </h3>
       
@@ -70,14 +71,32 @@ export default function ContactInfoSection({
         />
       </div>
       
-      <FormField
-        label="How did you hear about us?"
-        name="howHeard"
-        type="text"
-        placeholder="Google, referral, social media, etc."
-        value={formData.howHeard}
-        onChange={(e) => onChange('howHeard', e.target.value)}
-      />
+      <div className="grid md:grid-cols-2 gap-6">
+        <FormField
+          label="How did you hear about us?"
+          name="howHeard"
+          type="text"
+          placeholder="Google, referral, social media, etc."
+          value={formData.howHeard}
+          onChange={(e) => onChange('howHeard', e.target.value)}
+        />
+        
+        <FormField
+          label="Preferred Communication Method"
+          name="preferredCommMethod"
+          type="select"
+          options={[
+            { value: 'email', label: 'Email' },
+            { value: 'slack', label: 'Slack' },
+            { value: 'phone', label: 'Phone Call' },
+            { value: 'video', label: 'Video Call (Zoom/Meet)' },
+            { value: 'project-management', label: 'Project Management Tool' }
+          ]}
+          value={formData.preferredCommMethod || ''}
+          onChange={(e) => onChange('preferredCommMethod', e.target.value)}
+          error={errors.preferredCommMethod}
+        />
+      </div>
     </div>
   );
 }

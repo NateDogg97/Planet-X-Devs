@@ -100,8 +100,8 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Hero
-        title="Your Agency's Secret Weapon for Premium Web Development"
-        subtitle="White-label development partner who makes you look good. Custom designs, flawless execution, and communication that actually works."
+        title="Your Agency's Technical Partner"
+        subtitle="Professional white-label development that makes your agency shine. Custom designs, flawless execution, and communication that actually works."
         actions={[
           {
             text: "View Services & Pricing",
@@ -172,13 +172,13 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-gray-100 dark:bg-gray-900">
+      <section className="py-20 bg-nebula-black">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-4">
               Our Mission Process
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-nebula-white/70 max-w-2xl mx-auto">
               From discovery to launch, we follow a proven process that ensures success
             </p>
           </div>

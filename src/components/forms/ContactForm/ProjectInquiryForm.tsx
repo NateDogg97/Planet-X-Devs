@@ -93,11 +93,11 @@ export default function ProjectInquiryForm() {
   return (
     <Card rounded={false} className={"md:rounded-2xl"}>
       <div className="mb-6">
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-          Start Your Project
+        <h3 className="text-2xl font-bold text-nebula-white mb-2">
+          Agency Partnership Inquiry
         </h3>
-        <p className="text-gray-600 dark:text-gray-400">
-          Tell us about your project and we'll provide a detailed proposal with timeline and pricing.
+        <p className="text-nebula-white/70">
+          Tell us about your agency&apos;s development needs and we&apos;ll provide a customized white-label partnership proposal.
         </p>
       </div>
       
@@ -108,13 +108,14 @@ export default function ProjectInquiryForm() {
             email: formData.email,
             agency: formData.agency || '',
             phone: formData.phone || '',
-            howHeard: formData.howHeard || ''
+            howHeard: formData.howHeard || '',
+            preferredCommMethod: formData.preferredCommMethod || ''
           }}
           onChange={handleChange}
           errors={errors}
         />
         
-        <div className="border-t dark:border-gray-700 pt-8">
+        <div className="border-t border-nebula-purple/30 pt-8">
           <ProjectDetailsSection
             formData={{
               projectType: formData.projectType || '',
@@ -127,11 +128,12 @@ export default function ProjectInquiryForm() {
           />
         </div>
         
-        <div className="border-t dark:border-gray-700 pt-8">
+        <div className="border-t border-nebula-purple/30 pt-8">
           <BudgetTimelineSection
             formData={{
               timeline: formData.timeline || '',
-              budget: formData.budget || ''
+              budget: formData.budget || '',
+              monthlyHoursNeeded: formData.monthlyHoursNeeded || ''
             }}
             onChange={handleChange}
             errors={errors}

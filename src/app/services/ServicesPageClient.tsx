@@ -5,7 +5,8 @@ import dynamic from 'next/dynamic';
 import Hero from '@/components/layout/Hero';
 import ServiceDetailCard from '@/components/ui/ServiceDetailCard';
 import RetainerPlanCard from '@/components/ui/RetainerPlanCard';
-import { services } from '@/constants/services';
+import Breadcrumbs from '@/components/navigation/Breadcrumbs';
+import { services, agencyPartnershipPlans } from '@/constants/services';
 import { faqItems } from '@/constants/faq';
 
 // Lazy load below-fold components
@@ -62,13 +63,129 @@ const Footer = dynamic(() => import('@/components/navigation/Footer'), {
 });
 
 export default function ServicesPageClient() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://planetxdevs.com/services#white-label-development",
+        "name": "White-Label Development Partnership",
+        "description": "Complete white-label development partnership that makes your agency unstoppable. From strategy to launch, we work invisibly behind the scenes while you take all the credit.",
+        "provider": {
+          "@id": "https://planetxdevs.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "2000-15000",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "serviceType": "Web Development",
+        "areaServed": "Worldwide"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://planetxdevs.com/services#platform-consultation", 
+        "name": "Platform Selection Consultation",
+        "description": "Expert guidance to help your agency choose the perfect platform for each client project. Avoid costly mistakes and recommend solutions that actually fit the client's needs.",
+        "provider": {
+          "@id": "https://planetxdevs.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "500-1000",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "serviceType": "Consulting",
+        "areaServed": "Worldwide"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://planetxdevs.com/services#emergency-support",
+        "name": "Emergency Support & Fixes", 
+        "description": "When your client's website breaks and they're breathing down your neck, we've got you covered. 24-hour response time to save your reputation and their business.",
+        "provider": {
+          "@id": "https://planetxdevs.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "500-2000",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "serviceType": "Technical Support",
+        "areaServed": "Worldwide"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://planetxdevs.com/services#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How quickly can you start on my project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For new clients, I can typically start within 3-5 business days. Retainer clients get priority scheduling and can have urgent requests addressed within 24-48 hours. Rush projects are available for an additional fee."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you work directly with my clients?",
+            "acceptedAnswer": {
+              "@type": "Answer", 
+              "text": "Never. This is a true white-label partnership. All communication goes through you, and all work is delivered under your agency's brand. Your clients will never know I exist unless you want them to."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I need more hours than my retainer includes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No problem! Additional hours are billed at $100/hour for all retainer clients. You can also upgrade your plan at any time, and unused hours roll over for up to 60 days."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What platforms and technologies do you work with?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I specialize in WordPress (including Elementor, Divi, and custom themes), React/Next.js applications, and popular e-commerce platforms like WooCommerce and Shopify. I also work with various page builders and can adapt to your preferred tech stack."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you handle project communication and updates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I provide regular updates through your preferred channel (email, Slack, or project management tool). Retainer clients get weekly status reports, and all clients receive milestone updates throughout their projects."
+            }
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData)
+        }}
+      />
       <Hero
         title="Premium Web Development Services"
         subtitle="White-label development partnerships that make your agency look great. From WordPress to React, we've got the technical expertise you need."
         showPlanets={false}
       />
+
+      {/* Breadcrumbs */}
+      <section className="py-4 bg-nebula-black">
+        <div className="container mx-auto px-6">
+          <Breadcrumbs />
+        </div>
+      </section>
 
       {/* Services Overview */}
       <section className="py-24 bg-nebula-violet-5">
@@ -104,77 +221,38 @@ export default function ServicesPageClient() {
         </div>
       </section>
 
-      {/* Retainer Plans */}
+      {/* Agency Partnership Plans */}
       <section className="py-24">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-nebula-white mb-6">
-              Monthly Retainer Plans
+              Agency Partnership Plans
             </h2>
             <p className="text-xl text-nebula-white/80 max-w-3xl mx-auto">
-              Predictable pricing for ongoing development needs. Perfect for agencies with consistent project flow.
+              True white-label partnerships designed specifically for digital marketing agencies. Your clients never know we exist unless you want them to.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <RetainerPlanCard
-              title="Launch Pad"
-              price={{
-                amount: "$2,500",
-                period: "/month"
-              }}
-              description="Perfect for agencies just getting started with white-label development"
-              features={[
-                "20 hours of development time",
-                "WordPress & Elementor focus",
-                "Email support (< 4hr response)",
-                "Basic SEO optimization",
-                "Client communication templates"
-              ]}
-              popular={false}
-            />
-            
-            <RetainerPlanCard
-              title="Growth Engine"
-              price={{
-                amount: "$4,500",
-                period: "/month"
-              }}
-              description="Ideal for established agencies with consistent project flow"
-              features={[
-                "40 hours of development time",
-                "All platforms (WordPress, React, etc.)",
-                "Priority support (< 2hr response)",
-                "Advanced SEO & performance optimization",
-                "Slack integration for real-time updates",
-                "Monthly strategy call"
-              ]}
-              popular={true}
-            />
-            
-            <RetainerPlanCard
-              title="Scale Master"
-              price={{
-                amount: "$7,500",
-                period: "/month"
-              }}
-              description="For agencies handling multiple large projects simultaneously"
-              features={[
-                "70 hours of development time",
-                "Dedicated developer relationship",
-                "Immediate support (< 1hr response)",
-                "Custom integrations & APIs",
-                "White-label client presentations",
-                "Weekly strategy calls",
-                "Priority project scheduling"
-              ]}
-              popular={false}
-            />
+            {agencyPartnershipPlans.map((plan) => (
+              <RetainerPlanCard
+                key={plan.id}
+                title={plan.name}
+                price={{
+                  amount: plan.price,
+                  period: plan.period
+                }}
+                description={plan.description || ''}
+                features={plan.features}
+                popular={plan.highlighted || false}
+                badge={plan.badge}
+              />
+            ))}
           </div>
 
           <div className="text-center mt-12">
             <p className="text-nebula-white/70 mb-6">
-              Need more hours or a custom arrangement? Let's talk about enterprise options.
+              Need more hours or a custom arrangement? Let&apos;s talk about enterprise options.
             </p>
             <Link
               href="/contact"

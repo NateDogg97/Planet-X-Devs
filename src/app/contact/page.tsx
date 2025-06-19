@@ -4,7 +4,7 @@ import ContactPageClient from './ContactPageClient';
 export const metadata: Metadata = {
   title: "Contact Planet X Devs | Your Agency's Technical Partner",
   description: "Get white-label web development, tech support, and SEO services for your digital marketing agency. Project quotes, quick consultations, and ongoing support available.",
-  keywords: "contact planet x devs, web development quote, agency tech support, white label development, marketing agency web services, developer partnership",
+  keywords: "contact planet x devs, web development quote, digital marketing agency partner, agency tech support, white label development, marketing agency web services, developer partnership",
   openGraph: {
     title: "Contact Planet X Devs | Your Agency's Technical Partner",
     description: "Professional web development and technical support for digital marketing agencies. Get your project quote today.",

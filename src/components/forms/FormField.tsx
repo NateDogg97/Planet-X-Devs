@@ -32,7 +32,7 @@ export default function FormField({
   className = '',
   error
 }: FormFieldProps) {
-  const baseInputStyles = 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white';
+  const baseInputStyles = 'w-full px-4 py-3 border border-nebula-purple/30 rounded-lg focus:outline-none focus:border-nebula-violet bg-nebula-black/80 text-nebula-white';
   const errorStyles = error ? 'border-red-500 focus:border-red-500' : '';
   
   if (type === 'checkbox') {
@@ -46,7 +46,7 @@ export default function FormField({
           onChange={onChange}
           className="mt-1 mr-3"
         />
-        <label htmlFor={name} className="text-sm text-gray-700 dark:text-gray-300">
+        <label htmlFor={name} className="text-sm text-nebula-white/70">
           {label}
         </label>
       </div>
@@ -55,7 +55,7 @@ export default function FormField({
   
   return (
     <div className={className}>
-      <label htmlFor={name} className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+      <label htmlFor={name} className="block text-sm font-medium text-nebula-white mb-2">
         {label} {required && '*'}
       </label>
       

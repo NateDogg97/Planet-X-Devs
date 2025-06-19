@@ -101,11 +101,11 @@ export default function QuickConsultationForm() {
   return (
     <Card rounded={false} className={"md:rounded-2xl"}>
       <div className="mb-6">
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        <h3 className="text-2xl font-bold text-nebula-white mb-2">
           Quick Consultation
         </h3>
-        <p className="text-gray-600 dark:text-gray-400">
-          Need quick advice or have technical questions? Let's schedule a brief consultation.
+        <p className="text-nebula-white/70">
+          Explore how we can work together. Let&apos;s schedule a brief consultation to discuss your agency&apos;s development needs.
         </p>
       </div>
       
@@ -132,13 +132,30 @@ export default function QuickConsultationForm() {
           />
         </div>
         
-        <FormField
-          name="quick-company"
-          type="text"
-          label="Company (Optional)"
-          value={formData.company || ''}
-          onChange={(e) => handleChange('company', e.target.value)}
-        />
+        <div className="grid md:grid-cols-2 gap-6">
+          <FormField
+            name="quick-company"
+            type="text"
+            label="Company (Optional)"
+            value={formData.company || ''}
+            onChange={(e) => handleChange('company', e.target.value)}
+          />
+          
+          <FormField
+            name="quick-comm-method"
+            type="select"
+            label="Preferred Communication Method"
+            value={formData.preferredCommMethod || ''}
+            onChange={(e) => handleChange('preferredCommMethod', e.target.value)}
+            options={[
+              { value: 'email', label: 'Email' },
+              { value: 'slack', label: 'Slack' },
+              { value: 'phone', label: 'Phone Call' },
+              { value: 'video', label: 'Video Call (Zoom/Meet)' }
+            ]}
+            error={errors.preferredCommMethod}
+          />
+        </div>
         
         <FormField
           name="quick-interests"

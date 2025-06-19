@@ -42,6 +42,23 @@ export default function SupportMaintenanceForm() {
     { value: 'low', label: 'Low (When Convenient)' }
   ];
   
+  const platformOptions = [
+    { value: '', label: 'Select platform/CMS...' },
+    { value: 'wordpress', label: 'WordPress' },
+    { value: 'shopify', label: 'Shopify' },
+    { value: 'woocommerce', label: 'WooCommerce' },
+    { value: 'squarespace', label: 'Squarespace' },
+    { value: 'webflow', label: 'Webflow' },
+    { value: 'react', label: 'React/Next.js' },
+    { value: 'vue', label: 'Vue.js' },
+    { value: 'angular', label: 'Angular' },
+    { value: 'html-css', label: 'Static HTML/CSS' },
+    { value: 'drupal', label: 'Drupal' },
+    { value: 'joomla', label: 'Joomla' },
+    { value: 'other', label: 'Other (specify in description)' },
+    { value: 'unknown', label: 'Not sure' }
+  ];
+  
   const handleChange = (field: string, value: string | boolean) => {
     handleFieldChange(field, value, setFormData, errors, setErrors);
     
@@ -116,11 +133,11 @@ export default function SupportMaintenanceForm() {
   return (
     <Card rounded={false} className={"md:rounded-2xl"}>
       <div className="mb-6">
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-          Support & Maintenance
+        <h3 className="text-2xl font-bold text-nebula-white mb-2">
+          Technical Support & Emergency Help
         </h3>
-        <p className="text-gray-600 dark:text-gray-400">
-          Need help with an existing website? Report issues, request updates, or get ongoing support.
+        <p className="text-nebula-white/70">
+          Need help with an existing website? Report issues, request updates, or get emergency technical support.
         </p>
       </div>
       
@@ -170,6 +187,34 @@ export default function SupportMaintenanceForm() {
         
         <div className="grid md:grid-cols-2 gap-6">
           <FormField
+            name="support-platform"
+            type="select"
+            label="Current Platform/CMS"
+            value={formData.currentPlatform || ''}
+            onChange={(e) => handleChange('currentPlatform', e.target.value)}
+            options={platformOptions}
+            error={errors.currentPlatform}
+            required
+          />
+          
+          <FormField
+            name="support-comm-method"
+            type="select"
+            label="Preferred Communication Method"
+            value={formData.preferredCommMethod || ''}
+            onChange={(e) => handleChange('preferredCommMethod', e.target.value)}
+            options={[
+              { value: 'email', label: 'Email' },
+              { value: 'slack', label: 'Slack' },
+              { value: 'phone', label: 'Phone Call' },
+              { value: 'video', label: 'Video Call (Zoom/Meet)' }
+            ]}
+            error={errors.preferredCommMethod}
+          />
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-6">
+          <FormField
             name="support-issue-type"
             type="select"
             label="Issue Type"
@@ -192,14 +237,6 @@ export default function SupportMaintenanceForm() {
           />
         </div>
         
-        <FormField
-          name="support-platform"
-          type="text"
-          label="Platform/CMS (Optional)"
-          value={formData.platform || ''}
-          onChange={(e) => handleChange('platform', e.target.value)}
-          placeholder="WordPress, React, Shopify, etc."
-        />
         
         <FormField
           name="support-description"
@@ -256,7 +293,7 @@ export default function SupportMaintenanceForm() {
             {isSubmitting ? 'Submitting...' : 'Submit Support Request'}
           </Button>
           
-          <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+          <p className="text-sm text-nebula-white/70 text-center">
             * Required fields. Response time varies by priority level.
           </p>
         </div>

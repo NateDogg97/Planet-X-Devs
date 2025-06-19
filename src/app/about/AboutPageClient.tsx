@@ -8,6 +8,7 @@ import Section from '@/components/layout/Section';
 import Container from '@/components/layout/Container';
 import ValueCard from '@/components/ui/ValueCard';
 import TimelineItem from '@/components/ui/TimelineItem';
+import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import Icon, { IconName } from '@/components/ui/Icon';
 
 // Lazy load below-fold components
@@ -313,6 +314,13 @@ export default function AboutPageClient() {
         subtitle="Built by an agency veteran who understands the unique challenges of delivering exceptional websites for demanding clients"
         showPlanets={false}
       />
+
+      {/* Breadcrumbs */}
+      <section className="py-4 bg-nebula-black">
+        <Container>
+          <Breadcrumbs />
+        </Container>
+      </section>
 
       {/* Story Section */}
       <Section className="py-20">

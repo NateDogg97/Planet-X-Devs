@@ -12,6 +12,7 @@ interface RetainerPlanCardProps {
   ctaText?: string;
   ctaHref?: string;
   highlight?: string;
+  badge?: string;
 }
 
 export default function RetainerPlanCard({
@@ -22,7 +23,8 @@ export default function RetainerPlanCard({
   popular = false,
   ctaText = "Start Plan",
   ctaHref = "#contact",
-  highlight
+  highlight,
+  badge
 }: RetainerPlanCardProps) {
   return (
     <div 
@@ -34,9 +36,9 @@ export default function RetainerPlanCard({
         }
       `}
     >
-      {popular && (
+      {(popular || badge) && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-nebula-cyan to-nebula-violet text-white text-sm font-bold rounded-full shadow-lg">
-          Most Popular
+          {badge || 'Most Popular'}
         </div>
       )}
 

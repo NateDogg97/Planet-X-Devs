@@ -45,6 +45,7 @@ export interface FormData {
   company?: string;
   phone?: string;
   howHeard?: string;
+  preferredCommMethod?: string;
   
   // Project Details (project inquiry form)
   projectType?: string;
@@ -68,8 +69,12 @@ export interface FormData {
   supportType?: string;
   websiteUrl?: string;
   platform?: string;
+  currentPlatform?: string;
   issueDescription?: string;
   maintenanceInterest?: boolean;
+  
+  // Agency Partnership fields
+  monthlyHoursNeeded?: string;
   
   // Form type identifier
   formType?: 'project_inquiry' | 'quick_consultation' | 'support_maintenance';
@@ -125,6 +130,29 @@ export interface PricingPlan {
   popular?: boolean;
   buttonText?: string;
   buttonVariant?: 'primary' | 'secondary';
+}
+
+// Retainer Plan types
+export interface RetainerPlan {
+  id: string;
+  name: string;
+  price: string;
+  period: string;
+  features: string[];
+  highlighted?: boolean;
+  badge?: string;
+}
+
+// Agency Partnership Plan types
+export interface AgencyPartnershipPlan {
+  id: string;
+  name: string;
+  price: string;
+  period: string;
+  features: string[];
+  highlighted?: boolean;
+  badge?: string;
+  description?: string;
 }
 
 // FAQ related types
