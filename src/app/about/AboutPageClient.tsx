@@ -316,7 +316,7 @@ export default function AboutPageClient() {
       />
 
       {/* Breadcrumbs */}
-      <section className="py-4 bg-nebula-black">
+      <section className="py-4 bg-white dark:bg-gray-900">
         <Container>
           <Breadcrumbs />
         </Container>
@@ -371,7 +371,7 @@ export default function AboutPageClient() {
       </Section>
 
       {/* Values Section */}
-      <Section className="py-20 bg-nebula-black/50">
+      <Section className="py-20 bg-white dark:bg-gray-900">
         <Container>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-4">
@@ -452,7 +452,7 @@ export default function AboutPageClient() {
       </Section>
 
       {/* Team Section */}
-      <Section className="py-20 bg-nebula-black/50">
+      <Section className="py-20 bg-white dark:bg-gray-900">
         <Container>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-4">
@@ -640,7 +640,7 @@ export default function AboutPageClient() {
       </Section>
 
       {/* CTA Section */}
-      <section className="relative py-20 bg-gradient-radial-nebula overflow-hidden">
+      <section className="relative py-20 bg-white dark:bg-gray-900 overflow-hidden">
         <FloatingParticles />
         
         <div className="relative z-10 container mx-auto px-6 text-center">

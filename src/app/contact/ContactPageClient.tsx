@@ -216,7 +216,7 @@ export default function ContactPageClient() {
       </div>
 
       {/* Breadcrumbs */}
-      <section className="py-4 bg-nebula-black">
+      <section className="py-4 bg-white dark:bg-gray-900">
         <Container>
           <Breadcrumbs />
         </Container>
@@ -241,7 +241,7 @@ export default function ContactPageClient() {
       </Section>
 
       {/* Trust Badges / Testimonials Section */}
-      <Section className="bg-nebula-violet-5">
+      <Section className="bg-white dark:bg-gray-900">
         <Container>
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-nebula-white mb-6">
@@ -401,7 +401,7 @@ export default function ContactPageClient() {
       </Section>
 
       {/* FAQ Preview Section */}
-      <Section className="bg-nebula-violet-5">
+      <Section className="bg-white dark:bg-gray-900">
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-nebula-white mb-6">

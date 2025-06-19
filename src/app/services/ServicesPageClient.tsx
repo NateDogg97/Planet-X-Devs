@@ -181,14 +181,14 @@ export default function ServicesPageClient() {
       />
 
       {/* Breadcrumbs */}
-      <section className="py-4 bg-nebula-black">
+      <section className="py-4 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-6">
           <Breadcrumbs />
         </div>
       </section>
 
       {/* Services Overview */}
-      <section className="py-24 bg-nebula-violet-5">
+      <section className="py-24 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-nebula-white mb-6">
@@ -265,7 +265,7 @@ export default function ServicesPageClient() {
       </section>
 
       {/* Development Process */}
-      <section className="py-24 bg-nebula-violet-5">
+      <section className="py-24 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-nebula-white mb-6">
@@ -425,7 +425,7 @@ export default function ServicesPageClient() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-nebula-violet-5">
+      <section className="py-24 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-nebula-white mb-6">
