@@ -1,36 +1,36 @@
 export const theme = {
   colors: {
     primary: {
-      50: 'blue-50',
-      100: 'blue-100',
-      200: 'blue-200',
-      300: 'blue-300',
-      400: 'blue-400',
-      500: 'blue-500',
-      600: 'blue-600',
-      700: 'blue-700',
-      800: 'blue-800',
-      900: 'blue-900',
-      DEFAULT: 'blue-600',
-      hover: 'blue-700',
-      light: 'blue-100',
-      dark: 'blue-900'
+      50: 'nebula-violet-10',
+      100: 'nebula-violet-20',
+      200: 'nebula-violet-30',
+      300: 'nebula-violet-40',
+      400: 'nebula-violet-50',
+      500: 'nebula-violet',
+      600: 'nebula-violet',
+      700: 'nebula-purple',
+      800: 'nebula-purple-dark',
+      900: 'nebula-black',
+      DEFAULT: 'nebula-violet',
+      hover: 'nebula-purple',
+      light: 'nebula-violet-20',
+      dark: 'nebula-purple-dark'
     },
     secondary: {
-      50: 'indigo-50',
-      100: 'indigo-100',
-      200: 'indigo-200',
-      300: 'indigo-300',
-      400: 'indigo-400',
-      500: 'indigo-500',
-      600: 'indigo-600',
-      700: 'indigo-700',
-      800: 'indigo-800',
-      900: 'indigo-900',
-      DEFAULT: 'indigo-700',
-      hover: 'indigo-800',
-      light: 'indigo-100',
-      dark: 'indigo-900'
+      50: 'nebula-cyan-10',
+      100: 'nebula-cyan-20',
+      200: 'nebula-cyan-30',
+      300: 'nebula-cyan-40',
+      400: 'nebula-cyan-50',
+      500: 'nebula-cyan',
+      600: 'nebula-cyan',
+      700: 'stellar-blue',
+      800: 'stellar-blue',
+      900: 'stellar-blue',
+      DEFAULT: 'nebula-cyan',
+      hover: 'stellar-blue',
+      light: 'nebula-cyan-20',
+      dark: 'stellar-blue'
     },
     gray: {
       50: 'gray-50',
@@ -67,11 +67,11 @@ export const theme = {
       border: 'yellow-200'
     },
     info: {
-      light: 'blue-50',
-      DEFAULT: 'blue-600',
-      dark: 'blue-800',
-      text: 'blue-800',
-      border: 'blue-200'
+      light: 'nebula-cyan/10',
+      DEFAULT: 'nebula-cyan',
+      dark: 'stellar-blue',
+      text: 'nebula-cyan',
+      border: 'nebula-cyan/30'
     }
   },
   
@@ -188,31 +188,35 @@ export const theme = {
   },
   
   gradients: {
-    hero: 'bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800',
-    primary: 'bg-gradient-to-r from-blue-600 to-indigo-700',
-    secondary: 'bg-gradient-to-r from-indigo-600 to-purple-700',
-    dark: 'bg-gradient-to-br from-gray-900 to-gray-800',
-    light: 'bg-gradient-to-br from-gray-50 to-gray-100'
+    hero: 'bg-gradient-to-br from-nebula-black to-nebula-purple-dark',
+    primary: 'bg-gradient-to-r from-nebula-cyan to-nebula-violet',
+    secondary: 'bg-gradient-to-r from-nebula-violet to-nebula-purple',
+    dark: 'bg-gradient-to-br from-nebula-black to-nebula-purple-dark',
+    light: 'bg-gradient-to-br from-nebula-violet/10 to-nebula-cyan/10',
+    nebula: 'bg-gradient-nebula',
+    radial: 'bg-gradient-radial-nebula'
   },
   
   backgrounds: {
     white: 'bg-white dark:bg-gray-900',
     gray: 'bg-gray-50 dark:bg-gray-800',
-    dark: 'bg-gray-900 text-white',
-    transparent: 'bg-transparent'
+    dark: 'bg-nebula-black text-nebula-white',
+    transparent: 'bg-transparent',
+    nebula: 'bg-nebula-black'
   },
   
   borders: {
-    DEFAULT: 'border border-gray-300 dark:border-gray-600',
-    light: 'border border-gray-200 dark:border-gray-700',
-    dark: 'border border-gray-400 dark:border-gray-500',
-    primary: 'border-2 border-blue-600',
+    DEFAULT: 'border border-gray-300 dark:border-nebula-purple/30',
+    light: 'border border-gray-200 dark:border-nebula-violet/20',
+    dark: 'border border-gray-400 dark:border-nebula-purple/30',
+    primary: 'border-2 border-nebula-violet',
+    secondary: 'border-2 border-nebula-cyan',
     error: 'border border-red-500'
   },
   
   forms: {
     input: {
-      base: 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white',
+      base: 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-nebula-violet dark:bg-nebula-black dark:border-nebula-purple/30 dark:text-nebula-white',
       error: 'border-red-500 focus:border-red-500',
       disabled: 'opacity-50 cursor-not-allowed'
     },

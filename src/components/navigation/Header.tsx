@@ -49,7 +49,7 @@ export default function Header() {
             <li>
               <Link
                 href="/contact"
-                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="px-6 py-2 bg-gradient-to-r from-nebula-cyan to-nebula-violet text-white rounded-lg hover:shadow-nebula-lg hover:scale-105 transition-all duration-300"
               >
                 Get Started
               </Link>
@@ -92,7 +92,7 @@ export default function Header() {
               <li>
                 <Link
                   href="/contact"
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-center block"
+                  className="px-6 py-2 bg-gradient-to-r from-nebula-cyan to-nebula-violet text-white rounded-lg hover:shadow-nebula-lg hover:scale-105 transition-all duration-300 text-center block"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Get Started

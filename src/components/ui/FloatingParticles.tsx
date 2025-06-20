@@ -147,7 +147,7 @@ export default function FloatingParticles() {
   // Server-side render with static particles
   if (!isClient) {
     return (
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-1" aria-hidden="true">
         <div 
           className="absolute inset-0" 
           style={{

@@ -2,7 +2,7 @@
  * Utility functions for generating contact form URLs with query parameters
  */
 
-export type ContactFormType = 'project-inquiry' | 'quick-consultation' | 'support-maintenance';
+export type ContactFormType = 'agency-partnership' | 'quick-consultation' | 'support-maintenance';
 
 /**
  * Generate a contact page URL with the specified form active
@@ -12,7 +12,7 @@ export type ContactFormType = 'project-inquiry' | 'quick-consultation' | 'suppor
  */
 export function getContactFormUrl(formType: ContactFormType, baseUrl?: string): string {
   const path = '/contact';
-  const queryParam = formType === 'project-inquiry' ? '' : `?form=${formType}`;
+  const queryParam = `?form=${formType}`;
   
   if (baseUrl) {
     return `${baseUrl}${path}${queryParam}`;
@@ -25,7 +25,7 @@ export function getContactFormUrl(formType: ContactFormType, baseUrl?: string): 
  * All available contact form URLs for easy reference
  */
 export const CONTACT_FORM_URLS = {
-  PROJECT_INQUIRY: getContactFormUrl('project-inquiry'),
+  AGENCY_PARTNERSHIP: getContactFormUrl('agency-partnership'),
   QUICK_CONSULTATION: getContactFormUrl('quick-consultation'),
   SUPPORT_MAINTENANCE: getContactFormUrl('support-maintenance'),
 } as const;
@@ -36,7 +36,7 @@ export const CONTACT_FORM_URLS = {
  * @returns boolean indicating if the form type is valid
  */
 export function isValidFormType(formType: string): formType is ContactFormType {
-  return ['project-inquiry', 'quick-consultation', 'support-maintenance'].includes(formType);
+  return ['agency-partnership', 'quick-consultation', 'support-maintenance'].includes(formType);
 }
 
 /**
@@ -46,7 +46,7 @@ export function isValidFormType(formType: string): formType is ContactFormType {
  */
 export function getFormDisplayName(formType: ContactFormType): string {
   const displayNames = {
-    'project-inquiry': 'Start a Project',
+    'agency-partnership': 'Agency Partnership Inquiry',
     'quick-consultation': 'Quick Consultation',
     'support-maintenance': 'Support & Maintenance',
   };
@@ -58,7 +58,7 @@ export function getFormDisplayName(formType: ContactFormType): string {
  * Example usage:
  * 
  * // Basic URLs
- * getContactFormUrl('project-inquiry')      // '/contact'
+ * getContactFormUrl('agency-partnership')   // '/contact'
  * getContactFormUrl('quick-consultation')   // '/contact?form=quick-consultation'
  * getContactFormUrl('support-maintenance')  // '/contact?form=support-maintenance'
  * 
@@ -67,6 +67,7 @@ export function getFormDisplayName(formType: ContactFormType): string {
  * // 'https://planetxdevs.com/contact?form=quick-consultation'
  * 
  * // Use predefined constants
+ * <Link href={CONTACT_FORM_URLS.AGENCY_PARTNERSHIP}>Start Partnership</Link>
  * <Link href={CONTACT_FORM_URLS.QUICK_CONSULTATION}>Get Consultation</Link>
  * 
  * // Validation

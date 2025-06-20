@@ -41,27 +41,27 @@ const Footer = dynamic(() => import('@/components/navigation/Footer'), {
 // Timeline data array
 const timelineData = [
   {
-    year: '2013',
+    year: '2015',
     title: 'Started Web Development Journey',
     description: 'Began coding websites and quickly discovered a passion for solving complex technical challenges and creating seamless user experiences.'
   },
   {
-    year: '2015', 
+    year: '2016', 
     title: 'First Agency Experience',
     description: 'Joined a digital marketing agency as a developer, learning firsthand the fast-paced environment and unique pressures agencies face.'
   },
   {
-    year: '2017',
+    year: '2020',
     title: 'Became Lead Developer', 
     description: 'Promoted to lead development teams across multiple high-profile accounts, mastering the art of balancing quality with tight deadlines.'
   },
   {
-    year: '2020',
+    year: '2022',
     title: 'Identified the Problem',
     description: 'After years of watching agencies struggle with unreliable freelancers and overpriced dev shops, realized there had to be a better way.'
   },
   {
-    year: '2022',
+    year: '2024',
     title: 'Launched Planet X Devs',
     description: 'Founded a white-label development service built specifically for agencies - combining technical excellence with the reliability agencies need.'
   }
@@ -332,7 +332,7 @@ export default function AboutPageClient() {
             }`}>
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-nebula-white">
-                From Agency Frustration to Technical Solution
+                From Technical Frustration to Streamlined Solution
               </h2>
               <p className="text-lg text-gray-400 leading-relaxed">
                 After years of working within digital marketing agencies, I witnessed a recurring problem: talented agencies losing opportunities because they couldn't find reliable development partners.
@@ -522,7 +522,7 @@ export default function AboutPageClient() {
               {/* Bio */}
               <div className="text-center max-w-3xl mx-auto mb-8">
                 <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                  Hi, I'm Nathaniel. After spending years as a lead developer in fast-paced digital marketing agencies, I witnessed a pattern: brilliant creative teams struggling with unreliable developers, missed deadlines, and technical bottlenecks that cost them clients.
+                  Hi, I'm Nathaniel. After spending years as a lead developer in fast-paced software companyies and digital marketing agencies, I witnessed a pattern: brilliant creative teams struggling with unreliable developers, missed deadlines, and technical bottlenecks that cost them clients.
                 </p>
                 <p className="text-lg text-gray-300 leading-relaxed mb-6">
                   I founded Planet X Devs to solve this exact problem. Having been in the trenches myself, I understand the pressure agencies face - the late-night client emergencies, the "can you make this work by tomorrow?" requests, and the need for a developer who just gets it.
@@ -640,8 +640,7 @@ export default function AboutPageClient() {
       </Section>
 
       {/* CTA Section */}
-      <section className="relative py-20 bg-white dark:bg-gray-900 overflow-hidden">
-        <FloatingParticles />
+      <section className="relative py-20 bg-gradient-radial-nebula overflow-hidden">
         
         <div className="relative z-10 container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
@@ -657,6 +656,8 @@ export default function AboutPageClient() {
             Begin Your Mission
           </Link>
         </div>
+
+        <FloatingParticles />
       </section>
 
       <Footer />

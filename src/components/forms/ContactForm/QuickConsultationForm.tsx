@@ -214,6 +214,7 @@ export default function QuickConsultationForm() {
             size="large"
             fullWidth
             disabled={isSubmitting}
+            className="bg-gradient-to-r from-nebula-cyan to-nebula-violet hover:shadow-nebula-lg hover:scale-105"
           >
             {isSubmitting ? 'Submitting...' : 'Request Consultation'}
           </Button>

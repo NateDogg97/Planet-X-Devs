@@ -64,7 +64,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-nebula-purple-30 mt-8 pt-8 text-center text-nebula-white/70">
-          <p>&copy; 2024 Planet X Devs. All rights reserved.</p>
+          <p>&copy; 2025 Planet X Devs. All rights reserved.</p>
         </div>
       </div>
     </footer>

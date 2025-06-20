@@ -29,6 +29,11 @@ const VerticalTimeline = dynamic(() => import('@/components/ui/VerticalTimeline'
   )
 });
 
+const FloatingParticles = dynamic(() => import('@/components/ui/FloatingParticles'), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0" />
+});
+
 const FAQItem = dynamic(() => import('@/components/ui/FAQItem'), {
   loading: () => (
     <div className="border border-nebula-purple-30 rounded-lg p-6 animate-pulse">
@@ -327,101 +332,112 @@ export default function ServicesPageClient() {
         </div>
       </section>
 
-      {/* Coming Soon Services */}
-      <section className="py-24">
+      {/* Coming Soon Section - Updated with Old Styling */}
+      <section className="py-20 bg-gradient-to-br from-nebula-black via-nebula-purple/10 to-nebula-black relative overflow-hidden">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-nebula-white mb-6">
-              Coming Soon
-            </h2>
-            <p className="text-xl text-nebula-white/80 max-w-3xl mx-auto">
-              We're constantly expanding our services. Here's what's in development.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-nebula-black/30 backdrop-blur-sm rounded-2xl p-8 border border-nebula-purple-30 relative overflow-hidden">
-              <div className="absolute top-4 right-4">
-                <span className="bg-nebula-violet/20 text-nebula-violet px-3 py-1 rounded-full text-sm font-medium">
-                  Q2 2024
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center mb-6 relative">
+                <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-xl animate-pulse" />
+                <span className="relative inline-block px-4 py-2 bg-yellow-400/20 text-yellow-400 rounded-full text-sm font-semibold border border-yellow-400/40">
+                  COMING SOON
                 </span>
+                <div className="absolute -inset-1 border-2 border-yellow-400/20 rounded-full animate-rotate motion-reduce:animate-none" style={{ borderStyle: 'dashed' }} />
               </div>
-              <div className="w-16 h-16 bg-nebula-violet/20 rounded-full flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-nebula-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-nebula-white mb-4">Advanced Analytics</h3>
-              <p className="text-nebula-white/70 mb-6">
-                Comprehensive performance tracking and reporting for all client websites. Monthly insights delivered automatically.
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-nebula-white mb-6">
+                Exciting New Services on the Horizon
+              </h2>
+              <p className="text-xl text-nebula-white/70 max-w-3xl mx-auto mb-8">
+                We&apos;re constantly expanding our capabilities to better serve your agency. 
+                Here&apos;s what&apos;s coming next to help you deliver even more value to your clients.
               </p>
-              <ul className="text-sm text-nebula-white/60 space-y-2">
-                <li>• Core Web Vitals monitoring</li>
-                <li>• SEO performance tracking</li>
-                <li>• Custom dashboard for clients</li>
-                <li>• Automated monthly reports</li>
-              </ul>
             </div>
-
-            <div className="bg-nebula-black/30 backdrop-blur-sm rounded-2xl p-8 border border-nebula-purple-30 relative overflow-hidden">
-              <div className="absolute top-4 right-4">
-                <span className="bg-nebula-violet/20 text-nebula-violet px-3 py-1 rounded-full text-sm font-medium">
-                  Q3 2024
-                </span>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              {/* Advanced Analytics */}
+              <div className="bg-nebula-white/5 rounded-lg p-6 border border-nebula-white/10 relative overflow-hidden group">
+                <div className="absolute -top-2 -right-2 w-20 h-20 bg-yellow-400/10 rounded-full blur-xl group-hover:bg-yellow-400/20 transition-colors duration-300" />
+                <h3 className="text-xl font-bold text-nebula-white mb-3 relative z-10">
+                  Advanced Analytics Setup
+                </h3>
+                <p className="text-nebula-white/60 relative z-10">
+                  Comprehensive performance tracking and reporting for all client websites. Custom dashboards, conversion tracking, and automated monthly insights.
+                </p>
               </div>
-              <div className="w-16 h-16 bg-nebula-violet/20 rounded-full flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-nebula-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+              
+              {/* AI-Powered Tools */}
+              <div className="bg-nebula-white/5 rounded-lg p-6 border border-nebula-white/10 relative overflow-hidden group">
+                <div className="absolute -top-2 -right-2 w-20 h-20 bg-yellow-400/10 rounded-full blur-xl group-hover:bg-yellow-400/20 transition-colors duration-300" />
+                <h3 className="text-xl font-bold text-nebula-white mb-3 relative z-10">
+                  AI-Powered Development Tools
+                </h3>
+                <p className="text-nebula-white/60 relative z-10">
+                  Leverage AI to speed up development cycles and improve client communication with automated updates and intelligent code generation.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-nebula-white mb-4">AI-Powered Tools</h3>
-              <p className="text-nebula-white/70 mb-6">
-                Leverage AI to speed up development cycles and improve client communication with automated updates and insights.
+              
+              {/* Full Website Management */}
+              <div className="bg-nebula-white/5 rounded-lg p-6 border border-nebula-white/10 relative overflow-hidden group">
+                <div className="absolute -top-2 -right-2 w-20 h-20 bg-yellow-400/10 rounded-full blur-xl group-hover:bg-yellow-400/20 transition-colors duration-300" />
+                <h3 className="text-xl font-bold text-nebula-white mb-3 relative z-10">
+                  Complete Website Management
+                </h3>
+                <p className="text-nebula-white/60 relative z-10">
+                  Full-service website care from hosting to maintenance. Let us handle everything while you focus on growing your agency.
+                </p>
+              </div>
+              
+              {/* Progressive Web Apps */}
+              <div className="bg-nebula-white/5 rounded-lg p-6 border border-nebula-white/10 relative overflow-hidden group">
+                <div className="absolute -top-2 -right-2 w-20 h-20 bg-yellow-400/10 rounded-full blur-xl group-hover:bg-yellow-400/20 transition-colors duration-300" />
+                <h3 className="text-xl font-bold text-nebula-white mb-3 relative z-10">
+                  Progressive Web Apps (PWA)
+                </h3>
+                <p className="text-nebula-white/60 relative z-10">
+                  Build web apps that work offline, send push notifications, and feel like native apps on mobile devices.
+                </p>
+              </div>
+              
+              {/* API Development */}
+              <div className="bg-nebula-white/5 rounded-lg p-6 border border-nebula-white/10 relative overflow-hidden group">
+                <div className="absolute -top-2 -right-2 w-20 h-20 bg-yellow-400/10 rounded-full blur-xl group-hover:bg-yellow-400/20 transition-colors duration-300" />
+                <h3 className="text-xl font-bold text-nebula-white mb-3 relative z-10">
+                  Custom API Development
+                </h3>
+                <p className="text-nebula-white/60 relative z-10">
+                  RESTful APIs and GraphQL endpoints for complex integrations and headless architecture implementations.
+                </p>
+              </div>
+              
+              {/* Conversion Rate Optimization */}
+              <div className="bg-nebula-white/5 rounded-lg p-6 border border-nebula-white/10 relative overflow-hidden group">
+                <div className="absolute -top-2 -right-2 w-20 h-20 bg-yellow-400/10 rounded-full blur-xl group-hover:bg-yellow-400/20 transition-colors duration-300" />
+                <h3 className="text-xl font-bold text-nebula-white mb-3 relative z-10">
+                  Conversion Rate Optimization
+                </h3>
+                <p className="text-nebula-white/60 relative z-10">
+                  A/B testing, heat mapping, and user behavior analysis to maximize your clients&apos; website conversions.
+                </p>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <p className="text-nebula-white/60 mb-6">
+                Want early access to these services or have a specific need?
               </p>
-              <ul className="text-sm text-nebula-white/60 space-y-2">
-                <li>• Automated code reviews</li>
-                <li>• Smart client updates</li>
-                <li>• Performance optimization suggestions</li>
-                <li>• Content generation assistance</li>
-              </ul>
+              <a 
+                href="/contact" 
+                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-nebula-black font-bold rounded-lg hover:from-yellow-300 hover:to-yellow-400 transition-all duration-200 transform hover:scale-105"
+              >
+                Get Early Access
+              </a>
             </div>
-
-            <div className="bg-nebula-black/30 backdrop-blur-sm rounded-2xl p-8 border border-nebula-purple-30 relative overflow-hidden">
-              <div className="absolute top-4 right-4">
-                <span className="bg-nebula-violet/20 text-nebula-violet px-3 py-1 rounded-full text-sm font-medium">
-                  Q4 2024
-                </span>
-              </div>
-              <div className="w-16 h-16 bg-nebula-violet/20 rounded-full flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-nebula-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-nebula-white mb-4">White-Label Dashboard</h3>
-              <p className="text-nebula-white/70 mb-6">
-                Complete project management platform branded for your agency. Clients see your brand, not ours.
-              </p>
-              <ul className="text-sm text-nebula-white/60 space-y-2">
-                <li>• Branded client portal</li>
-                <li>• Project timeline tracking</li>
-                <li>• Automated invoicing</li>
-                <li>• Resource library access</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-nebula-white/70 mb-6">
-              Want early access to these features? Join our beta program.
-            </p>
-            <Link
-              href="/contact?service=beta"
-              className="inline-flex items-center px-8 py-4 bg-nebula-violet text-white rounded-full font-semibold hover:bg-nebula-violet/90 transition-colors"
-            >
-              Join Beta Program
-            </Link>
           </div>
         </div>
+        
+        {/* Decorative elements */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-yellow-400/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-nebula-violet/10 rounded-full blur-3xl" />
       </section>
 
       {/* FAQ Section */}
@@ -442,6 +458,27 @@ export default function ServicesPageClient() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-20 bg-gradient-radial-nebula overflow-hidden">
+        
+        <div className="relative z-10 container mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
+            Ready to Launch Your Next Project?
+          </h2>
+          <p className="text-xl text-nebula-white/70 mb-10 max-w-2xl mx-auto">
+            Let's discuss how I can help your agency deliver exceptional websites without the headaches
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block px-10 py-5 rounded-full bg-gradient-nebula text-white font-bold text-lg shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300 animate-pulse-slow"
+          >
+            Begin Your Mission
+          </Link>
+        </div>
+
+        <FloatingParticles />
       </section>
 
       <Footer />

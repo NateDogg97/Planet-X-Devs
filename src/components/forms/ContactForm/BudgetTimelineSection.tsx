@@ -63,8 +63,8 @@ export default function BudgetTimelineSection({
         error={errors.monthlyHoursNeeded}
       />
       
-      <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
-        <p className="text-sm text-blue-800 dark:text-blue-300">
+      <div className="bg-nebula-cyan/10 border border-nebula-cyan/30 rounded-lg p-4">
+        <p className="text-sm text-nebula-cyan">
           <strong>Note:</strong> These ranges help me provide accurate quotes. Final pricing depends on specific requirements and project scope.
         </p>
       </div>

@@ -29,8 +29,8 @@ export default function SocialLinks() {
         ))}
       </div>
       
-      <div className="mt-6 p-4 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-        <p className="text-sm text-blue-800 dark:text-blue-300">
+      <div className="mt-6 p-4 bg-nebula-cyan/10 border border-nebula-cyan/30 rounded-lg">
+        <p className="text-sm text-nebula-cyan">
           <strong>Pro tip:</strong> Follow me on social for web dev tips and agency growth strategies!
         </p>
       </div>

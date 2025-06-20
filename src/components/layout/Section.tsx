@@ -12,7 +12,8 @@ export default function Section({
   children,
   className = '',
   background = 'white',
-  padding = 'large'
+  padding = 'large',
+  id
 }: SectionProps) {
   const backgrounds = {
     white: theme.backgrounds.white,
@@ -24,7 +25,7 @@ export default function Section({
   const paddingClass = theme.spacing.section[padding];
   
   return (
-    <section id={'forms'} className={`${paddingClass} ${backgrounds[background]} ${className}`}>
+    <section id={id} className={`${paddingClass} ${backgrounds[background]} ${className}`}>
       {children}
     </section>
   );

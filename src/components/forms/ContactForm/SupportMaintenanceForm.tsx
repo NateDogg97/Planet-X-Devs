@@ -289,6 +289,7 @@ export default function SupportMaintenanceForm() {
             size="large"
             fullWidth
             disabled={isSubmitting}
+            className="bg-gradient-to-r from-nebula-cyan to-nebula-violet hover:shadow-nebula-lg hover:scale-105"
           >
             {isSubmitting ? 'Submitting...' : 'Submit Support Request'}
           </Button>

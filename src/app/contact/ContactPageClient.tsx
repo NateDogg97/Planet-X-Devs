@@ -1,12 +1,13 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, Suspense } from 'react';
 import ContactForm from '@/components/forms/ContactForm';
 import ContactInfo from '@/components/forms/ContactForm/ContactInfo';
 import SocialLinks from '@/components/forms/ContactForm/SocialLinks';
 import Section from '@/components/layout/Section';
 import Container from '@/components/layout/Container';
-import Hero from '@/components/layout/Hero';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import Button from '@/components/ui/Button';
 import Icon from '@/components/ui/Icon';
@@ -34,6 +35,11 @@ const Footer = dynamic(() => import('@/components/navigation/Footer'), {
       </div>
     </div>
   )
+});
+
+const FloatingParticles = dynamic(() => import('@/components/ui/FloatingParticles'), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0" />
 });
 
 const FAQItem = dynamic(() => import('@/components/ui/FAQItem'), {
@@ -64,7 +70,26 @@ const contactFAQs = [
   },
 ];
 
-export default function ContactPageClient() {
+function ContactPageContent() {
+  const searchParams = useSearchParams();
+  
+  // Auto-scroll to contact form when query parameters exist
+  useEffect(() => {
+    const hasQueryParams = searchParams.toString().length > 0;
+    if (hasQueryParams) {
+      // Small delay to ensure the component is rendered
+      setTimeout(() => {
+        const contactFormElement = document.getElementById('contact-form');
+        if (contactFormElement) {
+          contactFormElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      }, 100);
+    }
+  }, [searchParams]);
+  
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -203,17 +228,22 @@ export default function ContactPageClient() {
           __html: JSON.stringify(structuredData)
         }}
       />
-      {/* Hero with StarField */}
-      <div className="relative">
+      {/* Compact Page Header */}
+      <section className="relative bg-nebula-black pt-24 pb-12">
         <div className="absolute inset-0">
           <StarField />
         </div>
-        <Hero
-          title="Let's Build Something Great Together"
-          subtitle="Whether you're a solo freelancer or an established agency, let's talk about how I can help you deliver exceptional websites without the development headaches."
-          showPlanets={false}
-        />
-      </div>
+        <Container className="relative z-10">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-bold text-nebula-white mb-4">
+              Let's Build Something Great Together
+            </h1>
+            <p className="text-xl text-nebula-white/80">
+              Whether you're a solo freelancer or an established agency, let's talk about how I can help you deliver exceptional websites without the development headaches.
+            </p>
+          </div>
+        </Container>
+      </section>
 
       {/* Breadcrumbs */}
       <section className="py-4 bg-white dark:bg-gray-900">
@@ -344,7 +374,7 @@ export default function ContactPageClient() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
-                 onClick={() => window.location.href = CONTACT_FORM_URLS.PROJECT_INQUIRY}>
+                 onClick={() => window.location.href = CONTACT_FORM_URLS.AGENCY_PARTNERSHIP}>
               <Card className="hover:border-nebula-violet transition-all duration-300">
                 <div className="w-16 h-16 bg-nebula-violet rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Icon name="briefcase" className="w-8 h-8 text-white" />
@@ -354,9 +384,9 @@ export default function ContactPageClient() {
                   Ready to start a new website or development project? Let's discuss scope, timeline, and budget.
                 </p>
                 <div className="text-center">
-                  <Button variant="outline" size="small" className="group-hover:bg-nebula-violet group-hover:text-white transition-colors">
+                  <div className="inline-block px-4 py-2 text-sm font-semibold rounded-lg border-2 border-nebula-violet bg-nebula-white text-nebula-violet group-hover:bg-nebula-violet group-hover:text-white transition-all duration-300 cursor-pointer">
                     Start Project Discussion
-                  </Button>
+                  </div>
                 </div>
               </Card>
             </div>
@@ -372,9 +402,9 @@ export default function ContactPageClient() {
                   Have questions about our services or want to explore how we might work together? Let's talk.
                 </p>
                 <div className="text-center">
-                  <Button variant="outline" size="small" className="group-hover:bg-nebula-violet group-hover:text-white transition-colors">
+                  <div className="inline-block px-4 py-2 text-sm font-semibold rounded-lg border-2 border-nebula-violet text-nebula-violet bg-nebula-white group-hover:bg-nebula-violet group-hover:text-white transition-all duration-300 cursor-pointer">
                     Schedule Consultation
-                  </Button>
+                  </div>
                 </div>
               </Card>
             </div>
@@ -390,9 +420,9 @@ export default function ContactPageClient() {
                   Need help with an existing website or ongoing maintenance? We've got you covered.
                 </p>
                 <div className="text-center">
-                  <Button variant="outline" size="small" className="group-hover:bg-nebula-violet group-hover:text-white transition-colors">
+                  <div className="inline-block px-4 py-2 text-sm font-semibold rounded-lg border-2 border-nebula-violet text-nebula-violet bg-nebula-white group-hover:bg-nebula-violet group-hover:text-white transition-all duration-300 cursor-pointer">
                     Get Support
-                  </Button>
+                  </div>
                 </div>
               </Card>
             </div>
@@ -423,31 +453,44 @@ export default function ContactPageClient() {
       {/* Final CTA Section */}
       <Section>
         <Container>
-          <div className="text-center bg-nebula-black/50 backdrop-blur-sm rounded-3xl p-12 border border-nebula-purple-30">
-            <h2 className="text-4xl font-bold text-nebula-white mb-6">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-xl text-nebula-white/80 mb-8 max-w-2xl mx-auto">
-              Join the agencies who've discovered the power of reliable development partnerships.
-            </p>
+          <div className="text-center bg-nebula-black backdrop-blur-sm rounded-3xl p-12 border border-nebula-purple-30 relative">
+            <div className="relative z-10">
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button size="large" href="#contact-form">
-                Get Started Today
-              </Button>
-              <Button variant="outline" size="large" href="/services">
-                View Our Services
-              </Button>
+              <h2 className="text-4xl font-bold text-nebula-white mb-6">
+                Ready to Start Your Project?
+              </h2>
+              <p className="text-xl text-nebula-white/80 mb-8 max-w-2xl mx-auto">
+                Join the agencies who've discovered the power of reliable development partnerships.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <Button size="large" href="#contact-form" className="bg-gradient-to-r from-nebula-cyan to-nebula-violet hover:shadow-nebula-lg hover:scale-105">
+                  Get Started Today
+                </Button>
+                <Button variant="outline" size="large" href="/services">
+                  View Our Services
+                </Button>
+              </div>
+
+              <div className="text-sm text-nebula-white/60">
+                <p>Typical response time: Less than 4 hours • Free project consultation • No obligation quotes</p>
+              </div>
             </div>
 
-            <div className="text-sm text-nebula-white/60">
-              <p>Typical response time: Less than 4 hours • Free project consultation • No obligation quotes</p>
-            </div>
+            <FloatingParticles />
           </div>
         </Container>
       </Section>
 
       <Footer />
     </div>
+  );
+}
+
+export default function ContactPageClient() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-nebula-black">Loading...</div>}>
+      <ContactPageContent />
+    </Suspense>
   );
 }

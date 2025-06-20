@@ -22,7 +22,7 @@ export default function RetainerPlanCard({
   features,
   popular = false,
   ctaText = "Start Plan",
-  ctaHref = "#contact",
+  ctaHref = "/contact",
   highlight,
   badge
 }: RetainerPlanCardProps) {
@@ -32,7 +32,7 @@ export default function RetainerPlanCard({
         relative p-8 rounded-2xl border transition-all duration-300
         ${popular 
           ? 'bg-gradient-to-br from-nebula-violet/20 to-nebula-purple/20 border-nebula-violet shadow-2xl shadow-nebula-violet/30 scale-105' 
-          : 'bg-nebula-black/60 border-nebula-purple/30 hover:border-nebula-purple/50 hover:shadow-xl hover:shadow-nebula-purple/10'
+          : 'bg-gradient-to-br from-gray-900 to-nebula-black border-nebula-purple/30 hover:border-nebula-purple/50 hover:shadow-xl hover:shadow-nebula-purple/10'
         }
       `}
     >
@@ -59,7 +59,7 @@ export default function RetainerPlanCard({
                 text-5xl font-bold 
                 ${popular 
                   ? 'bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent' 
-                  : 'text-nebula-violet'
+                  : 'text-nebula-white'
                 }
               `}
             >

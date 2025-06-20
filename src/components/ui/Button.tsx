@@ -27,9 +27,9 @@ export default function Button({
   const baseStyles = `font-semibold ${theme.borderRadius.medium} ${theme.animation.transition.medium} text-center ${fullWidth ? 'block' : 'inline-block'}`;
   
   const variantStyles = {
-    primary: `bg-${theme.colors.primary.DEFAULT} text-white hover:bg-${theme.colors.primary.hover}`,
-    secondary: `bg-white text-${theme.colors.primary.DEFAULT} hover:bg-gray-100`,
-    outline: `bg-white text-${theme.colors.primary.DEFAULT} ${theme.borders.primary} hover:bg-blue-50`
+    primary: `bg-nebula-violet text-white hover:bg-nebula-purple`,
+    secondary: `bg-white text-nebula-violet hover:bg-gray-100`,
+    outline: `bg-white text-nebula-violet border-2 border-nebula-violet hover:bg-nebula-violet-10`
   };
   
   const sizeStyles = {

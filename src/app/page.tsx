@@ -118,7 +118,7 @@ export default function Home() {
       />
 
       {/* Services Section */}
-      <section className="py-20 bg-nebula-black">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-nebula-white">
             Your Development Mission Control
@@ -127,7 +127,8 @@ export default function Home() {
             Comprehensive web development solutions designed to elevate your agency's capabilities
           </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Mobile: Flex layout, Desktop: Grid layout with equal heights */}
+          <div className="flex flex-col gap-8 md:hidden">
             {featuredServices.map((service, index) => (
               <div
                 key={service.id}
@@ -142,11 +143,28 @@ export default function Home() {
               </div>
             ))}
           </div>
+          
+          {/* Desktop: Grid layout with equal heights */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+            {featuredServices.map((service, index) => (
+              <div
+                key={service.id}
+                className="opacity-0 animate-fade-in-up will-change-transform motion-reduce:animate-none flex"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <ServiceCard
+                  title={service.title}
+                  description={service.description}
+                  icon={<Icon name={service.icon} className="w-8 h-8 text-white" />}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Partnership Section */}
-      <section className="py-20 bg-nebula-black">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -154,10 +172,10 @@ export default function Home() {
                 Your Technical Co-Pilot
               </h2>
               <p className="text-lg text-nebula-white/70 mb-6">
-                After years of working with marketing agencies, I noticed a pattern: talented agencies were losing opportunities because they couldn't find reliable development partners.
+                After years of working with digital marketing agencies, I noticed a pattern: talented agencies were losing opportunities because they couldn't find reliable development partners.
               </p>
               <p className="text-lg text-nebula-white/70 mb-8">
-                I created Planet X Devs to be the development partner I wish existed when I was on the agency side - reliable, communicative, and focused on making agencies look good.
+                I created Planet X Devs to be the perfect development partner for effective marketing agencies without fulltime developers - reliable, communicative, and focused on making agencies look good.
               </p>
               <Link
                 href="/contact"
@@ -172,7 +190,7 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-nebula-black">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-4">
@@ -187,7 +205,7 @@ export default function Home() {
       </section>
 
       {/* Benefits Section - Nebula Theme */}
-      <section className="py-20 bg-nebula-black relative overflow-hidden">
+      <section className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
         {/* Background nebula effect */}
         <div className="absolute inset-0 opacity-30 pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 bg-nebula-violet-20 rounded-full blur-3xl animate-pulse-slow" />
@@ -354,7 +372,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-nebula-black">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-4">
@@ -371,8 +389,6 @@ export default function Home() {
 
       {/* Final CTA Section */}
       <section className="relative py-20 bg-gradient-radial-nebula overflow-hidden">
-        <FloatingParticles />
-        
         <div className="relative z-10 container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
             Ready to Launch Your Next Project?
@@ -387,6 +403,8 @@ export default function Home() {
             Begin Your Mission
           </Link>
         </div>
+
+        <FloatingParticles />
       </section>
 
       <Footer />

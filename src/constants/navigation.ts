@@ -41,6 +41,10 @@ export const footerNavigation = {
     {
       label: 'Performance Optimization',
       href: '/services#performance'
+    },
+    {
+      label: 'Retainer Plans',
+      href: '/services#retainer'
     }
   ],
   quickLinks: [
@@ -60,10 +64,6 @@ export const footerNavigation = {
       label: 'Contact',
       href: '/contact'
     },
-    {
-      label: 'Retainer Plans',
-      href: '/services#retainer'
-    }
   ]
 };
 
