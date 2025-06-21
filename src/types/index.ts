@@ -15,6 +15,7 @@ export interface Service {
   features: string[];
   timeline?: string;
   icon: IconName;
+  popular?: boolean;
 }
 
 export interface ServiceCardProps {

@@ -14,7 +14,8 @@ export const services: Service[] = [
       'Ongoing maintenance and support options'
     ],
     timeline: '1-8 weeks depending on scope',
-    icon: 'users'
+    icon: 'users',
+    popular: true
   },
   {
     id: 'platform-consultation',

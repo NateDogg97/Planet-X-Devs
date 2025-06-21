@@ -254,7 +254,7 @@ export const theme = {
     dark: 'bg-nebula-black text-nebula-white',
     transparent: 'bg-transparent',
     nebula: 'bg-nebula-black',
-    page: 'bg-white dark:bg-nebula-black',
+    page: 'bg-nebula-white dark:bg-nebula-black',
     section: 'bg-gray-50 dark:bg-gray-900',
     card: 'bg-white dark:bg-gray-800',
     overlay: 'bg-black/50 dark:bg-black/70'
