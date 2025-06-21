@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { theme } from '@/config/theme';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Hero from '@/components/layout/Hero';
@@ -316,7 +317,7 @@ export default function AboutPageClient() {
       />
 
       {/* Breadcrumbs */}
-      <section className="py-4 bg-white dark:bg-gray-900">
+      <section className={theme.themeColors.background.secondary + " py-4"}>
         <Container>
           <Breadcrumbs />
         </Container>
@@ -331,16 +332,16 @@ export default function AboutPageClient() {
               storyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-nebula-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-text-primary">
                 From Technical Frustration to Streamlined Solution
               </h2>
-              <p className="text-lg text-gray-400 leading-relaxed">
+              <p className="text-lg text-text-primary leading-relaxed">
                 After years of working within digital marketing agencies, I witnessed a recurring problem: talented agencies losing opportunities because they couldn't find reliable development partners.
               </p>
-              <p className="text-lg text-gray-400 leading-relaxed">
+              <p className="text-lg text-text-primary leading-relaxed">
                 Freelancers would disappear mid-project. Development shops would over-promise and under-deliver. In-house developers were too expensive to maintain. Agencies were stuck choosing between bad options.
               </p>
-              <p className="text-lg text-gray-400 leading-relaxed">
+              <p className="text-lg text-text-primary leading-relaxed">
                 I created Planet X Devs to be the development partner I wished existed when I was on the agency side - reliable, communicative, and genuinely invested in making agencies successful.
               </p>
             </div>

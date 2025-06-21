@@ -36,7 +36,7 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
     return (
       <div className="relative max-w-4xl mx-auto">
         <div className="absolute -top-8 -left-4 text-6xl text-nebula-violet-30 animate-pulse-slow">"</div>
-        <div className="bg-nebula-violet-10 rounded-3xl p-8 md:p-12">
+        <div className="glass-violet shadow-nebula rounded-3xl p-8 md:p-12">
           <blockquote className="text-center">
             <p className="text-xl text-nebula-white mb-6">"{testimonials[0].quote}"</p>
             <footer className="text-nebula-violet">
@@ -58,7 +58,7 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
     >
       <div className="absolute -top-8 -left-4 text-6xl text-nebula-violet-30 animate-pulse-slow">"</div>
       
-      <div className="bg-nebula-violet-10 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+      <div className="glass-violet shadow-nebula rounded-3xl p-8 md:p-12 relative overflow-hidden">
         <div className="relative h-[200px] md:h-[150px]">
           {testimonials.map((testimonial, index) => (
             <blockquote

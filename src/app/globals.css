@@ -462,7 +462,7 @@
   
   /* Shadow utilities */
   .shadow-nebula {
-    box-shadow: 0 10px 40px rgb(147 51 234 / 0.3);
+    box-shadow: 0 10px 40px -10px rgb(147 51 234 / 0.15);
   }
   
   .shadow-nebula-lg {

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Hero from '@/components/layout/Hero';
+import Section from '@/components/layout/Section';
 import ServiceCard from '@/components/ui/ServiceCard';
 import NebulaGraphic from '@/components/ui/NebulaGraphic';
 import Icon from '@/components/ui/Icon';
@@ -119,80 +120,75 @@ export default function Home() {
       />
 
       {/* Services Section */}
-      <section className={theme.themeColors.background.secondary + " py-20"}>
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-text-primary">
-            Your Development Mission Control
-          </h2>
-          <p className="text-xl text-center text-text-primary/70 mb-16 max-w-3xl mx-auto">
-            Comprehensive web development solutions designed to elevate your agency's capabilities
-          </p>
-          
-          {/* Mobile: Flex layout, Desktop: Grid layout with equal heights */}
-          <div className="flex flex-col gap-8 md:hidden">
-            {featuredServices.map((service, index) => (
-              <div
-                key={service.id}
-                className="opacity-0 animate-fade-in-up will-change-transform motion-reduce:animate-none"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <ServiceCard
-                  title={service.title}
-                  description={service.description}
-                  icon={<Icon name={service.icon} className="w-8 h-8 text-white" />}
-                />
-              </div>
-            ))}
-          </div>
-          
-          {/* Desktop: Grid layout with equal heights */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-            {featuredServices.map((service, index) => (
-              <div
-                key={service.id}
-                className="opacity-0 animate-fade-in-up will-change-transform motion-reduce:animate-none flex"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <ServiceCard
-                  title={service.title}
-                  description={service.description}
-                  icon={<Icon name={service.icon} className="w-8 h-8 text-white" />}
-                />
-              </div>
-            ))}
-          </div>
+      <Section background="secondary" container>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-text-primary">
+          Your Development Mission Control
+        </h2>
+        <p className="text-xl text-center text-text-primary/70 mb-16 max-w-3xl mx-auto">
+          Comprehensive web development solutions designed to elevate your agency's capabilities
+        </p>
+        
+        {/* Mobile: Flex layout, Desktop: Grid layout with equal heights */}
+        <div className="flex flex-col gap-8 md:hidden">
+          {featuredServices.map((service, index) => (
+            <div
+              key={service.id}
+              className="opacity-0 animate-fade-in-up will-change-transform motion-reduce:animate-none"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                icon={<Icon name={service.icon} className="w-8 h-8 text-white" />}
+              />
+            </div>
+          ))}
         </div>
-      </section>
+        
+        {/* Desktop: Grid layout with equal heights */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          {featuredServices.map((service, index) => (
+            <div
+              key={service.id}
+              className="opacity-0 animate-fade-in-up will-change-transform motion-reduce:animate-none flex"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                icon={<Icon name={service.icon} className="w-8 h-8 text-white" />}
+              />
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* Partnership Section */}
-      <section className={theme.themeColors.background.secondary + " py-20"}>
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
-                Your Technical Co-Pilot
-              </h2>
-              <p className="text-lg text-text-primary/70 mb-6">
-                After years of working with digital marketing agencies, I noticed a pattern: talented agencies were losing opportunities because they couldn't find reliable development partners.
-              </p>
-              <p className="text-lg text-text-primary/70 mb-8">
-                I created Planet X Devs to be the perfect development partner for effective marketing agencies without fulltime developers - reliable, communicative, and focused on making agencies look good.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-block px-8 py-4 rounded-full bg-gradient-nebula text-white font-semibold shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300"
-              >
-                Start Partnership
-              </Link>
-            </div>
-            <NebulaGraphic />
+      <Section background="secondary" container>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+              Your Technical Co-Pilot
+            </h2>
+            <p className="text-lg text-text-primary/70 mb-6">
+              After years of working with digital marketing agencies, I noticed a pattern: talented agencies were losing opportunities because they couldn't find reliable development partners.
+            </p>
+            <p className="text-lg text-text-primary/70 mb-8">
+              I created Planet X Devs to be the perfect development partner for effective marketing agencies without fulltime developers - reliable, communicative, and focused on making agencies look good.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-block px-8 py-4 rounded-full bg-gradient-nebula text-white font-semibold shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300"
+            >
+              Start Partnership
+            </Link>
           </div>
+          <NebulaGraphic />
         </div>
-      </section>
+      </Section>
 
       {/* Process Section */}
-      <section className={theme.themeColors.background.secondary + " py-20"}>
-        <div className="container mx-auto px-6">
+      <Section background="secondary" container>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
               Our Mission Process
@@ -202,11 +198,10 @@ export default function Home() {
             </p>
           </div>
           <ProcessTimeline />
-        </div>
-      </section>
+      </Section>
 
       {/* Benefits Section - Nebula Theme */}
-      <section className={theme.themeColors.background.secondary + " py-20 relative"}>
+      <Section background="secondary" container className="relative">
         {/* Background nebula effect */}
         <div className="absolute inset-0 opacity-30 pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 bg-nebula-violet-20 rounded-full blur-3xl animate-pulse-slow" />
@@ -370,27 +365,25 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Testimonials Section */}
-      <section className={theme.themeColors.background.secondary + " py-20"}>
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-              What Agencies Say About Us
-            </h2>
-            <p className="text-xl text-text-primary/70">
-              Don't just take our word for it
-            </p>
-          </div>
-          
-          <TestimonialCarousel testimonials={testimonials} />
+      <Section background="secondary" container>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            What Agencies Say About Us
+          </h2>
+          <p className="text-xl text-text-primary/70">
+            Don't just take our word for it
+          </p>
         </div>
-      </section>
+        
+        <TestimonialCarousel testimonials={testimonials} />
+      </Section>
 
       {/* Final CTA Section */}
-      <section className="relative py-20 bg-gradient-radial-nebula overflow-hidden bg-nebula-black">
-        <div className="relative z-10 container mx-auto px-6 text-center">
+      <Section container className="overflow-hidden bg-gradient-radial-nebula relative" background='dark'>
+        <div className="relative z-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
             Ready to Launch Your Next Project?
           </h2>
@@ -406,7 +399,7 @@ export default function Home() {
         </div>
 
         <FloatingParticles />
-      </section>
+      </Section>
 
       <Footer />
     </div>
