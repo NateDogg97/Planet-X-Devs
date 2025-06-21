@@ -1,12 +1,11 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { theme } from '@/config/theme';
+import { cn } from '@/config/theme';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import Hero from '@/components/layout/Hero';
+import StarField from '@/components/ui/StarField';
 import Section from '@/components/layout/Section';
-import Container from '@/components/layout/Container';
 import ValueCard from '@/components/ui/ValueCard';
 import TimelineItem from '@/components/ui/TimelineItem';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
@@ -309,12 +308,20 @@ export default function AboutPageClient() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <Hero
-        title="Your Agency's Technical Co-Pilot"
-        subtitle="Built by an agency veteran who understands the unique challenges of delivering exceptional websites for demanding clients"
-        showPlanets={false}
-      />
+      {/* Compact Page Header */}
+      <Section container className="relative" background='dark' spacing='medium'>
+        <div className="absolute inset-0">
+          <StarField />
+        </div>
+        <div className="max-w-3xl">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Your Agency's Technical Co-Pilot
+          </h1>
+          <p className="text-xl text-nebula-white/80">
+            Built by an agency veteran who understands the unique challenges of delivering exceptional websites for demanding clients.
+          </p>
+        </div>
+      </Section>
 
       {/* Breadcrumbs */}
       <Section container spacing='xsmall' background='secondary'>
@@ -368,7 +375,7 @@ export default function AboutPageClient() {
       </Section>
 
       {/* Values Section */}
-      <Section container>
+      <Section container background='gradient-radial'>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
             Built on Agency-First Values
@@ -445,196 +452,183 @@ export default function AboutPageClient() {
       </Section>
 
       {/* Team Section */}
-      <Section className="py-20 bg-white dark:bg-gray-900">
-        <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-4">
-              Meet Your Developer
-            </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              The person behind Planet X Devs who understands your agency challenges
-            </p>
-          </div>
+      <Section container background='gradient-radial'>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            Meet Your Developer
+          </h2>
+          <p className="text-xl text-text-secondary max-w-2xl mx-auto">
+            The person behind Planet X Devs who understands your agency challenges
+          </p>
+        </div>
 
-          {/* Single Team Member - Centered Layout */}
-          <div ref={teamRef} className="max-w-4xl mx-auto">
-            <div className={`bg-nebula-black/70 backdrop-blur-sm border border-nebula-purple/20 rounded-3xl p-8 md:p-12 text-center transition-all duration-1000 ${
-              teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
-              {/* Profile Avatar with Animated Border */}
-              <div className="relative mb-8 flex justify-center">
-                <div className="avatar-container relative group">
-                  {/* Outer rotating gradient border */}
-                  <div className="avatar-border absolute inset-0 rounded-full animate-spin-slow will-change-transform">
-                    <div className="w-full h-full rounded-full bg-gradient-conic from-nebula-purple via-nebula-violet via-nebula-cyan via-stellar-blue to-nebula-purple p-1">
-                      <div className="w-full h-full bg-nebula-black rounded-full"></div>
-                    </div>
+        {/* Single Team Member - Centered Layout */}
+        <div ref={teamRef} className="max-w-4xl mx-auto">
+          <div className={cn(
+            'glass-elevated glass-strong rounded-3xl p-8 md:p-12 text-center',
+            'transition-all duration-1000',
+            teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          )}>
+            {/* Profile Avatar with Animated Border */}
+            <div className="relative mb-8 flex justify-center">
+              <div className="avatar-container relative group">
+                {/* Outer rotating gradient border */}
+                <div className="avatar-border absolute inset-0 rounded-full animate-spin-slow will-change-transform">
+                  <div className="w-full h-full rounded-full bg-gradient-conic p-1">
+                    <div className="w-full h-full bg-bg-primary dark:bg-nebula-black rounded-full"></div>
+                  </div>
+                </div>
+                
+                {/* Inner glow effect */}
+                <div className="avatar-glow absolute inset-2 rounded-full bg-gradient-radial from-text-accent/20 via-text-accent/10 to-transparent animate-pulse-slow"></div>
+                
+                {/* Avatar content container */}
+                <div className="avatar-content relative z-10 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                  {/* Profile image placeholder */}
+                  <div className="avatar-image w-full h-full flex items-center justify-center text-5xl md:text-6xl filter hover:brightness-110 transition-all duration-300">
+                    👨‍💻
                   </div>
                   
-                  {/* Inner glow effect */}
-                  <div className="avatar-glow absolute inset-2 rounded-full bg-gradient-radial from-nebula-violet/20 via-nebula-purple/10 to-transparent animate-pulse-slow"></div>
-                  
-                  {/* Avatar content container */}
-                  <div className="avatar-content relative z-10 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden bg-gradient-to-br from-nebula-purple/40 via-nebula-violet/30 to-stellar-blue/20 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                    {/* Profile image placeholder */}
-                    <div className="avatar-image w-full h-full flex items-center justify-center text-5xl md:text-6xl filter hover:brightness-110 transition-all duration-300">
-                      👨‍💻
-                    </div>
-                    
-                    {/* Hover overlay */}
-                    <div className="avatar-overlay absolute inset-0 bg-nebula-violet/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
-                  </div>
-                  
-                  {/* Floating particles */}
-                  <div className="avatar-particles absolute inset-0 pointer-events-none">
-                    <div className="particle absolute w-1 h-1 bg-nebula-cyan rounded-full top-4 left-8 animate-float opacity-70"></div>
-                    <div className="particle absolute w-1.5 h-1.5 bg-nebula-violet rounded-full top-12 right-6 animate-float-delayed opacity-60"></div>
-                    <div className="particle absolute w-1 h-1 bg-stellar-blue rounded-full bottom-8 left-12 animate-float opacity-50" style={{ animationDelay: '4s' }}></div>
-                    <div className="particle absolute w-1 h-1 bg-nebula-purple rounded-full bottom-6 right-10 animate-float opacity-80" style={{ animationDelay: '6s' }}></div>
-                  </div>
+                  {/* Hover overlay */}
+                  <div className="avatar-overlay absolute inset-0 bg-text-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
                 </div>
-              </div>
-
-              {/* Name and Title */}
-              <div className="mb-8">
-                <h3 className="text-2xl md:text-3xl font-bold text-nebula-white mb-2">
-                  Nathaniel Mays
-                </h3>
-                <p className="text-lg text-nebula-cyan font-semibold mb-3">
-                  Founder & Lead Developer
-                </p>
-                <div className="flex justify-center space-x-4 text-sm text-gray-400">
-                  <span>10+ Years Experience</span>
-                  <span>•</span>
-                  <span>Agency Veteran</span>
-                  <span>•</span>
-                  <span>Full-Stack Developer</span>
-                </div>
-              </div>
-
-              {/* Bio */}
-              <div className="text-center max-w-3xl mx-auto mb-8">
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                  Hi, I'm Nathaniel. After spending years as a lead developer in fast-paced software companyies and digital marketing agencies, I witnessed a pattern: brilliant creative teams struggling with unreliable developers, missed deadlines, and technical bottlenecks that cost them clients.
-                </p>
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                  I founded Planet X Devs to solve this exact problem. Having been in the trenches myself, I understand the pressure agencies face - the late-night client emergencies, the "can you make this work by tomorrow?" requests, and the need for a developer who just gets it.
-                </p>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Today, I partner with agencies as their dedicated technical expert, handling everything from complex e-commerce builds to quick landing pages. My goal? To be the developer you can count on, so you can focus on what you do best - creating amazing campaigns and growing your agency.
-                </p>
-              </div>
-
-              {/* Skills & Expertise */}
-              <div className="grid md:grid-cols-3 gap-6 text-center">
-                <div className="space-y-3">
-                  <div className="w-12 h-12 bg-nebula-purple/20 rounded-full flex items-center justify-center text-nebula-violet mx-auto">
-                    <Icon name="code" className="w-6 h-6" />
-                  </div>
-                  <h4 className="font-semibold text-nebula-white">Technical Expertise</h4>
-                  <p className="text-sm text-gray-400">React, Next.js, WordPress, Shopify & more</p>
-                </div>
-                <div className="space-y-3">
-                  <div className="w-12 h-12 bg-nebula-purple/20 rounded-full flex items-center justify-center text-nebula-violet mx-auto">
-                    <Icon name="users" className="w-6 h-6" />
-                  </div>
-                  <h4 className="font-semibold text-nebula-white">Agency Experience</h4>
-                  <p className="text-sm text-gray-400">Led teams, managed workflows, delivered results</p>
-                </div>
-                <div className="space-y-3">
-                  <div className="w-12 h-12 bg-nebula-purple/20 rounded-full flex items-center justify-center text-nebula-violet mx-auto">
-                    <Icon name="lightning" className="w-6 h-6" />
-                  </div>
-                  <h4 className="font-semibold text-nebula-white">Fast Delivery</h4>
-                  <p className="text-sm text-gray-400">Quick turnarounds without compromising quality</p>
-                </div>
-              </div>
-
-              {/* Skills Tags */}
-              <div className="mt-12 mb-8">
-                <h4 className="text-lg font-semibold text-nebula-white mb-6 text-center">Technical Skills</h4>
-                <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-                  {/* Frontend Technologies */}
-                  <span className="px-4 py-2 bg-nebula-purple/20 border border-nebula-purple/30 rounded-full text-sm text-nebula-white hover:bg-nebula-purple/30 transition-colors duration-300">
-                    React
-                  </span>
-                  <span className="px-4 py-2 bg-nebula-violet/20 border border-nebula-violet/30 rounded-full text-sm text-nebula-white hover:bg-nebula-violet/30 transition-colors duration-300">
-                    Next.js
-                  </span>
-                  <span className="px-4 py-2 bg-nebula-cyan/20 border border-nebula-cyan/30 rounded-full text-sm text-nebula-white hover:bg-nebula-cyan/30 transition-colors duration-300">
-                    TypeScript
-                  </span>
-                  <span className="px-4 py-2 bg-stellar-blue/20 border border-stellar-blue/30 rounded-full text-sm text-nebula-white hover:bg-stellar-blue/30 transition-colors duration-300">
-                    JavaScript
-                  </span>
-                  <span className="px-4 py-2 bg-nebula-purple/20 border border-nebula-purple/30 rounded-full text-sm text-nebula-white hover:bg-nebula-purple/30 transition-colors duration-300">
-                    HTML5/CSS3
-                  </span>
-                  <span className="px-4 py-2 bg-nebula-violet/20 border border-nebula-violet/30 rounded-full text-sm text-nebula-white hover:bg-nebula-violet/30 transition-colors duration-300">
-                    Tailwind CSS
-                  </span>
-                  
-                  {/* CMS & Platforms */}
-                  <span className="px-4 py-2 bg-nebula-cyan/20 border border-nebula-cyan/30 rounded-full text-sm text-nebula-white hover:bg-nebula-cyan/30 transition-colors duration-300">
-                    WordPress
-                  </span>
-                  <span className="px-4 py-2 bg-stellar-blue/20 border border-stellar-blue/30 rounded-full text-sm text-nebula-white hover:bg-stellar-blue/30 transition-colors duration-300">
-                    Elementor
-                  </span>
-                  <span className="px-4 py-2 bg-nebula-purple/20 border border-nebula-purple/30 rounded-full text-sm text-nebula-white hover:bg-nebula-purple/30 transition-colors duration-300">
-                    Shopify
-                  </span>
-                  <span className="px-4 py-2 bg-nebula-violet/20 border border-nebula-violet/30 rounded-full text-sm text-nebula-white hover:bg-nebula-violet/30 transition-colors duration-300">
-                    WooCommerce
-                  </span>
-                  
-                  {/* Tools & Services */}
-                  <span className="px-4 py-2 bg-nebula-cyan/20 border border-nebula-cyan/30 rounded-full text-sm text-nebula-white hover:bg-nebula-cyan/30 transition-colors duration-300">
-                    Git
-                  </span>
-                  <span className="px-4 py-2 bg-stellar-blue/20 border border-stellar-blue/30 rounded-full text-sm text-nebula-white hover:bg-stellar-blue/30 transition-colors duration-300">
-                    Figma
-                  </span>
-                  <span className="px-4 py-2 bg-nebula-purple/20 border border-nebula-purple/30 rounded-full text-sm text-nebula-white hover:bg-nebula-purple/30 transition-colors duration-300">
-                    SEO
-                  </span>
-                  <span className="px-4 py-2 bg-nebula-violet/20 border border-nebula-violet/30 rounded-full text-sm text-nebula-white hover:bg-nebula-violet/30 transition-colors duration-300">
-                    Performance Optimization
-                  </span>
-                  <span className="px-4 py-2 bg-nebula-cyan/20 border border-nebula-cyan/30 rounded-full text-sm text-nebula-white hover:bg-nebula-cyan/30 transition-colors duration-300">
-                    Responsive Design
-                  </span>
-                </div>
-              </div>
-
-              {/* Contact Info */}
-              <div className="mt-8 pt-8 border-t border-nebula-purple/20">
-                <p className="text-gray-400 mb-4">Ready to work together?</p>
-                <div className="flex justify-center space-x-6">
-                  <a 
-                    href="/contact" 
-                    className="inline-flex items-center space-x-2 text-nebula-cyan hover:text-nebula-violet transition-colors"
-                  >
-                    <Icon name="mail" className="w-5 h-5" />
-                    <span>Get in touch</span>
-                  </a>
-                  <a 
-                    href="#" 
-                    className="inline-flex items-center space-x-2 text-nebula-cyan hover:text-nebula-violet transition-colors"
-                  >
-                    <Icon name="linkedin" className="w-5 h-5" />
-                    <span>Connect</span>
-                  </a>
+                
+                {/* Floating particles with theme colors */}
+                <div className="avatar-particles absolute inset-0 pointer-events-none">
+                  <div className="particle absolute w-1 h-1 bg-text-accent-alt rounded-full top-4 left-8 animate-float opacity-70"></div>
+                  <div className="particle absolute w-1.5 h-1.5 bg-text-accent rounded-full top-12 right-6 animate-float-delayed opacity-60"></div>
+                  <div className="particle absolute w-1 h-1 bg-stellar-blue dark:bg-stellar-blue rounded-full bottom-8 left-12 animate-float opacity-50" style={{ animationDelay: '4s' }}></div>
+                  <div className="particle absolute w-1 h-1 bg-text-accent rounded-full bottom-6 right-10 animate-float opacity-80" style={{ animationDelay: '6s' }}></div>
                 </div>
               </div>
             </div>
+
+            {/* Name and Title */}
+            <div className="mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">
+                Nathaniel Mays
+              </h3>
+              <p className="text-lg text-text-accent font-semibold mb-3">
+                Founder & Lead Developer
+              </p>
+              <div className="flex justify-center space-x-4 text-sm text-text-secondary">
+                <span>10+ Years Experience</span>
+                <span>•</span>
+                <span>Agency Veteran</span>
+                <span>•</span>
+                <span>Full-Stack Developer</span>
+              </div>
+            </div>
+
+            {/* Bio */}
+            <div className="text-center max-w-3xl mx-auto mb-8">
+              <p className="text-lg text-text-secondary leading-relaxed mb-6">
+                Hi, I'm Nathaniel. After spending years as a lead developer in fast-paced software companies and digital marketing agencies, I witnessed a pattern: brilliant creative teams struggling with unreliable developers, missed deadlines, and technical bottlenecks that cost them clients.
+              </p>
+              <p className="text-lg text-text-secondary leading-relaxed mb-6">
+                I founded Planet X Devs to solve this exact problem. Having been in the trenches myself, I understand the pressure agencies face - the late-night client emergencies, the "can you make this work by tomorrow?" requests, and the need for a developer who just gets it.
+              </p>
+              <p className="text-lg text-text-secondary leading-relaxed">
+                Today, I partner with agencies as their dedicated technical expert, handling everything from complex e-commerce builds to quick landing pages. My goal? To be the developer you can count on, so you can focus on what you do best - creating amazing campaigns and growing your agency.
+              </p>
+            </div>
+
+            {/* Skills & Expertise */}
+            <div className="grid md:grid-cols-3 gap-6 text-center mb-12">
+              <div className="space-y-3">
+                <div className="w-12 h-12 bg-text-accent/10 rounded-full flex items-center justify-center text-text-accent mx-auto">
+                  <Icon name="code" className="w-6 h-6" />
+                </div>
+                <h4 className="font-semibold text-text-primary">Technical Expertise</h4>
+                <p className="text-sm text-text-secondary">React, Next.js, WordPress, Shopify & more</p>
+              </div>
+              <div className="space-y-3">
+                <div className="w-12 h-12 bg-text-accent/10 rounded-full flex items-center justify-center text-text-accent mx-auto">
+                  <Icon name="users" className="w-6 h-6" />
+                </div>
+                <h4 className="font-semibold text-text-primary">Agency Experience</h4>
+                <p className="text-sm text-text-secondary">Led teams, managed workflows, delivered results</p>
+              </div>
+              <div className="space-y-3">
+                <div className="w-12 h-12 bg-text-accent/10 rounded-full flex items-center justify-center text-text-accent mx-auto">
+                  <Icon name="lightning" className="w-6 h-6" />
+                </div>
+                <h4 className="font-semibold text-text-primary">Fast Delivery</h4>
+                <p className="text-sm text-text-secondary">Quick turnarounds without compromising quality</p>
+              </div>
+            </div>
+
+            {/* Skills Tags */}
+            <div className="mb-8">
+              <h4 className="text-lg font-semibold text-text-primary mb-6 text-center">Technical Skills</h4>
+              <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+                {/* Using a map for cleaner code */}
+                {[
+                  // Frontend
+                  { name: 'React', color: 'purple' },
+                  { name: 'Next.js', color: 'violet' },
+                  { name: 'TypeScript', color: 'cyan' },
+                  { name: 'JavaScript', color: 'blue' },
+                  { name: 'HTML5/CSS3', color: 'purple' },
+                  { name: 'Tailwind CSS', color: 'violet' },
+                  // CMS
+                  { name: 'WordPress', color: 'cyan' },
+                  { name: 'Elementor', color: 'blue' },
+                  { name: 'Shopify', color: 'purple' },
+                  { name: 'WooCommerce', color: 'violet' },
+                  // Tools
+                  { name: 'Git', color: 'cyan' },
+                  { name: 'Figma', color: 'blue' },
+                  { name: 'SEO', color: 'purple' },
+                  { name: 'Performance Optimization', color: 'violet' },
+                  { name: 'Responsive Design', color: 'cyan' }
+                ].map((skill) => (
+                  <span 
+                    key={skill.name}
+                    className={cn(
+                      'px-4 py-2 rounded-full text-sm transition-all duration-300',
+                      'border backdrop-blur-sm',
+                      // Light mode
+                      skill.color === 'purple' && 'bg-nebula-purple/10 border-nebula-purple/20 text-nebula-purple hover:bg-nebula-purple/20',
+                      skill.color === 'violet' && 'bg-nebula-violet/10 border-nebula-violet/20 text-nebula-violet hover:bg-nebula-violet/20',
+                      skill.color === 'cyan' && 'bg-nebula-cyan/10 border-nebula-cyan/20 text-nebula-cyan hover:bg-nebula-cyan/20',
+                      skill.color === 'blue' && 'bg-stellar-blue/10 border-stellar-blue/20 text-stellar-blue hover:bg-stellar-blue/20',
+                      // Dark mode
+                      'dark:bg-opacity-20 dark:border-opacity-30 dark:text-nebula-white dark:hover:bg-opacity-30'
+                    )}
+                  >
+                    {skill.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact Info */}
+            <div className="mt-8 pt-8 border-t border-border-primary">
+              <p className="text-text-secondary mb-4">Ready to work together?</p>
+              <div className="flex justify-center space-x-6">
+                <a 
+                  href="/contact" 
+                  className="inline-flex items-center space-x-2 text-text-accent hover:text-text-accent-alt transition-colors"
+                >
+                  <Icon name="mail" className="w-5 h-5" />
+                  <span>Get in touch</span>
+                </a>
+                <a 
+                  href="#" 
+                  className="inline-flex items-center space-x-2 text-text-accent hover:text-text-accent-alt transition-colors"
+                >
+                  <Icon name="linkedin" className="w-5 h-5" />
+                  <span>Connect</span>
+                </a>
+              </div>
+            </div>
           </div>
-        </Container>
+        </div>
       </Section>
 
       {/* CTA Section */}
-      <section className="relative py-20 bg-gradient-radial-nebula overflow-hidden">
-        
+      <Section className="relative bg-gradient-radial-nebula overflow-hidden" background='dark'>
         <div className="relative z-10 container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
             Ready to Launch Your Next Project?
@@ -651,7 +645,7 @@ export default function AboutPageClient() {
         </div>
 
         <FloatingParticles />
-      </section>
+      </Section>
 
       <Footer />
     </div>

@@ -2,7 +2,8 @@ import { theme, cn, type ThemeBackgroundVariant } from '@/config/theme';
 
 // Define types for better type safety
 type SectionSpacing = keyof typeof theme.spacing.section;
-type SectionBackground = ThemeBackgroundVariant | 'gradient' | 'dark' | 'transparent';
+type SectionBackground = ThemeBackgroundVariant | 'gradient' | 'dark' | 
+'transparent' | 'gradient-adaptive' | 'gradient-radial';
 type ContainerSize = keyof typeof theme.spacing.container;
 
 interface SectionProps {
@@ -33,6 +34,10 @@ export default function Section({
     switch (background) {
       case 'gradient':
         return theme.gradients.hero;
+      case 'gradient-adaptive':
+        return theme.gradients.adaptive;
+      case 'gradient-radial':
+        return theme.gradients.radial;
       case 'dark':
         return theme.backgrounds.dark;
       case 'transparent':

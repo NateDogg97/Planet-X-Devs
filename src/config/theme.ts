@@ -244,7 +244,7 @@ export const theme = {
     nebula: 'bg-gradient-nebula',
     radial: 'bg-gradient-radial-nebula',
     // Theme-aware gradients
-    adaptive: 'bg-gradient-to-br from-gray-50 to-gray-100 dark:from-nebula-black dark:to-nebula-purple-dark'
+    adaptive: 'bg-gradient-to-br from-gray-50 to-gray-100 dark:from-nebula-black dark:to-gray-900'
   },
   
   // Updated backgrounds with theme awareness
@@ -254,7 +254,6 @@ export const theme = {
     dark: 'bg-nebula-black text-nebula-white',
     transparent: 'bg-transparent',
     nebula: 'bg-nebula-black',
-    // New theme-aware backgrounds
     page: 'bg-white dark:bg-nebula-black',
     section: 'bg-gray-50 dark:bg-gray-900',
     card: 'bg-white dark:bg-gray-800',

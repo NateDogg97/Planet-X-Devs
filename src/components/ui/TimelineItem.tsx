@@ -28,12 +28,15 @@ export default function TimelineItem({
       className
     )}>
       {/* Timeline marker - uses existing CSS animations */}
-      <div className="timeline-marker absolute transform -translate-x-1/2 md:left-1/2">
+      <div className={cn("timeline-marker absolute transform -translate-x-1/2 md:left-1/2",
+        isLast ? 'bottom-8' : ''
+      )}>
         <div className={cn(
-          'timeline-dot relative z-10 w-4 h-4 mt-1.5 rounded-full',
+          'timeline-dot relative z-10 w-4 h-4 rounded-full',
+          isFirst ? 'mt-1.5' : '',
           'bg-text-accent dark:bg-nebula-violet',
           'border-4 border-bg-primary dark:border-nebula-black',
-          'animate-glow-pulse', // Uses your existing animation
+          'animate-glow-pulse',
           'shadow-lg shadow-text-accent/30 dark:shadow-nebula-violet/30'
         )} />
       </div>
