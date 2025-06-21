@@ -6,7 +6,7 @@ import ServiceDetailCard from '@/components/ui/ServiceDetailCard';
 import RetainerPlanCard from '@/components/ui/RetainerPlanCard';
 import Section from '@/components/layout/Section';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
-import { services, agencyPartnershipPlans } from '@/constants/services';
+import { services, agencyPartnershipPlans, developmentProcessSteps } from '@/constants/services';
 import { faqItems } from '@/constants/faq';
 import StarField from '@/components/ui/StarField';
 
@@ -286,52 +286,7 @@ export default function ServicesPageClient() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <VerticalTimeline steps={[
-            {
-              number: 1,
-              title: "Discovery & Planning",
-              description: "We start by understanding your client's needs, brand, and goals.",
-              details: [
-                "Requirements gathering session",
-                "Technical architecture planning",
-                "Timeline and milestone setup",
-                "Initial wireframes and mockups"
-              ]
-            },
-            {
-              number: 2,
-              title: "Design & Development",
-              description: "Our development team brings your vision to life with clean, efficient code.",
-              details: [
-                "Custom design implementation",
-                "Responsive development",
-                "Content management system setup",
-                "Third-party integrations"
-              ]
-            },
-            {
-              number: 3,
-              title: "Testing & Optimization",
-              description: "Rigorous testing ensures everything works perfectly before launch.",
-              details: [
-                "Cross-browser compatibility testing",
-                "Mobile responsiveness verification",
-                "Performance optimization",
-                "SEO foundation setup"
-              ]
-            },
-            {
-              number: 4,
-              title: "Launch & Support",
-              description: "We handle the technical deployment and provide ongoing support.",
-              details: [
-                "Domain and hosting setup",
-                "SSL certificate installation",
-                "Analytics and tracking setup",
-                "Client training and documentation"
-              ]
-            }
-          ]} />
+          <VerticalTimeline steps={developmentProcessSteps} />
         </div>
       </Section>
 
