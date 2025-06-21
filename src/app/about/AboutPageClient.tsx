@@ -412,7 +412,7 @@ export default function AboutPageClient() {
       </Section>
 
       {/* Timeline Section */}
-      <Section container background='secondary'>
+      <Section container background='secondary' spacing="xlarge">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
             The Journey to Planet X
