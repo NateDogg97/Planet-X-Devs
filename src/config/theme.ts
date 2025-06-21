@@ -1,4 +1,48 @@
 export const theme = {
+  // Theme-aware colors that adapt to light/dark mode
+  themeColors: {
+    // Text colors that automatically adjust
+    text: {
+      primary: 'text-nebula-black dark:text-nebula-white',
+      secondary: 'text-gray-700 dark:text-gray-300',
+      tertiary: 'text-gray-600 dark:text-gray-400',
+      muted: 'text-gray-500 dark:text-gray-500',
+      accent: 'text-nebula-violet dark:text-nebula-cyan',
+      inverse: 'text-nebula-white dark:text-nebula-black',
+      error: 'text-red-600 dark:text-red-400',
+      success: 'text-green-600 dark:text-green-400',
+      warning: 'text-yellow-600 dark:text-yellow-400'
+    },
+    
+    // Background colors that automatically adjust
+    background: {
+      primary: 'bg-white dark:bg-nebula-black',
+      secondary: 'bg-gray-50 dark:bg-gray-900',
+      tertiary: 'bg-gray-100 dark:bg-gray-800',
+      card: 'bg-white dark:bg-gray-800',
+      cardHover: 'bg-gray-50 dark:bg-gray-700',
+      inverse: 'bg-nebula-black dark:bg-white',
+      overlay: 'bg-black/50 dark:bg-black/70'
+    },
+    
+    // Border colors that automatically adjust
+    border: {
+      primary: 'border-gray-200 dark:border-gray-700',
+      secondary: 'border-gray-300 dark:border-gray-600',
+      accent: 'border-nebula-violet dark:border-nebula-cyan',
+      subtle: 'border-gray-100 dark:border-gray-800',
+      error: 'border-red-300 dark:border-red-700'
+    },
+    
+    // Glass morphism effects
+    glass: {
+      light: 'bg-white/70 backdrop-blur-md border border-gray-200/50',
+      dark: 'bg-gray-800/50 backdrop-blur-md border border-gray-700/50',
+      adaptive: 'bg-white/70 dark:bg-gray-800/50 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50'
+    }
+  },
+  
+  // Original color palette (kept for specific use cases)
   colors: {
     primary: {
       50: 'nebula-violet-10',
@@ -149,10 +193,10 @@ export const theme = {
       h6: 'text-base md:text-lg font-semibold'
     },
     paragraph: {
-      small: 'text-sm text-gray-600 dark:text-gray-400',
-      base: 'text-base text-gray-600 dark:text-gray-300',
-      large: 'text-lg text-gray-600 dark:text-gray-300',
-      xlarge: 'text-xl text-gray-600 dark:text-gray-300'
+      small: 'text-sm',
+      base: 'text-base',
+      large: 'text-lg',
+      xlarge: 'text-xl'
     }
   },
   
@@ -167,11 +211,14 @@ export const theme = {
   
   shadow: {
     none: '',
-    small: 'shadow',
+    small: 'shadow-sm',
     medium: 'shadow-md',
     large: 'shadow-lg',
     xlarge: 'shadow-xl',
-    '2xl': 'shadow-2xl'
+    '2xl': 'shadow-2xl',
+    // Theme-aware shadows
+    card: 'shadow-md dark:shadow-none dark:border dark:border-gray-700',
+    hover: 'hover:shadow-lg dark:hover:shadow-none dark:hover:border-gray-600'
   },
   
   animation: {
@@ -182,8 +229,8 @@ export const theme = {
     },
     hover: {
       scale: 'hover:scale-105',
-      shadow: 'hover:shadow-xl',
-      brightness: 'hover:brightness-110'
+      shadow: 'hover:shadow-xl dark:hover:shadow-lg',
+      brightness: 'hover:brightness-110 dark:hover:brightness-125'
     }
   },
   
@@ -194,34 +241,45 @@ export const theme = {
     dark: 'bg-gradient-to-br from-nebula-black to-nebula-purple-dark',
     light: 'bg-gradient-to-br from-nebula-violet/10 to-nebula-cyan/10',
     nebula: 'bg-gradient-nebula',
-    radial: 'bg-gradient-radial-nebula'
+    radial: 'bg-gradient-radial-nebula',
+    // Theme-aware gradients
+    adaptive: 'bg-gradient-to-br from-gray-50 to-gray-100 dark:from-nebula-black dark:to-nebula-purple-dark'
   },
   
+  // Updated backgrounds with theme awareness
   backgrounds: {
     white: 'bg-white dark:bg-gray-900',
     gray: 'bg-gray-50 dark:bg-gray-800',
     dark: 'bg-nebula-black text-nebula-white',
     transparent: 'bg-transparent',
-    nebula: 'bg-nebula-black'
+    nebula: 'bg-nebula-black',
+    // New theme-aware backgrounds
+    page: 'bg-white dark:bg-nebula-black',
+    section: 'bg-gray-50 dark:bg-gray-900',
+    card: 'bg-white dark:bg-gray-800',
+    overlay: 'bg-black/50 dark:bg-black/70'
   },
   
+  // Updated borders with theme awareness
   borders: {
-    DEFAULT: 'border border-gray-300 dark:border-nebula-purple/30',
-    light: 'border border-gray-200 dark:border-nebula-violet/20',
-    dark: 'border border-gray-400 dark:border-nebula-purple/30',
-    primary: 'border-2 border-nebula-violet',
-    secondary: 'border-2 border-nebula-cyan',
-    error: 'border border-red-500'
+    DEFAULT: 'border border-gray-300 dark:border-gray-700',
+    light: 'border border-gray-200 dark:border-gray-800',
+    dark: 'border border-gray-400 dark:border-gray-600',
+    primary: 'border-2 border-nebula-violet dark:border-nebula-cyan',
+    secondary: 'border-2 border-nebula-cyan dark:border-nebula-violet',
+    error: 'border border-red-500',
+    subtle: 'border border-gray-100 dark:border-gray-800/50'
   },
   
+  // Updated forms with proper theme support
   forms: {
     input: {
-      base: 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-nebula-violet dark:bg-nebula-black dark:border-nebula-purple/30 dark:text-nebula-white',
+      base: 'w-full px-4 py-3 rounded-lg focus:outline-none transition-colors bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:border-nebula-violet dark:focus:border-nebula-cyan',
       error: 'border-red-500 focus:border-red-500',
       disabled: 'opacity-50 cursor-not-allowed'
     },
     label: {
-      base: 'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+      base: 'block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300',
       required: 'after:content-["*"] after:ml-0.5 after:text-red-500'
     },
     helpText: 'text-sm text-gray-600 dark:text-gray-400',
@@ -244,7 +302,24 @@ export const theme = {
   }
 };
 
-// Helper functions
+// Enhanced helper functions
+
+// Get theme-aware color classes
+export const getThemeColor = (type: 'text' | 'background' | 'border', variant: string = 'primary') => {
+  const themeColorMap = theme.themeColors as any;
+  const colorGroup = themeColorMap[type];
+  
+  if (!colorGroup) return '';
+  
+  return colorGroup[variant] || colorGroup.primary || '';
+};
+
+// Get glass effect classes
+export const getGlassEffect = (variant: 'light' | 'dark' | 'adaptive' = 'adaptive') => {
+  return theme.themeColors.glass[variant] || theme.themeColors.glass.adaptive;
+};
+
+// Original helper functions (kept for backward compatibility)
 export const getColorClass = (color: string, shade: number | string = 'DEFAULT') => {
   const colorMap = theme.colors as any;
   const colorGroup = colorMap[color];
@@ -276,7 +351,124 @@ export const getTypographyClass = (type: 'heading' | 'paragraph', size: string) 
   return typographyGroup[size] || '';
 };
 
-// Tailwind CSS class builders
+// Enhanced class builder with theme support
 export const cn = (...classes: (string | undefined | null | false)[]) => {
   return classes.filter(Boolean).join(' ');
 };
+
+// New utility for building theme-aware components
+export const themeClasses = {
+  // Text utilities
+  text: (variant: keyof typeof theme.themeColors.text = 'primary') => theme.themeColors.text[variant],
+  
+  // Background utilities
+  bg: (variant: keyof typeof theme.themeColors.background = 'primary') => theme.themeColors.background[variant],
+  
+  // Border utilities
+  border: (variant: keyof typeof theme.themeColors.border = 'primary') => theme.themeColors.border[variant],
+  
+  // Card styles
+  card: (variant: 'default' | 'glass' | 'solid' = 'default') => {
+    const baseClasses = cn(
+      theme.borderRadius.large,
+      theme.animation.transition.medium
+    );
+    
+    switch (variant) {
+      case 'glass':
+        return cn(baseClasses, theme.themeColors.glass.adaptive);
+      case 'solid':
+        return cn(baseClasses, theme.themeColors.background.card, theme.themeColors.border.primary);
+      default:
+        return cn(baseClasses, theme.themeColors.background.card, theme.shadow.card);
+    }
+  },
+  
+  // Button styles
+  button: (variant: 'primary' | 'secondary' | 'ghost' = 'primary', size: 'small' | 'medium' | 'large' = 'medium') => {
+    const baseClasses = cn(
+      theme.spacing.padding.button[size],
+      theme.borderRadius.medium,
+      theme.animation.transition.fast,
+      'font-medium',
+      'cursor-pointer',
+      'inline-flex items-center justify-center'
+    );
+    
+    switch (variant) {
+      case 'primary':
+        return cn(
+          baseClasses,
+          'bg-nebula-violet hover:bg-nebula-purple text-white',
+          'dark:bg-nebula-cyan dark:hover:bg-stellar-blue dark:text-nebula-black'
+        );
+      case 'secondary':
+        return cn(
+          baseClasses,
+          'bg-gray-200 hover:bg-gray-300 text-gray-800',
+          'dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200'
+        );
+      case 'ghost':
+        return cn(
+          baseClasses,
+          'bg-transparent hover:bg-gray-100',
+          'dark:hover:bg-gray-800',
+          theme.themeColors.text.primary
+        );
+      default:
+        return baseClasses;
+    }
+  }
+};
+
+// Component presets for common patterns
+export const componentStyles = {
+  // Page layouts
+  page: cn(theme.themeColors.background.primary, theme.themeColors.text.primary, 'min-h-screen'),
+  
+  // Section styles
+  section: {
+    default: cn(theme.spacing.section.medium, theme.spacing.container.DEFAULT),
+    alternate: cn(theme.spacing.section.medium, theme.spacing.container.DEFAULT, theme.themeColors.background.secondary),
+    hero: cn(theme.spacing.section.xlarge, theme.spacing.container.DEFAULT)
+  },
+  
+  // Card variations
+  card: {
+    default: cn(themeClasses.card('default'), theme.spacing.padding.card.medium),
+    glass: cn(themeClasses.card('glass'), theme.spacing.padding.card.medium),
+    solid: cn(themeClasses.card('solid'), theme.spacing.padding.card.medium),
+    hover: cn(
+      themeClasses.card('default'),
+      theme.spacing.padding.card.medium,
+      theme.animation.hover.scale,
+      theme.animation.hover.shadow,
+      'cursor-pointer'
+    )
+  },
+  
+  // Typography with theme colors
+  heading: {
+    h1: cn(theme.typography.heading.h1, theme.themeColors.text.primary),
+    h2: cn(theme.typography.heading.h2, theme.themeColors.text.primary),
+    h3: cn(theme.typography.heading.h3, theme.themeColors.text.primary),
+    h4: cn(theme.typography.heading.h4, theme.themeColors.text.primary),
+    h5: cn(theme.typography.heading.h5, theme.themeColors.text.primary),
+    h6: cn(theme.typography.heading.h6, theme.themeColors.text.primary)
+  },
+  
+  paragraph: {
+    small: cn(theme.typography.paragraph.small, theme.themeColors.text.secondary),
+    base: cn(theme.typography.paragraph.base, theme.themeColors.text.secondary),
+    large: cn(theme.typography.paragraph.large, theme.themeColors.text.secondary),
+    xlarge: cn(theme.typography.paragraph.xlarge, theme.themeColors.text.secondary)
+  }
+};
+
+// Export type definitions for TypeScript
+export type ThemeTextVariant = keyof typeof theme.themeColors.text;
+export type ThemeBackgroundVariant = keyof typeof theme.themeColors.background;
+export type ThemeBorderVariant = keyof typeof theme.themeColors.border;
+export type ButtonVariant = 'primary' | 'secondary' | 'ghost';
+export type ButtonSize = 'small' | 'medium' | 'large';
+export type CardVariant = 'default' | 'glass' | 'solid';

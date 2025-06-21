@@ -70,10 +70,10 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
               }`}
               aria-hidden={index !== currentIndex}
             >
-              <p className="text-xl text-nebula-white mb-6">"{testimonial.quote}"</p>
+              <p className="text-xl text-text-primary mb-6">"{testimonial.quote}"</p>
               <footer className="text-nebula-violet">
                 — {testimonial.author}
-                {testimonial.role && <span className="text-nebula-white/60">, {testimonial.role}</span>}
+                {testimonial.role && <span className="text-text-primary/60">, {testimonial.role}</span>}
               </footer>
             </blockquote>
           ))}

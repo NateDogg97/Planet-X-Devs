@@ -7,6 +7,7 @@ import ServiceCard from '@/components/ui/ServiceCard';
 import NebulaGraphic from '@/components/ui/NebulaGraphic';
 import Icon from '@/components/ui/Icon';
 import { services } from '@/constants/services';
+import { theme } from '@/config/theme';
 
 const TestimonialCarousel = dynamic(() => import('@/components/ui/TestimonialCarousel'), {
   ssr: false,
@@ -118,12 +119,12 @@ export default function Home() {
       />
 
       {/* Services Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className={theme.themeColors.background.secondary + " py-20"}>
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-nebula-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-text-primary">
             Your Development Mission Control
           </h2>
-          <p className="text-xl text-center text-nebula-white/70 mb-16 max-w-3xl mx-auto">
+          <p className="text-xl text-center text-text-primary/70 mb-16 max-w-3xl mx-auto">
             Comprehensive web development solutions designed to elevate your agency's capabilities
           </p>
           
@@ -164,17 +165,17 @@ export default function Home() {
       </section>
 
       {/* Partnership Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className={theme.themeColors.background.secondary + " py-20"}>
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
                 Your Technical Co-Pilot
               </h2>
-              <p className="text-lg text-nebula-white/70 mb-6">
+              <p className="text-lg text-text-primary/70 mb-6">
                 After years of working with digital marketing agencies, I noticed a pattern: talented agencies were losing opportunities because they couldn't find reliable development partners.
               </p>
-              <p className="text-lg text-nebula-white/70 mb-8">
+              <p className="text-lg text-text-primary/70 mb-8">
                 I created Planet X Devs to be the perfect development partner for effective marketing agencies without fulltime developers - reliable, communicative, and focused on making agencies look good.
               </p>
               <Link
@@ -190,13 +191,13 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className={theme.themeColors.background.secondary + " py-20"}>
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
               Our Mission Process
             </h2>
-            <p className="text-xl text-nebula-white/70 max-w-2xl mx-auto">
+            <p className="text-xl text-text-primary/70 max-w-2xl mx-auto">
               From discovery to launch, we follow a proven process that ensures success
             </p>
           </div>
@@ -205,7 +206,7 @@ export default function Home() {
       </section>
 
       {/* Benefits Section - Nebula Theme */}
-      <section className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
+      <section className={theme.themeColors.background.secondary + " py-20 relative"}>
         {/* Background nebula effect */}
         <div className="absolute inset-0 opacity-30 pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 bg-nebula-violet-20 rounded-full blur-3xl animate-pulse-slow" />
@@ -234,10 +235,10 @@ export default function Home() {
                     </div>
                     
                     <div className="ml-4">
-                      <h3 className="text-lg font-semibold text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-cyan">
+                      <h3 className="text-lg font-semibold text-nebula-purple dark:text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-violet dark:group-hover:text-nebula-cyan">
                         Actually Easy to Work With
                       </h3>
-                      <p className="text-nebula-white/70 transition-colors duration-300 group-hover:text-nebula-white/90">
+                      <p className="text-text-primary/70 transition-colors duration-300 group-hover:text-text-primary/90">
                         No ego, no jargon, just clear communication and reliable delivery
                       </p>
                     </div>
@@ -257,10 +258,10 @@ export default function Home() {
                     </div>
                     
                     <div className="ml-4">
-                      <h3 className="text-lg font-semibold text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-cyan">
+                      <h3 className="text-lg font-semibold text-nebula-purple dark:text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-violet dark:group-hover:text-nebula-cyan">
                         Quality You Can Stake Your Reputation On
                       </h3>
-                      <p className="text-nebula-white/70 transition-colors duration-300 group-hover:text-nebula-white/90">
+                      <p className="text-text-primary/70 transition-colors duration-300 group-hover:text-text-primary/90">
                         We build websites that make your agency shine
                       </p>
                     </div>
@@ -280,10 +281,10 @@ export default function Home() {
                     </div>
                     
                     <div className="ml-4">
-                      <h3 className="text-lg font-semibold text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-cyan">
+                      <h3 className="text-lg font-semibold text-nebula-purple dark:text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-violet dark:group-hover:text-nebula-cyan">
                         Flexible Solutions
                       </h3>
-                      <p className="text-nebula-white/70 transition-colors duration-300 group-hover:text-nebula-white/90">
+                      <p className="text-text-primary/70 transition-colors duration-300 group-hover:text-text-primary/90">
                         Custom development, Elementor, WordPress - we adapt to your project needs
                       </p>
                     </div>
@@ -303,10 +304,10 @@ export default function Home() {
                     </div>
                     
                     <div className="ml-4">
-                      <h3 className="text-lg font-semibold text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-cyan">
+                      <h3 className="text-lg font-semibold text-nebula-purple dark:text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-violet dark:group-hover:text-nebula-cyan">
                         True White-Label Partnership
                       </h3>
-                      <p className="text-nebula-white/70 transition-colors duration-300 group-hover:text-nebula-white/90">
+                      <p className="text-text-primary/70 transition-colors duration-300 group-hover:text-text-primary/90">
                         Your clients never know we exist unless you want them to
                       </p>
                     </div>
@@ -333,7 +334,7 @@ export default function Home() {
                         95%
                       </div>
                     </div>
-                    <p className="text-nebula-white/70 mt-2">Client Satisfaction Rate</p>
+                    <p className="text-text-primary/70 mt-2">Client Satisfaction Rate</p>
                   </div>
                   
                   {/* Stat 2 */}
@@ -344,7 +345,7 @@ export default function Home() {
                         200+
                       </div>
                     </div>
-                    <p className="text-nebula-white/70 mt-2">Projects Delivered</p>
+                    <p className="text-text-primary/70 mt-2">Projects Delivered</p>
                   </div>
                   
                   {/* Stat 3 */}
@@ -355,7 +356,7 @@ export default function Home() {
                         48hrs
                       </div>
                     </div>
-                    <p className="text-nebula-white/70 mt-2">Average Response Time</p>
+                    <p className="text-text-primary/70 mt-2">Average Response Time</p>
                   </div>
                 </div>
                 
@@ -372,13 +373,13 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className={theme.themeColors.background.secondary + " py-20"}>
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
               What Agencies Say About Us
             </h2>
-            <p className="text-xl text-nebula-white/70">
+            <p className="text-xl text-text-primary/70">
               Don't just take our word for it
             </p>
           </div>
@@ -388,7 +389,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="relative py-20 bg-gradient-radial-nebula overflow-hidden">
+      <section className="relative py-20 bg-gradient-radial-nebula overflow-hidden bg-nebula-black">
         <div className="relative z-10 container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
             Ready to Launch Your Next Project?
