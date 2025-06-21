@@ -37,12 +37,12 @@ export default function TimelineItem({
         }`}>
           {year}
         </div>
-        <h3 className={`timeline-title text-xl md:text-2xl font-semibold text-nebula-white mb-3 transition-colors duration-300 group-hover:text-nebula-violet ${
+        <h3 className={`timeline-title text-xl md:text-2xl font-semibold text-text-primary mb-3 transition-colors duration-300 group-hover:text-nebula-violet ${
           isLeft ? 'md:text-right' : 'md:text-left'
         }`}>
           {title}
         </h3>
-        <p className={`timeline-description text-gray-400 leading-relaxed max-w-2xl ${
+        <p className={`timeline-description text-text-secondary leading-relaxed max-w-2xl ${
           isLeft ? 'md:text-right md:ml-auto' : 'md:text-left'
         }`}>
           {description}

@@ -121,6 +121,7 @@ export const theme = {
   
   spacing: {
     section: {
+      xsmall: 'py-4',
       small: 'py-12',
       medium: 'py-16',
       large: 'py-20',

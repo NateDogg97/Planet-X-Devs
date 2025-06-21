@@ -308,7 +308,7 @@ export default function AboutPageClient() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-nebula-black">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <Hero
         title="Your Agency's Technical Co-Pilot"
@@ -317,139 +317,131 @@ export default function AboutPageClient() {
       />
 
       {/* Breadcrumbs */}
-      <section className={theme.themeColors.background.secondary + " py-4"}>
-        <Container>
-          <Breadcrumbs />
-        </Container>
-      </section>
+      <Section container spacing='xsmall' background='secondary'>
+        <Breadcrumbs />
+      </Section>
 
       {/* Story Section */}
-      <Section className="py-20">
-        <Container>
-          <div 
-            ref={storyRef}
-            className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-1000 ${
-              storyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-text-primary">
-                From Technical Frustration to Streamlined Solution
-              </h2>
-              <p className="text-lg text-text-primary leading-relaxed">
-                After years of working within digital marketing agencies, I witnessed a recurring problem: talented agencies losing opportunities because they couldn't find reliable development partners.
-              </p>
-              <p className="text-lg text-text-primary leading-relaxed">
-                Freelancers would disappear mid-project. Development shops would over-promise and under-deliver. In-house developers were too expensive to maintain. Agencies were stuck choosing between bad options.
-              </p>
-              <p className="text-lg text-text-primary leading-relaxed">
-                I created Planet X Devs to be the development partner I wished existed when I was on the agency side - reliable, communicative, and genuinely invested in making agencies successful.
-              </p>
-            </div>
-            <div className="relative h-full flex items-center justify-center">
-              {/* Floating nebula graphic with layered effects */}
-              <div className="relative w-full max-w-md mx-auto">
-                {/* Background glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-nebula-purple/30 to-nebula-violet/30 rounded-full blur-3xl animate-pulse" />
-                
-                {/* Middle layer */}
-                <div className="absolute inset-4 bg-gradient-to-tr from-stellar-blue/20 to-nebula-cyan/20 rounded-full blur-2xl animate-pulse" 
-                     style={{ animationDelay: '1s' }} />
-                
-                {/* Core */}
-                <div className="relative aspect-square bg-gradient-radial from-nebula-purple/40 via-nebula-violet/20 to-transparent rounded-full">
-                  {/* Floating particles effect using CSS */}
-                  <div className="absolute inset-0 overflow-hidden rounded-full">
-                    <div className="absolute w-2 h-2 bg-nebula-cyan/50 rounded-full top-1/4 left-1/4 animate-float" />
-                    <div className="absolute w-3 h-3 bg-nebula-purple/50 rounded-full top-3/4 right-1/3 animate-float-delayed" />
-                    <div className="absolute w-2 h-2 bg-stellar-blue/50 rounded-full bottom-1/3 left-1/2 animate-float" 
-                         style={{ animationDelay: '2s' }} />
-                  </div>
+      <Section container background='secondary'>
+        <div 
+          ref={storyRef}
+          className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-1000 ${
+            storyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary">
+              From Technical Frustration to Streamlined Solution
+            </h2>
+            <p className="text-lg text-text-primary/80 leading-relaxed">
+              After years of working within digital marketing agencies, I witnessed a recurring problem: talented agencies losing opportunities because they couldn't find reliable development partners.
+            </p>
+            <p className="text-lg text-text-primary/80 leading-relaxed">
+              Freelancers would disappear mid-project. Development shops would over-promise and under-deliver. In-house developers were too expensive to maintain. Agencies were stuck choosing between bad options.
+            </p>
+            <p className="text-lg text-text-primary/80 leading-relaxed">
+              I created Planet X Devs to be the development partner I wished existed when I was on the agency side - reliable, communicative, and genuinely invested in making agencies successful.
+            </p>
+          </div>
+          <div className="relative h-full flex items-center justify-center">
+            {/* Floating nebula graphic with layered effects */}
+            <div className="relative w-full max-w-md mx-auto">
+              {/* Background glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-nebula-purple/30 to-nebula-violet/30 rounded-full blur-3xl animate-pulse" />
+              
+              {/* Middle layer */}
+              <div className="absolute inset-4 bg-gradient-to-tr from-stellar-blue/20 to-nebula-cyan/20 rounded-full blur-2xl animate-pulse" 
+                    style={{ animationDelay: '1s' }} />
+              
+              {/* Core */}
+              <div className="relative aspect-square bg-gradient-radial from-nebula-purple/40 via-nebula-violet/20 to-transparent rounded-full">
+                {/* Floating particles effect using CSS */}
+                <div className="absolute inset-0 overflow-hidden rounded-full">
+                  <div className="absolute w-2 h-2 bg-nebula-cyan/50 rounded-full top-1/4 left-1/4 animate-float" />
+                  <div className="absolute w-3 h-3 bg-nebula-purple/50 rounded-full top-3/4 right-1/3 animate-float-delayed" />
+                  <div className="absolute w-2 h-2 bg-stellar-blue/50 rounded-full bottom-1/3 left-1/2 animate-float" 
+                        style={{ animationDelay: '2s' }} />
                 </div>
               </div>
             </div>
           </div>
-        </Container>
+        </div>
       </Section>
 
       {/* Values Section */}
-      <Section className="py-20 bg-white dark:bg-gray-900">
-        <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-4">
-              Built on Agency-First Values
-            </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Every aspect of Planet X Devs is designed to make agency life easier
-            </p>
-          </div>
-          <div 
-            ref={valuesRef}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
-          >
-            {valuesData.map((value, index) => {
-              const isVisible = visibleCards.has(index);
-              const isAnimating = !isVisible; // Only use will-change when animating
-              
-              return (
-                <div
-                  key={index}
-                  ref={(el) => { cardRefs.current[index] = el; }}
-                  className={`transform transition-all duration-700 ease-out ${
-                    isVisible
-                      ? 'translate-y-0 opacity-100'
-                      : 'translate-y-8 opacity-0'
-                  }`}
-                  style={{ 
-                    transitionDelay: `${index * 100}ms`,
-                    // Only apply will-change during animation for performance
-                    willChange: isAnimating ? 'transform, opacity' : 'auto'
-                  }}
-                >
-                  <ValueCard 
-                    icon={<Icon name={value.icon} className="w-8 h-8" />}
-                    title={value.title}
-                    description={value.description}
-                  />
-                </div>
-              );
-            })}
-          </div>
-        </Container>
+      <Section container>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            Built on Agency-First Values
+          </h2>
+          <p className="text-xl text-text-secondary max-w-2xl mx-auto">
+            Every aspect of Planet X Devs is designed to make agency life easier
+          </p>
+        </div>
+        <div 
+          ref={valuesRef}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+        >
+          {valuesData.map((value, index) => {
+            const isVisible = visibleCards.has(index);
+            const isAnimating = !isVisible; // Only use will-change when animating
+            
+            return (
+              <div
+                key={index}
+                ref={(el) => { cardRefs.current[index] = el; }}
+                className={`transform transition-all duration-700 ease-out ${
+                  isVisible
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-8 opacity-0'
+                }`}
+                style={{ 
+                  transitionDelay: `${index * 100}ms`,
+                  // Only apply will-change during animation for performance
+                  willChange: isAnimating ? 'transform, opacity' : 'auto'
+                }}
+              >
+                <ValueCard 
+                  icon={<Icon name={value.icon} className="w-8 h-8" />}
+                  title={value.title}
+                  description={value.description}
+                />
+              </div>
+            );
+          })}
+        </div>
       </Section>
 
       {/* Timeline Section */}
-      <Section className="py-20 bg-nebula-black">
-        <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-4">
-              The Journey to Planet X
-            </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              A decade of experience shaped by agency challenges and client demands
-            </p>
-          </div>
-          <div 
-            ref={timelineRef}
-            className="timeline-container relative max-w-4xl mx-auto"
-          >
-            {timelineData.map((item, index) => (
-              <div
-                key={index}
-                ref={(el) => { timelineItemRefs.current[index] = el; }}
-                className="timeline-item-wrapper"
-              >
-                <TimelineItem
-                  year={item.year}
-                  title={item.title}
-                  description={item.description}
-                  position={index % 2 === 0 ? 'right' : 'left'}
-                  isFirst={index === 0}
-                  isLast={index === timelineData.length - 1}
-                />
-              </div>
-            ))}
-          </div>
-        </Container>
+      <Section container background='secondary'>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            The Journey to Planet X
+          </h2>
+          <p className="text-xl text-text-secondary max-w-2xl mx-auto">
+            A decade of experience shaped by agency challenges and client demands
+          </p>
+        </div>
+        <div 
+          ref={timelineRef}
+          className="timeline-container relative max-w-4xl mx-auto"
+        >
+          {timelineData.map((item, index) => (
+            <div
+              key={index}
+              ref={(el) => { timelineItemRefs.current[index] = el; }}
+              className="timeline-item-wrapper"
+            >
+              <TimelineItem
+                year={item.year}
+                title={item.title}
+                description={item.description}
+                position={index % 2 === 0 ? 'right' : 'left'}
+                isFirst={index === 0}
+                isLast={index === timelineData.length - 1}
+              />
+            </div>
+          ))}
+        </div>
       </Section>
 
       {/* Team Section */}

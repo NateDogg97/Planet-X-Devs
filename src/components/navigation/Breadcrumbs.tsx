@@ -53,7 +53,7 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
         }}
       />
       <nav 
-        className={`flex items-center space-x-2 text-sm text-nebula-white/70 ${className}`}
+        className={`flex items-center space-x-2 text-sm text-text-primary/70 ${className}`}
         aria-label="Breadcrumb"
       >
         <ol className="flex items-center space-x-2">
@@ -61,13 +61,14 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
             <li key={item.href} className="flex items-center">
               {index > 0 && (
                 <Icon 
-                  name="chevron-down" 
-                  className="w-3 h-3 mx-2 text-nebula-white/50 -rotate-90"
+                  name="double-right" 
+                  className="w-1 h-1 mx-1 text-text-primary/50"
+                  strokeWidth={.01}
                 />
               )}
               {index === breadcrumbItems.length - 1 ? (
                 <span 
-                  className="text-nebula-white font-medium"
+                  className="text-text-primary font-medium"
                   aria-current="page"
                 >
                   {item.name}
