@@ -87,15 +87,18 @@ export default function TabInterface({
     setActiveTab(tabId);
     updateUrlParam(tabId);
     
-    // Scroll to accordion content on mobile when accordion is clicked
+    // Scroll to accordion header on mobile when accordion is clicked
     if (scrollToContent) {
       setTimeout(() => {
-        const accordionPanel = document.getElementById(`accordion-panel-${tabId}`);
-        if (accordionPanel) {
-          accordionPanel.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start',
-            inline: 'nearest'
+        const accordionHeader = document.getElementById(`accordion-${tabId}`);
+        if (accordionHeader) {
+          const headerOffset = 80; // Account for 72px header + 8px padding
+          const elementPosition = accordionHeader.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'auto' // Instant scroll
           });
         }
       }, 100); // Small delay to allow accordion to expand

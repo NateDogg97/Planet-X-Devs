@@ -62,7 +62,7 @@ export default function QuickConsultationForm() {
       // Add form type to submission data
       const submissionData = {
         ...formData,
-        formType: 'quick_consultation' as const
+        formType: 'quick-consultation' as const
       };
       
       await submitContactForm(submissionData);
@@ -71,8 +71,6 @@ export default function QuickConsultationForm() {
       
       setFormData(getInitialFormData('quick-consultation'));
       setErrors({});
-      
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');

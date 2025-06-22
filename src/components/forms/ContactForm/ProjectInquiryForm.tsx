@@ -63,8 +63,6 @@ export default function ProjectInquiryForm() {
       
       setFormData(getInitialFormData('project-inquiry'));
       setErrors({});
-      
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');

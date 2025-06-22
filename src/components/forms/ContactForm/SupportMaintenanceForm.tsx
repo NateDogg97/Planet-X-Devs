@@ -89,7 +89,7 @@ export default function SupportMaintenanceForm() {
       // Add form type to submission data
       const submissionData = {
         ...formData,
-        formType: 'support_maintenance' as const
+        formType: 'support-maintenance' as const
       };
       
       await submitContactForm(submissionData);
@@ -103,8 +103,6 @@ export default function SupportMaintenanceForm() {
       
       setFormData(getInitialFormData('support-maintenance'));
       setErrors({});
-      
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
