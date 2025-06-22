@@ -29,10 +29,33 @@ export default function RetainerPlanCard({
   return (
     <div 
       className={`
-        relative p-8 rounded-2xl border transition-all duration-300
+        relative p-8 rounded-2xl border transition-all duration-300 flex flex-col
         ${popular 
-          ? 'bg-gradient-to-br from-nebula-violet/20 to-nebula-purple/20 border-nebula-violet shadow-2xl shadow-nebula-violet/30 scale-105' 
-          : 'bg-gradient-to-br from-gray-900 to-nebula-black border-nebula-purple/30 hover:border-nebula-purple/50 hover:shadow-xl hover:shadow-nebula-purple/10'
+          ? `
+            /* Light mode: Strong contrast with white background */
+            bg-gradient-nebula
+            border-nebula-violet 
+            shadow-2xl shadow-nebula-violet/30 
+            scale-105
+            
+            /* Dark mode: Original subtle gradient on dark background */
+            dark:from-nebula-violet/20 dark:to-nebula-purple/20
+            dark:border-nebula-violet
+            dark:shadow-nebula-violet/30
+          ` 
+          : `
+            /* Light mode: Lighter background for contrast */
+            bg-gradient-to-br from-gray-50 to-gray-100
+            border-gray-300
+            hover:border-nebula-purple 
+            hover:shadow-xl hover:shadow-nebula-purple/20
+            
+            /* Dark mode: Original dark gradient */
+            dark:from-gray-900 dark:to-nebula-black 
+            dark:border-nebula-purple/30 
+            dark:hover:border-nebula-purple/50 
+            dark:hover:shadow-nebula-purple/10
+          `
         }
       `}
     >
@@ -43,14 +66,41 @@ export default function RetainerPlanCard({
       )}
 
       {highlight && (
-        <div className="mb-6 p-3 bg-nebula-violet/10 border border-nebula-violet/30 rounded-lg">
-          <p className="text-nebula-cyan text-sm font-semibold text-center">{highlight}</p>
+        <div className={`
+          mb-6 p-3 rounded-lg
+          ${popular 
+            ? 'bg-white/20 border border-white/30 dark:bg-nebula-violet/10 dark:border-nebula-violet/30'
+            : 'bg-nebula-violet/10 border border-nebula-violet/30'
+          }
+        `}>
+          <p className={`
+            text-sm font-semibold text-center
+            ${popular ? 'text-white dark:text-nebula-cyan' : 'text-nebula-cyan'}
+          `}>
+            {highlight}
+          </p>
         </div>
       )}
       
       <div className="text-center mb-8">
-        <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
-        <p className="text-gray-400 mb-6">{description}</p>
+        <h3 className={`
+          text-2xl font-bold mb-3
+          ${popular 
+            ? 'text-white' 
+            : 'text-gray-900 dark:text-white'
+          }
+        `}>
+          {title}
+        </h3>
+        <p className={`
+          mb-6
+          ${popular 
+            ? 'text-white/90 dark:text-gray-400' 
+            : 'text-gray-600 dark:text-gray-400'
+          }
+        `}>
+          {description}
+        </p>
         
         <div className="mb-4">
           <div className="flex items-baseline justify-center gap-1">
@@ -58,14 +108,22 @@ export default function RetainerPlanCard({
               className={`
                 text-5xl font-bold 
                 ${popular 
-                  ? 'bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent' 
-                  : 'text-nebula-white'
+                  ? 'text-white dark:bg-gradient-to-r dark:from-nebula-cyan dark:to-nebula-violet dark:bg-clip-text dark:text-transparent' 
+                  : 'text-gray-900 dark:text-nebula-white'
                 }
               `}
             >
               {price.amount}
             </span>
-            <span className="text-gray-400 text-lg">/{price.period}</span>
+            <span className={`
+              text-lg
+              ${popular 
+                ? 'text-white/80 dark:text-gray-400' 
+                : 'text-gray-600 dark:text-gray-400'
+              }
+            `}>
+              /{price.period}
+            </span>
           </div>
         </div>
       </div>
@@ -77,10 +135,17 @@ export default function RetainerPlanCard({
               <Icon 
                 name="check" 
                 size="small" 
-                className="text-nebula-cyan"
+                className={popular ? 'text-white dark:text-nebula-cyan' : 'text-nebula-cyan'}
               />
             </div>
-            <span className="text-gray-300">{feature}</span>
+            <span className={`
+              ${popular 
+                ? 'text-white/90 dark:text-gray-300' 
+                : 'text-gray-700 dark:text-gray-300'
+              }
+            `}>
+              {feature}
+            </span>
           </li>
         ))}
       </ul>
@@ -88,10 +153,38 @@ export default function RetainerPlanCard({
       <a
         href={ctaHref}
         className={`
-          block w-full text-center py-4 px-6 rounded-xl font-bold transition-all duration-300
+          block w-full text-center py-4 px-6 rounded-xl font-bold transition-all duration-300 mt-auto
           ${popular
-            ? 'bg-gradient-to-r from-nebula-cyan to-nebula-violet text-white hover:shadow-lg hover:shadow-nebula-violet/40 hover:scale-105'
-            : 'bg-nebula-purple/20 text-nebula-violet border-2 border-nebula-purple/50 hover:bg-nebula-purple/30 hover:border-nebula-violet hover:shadow-lg hover:shadow-nebula-purple/30'
+            ? `
+              /* Light mode: White button on colored background */
+              bg-white text-nebula-violet
+              hover:bg-gray-100
+              hover:shadow-lg hover:shadow-white/40 
+              hover:scale-105
+              
+              /* Dark mode: Original gradient button */
+              dark:bg-gradient-to-r dark:from-nebula-cyan dark:to-nebula-violet 
+              dark:text-white 
+              dark:hover:shadow-lg dark:hover:shadow-nebula-violet/40 
+              dark:hover:scale-105
+              dark:hover:bg-gray-100/0
+            `
+            : `
+              /* Light mode: Solid button with border */
+              bg-nebula-violet text-white
+              border-2 border-nebula-violet
+              hover:bg-nebula-purple 
+              hover:border-nebula-purple
+              hover:shadow-lg hover:shadow-nebula-purple/30
+              
+              /* Dark mode: Original transparent button */
+              dark:bg-nebula-purple/20 
+              dark:text-nebula-violet 
+              dark:border-2 dark:border-nebula-purple/50 
+              dark:hover:bg-nebula-purple/30 
+              dark:hover:border-nebula-violet 
+              dark:hover:shadow-lg dark:hover:shadow-nebula-purple/30
+            `
           }
         `}
       >

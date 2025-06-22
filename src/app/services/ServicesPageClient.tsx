@@ -295,11 +295,11 @@ export default function ServicesPageClient() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center mb-6 relative">
-              <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-xl animate-pulse" />
-              <span className="relative inline-block px-4 py-2 bg-yellow-400/20 text-yellow-400 rounded-full text-sm font-semibold border border-yellow-400/40">
+              <div className="absolute inset-0 bg-violet-400/20 rounded-full blur-xl animate-pulse" />
+              <span className="relative inline-block px-4 py-2 bg-violet-400/20 text-violet-400 rounded-full text-sm font-semibold border border-violet-400/40">
                 COMING SOON
               </span>
-              <div className="absolute -inset-1 border-2 border-yellow-400/20 rounded-full animate-rotate motion-reduce:animate-none" style={{ borderStyle: 'dashed' }} />
+              <div className="absolute -inset-1 border-2 border-violet-400/20 rounded-full animate-rotate motion-reduce:animate-none" style={{ borderStyle: 'dashed' }} />
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
               Exciting New Services on the Horizon
@@ -384,7 +384,7 @@ export default function ServicesPageClient() {
             </p>
             <a 
               href="/contact" 
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-nebula-black font-bold rounded-lg hover:from-yellow-300 hover:to-yellow-400 transition-all duration-200 transform hover:scale-105"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-nebula-cyan to-nebula-purple text-nebula-white font-bold rounded-lg transition-all duration-200 transform hover:scale-105"
             >
               Get Early Access
             </a>
