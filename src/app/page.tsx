@@ -8,7 +8,6 @@ import ServiceCard from '@/components/ui/ServiceCard';
 import NebulaGraphic from '@/components/ui/NebulaGraphic';
 import Icon from '@/components/ui/Icon';
 import { services } from '@/constants/services';
-import { theme } from '@/config/theme';
 
 const TestimonialCarousel = dynamic(() => import('@/components/ui/TestimonialCarousel'), {
   ssr: false,
