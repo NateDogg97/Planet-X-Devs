@@ -83,9 +83,23 @@ export default function TabInterface({
   };
 
   // Handle tab activation
-  const activateTab = (tabId: string) => {
+  const activateTab = (tabId: string, scrollToContent = false) => {
     setActiveTab(tabId);
     updateUrlParam(tabId);
+    
+    // Scroll to accordion content on mobile when accordion is clicked
+    if (scrollToContent) {
+      setTimeout(() => {
+        const accordionPanel = document.getElementById(`accordion-panel-${tabId}`);
+        if (accordionPanel) {
+          accordionPanel.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
+          });
+        }
+      }, 100); // Small delay to allow accordion to expand
+    }
   };
 
   // Handle keyboard navigation
@@ -171,12 +185,12 @@ export default function TabInterface({
             <div key={tab.id} className={`accordion-item ${activeTab === tab.id ? 'accordion-item--active' : ''}`}>
               <button
                 ref={(el) => { tabRefs.current[index] = el; }}
-                onClick={() => activateTab(tab.id)}
+                onClick={() => activateTab(tab.id, true)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 className="accordion-header flex justify-between items-center"
                 role="tab"
                 aria-selected={activeTab === tab.id}
-                aria-controls={`tabpanel-${tab.id}`}
+                aria-controls={`accordion-panel-${tab.id}`}
                 aria-expanded={activeTab === tab.id}
                 id={`accordion-${tab.id}`}
                 tabIndex={activeTab === tab.id ? 0 : focusedTabIndex === index ? 0 : -1}
@@ -207,7 +221,7 @@ export default function TabInterface({
               {/* Accordion content */}
               <div 
                 className={`accordion-panel ${activeTab === tab.id ? 'accordion-panel--active' : ''}`}
-                id={`tabpanel-${tab.id}`}
+                id={`accordion-panel-${tab.id}`}
                 role="tabpanel"
                 aria-labelledby={`accordion-${tab.id}`}
                 aria-hidden={activeTab !== tab.id}

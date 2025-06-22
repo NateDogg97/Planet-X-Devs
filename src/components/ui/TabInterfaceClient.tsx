@@ -94,7 +94,7 @@ function TabInterfaceFallback({ tabs, defaultActiveTab, className }: Pick<TabInt
               </button>
               
               <div 
-                id={`mobile-content-${tab.id}`}
+                id={`accordion-panel-${tab.id}`}
                 className={`accordion-body ${activeTab === tab.id ? 'accordion-body--expanded' : ''}`}
               >
                 <div className="accordion-body-content">
