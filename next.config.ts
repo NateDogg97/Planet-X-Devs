@@ -9,6 +9,15 @@ const nextConfig: NextConfig = {
     // Skip TypeScript errors during builds (use with caution)
     // ignoreBuildErrors: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;

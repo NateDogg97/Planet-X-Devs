@@ -58,7 +58,7 @@ export default function Contact() {
         "contactPoint": [
           {
             "@type": "ContactPoint",
-            "telephone": "+1-555-PLANET",
+            "telephone": "+1-512-789-8844",
             "contactType": "customer service",
             "availableLanguage": "English",
             "hoursAvailable": {
