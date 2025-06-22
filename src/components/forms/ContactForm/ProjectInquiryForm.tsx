@@ -93,10 +93,13 @@ export default function ProjectInquiryForm() {
   return (
     <Card rounded={false} className={"md:rounded-2xl"}>
       <div className="mb-6">
-        <h3 className="text-2xl font-bold text-nebula-white mb-2">
+        <h3 className="text-2xl font-bold text-text-primary mb-2">
           Agency Partnership Inquiry
         </h3>
-        <p className="text-nebula-white/70">
+        <p className="text-lg font-medium text-text-accent mb-2">
+          White-label development partnership
+        </p>
+        <p className="text-text-secondary">
           Tell us about your agency&apos;s development needs and we&apos;ll provide a customized white-label partnership proposal.
         </p>
       </div>

@@ -37,7 +37,7 @@ export default function TabInterface({
       if (urlTab && tabs.some(tab => tab.id === urlTab)) {
         return urlTab;
       }
-    } catch (error) {
+    } catch {
       // During SSR, searchParams might not be available
       console.warn('SearchParams not available during SSR');
     }
@@ -50,7 +50,6 @@ export default function TabInterface({
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   
   const activeTabData = tabs.find(tab => tab.id === activeTab);
-  const activeIndex = tabs.findIndex(tab => tab.id === activeTab);
 
   // Initialize from URL on mount, then clear the URL parameter
   useEffect(() => {
@@ -60,7 +59,7 @@ export default function TabInterface({
         if (urlTab && tabs.some(tab => tab.id === urlTab)) {
           setActiveTab(urlTab);
         }
-      } catch (error) {
+      } catch {
         console.warn('Unable to initialize from URL');
       }
       setHasInitialized(true);
@@ -134,9 +133,8 @@ export default function TabInterface({
       {/* Desktop Tab Navigation */}
       <div className="tab-nav-desktop hidden md:block">
         <nav 
-          className="-mb-px flex space-x-8 overflow-x-auto" 
-          aria-label="Contact form types"
           role="tablist"
+          aria-label="Contact form types"
         >
           {tabs.map((tab, index) => (
             <button
@@ -144,10 +142,7 @@ export default function TabInterface({
               ref={(el) => { tabRefs.current[index] = el; }}
               onClick={() => activateTab(tab.id)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className={`
-                tab-button group
-                ${activeTab === tab.id ? 'tab-button--active' : ''}
-              `}
+              className={`tab-button group rounded-t-lg ${activeTab === tab.id ? 'tab-button--active' : ''}`}
               role="tab"
               aria-selected={activeTab === tab.id}
               aria-controls={`tabpanel-${tab.id}`}

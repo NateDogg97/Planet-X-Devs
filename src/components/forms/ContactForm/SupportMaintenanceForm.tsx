@@ -133,10 +133,13 @@ export default function SupportMaintenanceForm() {
   return (
     <Card rounded={false} className={"md:rounded-2xl"}>
       <div className="mb-6">
-        <h3 className="text-2xl font-bold text-nebula-white mb-2">
+        <h3 className="text-2xl font-bold text-text-primary mb-2">
           Technical Support & Emergency Help
         </h3>
-        <p className="text-nebula-white/70">
+        <p className="text-lg font-medium text-text-accent mb-2">
+          Existing website fixes & maintenance
+        </p>
+        <p className="text-text-secondary">
           Need help with an existing website? Report issues, request updates, or get emergency technical support.
         </p>
       </div>

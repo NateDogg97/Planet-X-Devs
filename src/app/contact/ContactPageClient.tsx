@@ -7,7 +7,6 @@ import ContactForm from '@/components/forms/ContactForm';
 import ContactInfo from '@/components/forms/ContactForm/ContactInfo';
 import SocialLinks from '@/components/forms/ContactForm/SocialLinks';
 import Section from '@/components/layout/Section';
-import Container from '@/components/layout/Container';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import Button from '@/components/ui/Button';
 import Icon from '@/components/ui/Icon';
@@ -229,257 +228,155 @@ function ContactPageContent() {
         }}
       />
       {/* Compact Page Header */}
-      <section className="relative bg-nebula-black pt-24 pb-12">
+      <Section container background='dark' className="relative bg-gradient-adaptive pt-24 pb-12">
         <div className="absolute inset-0">
           <StarField />
         </div>
-        <Container className="relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-nebula-white mb-4">
-              Let's Build Something Great Together
-            </h1>
-            <p className="text-xl text-nebula-white/80">
-              Whether you're a solo freelancer or an established agency, let's talk about how I can help you deliver exceptional websites without the development headaches.
-            </p>
-          </div>
-        </Container>
-      </section>
-
-      {/* Breadcrumbs */}
-      <section className="py-4 bg-white dark:bg-gray-900">
-        <Container>
-          <Breadcrumbs />
-        </Container>
-      </section>
-
-      {/* Main Contact Section with Grid Layout */}
-      <Section className="relative" id="contact-form">
-        <Container>
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* Left: TabInterface with forms - 2/3 width */}
-            <div className="lg:col-span-2">
-              <ContactForm />
-            </div>
-
-            {/* Right: Contact Info and Social - 1/3 width */}
-            <div className="space-y-8">
-              <ContactInfo />
-              <SocialLinks />
-            </div>
-          </div>
-        </Container>
+        <div className="max-w-3xl">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Let's Build Something Great Together
+          </h1>
+          <p className="text-xl text-nebula-white/80">
+            Whether you're a solo freelancer or an established agency, let's talk about how I can help you deliver exceptional websites without the development headaches.
+          </p>
+        </div>
       </Section>
 
-      {/* Trust Badges / Testimonials Section */}
-      <Section className="bg-white dark:bg-gray-900">
-        <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-nebula-white mb-6">
-              Trusted by Agencies & Freelancers Worldwide
-            </h2>
-            <p className="text-lg text-nebula-white/80 max-w-3xl mx-auto">
-              Join the growing network of agencies who've discovered the power of reliable, white-label development partnerships.
-            </p>
+      {/* Breadcrumbs */}
+      <Section spacing='xsmall' container background='secondary'>
+        <Breadcrumbs />
+      </Section>
+
+      {/* Main Contact Section with Grid Layout */}
+      <Section container className="relative" background='secondary' id="contact-form">
+        <div className="grid lg:grid-cols-3 gap-12">
+          {/* Left: TabInterface with forms - 2/3 width */}
+          <div className="lg:col-span-2">
+            <ContactForm />
           </div>
 
-          {/* Trust Indicators Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {/* Projects Delivered */}
-            <div className="group bg-nebula-black/30 backdrop-blur-sm rounded-2xl p-8 border border-nebula-purple-30 hover:border-nebula-violet transition-all duration-300 text-center">
-              <div className="w-16 h-16 bg-nebula-violet rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Icon name="check-circle" className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-nebula-white mb-2">200+</div>
-              <div className="text-nebula-white/70 font-medium">Projects Delivered</div>
-              <div className="text-sm text-nebula-white/50 mt-2">On time, every time</div>
-            </div>
-
-            {/* Agencies Served */}
-            <div className="group bg-nebula-black/30 backdrop-blur-sm rounded-2xl p-8 border border-nebula-purple-30 hover:border-nebula-violet transition-all duration-300 text-center">
-              <div className="w-16 h-16 bg-nebula-violet rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Icon name="users" className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-nebula-white mb-2">50+</div>
-              <div className="text-nebula-white/70 font-medium">Agencies Served</div>
-              <div className="text-sm text-nebula-white/50 mt-2">From startups to enterprises</div>
-            </div>
-
-            {/* Platforms Mastered */}
-            <div className="group bg-nebula-black/30 backdrop-blur-sm rounded-2xl p-8 border border-nebula-purple-30 hover:border-nebula-violet transition-all duration-300 text-center">
-              <div className="w-16 h-16 bg-nebula-violet rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Icon name="code" className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-nebula-white mb-2">10+</div>
-              <div className="text-nebula-white/70 font-medium">Platforms Mastered</div>
-              <div className="text-sm text-nebula-white/50 mt-2">WordPress to React & beyond</div>
-            </div>
-
-            {/* Response Time */}
-            <div className="group bg-nebula-black/30 backdrop-blur-sm rounded-2xl p-8 border border-nebula-purple-30 hover:border-nebula-violet transition-all duration-300 text-center">
-              <div className="w-16 h-16 bg-nebula-violet rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Icon name="clock" className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-nebula-white mb-2">&lt; 4hrs</div>
-              <div className="text-nebula-white/70 font-medium">Response Time</div>
-              <div className="text-sm text-nebula-white/50 mt-2">Usually within 2 hours</div>
-            </div>
+          {/* Right: Contact Info and Social - 1/3 width */}
+          <div className="space-y-8">
+            <ContactInfo />
+            <SocialLinks />
           </div>
-
-          {/* Client Testimonials */}
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-nebula-black/50 backdrop-blur-sm rounded-2xl p-8 border border-nebula-purple-30">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 bg-nebula-violet rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold text-lg">S</span>
-                </div>
-                <div>
-                  <h4 className="text-nebula-white font-semibold">Sarah Chen</h4>
-                  <p className="text-nebula-white/60 text-sm">Creative Director, Digital Boost Agency</p>
-                </div>
-              </div>
-              <blockquote className="text-nebula-white/90 italic">
-                "Finally found a developer who actually communicates! Nathaniel delivers exactly what we need, when we need it. Our clients love the results."
-              </blockquote>
-            </div>
-
-            <div className="bg-nebula-black/50 backdrop-blur-sm rounded-2xl p-8 border border-nebula-purple-30">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 bg-nebula-violet rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold text-lg">M</span>
-                </div>
-                <div>
-                  <h4 className="text-nebula-white font-semibold">Marcus Rodriguez</h4>
-                  <p className="text-nebula-white/60 text-sm">Founder, Apex Marketing Solutions</p>
-                </div>
-              </div>
-              <blockquote className="text-nebula-white/90 italic">
-                "Working with Planet X Devs has transformed how we deliver websites. No more missed deadlines or excuses - just quality work, delivered on time."
-              </blockquote>
-            </div>
-          </div>
-        </Container>
+        </div>
       </Section>
 
       {/* Form Selection Guide */}
-      <Section>
-        <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-nebula-white mb-6">
-              Not Sure Which Form to Use?
-            </h2>
-            <p className="text-lg text-nebula-white/80 max-w-2xl mx-auto">
-              Choose the option that best matches your current needs. Don't worry - we'll figure out the details together.
-            </p>
+      <Section container background='secondary'>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-text-primary mb-6">
+            Not Sure Which Form to Use?
+          </h2>
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+            Choose the option that best matches your current needs. Don't worry - we'll figure out the details together.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                onClick={() => window.location.href = CONTACT_FORM_URLS.AGENCY_PARTNERSHIP}>
+            <Card className="glass-violet h-full">
+              <div className="w-16 h-16 bg-gradient-to-br from-nebula-violet to-nebula-purple rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Icon name="briefcase" className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-text-primary mb-4 text-center">New Project</h3>
+              <p className="text-text-secondary text-center mb-6">
+                Ready to start a new website or development project? Let's discuss scope, timeline, and budget.
+              </p>
+              <div className="text-center">
+                <div className="inline-block px-4 py-2 text-sm font-semibold rounded-lg border-2 border-nebula-violet dark:border-nebula-cyan bg-white dark:bg-nebula-black text-nebula-violet dark:text-nebula-cyan group-hover:bg-nebula-violet dark:group-hover:bg-nebula-cyan group-hover:text-white dark:group-hover:text-nebula-black transition-all duration-300 cursor-pointer">
+                  Start Project Discussion
+                </div>
+              </div>
+            </Card>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
-                 onClick={() => window.location.href = CONTACT_FORM_URLS.AGENCY_PARTNERSHIP}>
-              <Card className="hover:border-nebula-violet transition-all duration-300">
-                <div className="w-16 h-16 bg-nebula-violet rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Icon name="briefcase" className="w-8 h-8 text-white" />
+          <div className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                onClick={() => window.location.href = CONTACT_FORM_URLS.QUICK_CONSULTATION}>
+            <Card className="glass-violet h-full">
+              <div className="w-16 h-16 bg-gradient-to-br from-nebula-cyan to-stellar-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Icon name="message-circle" className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-text-primary mb-4 text-center">Quick Chat</h3>
+              <p className="text-text-secondary text-center mb-6">
+                Have questions about our services or want to explore how we might work together? Let's talk.
+              </p>
+              <div className="text-center">
+                <div className="inline-block px-4 py-2 text-sm font-semibold rounded-lg border-2 border-nebula-cyan dark:border-nebula-violet text-nebula-cyan dark:text-nebula-violet bg-white dark:bg-nebula-black group-hover:bg-nebula-cyan dark:group-hover:bg-nebula-violet group-hover:text-white dark:group-hover:text-nebula-black transition-all duration-300 cursor-pointer">
+                  Schedule Consultation
                 </div>
-                <h3 className="text-xl font-bold text-nebula-white mb-4 text-center">New Project</h3>
-                <p className="text-nebula-white/70 text-center mb-6">
-                  Ready to start a new website or development project? Let's discuss scope, timeline, and budget.
-                </p>
-                <div className="text-center">
-                  <div className="inline-block px-4 py-2 text-sm font-semibold rounded-lg border-2 border-nebula-violet bg-nebula-white text-nebula-violet group-hover:bg-nebula-violet group-hover:text-white transition-all duration-300 cursor-pointer">
-                    Start Project Discussion
-                  </div>
-                </div>
-              </Card>
-            </div>
-
-            <div className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
-                 onClick={() => window.location.href = CONTACT_FORM_URLS.QUICK_CONSULTATION}>
-              <Card className="hover:border-nebula-violet transition-all duration-300">
-                <div className="w-16 h-16 bg-nebula-violet rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Icon name="message-circle" className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-nebula-white mb-4 text-center">Quick Chat</h3>
-                <p className="text-nebula-white/70 text-center mb-6">
-                  Have questions about our services or want to explore how we might work together? Let's talk.
-                </p>
-                <div className="text-center">
-                  <div className="inline-block px-4 py-2 text-sm font-semibold rounded-lg border-2 border-nebula-violet text-nebula-violet bg-nebula-white group-hover:bg-nebula-violet group-hover:text-white transition-all duration-300 cursor-pointer">
-                    Schedule Consultation
-                  </div>
-                </div>
-              </Card>
-            </div>
-
-            <div className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
-                 onClick={() => window.location.href = CONTACT_FORM_URLS.SUPPORT_MAINTENANCE}>
-              <Card className="hover:border-nebula-violet transition-all duration-300">
-                <div className="w-16 h-16 bg-nebula-violet rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Icon name="tool" className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-nebula-white mb-4 text-center">Support & Updates</h3>
-                <p className="text-nebula-white/70 text-center mb-6">
-                  Need help with an existing website or ongoing maintenance? We've got you covered.
-                </p>
-                <div className="text-center">
-                  <div className="inline-block px-4 py-2 text-sm font-semibold rounded-lg border-2 border-nebula-violet text-nebula-violet bg-nebula-white group-hover:bg-nebula-violet group-hover:text-white transition-all duration-300 cursor-pointer">
-                    Get Support
-                  </div>
-                </div>
-              </Card>
-            </div>
+              </div>
+            </Card>
           </div>
-        </Container>
+
+          <div className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                onClick={() => window.location.href = CONTACT_FORM_URLS.SUPPORT_MAINTENANCE}>
+            <Card className="glass-violet h-full">
+              <div className="w-16 h-16 bg-gradient-to-br from-nebula-purple to-nebula-violet rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Icon name="exclamation-circle" className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-text-primary mb-4 text-center">Emergency Support</h3>
+              <p className="text-text-secondary text-center mb-6">
+                Need help with an existing website or ongoing maintenance? We've got you covered.
+              </p>
+              <div className="text-center">
+                <div className="inline-block px-4 py-2 text-sm font-semibold rounded-lg border-2 border-nebula-purple dark:border-stellar-blue text-nebula-purple dark:text-stellar-blue bg-white dark:bg-nebula-black group-hover:bg-nebula-purple dark:group-hover:bg-stellar-blue group-hover:text-white dark:group-hover:text-nebula-black transition-all duration-300 cursor-pointer">
+                  Get Support
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
       </Section>
 
       {/* FAQ Preview Section */}
-      <Section className="bg-white dark:bg-gray-900">
-        <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-nebula-white mb-6">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg text-nebula-white/80">
-              Quick answers to common questions. Need more details? Just ask!
-            </p>
-          </div>
+      <Section container background='secondary' id='faq'>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-text-primary mb-6">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-lg text-text-secondary">
+            Quick answers to common questions. Need more details? Just ask!
+          </p>
+        </div>
 
-          <div className="max-w-3xl mx-auto space-y-4">
-            {contactFAQs.map((faq, index) => (
-              <FAQItem key={index} {...faq} />
-            ))}
-          </div>
-        </Container>
+        <div className="max-w-3xl mx-auto space-y-4">
+          {contactFAQs.map((faq, index) => (
+            <FAQItem key={index} {...faq} />
+          ))}
+        </div>
       </Section>
 
       {/* Final CTA Section */}
-      <Section>
-        <Container>
-          <div className="text-center bg-nebula-black backdrop-blur-sm rounded-3xl p-12 border border-nebula-purple-30 relative">
-            <div className="relative z-10">
+      <Section container background='secondary'>
+        <div className="text-center bg-nebula-black backdrop-blur-sm rounded-3xl p-12 relative">
+          <div className="relative z-10">
 
-              <h2 className="text-4xl font-bold text-nebula-white mb-6">
-                Ready to Start Your Project?
-              </h2>
-              <p className="text-xl text-nebula-white/80 mb-8 max-w-2xl mx-auto">
-                Join the agencies who've discovered the power of reliable development partnerships.
-              </p>
+            <h2 className="text-4xl font-bold mb-6 text-nebula-white">
+              Ready to Start Your Project?
+            </h2>
+            <p className="text-xl text-nebula-white/80 mb-8 max-w-2xl mx-auto">
+              Join the agencies who've discovered the power of reliable development partnerships.
+            </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="large" href="#contact-form" className="bg-gradient-to-r from-nebula-cyan to-nebula-violet hover:shadow-nebula-lg hover:scale-105">
-                  Get Started Today
-                </Button>
-                <Button variant="outline" size="large" href="/services">
-                  View Our Services
-                </Button>
-              </div>
-
-              <div className="text-sm text-nebula-white/60">
-                <p>Typical response time: Less than 4 hours • Free project consultation • No obligation quotes</p>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Button size="large" href="#contact-form" className="bg-gradient-to-r from-nebula-cyan to-nebula-violet hover:shadow-nebula-lg hover:scale-105">
+                Get Started Today
+              </Button>
+              <Button variant="outline" size="large" href="/services">
+                View Our Services
+              </Button>
             </div>
 
-            <FloatingParticles />
+            <div className="text-sm text-text-tertiary">
+              <p>Typical response time: Less than 4 hours • Free project consultation • No obligation quotes</p>
+            </div>
           </div>
-        </Container>
+
+          <FloatingParticles />
+        </div>
       </Section>
 
       <Footer />
@@ -489,7 +386,7 @@ function ContactPageContent() {
 
 export default function ContactPageClient() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-nebula-black">Loading...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-bg-primary">Loading...</div>}>
       <ContactPageContent />
     </Suspense>
   );

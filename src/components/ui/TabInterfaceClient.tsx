@@ -29,11 +29,10 @@ function TabInterfaceFallback({ tabs, defaultActiveTab, className }: Pick<TabInt
       {/* Desktop Tab Navigation */}
       <div className="tab-nav-desktop hidden md:block">
         <nav 
-          className="-mb-px flex space-x-8 overflow-x-auto" 
-          aria-label="Contact form types"
           role="tablist"
+          aria-label="Contact form types"
         >
-          {tabs.map((tab, index) => (
+          {tabs.map((tab) => (
             <button
               key={tab.id}
               className={`
@@ -65,7 +64,7 @@ function TabInterfaceFallback({ tabs, defaultActiveTab, className }: Pick<TabInt
       {/* Mobile Accordion Navigation */}
       <div className="accordion-container block md:hidden">
         <div className="space-y-2">
-          {tabs.map((tab, index) => (
+          {tabs.map((tab) => (
             <div key={tab.id} className={`accordion-item ${activeTab === tab.id ? 'accordion-item--active' : ''}`}>
               <button
                 className="accordion-header"
@@ -124,7 +123,7 @@ function TabInterfaceFallback({ tabs, defaultActiveTab, className }: Pick<TabInt
 
       {/* Progress indicator for desktop */}
       <div className="progress-indicator hidden md:flex">
-        {tabs.map((tab, index) => (
+        {tabs.map((tab) => (
           <div
             key={tab.id}
             className={`progress-dot ${activeTab === tab.id ? 'progress-dot--active' : 'progress-dot--inactive'}`}

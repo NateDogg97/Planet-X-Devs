@@ -101,11 +101,14 @@ export default function QuickConsultationForm() {
   return (
     <Card rounded={false} className={"md:rounded-2xl"}>
       <div className="mb-6">
-        <h3 className="text-2xl font-bold text-nebula-white mb-2">
+        <h3 className="text-2xl font-bold text-text-primary mb-2">
           Quick Consultation
         </h3>
-        <p className="text-nebula-white/70">
-          Explore how we can work together. Let&apos;s schedule a brief consultation to discuss your agency&apos;s development needs.
+        <p className="text-lg font-medium text-text-accent mb-2">
+          Explore how we can work together
+        </p>
+        <p className="text-text-secondary">
+          Let&apos;s schedule a brief consultation to discuss your agency&apos;s development needs.
         </p>
       </div>
       

@@ -18,7 +18,7 @@ export default function BudgetTimelineSection({
 }: BudgetTimelineSectionProps) {
   return (
       <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-nebula-white">
+      <h3 className="text-lg font-semibold text-text-primary">
         Budget & Partnership Details
       </h3>
       
