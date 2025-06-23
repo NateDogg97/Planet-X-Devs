@@ -72,7 +72,6 @@ export function validateContactForm(formData: FormData): FormErrors {
       break;
       
     case 'quick-consultation':
-    case 'quick_consultation':
       // Company is optional for quick consultation
       
       // Interests/consultation type is required
@@ -89,7 +88,6 @@ export function validateContactForm(formData: FormData): FormErrors {
       break;
       
     case 'support-maintenance':
-    case 'support_maintenance':
       // Website URL is required for support requests
       if (!validateRequired(formData.websiteUrl || '')) {
         errors.websiteUrl = 'Website URL is required';

@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Hero from '@/components/layout/Hero';
@@ -35,17 +36,16 @@ const FloatingParticles = dynamic(() => import('@/components/ui/FloatingParticle
   loading: () => <div className="absolute inset-0" />
 });
 
-const ProcessTimeline = dynamic(() => import('@/components/ui/ProcessTimeline'), {
+const VerticalTimeline = dynamic(() => import('@/components/ui/VerticalTimeline'), {
   loading: () => (
     <div className="space-y-12 animate-pulse">
       {[...Array(4)].map((_, i) => (
         <div key={i} className="flex items-start gap-6">
-          <div className="w-16 h-16 bg-nebula-violet rounded-full flex-shrink-0"></div>
-          <div className="flex-1 space-y-4">
-            <div className="h-8 bg-nebula-purple-20 rounded w-1/3"></div>
+          <div className="w-12 h-12 bg-nebula-violet rounded-full flex-shrink-0"></div>
+          <div className="flex-1 space-y-3">
+            <div className="h-6 bg-nebula-purple-20 rounded w-1/2"></div>
             <div className="space-y-2">
               <div className="h-4 bg-nebula-purple-10 rounded w-full"></div>
-              <div className="h-4 bg-nebula-purple-10 rounded w-5/6"></div>
               <div className="h-4 bg-nebula-purple-10 rounded w-3/4"></div>
             </div>
           </div>
@@ -97,9 +97,151 @@ const testimonials = [
 // Only show featured services on homepage for better performance
 const featuredServices = services.slice(0, 6);
 
+// Concise process steps for home page (more detailed version is on /services)
+const homeProcessSteps = [
+  {
+    number: 1,
+    title: "Discovery",
+    description: "We understand your client's needs and plan the perfect solution"
+  },
+  {
+    number: 2,
+    title: "Development", 
+    description: "Clean, efficient code brings your vision to life"
+  },
+  {
+    number: 3,
+    title: "Testing",
+    description: "Rigorous testing ensures everything works perfectly"
+  },
+  {
+    number: 4,
+    title: "Launch",
+    description: "We handle deployment and provide ongoing support"
+  }
+];
+
 export default function HomePageClient() {
+  // Animation state
+  const [visibleServices, setVisibleServices] = useState<Set<number>>(new Set());
+  const [partnershipVisible, setPartnershipVisible] = useState(false);
+  const [processVisible, setProcessVisible] = useState(false);
+  const [statsVisible, setStatsVisible] = useState(false);
+  const [testimonialVisible, setTestimonialVisible] = useState(false);
+  
+  // Refs for sections
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const serviceRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const partnershipRef = useRef<HTMLDivElement>(null);
+  const processRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const testimonialRef = useRef<HTMLDivElement>(null);
+  
+  // Intersection observers
+  const servicesObserverRef = useRef<IntersectionObserver | null>(null);
+  const sectionObserverRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1, // Lower threshold for better mobile detection
+      rootMargin: '0px 0px -20px 0px', // Smaller margin for mobile
+    };
+
+    // Services observer with batched updates
+    const pendingServiceUpdates = new Set<number>();
+    let updateTimeout: NodeJS.Timeout | null = null;
+
+    const batchUpdateVisibleServices = () => {
+      if (pendingServiceUpdates.size > 0) {
+        setVisibleServices(prev => new Set([...prev, ...pendingServiceUpdates]));
+        pendingServiceUpdates.clear();
+      }
+      updateTimeout = null;
+    };
+
+    servicesObserverRef.current = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = serviceRefs.current.findIndex(ref => ref === entry.target);
+          if (index !== -1 && !visibleServices.has(index)) {
+            pendingServiceUpdates.add(index);
+            
+            if (!updateTimeout) {
+              updateTimeout = setTimeout(batchUpdateVisibleServices, 50);
+            }
+            
+            servicesObserverRef.current?.unobserve(entry.target);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Section observer for other animations
+    sectionObserverRef.current = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target === partnershipRef.current) {
+            setPartnershipVisible(true);
+            sectionObserverRef.current?.unobserve(entry.target);
+          } else if (entry.target === processRef.current) {
+            setProcessVisible(true);
+            sectionObserverRef.current?.unobserve(entry.target);
+          } else if (entry.target === statsRef.current) {
+            setStatsVisible(true);
+            sectionObserverRef.current?.unobserve(entry.target);
+          } else if (entry.target === testimonialRef.current) {
+            setTestimonialVisible(true);
+            sectionObserverRef.current?.unobserve(entry.target);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Delay observation to ensure refs are populated
+    const observeElements = () => {
+      // Start observing service cards
+      serviceRefs.current.forEach(ref => {
+        if (ref && servicesObserverRef.current) {
+          servicesObserverRef.current.observe(ref);
+        }
+      });
+
+      // Start observing section elements
+      if (partnershipRef.current && sectionObserverRef.current) {
+        sectionObserverRef.current.observe(partnershipRef.current);
+      }
+      if (processRef.current && sectionObserverRef.current) {
+        sectionObserverRef.current.observe(processRef.current);
+      }
+      if (statsRef.current && sectionObserverRef.current) {
+        sectionObserverRef.current.observe(statsRef.current);
+      }
+      if (testimonialRef.current && sectionObserverRef.current) {
+        sectionObserverRef.current.observe(testimonialRef.current);
+      }
+    };
+
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(observeElements);
+
+    // Fallback: show services after 3 seconds if intersection observer hasn't triggered
+    const fallbackTimeout = setTimeout(() => {
+      if (visibleServices.size === 0) {
+        setVisibleServices(new Set(featuredServices.map((_, index) => index)));
+      }
+    }, 3000);
+
+    // Cleanup
+    return () => {
+      if (updateTimeout) clearTimeout(updateTimeout);
+      clearTimeout(fallbackTimeout);
+      if (servicesObserverRef.current) servicesObserverRef.current.disconnect();
+      if (sectionObserverRef.current) sectionObserverRef.current.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-hidden">
       <Hero
         title="Your Agency's Technical Partner"
         subtitle="Professional white-label development that makes your agency shine. Custom designs, flawless execution, and communication that actually works."
@@ -120,51 +262,57 @@ export default function HomePageClient() {
 
       {/* Services Section */}
       <Section background="secondary" container>
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-text-primary">
-          Your Development Mission Control
-        </h2>
-        <p className="text-xl text-center text-text-primary/70 mb-16 max-w-3xl mx-auto">
-          Comprehensive web development solutions designed to elevate your agency's capabilities
-        </p>
-        
-        {/* Mobile: Flex layout, Desktop: Grid layout with equal heights */}
-        <div className="flex flex-col gap-8 md:hidden">
-          {featuredServices.map((service, index) => (
-            <div
-              key={service.id}
-              className="opacity-0 animate-fade-in-up will-change-transform motion-reduce:animate-none"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <ServiceCard
-                title={service.title}
-                description={service.description}
-                icon={<Icon name={service.icon} className="w-8 h-8 text-white" />}
-              />
-            </div>
-          ))}
-        </div>
-        
-        {/* Desktop: Grid layout with equal heights */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-          {featuredServices.map((service, index) => (
-            <div
-              key={service.id}
-              className="opacity-0 animate-fade-in-up will-change-transform motion-reduce:animate-none flex"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <ServiceCard
-                title={service.title}
-                description={service.description}
-                icon={<Icon name={service.icon} className="w-8 h-8 text-white" />}
-              />
-            </div>
-          ))}
+        <div ref={servicesRef}>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-text-primary">
+            Your Development Mission Control
+          </h2>
+          <p className="text-xl text-center text-text-primary/70 mb-16 max-w-3xl mx-auto">
+            Comprehensive web development solutions designed to elevate your agency's capabilities
+          </p>
+          
+          {/* Unified responsive layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:items-stretch">
+            {featuredServices.map((service, index) => {
+              const isVisible = visibleServices.has(index);
+              const isAnimating = !isVisible;
+              
+              return (
+                <div
+                  key={service.id}
+                  ref={(el) => { serviceRefs.current[index] = el; }}
+                  className={`transform transition-all duration-700 ease-out md:flex ${
+                    isVisible
+                      ? 'translate-y-0 opacity-100'
+                      : 'translate-y-8 opacity-0'
+                  }`}
+                  style={{ 
+                    transitionDelay: `${index * 100}ms`,
+                    willChange: isAnimating ? 'transform, opacity' : 'auto'
+                  }}
+                >
+                  <ServiceCard
+                    title={service.title}
+                    description={service.description}
+                    icon={<Icon name={service.icon} className="w-8 h-8 text-white" />}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </Section>
 
       {/* Partnership Section */}
       <Section background="secondary" container>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div 
+          ref={partnershipRef}
+          className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-1000 ${
+            partnershipVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{
+            willChange: !partnershipVisible ? 'transform, opacity' : 'auto'
+          }}
+        >
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Your Technical Co-Pilot
@@ -188,6 +336,15 @@ export default function HomePageClient() {
 
       {/* Process Section */}
       <Section background="secondary" container>
+        <div 
+          ref={processRef}
+          className={`transition-all duration-1000 ${
+            processVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{
+            willChange: !processVisible ? 'transform, opacity' : 'auto'
+          }}
+        >
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
               Our Mission Process
@@ -196,7 +353,8 @@ export default function HomePageClient() {
               From discovery to launch, we follow a proven process that ensures success
             </p>
           </div>
-          <ProcessTimeline />
+          <VerticalTimeline steps={homeProcessSteps} layout="horizontal" />
+        </div>
       </Section>
 
       {/* Benefits Section - Nebula Theme */}
@@ -207,7 +365,15 @@ export default function HomePageClient() {
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-nebula-purple-20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div 
+          ref={statsRef}
+          className={`container mx-auto px-6 relative z-10 transition-all duration-1000 ${
+            statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{
+            willChange: !statsVisible ? 'transform, opacity' : 'auto'
+          }}
+        >
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Benefits List */}
             <div>
@@ -368,35 +534,44 @@ export default function HomePageClient() {
 
       {/* Testimonials Section */}
       <Section background="secondary" container>
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-            What Agencies Say About Us
-          </h2>
-          <p className="text-xl text-text-primary/70">
-            Don't just take our word for it
-          </p>
+        <div 
+          ref={testimonialRef}
+          className={`transition-all duration-1000 ${
+            testimonialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{
+            willChange: !testimonialVisible ? 'transform, opacity' : 'auto'
+          }}
+        >
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+              What Agencies Say About Us
+            </h2>
+            <p className="text-xl text-text-primary/70">
+              Don't just take our word for it
+            </p>
+          </div>
+          
+          <TestimonialCarousel testimonials={testimonials} />
         </div>
-        
-        <TestimonialCarousel testimonials={testimonials} />
       </Section>
 
       {/* Final CTA Section */}
       <Section container className="overflow-hidden bg-gradient-radial-nebula relative" background='dark'>
-        <div className="relative z-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
-            Ready to Launch Your Next Project?
-          </h2>
-          <p className="text-xl text-nebula-white/70 mb-10 max-w-2xl mx-auto">
-            Let's discuss how I can help your agency deliver exceptional websites without the headaches
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-10 py-5 rounded-full bg-gradient-nebula text-white font-bold text-lg shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300 animate-pulse-slow"
-          >
-            Begin Your Mission
-          </Link>
+        <div className="relative z-10 container mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
+                Ready to Launch Your Next Project?
+            </h2>
+            <p className="text-xl text-nebula-white/70 mb-10 max-w-2xl mx-auto">
+                Let's discuss how I can help your agency deliver exceptional websites without the headaches
+            </p>
+            <Link
+                href="/contact"
+                className="inline-block px-10 py-5 rounded-full bg-gradient-nebula text-white font-bold text-lg shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300 animate-pulse-slow"
+            >
+                Begin Your Mission
+            </Link>
         </div>
-
         <FloatingParticles />
       </Section>
 

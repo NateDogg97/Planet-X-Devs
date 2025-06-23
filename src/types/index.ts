@@ -78,7 +78,7 @@ export interface FormData {
   monthlyHoursNeeded?: string;
   
   // Form type identifier
-  formType?: 'project_inquiry' | 'quick_consultation' | 'support_maintenance';
+  formType?: 'project-inquiry' | 'quick-consultation' | 'support-maintenance';
 }
 
 // Form submission status

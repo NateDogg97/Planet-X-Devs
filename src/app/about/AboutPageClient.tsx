@@ -129,7 +129,7 @@ export default function AboutPageClient() {
       rootMargin: '0px 0px -50px 0px',
     };
 
-    let pendingUpdates = new Set<number>();
+    const pendingUpdates = new Set<number>();
     let updateTimeout: NodeJS.Timeout | null = null;
 
     const batchUpdateVisibleCards = () => {

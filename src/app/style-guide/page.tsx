@@ -11,7 +11,7 @@ import Footer from '@/components/navigation/Footer';
 export default function StyleGuide() {
   return (
     <div className="min-h-screen">
-      <Section background="gradient" padding="large">
+      <Section background="gradient">
         <Container>
           <Heading as="h1" centered color="default">
             Style Guide
@@ -23,7 +23,7 @@ export default function StyleGuide() {
       </Section>
 
       {/* Colors */}
-      <Section padding="large">
+      <Section>
         <Container>
           <Heading as="h2" className="mb-8">Colors</Heading>
           
@@ -58,7 +58,7 @@ export default function StyleGuide() {
       </Section>
 
       {/* Typography */}
-      <Section padding="large" background="gray">
+      <Section background="secondary">
         <Container>
           <Heading as="h2" className="mb-8">Typography</Heading>
           
@@ -84,7 +84,7 @@ export default function StyleGuide() {
       </Section>
 
       {/* Buttons */}
-      <Section padding="large">
+      <Section>
         <Container>
           <Heading as="h2" className="mb-8">Buttons</Heading>
           
@@ -120,7 +120,7 @@ export default function StyleGuide() {
       </Section>
 
       {/* Spacing */}
-      <Section padding="large" background="gray">
+      <Section background="secondary">
         <Container>
           <Heading as="h2" className="mb-8">Spacing</Heading>
           
@@ -141,7 +141,7 @@ export default function StyleGuide() {
       </Section>
 
       {/* Cards & Shadows */}
-      <Section padding="large">
+      <Section>
         <Container>
           <Heading as="h2" className="mb-8">Cards & Shadows</Heading>
           
@@ -165,7 +165,7 @@ export default function StyleGuide() {
       </Section>
 
       {/* Gradients */}
-      <Section padding="large" background="gray">
+      <Section background="secondary">
         <Container>
           <Heading as="h2" className="mb-8">Gradients</Heading>
           
