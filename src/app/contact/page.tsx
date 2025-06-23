@@ -3,7 +3,7 @@ import ContactPageClient from './ContactPageClient';
 
 export const metadata: Metadata = {
   title: "Contact Planet X Devs | Your Agency's Technical Partner",
-  description: "Get white-label web development, tech support, and SEO services for your marketing agency. Project quotes, quick consultations, and ongoing support available.",
+  description: "Get white-label web development and technical support for your marketing agency. Custom WordPress development, agency partnerships, and ongoing support available.",
   keywords: "contact planet x devs, web development quote, marketing agency partner, agency tech support, white label development, marketing agency web services, developer partnership",
   openGraph: {
     title: "Contact Planet X Devs | Your Agency's Technical Partner",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     siteName: "Planet X Devs",
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Planet X Devs - Contact Us for Web Development Services'
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Contact Planet X Devs | Your Agency's Technical Partner",
     description: "Professional web development and technical support for marketing agencies.",
-    images: ['/twitter-image.jpg']
+    images: ['/images/og-image.jpg']
   },
   alternates: {
     canonical: "https://planetxdevs.com/contact"
@@ -37,98 +37,69 @@ export default function Contact() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "LocalBusiness",
-        "@id": "https://planetxdevs.com/#organization",
-        "name": "Planet X Devs",
-        "alternateName": "Planet X Development Services",
-        "url": "https://planetxdevs.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://planetxdevs.com/logo.png",
-          "width": 400,
-          "height": 400
-        },
-        "description": "Professional web development and technical support services for digital marketing agencies. White-label development, SEO services, and ongoing technical support.",
-        "priceRange": "$$",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Remote",
-          "addressCountry": "US"
-        },
-        "contactPoint": [
-          {
-            "@type": "ContactPoint",
-            "telephone": "+1-512-789-8844",
-            "contactType": "customer service",
-            "availableLanguage": "English",
-            "hoursAvailable": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-              "opens": "09:00",
-              "closes": "17:00",
-              "validFrom": "2024-01-01",
-              "validThrough": "2025-12-31"
-            }
-          },
-          {
-            "@type": "ContactPoint",
-            "email": "hello@planetxdevs.com",
-            "contactType": "customer service",
-            "availableLanguage": "English"
-          }
-        ],
-        "serviceArea": {
-          "@type": "Place",
-          "name": "Worldwide"
-        },
-        "areaServed": "Worldwide",
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Web Development Services",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Web Development",
-                "description": "Custom website development and maintenance services for digital marketing agencies"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Technical Support",
-                "description": "Ongoing technical support and maintenance for websites and digital platforms"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "SEO Services",
-                "description": "Search engine optimization services to improve website visibility and rankings"
-              }
-            }
-          ]
-        }
-      },
-      {
         "@type": "WebPage",
-        "@id": "https://planetxdevs.com/contact",
+        "@id": "https://planetxdevs.com/contact#webpage",
         "url": "https://planetxdevs.com/contact",
         "name": "Contact Planet X Devs | Your Agency's Technical Partner",
-        "description": "Get white-label web development, tech support, and SEO services for your digital marketing agency. Project quotes, quick consultations, and ongoing support available.",
         "isPartOf": {
           "@id": "https://planetxdevs.com/#website"
         },
         "about": {
           "@id": "https://planetxdevs.com/#organization"
         },
+        "description": "Contact Planet X Devs for white-label web development, technical partnerships, and support services for marketing agencies.",
+        "breadcrumb": {
+          "@id": "https://planetxdevs.com/contact#breadcrumb"
+        },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://planetxdevs.com/contact#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://planetxdevs.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact",
+            "item": "https://planetxdevs.com/contact"
+          }
+        ]
+      },
+      {
+        "@type": "ContactPage",
+        "@id": "https://planetxdevs.com/contact#contact-form",
+        "name": "Contact Planet X Devs",
+        "description": "Multiple ways to connect with Planet X Devs for your marketing agency's web development needs.",
+        "url": "https://planetxdevs.com/contact",
         "mainEntity": {
-          "@type": "ContactPage",
-          "name": "Contact Planet X Devs"
+          "@id": "https://planetxdevs.com/#organization"
         }
+      },
+      {
+        "@type": "ContactPoint",
+        "@id": "https://planetxdevs.com/contact#contactpoint",
+        "contactType": "Customer Service",
+        "telephone": "+1-512-789-8844",
+        "email": "nathaniel@planetxdevs.com",
+        "url": "https://planetxdevs.com/contact",
+        "availableLanguage": ["English"],
+        "areaServed": {
+          "@type": "Place",
+          "name": "Worldwide"
+        },
+        "hoursAvailable": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "08:00",
+          "closes": "22:00"
+        },
+        "contactOption": ["TollFree"]
       },
       {
         "@type": "FAQPage",
@@ -139,7 +110,7 @@ export default function Contact() {
             "name": "How quickly can you start on my project?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "I typically begin new projects within 3-5 business days after our initial consultation. For urgent requests, I offer expedited timelines."
+              "text": "For new partners, I can typically start within 3-5 business days. Marketing agency partners with active plans get priority scheduling with 24-48 hour response times. Rush projects are available based on current capacity."
             }
           },
           {
@@ -147,7 +118,7 @@ export default function Contact() {
             "name": "Do you work with agencies outside the US?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Absolutely! I work with agencies worldwide. All communication is handled via email, Slack, or your preferred platform, making timezone differences manageable."
+              "text": "Absolutely! I work with marketing agencies worldwide. All communication is handled via email, Slack, or your preferred platform, making timezone differences manageable."
             }
           },
           {
@@ -155,7 +126,23 @@ export default function Contact() {
             "name": "What if I need changes after the project is complete?",
             "acceptedAnswer": {
               "@type": "Answer", 
-              "text": "I offer post-launch support packages and can handle ongoing maintenance. Small tweaks are often included, and larger changes are billed hourly or through a retainer."
+              "text": "I offer post-launch support through our partnership plans. Small tweaks are often included in the initial project scope, and ongoing changes can be handled through our monthly partnership plans or hourly rates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What makes Planet X Devs different from other developers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I focus exclusively on marketing agency partnerships, not competing for direct clients. With experience in both development and agency operations, I understand the unique challenges you face and deliver accordingly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer white-label services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! All our services are 100% white-label. Your clients never know we exist unless you want them to. All work is delivered under your agency's brand."
             }
           }
         ]
