@@ -2,20 +2,20 @@ import { Metadata } from 'next';
 import HomePageClient from './HomePageClient';
 
 export const metadata: Metadata = {
-  title: "Planet X Devs | White-Label Web Development for Marketing Agencies",
-  description: "Your agency's technical partner. Premium white-label web development, maintenance, and support services that make you look great. From WordPress to React, we've got you covered.",
-  keywords: "white label web development, marketing agency partner, agency web developer, digital marketing technical partner, wordpress development for agencies, react developer for agencies, web development partnership, agency technical support",
+  title: "Planet X Devs | Web Development Partner for Marketing Agencies",
+  description: "Your agency's technical partner. Professional WordPress development and white-label web services that make your agency shine. True partnership without the overhead.",
+  keywords: "marketing agency web developer, white label web development, agency development partner, custom wordpress development, marketing agency technical partner, web development partnership, agency overflow support",
   openGraph: {
     title: "Planet X Devs | Your Agency's Technical Partner",
-    description: "Premium white-label web development that makes your agency shine. Expert WordPress, React, and eCommerce development with true partnership.",
+    description: "Expert WordPress development and technical partnership services. Scale your marketing agency with a trusted development partner.",
     url: "https://planetxdevs.com",
     siteName: "Planet X Devs",
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Planet X Devs - White-Label Web Development for Agencies'
+        alt: 'Planet X Devs - Web Development Partner for Marketing Agencies'
       }
     ],
     locale: 'en_US',
@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Planet X Devs | White-Label Development Partner",
-    description: "Premium web development services exclusively for marketing agencies. Your technical co-pilot.",
+    title: "Planet X Devs | Technical Partner for Marketing Agencies",
+    description: "Professional WordPress development and white-label services exclusively for marketing agencies.",
     site: '@planetxdevs',
     creator: '@planetxdevs',
-    images: ['/twitter-image.jpg']
+    images: ['/images/og-image.jpg'] // Use same image as OG
   },
   alternates: {
     canonical: "https://planetxdevs.com"
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'google-site-verification-code',
+    google: 'google-site-verification-code', // Add your actual verification code
     yandex: 'yandex-verification-code',
     yahoo: 'yahoo-verification-code',
   }
@@ -55,106 +55,11 @@ export default function Home() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
-        "@id": "https://planetxdevs.com/#organization",
-        "name": "Planet X Devs",
-        "alternateName": "Planet X Development Services",
-        "url": "https://planetxdevs.com",
-        "logo": {
-          "@type": "ImageObject",
-          "@id": "https://planetxdevs.com/#logo",
-          "url": "https://planetxdevs.com/logo.png",
-          "contentUrl": "https://planetxdevs.com/logo.png",
-          "width": 400,
-          "height": 400,
-          "caption": "Planet X Devs Logo"
-        },
-        "image": {
-          "@id": "https://planetxdevs.com/#logo"
-        },
-        "description": "White-label web development partner for digital marketing agencies. We handle the technical work so agencies can focus on strategy and client relationships.",
-        "founder": {
-          "@type": "Person",
-          "name": "Nathaniel Mays",
-          "jobTitle": "Founder & Lead Developer"
-        },
-        "foundingDate": "2023",
-        "slogan": "Your Agency's Technical Partner",
-        "email": "hello@planetxdevs.com",
-        "telephone": "+1-512-789-8844",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Remote",
-          "addressCountry": "US"
-        },
-        "sameAs": [
-          "https://linkedin.com/company/planetxdevs",
-          "https://github.com/planetxdevs",
-          "https://twitter.com/planetxdevs"
-        ],
-        "knowsAbout": [
-          "Web Development",
-          "WordPress Development",
-          "React Development",
-          "Next.js",
-          "eCommerce Development",
-          "White-label Services",
-          "Agency Partnerships",
-          "Technical Support"
-        ],
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Web Development Services",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "White-Label Web Development",
-                "description": "Complete web development services under your agency's brand"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "WordPress Development",
-                "description": "Custom WordPress sites, themes, and plugin development"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "React & Next.js Development",
-                "description": "Modern web applications with React and Next.js"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "eCommerce Development",
-                "description": "Online stores with WooCommerce, Shopify, and custom solutions"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Technical Support & Maintenance",
-                "description": "Ongoing support and maintenance for agency client websites"
-              }
-            }
-          ]
-        }
-      },
-      {
         "@type": "WebSite",
         "@id": "https://planetxdevs.com/#website",
         "url": "https://planetxdevs.com",
         "name": "Planet X Devs",
-        "description": "White-label web development services for digital marketing agencies",
+        "description": "Professional web development partner for marketing agencies",
         "publisher": {
           "@id": "https://planetxdevs.com/#organization"
         },
@@ -174,7 +79,7 @@ export default function Home() {
         "@type": "WebPage",
         "@id": "https://planetxdevs.com/#webpage",
         "url": "https://planetxdevs.com",
-        "name": "Planet X Devs | White-Label Web Development for Marketing Agencies",
+        "name": "Planet X Devs | Web Development Partner for Marketing Agencies",
         "isPartOf": {
           "@id": "https://planetxdevs.com/#website"
         },
@@ -182,19 +87,16 @@ export default function Home() {
           "@id": "https://planetxdevs.com/#organization"
         },
         "primaryImageOfPage": {
-          "@id": "https://planetxdevs.com/#logo"
+          "@type": "ImageObject",
+          "url": "https://planetxdevs.com/images/logo.png",
+          "width": 600,
+          "height": 600
         },
-        "description": "Your agency's technical partner. Premium white-label web development services that make you look great.",
+        "description": "Your agency's technical partner. Professional WordPress development and white-label services that make your marketing agency shine.",
         "breadcrumb": {
           "@id": "https://planetxdevs.com/#breadcrumb"
         },
-        "inLanguage": "en-US",
-        "potentialAction": [
-          {
-            "@type": "ReadAction",
-            "target": ["https://planetxdevs.com"]
-          }
-        ]
+        "inLanguage": "en-US"
       },
       {
         "@type": "BreadcrumbList",
@@ -209,30 +111,32 @@ export default function Home() {
         ]
       },
       {
-        "@type": "ProfessionalService",
-        "@id": "https://planetxdevs.com/#professional-service",
-        "name": "Planet X Devs",
-        "image": "https://planetxdevs.com/logo.png",
+        "@type": "CollectionPage",
+        "@id": "https://planetxdevs.com/#services",
+        "name": "Web Development Services",
+        "description": "Professional web development services for marketing agencies",
         "url": "https://planetxdevs.com",
-        "telephone": "+1-512-789-8844",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Remote",
-          "addressCountry": "US"
+        "isPartOf": {
+          "@id": "https://planetxdevs.com/#website"
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 40.7128,
-          "longitude": -74.0060
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "08:00",
-          "closes": "22:00"
-        },
-        "priceRange": "$$",
-        "servesCuisine": "Web Development Services"
+        "hasPart": [
+          {
+            "@type": "Service",
+            "name": "Agency Development Partnership",
+            "description": "Dedicated technical partnership for marketing agencies",
+            "provider": {
+              "@id": "https://planetxdevs.com/#organization"
+            }
+          },
+          {
+            "@type": "Service",
+            "name": "Custom WordPress Development",
+            "description": "Professional WordPress development tailored to your agency's needs",
+            "provider": {
+              "@id": "https://planetxdevs.com/#organization"
+            }
+          }
+        ]
       }
     ]
   };

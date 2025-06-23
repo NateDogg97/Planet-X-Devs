@@ -18,19 +18,19 @@ export const services: Service[] = [
     popular: true
   },
   {
-    id: 'platform-consultation',
-    title: 'Platform Selection Consultation',
-    price: '$500 - $1,000',
-    description: 'Expert guidance to help your agency choose the perfect platform for each client project. Avoid costly mistakes and recommend solutions that actually fit the client\'s needs.',
+    id: 'wordpress',
+    title: 'Custom WordPress Development',
+    price: '$1,500 - $8,000',
+    description: 'White-label WordPress development that makes your agency look like WordPress experts. Professional sites your clients can actually manage, from corporate sites to complex membership platforms.',
     features: [
-      'Comprehensive platform analysis (WordPress, Shopify, custom)',
-      'Cost-benefit breakdown for each option',
-      'Technical requirements assessment',
-      'Scalability and maintenance considerations',
-      'Detailed recommendation report'
+      'Custom theme development from your designs',
+      'Advanced Custom Fields (ACF) implementation',
+      'Page builder setup (Elementor, Gutenberg)',
+      'Plugin development & customization',
+      'Multisite configuration & management'
     ],
-    timeline: '3-5 business days',
-    icon: 'lightbulb'
+    timeline: '1-4 weeks depending on features',
+    icon: 'globe'
   },
   {
     id: 'emergency-support',
@@ -77,19 +77,34 @@ export const services: Service[] = [
     icon: 'shopping-cart'
   },
   {
-    id: 'wordpress',
-    title: 'Custom WordPress Development',
-    price: '$1,500 - $8,000',
-    description: 'White-label WordPress development that makes your agency look like WordPress experts. Professional sites your clients can actually manage, from corporate sites to complex membership platforms.',
+    id: 'performance',
+    title: 'Performance Optimization Audit',
+    price: '$500 - $1,500',
+    description: 'Performance optimization that makes your agency the hero. Fix slow websites and deliver dramatic speed improvements that your clients will notice immediately.',
     features: [
-      'Custom theme development from your designs',
-      'Advanced Custom Fields (ACF) implementation',
-      'Page builder setup (Elementor, Gutenberg)',
-      'Plugin development & customization',
-      'Multisite configuration & management'
+      'PageSpeed Insights analysis & fixes',
+      'Image optimization & lazy loading',
+      'CDN setup & configuration',
+      'Caching strategy implementation',
+      'Database & code optimization'
     ],
-    timeline: '1-4 weeks depending on features',
-    icon: 'globe'
+    timeline: '3-5 days',
+    icon: 'lightning'
+  },
+  {
+    id: 'platform-consultation',
+    title: 'Platform Selection Consultation',
+    price: '$500 - $1,000',
+    description: 'Expert guidance to help your agency choose the perfect platform for each client project. Avoid costly mistakes and recommend solutions that actually fit the client\'s needs.',
+    features: [
+      'Comprehensive platform analysis (WordPress, Shopify, custom)',
+      'Cost-benefit breakdown for each option',
+      'Technical requirements assessment',
+      'Scalability and maintenance considerations',
+      'Detailed recommendation report'
+    ],
+    timeline: '3-5 business days',
+    icon: 'lightbulb'
   },
   {
     id: 'technical-seo',
@@ -107,59 +122,19 @@ export const services: Service[] = [
     icon: 'chart'
   },
   {
-    id: 'performance',
-    title: 'Performance Optimization Audit',
-    price: '$500 - $1,500',
-    description: 'Performance optimization that makes your agency the hero. Fix slow websites and deliver dramatic speed improvements that your clients will notice immediately.',
+    id: 'website-maintenance',
+    title: 'Website Maintenance & Support',
+    price: '$200 - $1,500',
+    description: 'Keep your clients\' websites running smoothly with regular updates, security monitoring, and performance optimization. Available through our partnership plans.',
     features: [
-      'PageSpeed Insights analysis & fixes',
-      'Image optimization & lazy loading',
-      'CDN setup & configuration',
-      'Caching strategy implementation',
-      'Database & code optimization'
+      'Regular security updates and monitoring',
+      'Performance optimization and monitoring',
+      'Backup management and recovery',
+      'Plugin and theme updates',
+      'Uptime monitoring and alerts'
     ],
-    timeline: '3-5 days',
-    icon: 'lightning'
-  }
-];
-
-export const retainerPlans = [
-  {
-    id: 'starter',
-    name: 'Starter',
-    price: '$900-1,100',
-    period: '/month',
-    features: [
-      '20 hours of development',
-      '$45-55/hour effective rate',
-      'Basic maintenance, updates, small changes'
-    ],
-    highlighted: false
-  },
-  {
-    id: 'growth',
-    name: 'Growth',
-    price: '$1,600-2,000',
-    period: '/month',
-    features: [
-      '40 hours of development',
-      '$40-50/hour effective rate',
-      'Ongoing development, regular features'
-    ],
-    highlighted: true,
-    badge: 'MOST POPULAR'
-  },
-  {
-    id: 'scale',
-    name: 'Scale',
-    price: '$2,800-3,600',
-    period: '/month',
-    features: [
-      '80 hours of development',
-      '$35-45/hour effective rate',
-      'Major projects, dedicated support'
-    ],
-    highlighted: false
+    timeline: 'Ongoing monthly service',
+    icon: 'settings'
   }
 ];
 
@@ -167,7 +142,7 @@ export const agencyPartnershipPlans = [
   {
     id: 'partner-essential',
     name: 'Essential Partnership',
-    price: '$1,200-1,500',
+    price: '$900-1,100',
     period: '/month',
     features: [
       '25 hours of white-label development',
@@ -182,7 +157,7 @@ export const agencyPartnershipPlans = [
   {
     id: 'partner-professional',
     name: 'Professional Partnership',
-    price: '$2,200-2,800',
+    price: '$1,600-2,000',
     period: '/month',
     features: [
       '50 hours of white-label development',
@@ -199,7 +174,7 @@ export const agencyPartnershipPlans = [
   {
     id: 'partner-enterprise',
     name: 'Enterprise Partnership',
-    price: '$4,000-5,500',
+    price: '$2,800-3,600',
     period: '/month',
     features: [
       '100 hours of white-label development', 

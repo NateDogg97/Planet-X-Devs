@@ -15,42 +15,50 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Planet X Devs - White-Label Web Development for Marketing Agencies",
-  description: "Your trusted digital marketing agency partner for premium web development. White-label WordPress, e-commerce, and custom development services that make your agency shine.",
-  keywords: "white label web development, digital marketing agency partner, marketing agency web developer, wordpress developer, ecommerce developer, agency technical partner",
+  title: "Planet X Devs - Web Development Partner for Marketing Agencies",
+  description: "Your trusted technical partner for custom WordPress development and white-label web services. Help your marketing agency deliver exceptional websites without the technical overhead.",
+  keywords: "agency development partner, custom wordpress development, white label web development, marketing agency technical partner, wordpress developer for agencies, web development partnership, agency overflow support",
   openGraph: {
-    title: "Planet X Devs - White-Label Web Development for Marketing Agencies",
-    description: "Premium white-label web development services that make your agency look good. Custom designs, flawless execution, starting at $2,000.",
-    images: ['/og-image.jpg'],
+    title: "Technical Development Partner for Marketing Agencies",
+    description: "Expert WordPress development and technical partnership services. Scale your marketing agency with a trusted development partner.",
+    images: ['/images/og-image.jpg'],
+    url: 'https://planetxdevs.com',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
+    title: "Technical Development Partner for Marketing Agencies",
+    description: "Expert WordPress development and technical partnership services.",
+    images: ['/images/og-image.jpg'],
   },
   robots: {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: 'https://planetxdevs.com',
+  }
 };
 
-const jsonLd = {
+const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService"],
+  "@type": "Organization",
+  "@id": "https://planetxdevs.com/#organization",
   "name": "Planet X Devs",
   "alternateName": "Planet X Development Services",
-  "description": "White-label web development and technical support services for digital marketing agencies. Based in Austin/Lakeway area, serving agencies worldwide.",
+  "description": "Professional web development partner for marketing agencies. Custom WordPress development, white-label services, and technical expertise.",
   "url": "https://planetxdevs.com",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://planetxdevs.com/logo.png",
-    "width": 400,
-    "height": 400
+    "url": "https://planetxdevs.com/images/logo.png",
+    "width": 600,
+    "height": 600
   },
-  "image": "https://planetxdevs.com/og-image.jpg",
-  "foundingDate": "2024",
+  "image": "https://planetxdevs.com/images/og-image.jpg",
+  "foundingDate": "2025",
   "founder": {
     "@type": "Person",
-    "name": "Nathaniel Gonzalez",
+    "name": "Nathaniel Mays",
     "jobTitle": "Founder & Lead Developer"
   },
   "address": {
@@ -62,161 +70,89 @@ const jsonLd = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 30.3641,
-    "longitude": -97.9725
+    "latitude": "30.3641",
+    "longitude": "-97.9725"
   },
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "telephone": "+1-512-789-8844",
-      "contactType": "customer service",
-      "email": "nathaniel@planetxdevs.com",
-      "availableLanguage": "English",
-      "hoursAvailable": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "17:00",
-        "validFrom": "2024-01-01",
-        "validThrough": "2025-12-31"
-      }
-    },
-    {
-      "@type": "ContactPoint",
-      "contactType": "emergency support",
-      "email": "emergency@planetxdevs.com",
-      "description": "24-hour emergency response for critical website issues"
-    }
-  ],
-  "priceRange": "$500-$15,000",
-  "currenciesAccepted": "USD",
-  "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer", "PayPal"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-512-789-8844",
+    "contactType": "Customer Service",
+    "email": "nathaniel@planetxdevs.com",
+    "availableLanguage": ["English"],
+    "areaServed": "Worldwide"
+  },
   "sameAs": [
     "https://linkedin.com/company/planetxdevs",
-    "https://github.com/planetxdevs",
+    "https://github.com/NateDogg97",
     "https://twitter.com/planetxdevs"
-  ],
-  "serviceType": ["Web Development", "E-commerce Development", "WordPress Development", "Technical SEO", "Emergency Support"],
-  "areaServed": [
-    {
-      "@type": "Place",
-      "name": "Austin-Round Rock Metropolitan Area"
-    },
-    {
-      "@type": "Place", 
-      "name": "Lakeway, Texas"
-    },
-    {
-      "@type": "Place",
-      "name": "Worldwide (Remote Services)"
-    }
   ],
   "makesOffer": [
     {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "name": "White-Label Development Partnership",
-        "description": "Complete white-label development partnership for digital marketing agencies",
-        "serviceType": "Web Development"
-      },
-      "price": "2000-15000",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
+        "name": "Agency Development Partnership",
+        "description": "Become your marketing agency's dedicated technical partner. We handle the development while you focus on strategy and client relationships."
+      }
     },
     {
       "@type": "Offer", 
       "itemOffered": {
         "@type": "Service",
-        "name": "Platform Selection Consultation",
-        "description": "Expert guidance for choosing the right platform for each client project",
-        "serviceType": "Consulting"
-      },
-      "price": "500-1000",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
+        "name": "Custom WordPress Development",
+        "description": "Professional WordPress development tailored to your marketing agency's needs. Custom themes, plugins, performance optimization."
+      }
+    }
+  ]
+};
+
+// Separate LocalBusiness schema for local SEO
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://planetxdevs.com/#localbusiness",
+  "name": "Planet X Devs",
+  "description": "Web development services for marketing agencies in the Lakeway/Austin area and worldwide.",
+  "url": "https://planetxdevs.com",
+  "telephone": "+1-512-789-8844",
+  "email": "nathaniel@planetxdevs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lakeway",
+    "addressRegion": "TX",
+    "addressCountry": "US",
+    "postalCode": "78734"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "30.3641",
+    "longitude": "-97.9725"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "08:00",
+    "closes": "22:00"
+  },
+  "priceRange": "$$",
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Lakeway"
     },
     {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service", 
-        "name": "Emergency Support & Fixes",
-        "description": "24-hour emergency response for critical website issues",
-        "serviceType": "Technical Support"
-      },
-      "price": "500-2000",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
+      "@type": "City", 
+      "name": "Austin"
+    },
+    {
+      "@type": "City",
+      "name": "Bee Cave"
+    },
+    {
+      "@type": "Country",
+      "name": "United States"
     }
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Web Development Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Custom Website Development",
-          "description": "White-label custom websites built from scratch with unique functionality",
-          "serviceType": "Web Development"
-        },
-        "price": "5000-15000",
-        "priceCurrency": "USD"
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "E-Commerce Development",
-          "description": "Professional e-commerce solutions on Shopify, WooCommerce, and custom platforms",
-          "serviceType": "E-commerce Development"
-        },
-        "price": "3000-12000",
-        "priceCurrency": "USD"
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "WordPress Development",
-          "description": "Custom WordPress development with themes, plugins, and advanced functionality",
-          "serviceType": "WordPress Development"
-        },
-        "price": "1500-8000",
-        "priceCurrency": "USD"
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Technical SEO Implementation",
-          "description": "Complete technical SEO overhaul including schema markup and performance optimization",
-          "serviceType": "SEO Services"
-        },
-        "price": "1000-4000", 
-        "priceCurrency": "USD"
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Performance Optimization",
-          "description": "Comprehensive site speed analysis and optimization for better user experience",
-          "serviceType": "Web Optimization"
-        },
-        "price": "500-1500",
-        "priceCurrency": "USD"
-      }
-    ]
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "47",
-    "bestRating": "5",
-    "worstRating": "1"
-  }
+  ]
 };
 
 export default function RootLayout({
@@ -229,7 +165,11 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
       <body

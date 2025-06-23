@@ -106,13 +106,10 @@ export default function ServicesPageClient() {
           {services.map((service, index) => (
             <ServiceDetailCard 
               key={index} 
+              id={service.id}
               title={service.title}
               description={service.description}
               icon={service.icon}
-              price={{
-                amount: service.price,
-                period: service.timeline
-              }}
               features={service.features.map(feature => ({
                 text: feature,
                 included: true
@@ -125,7 +122,7 @@ export default function ServicesPageClient() {
       </Section>
 
       {/* Agency Partnership Plans */}
-      <Section background='primary' container>
+      <Section background='primary' container id='partnership-plans'>
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-text-primary mb-6">
             Agency Partnership Plans
@@ -288,7 +285,7 @@ export default function ServicesPageClient() {
       </Section>
 
       {/* FAQ Section */}
-      <Section background='secondary'>
+      <Section background='secondary' id='faq'>
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-text-primary mb-6">
             Frequently Asked Questions

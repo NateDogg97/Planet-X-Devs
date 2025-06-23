@@ -55,6 +55,7 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
       <nav 
         className={`flex items-center space-x-2 text-sm text-text-primary/70 ${className}`}
         aria-label="Breadcrumb"
+        id='breadcrumb'
       >
         <ol className="flex items-center space-x-2">
           {breadcrumbItems.map((item, index) => (

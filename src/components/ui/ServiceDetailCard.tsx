@@ -6,6 +6,7 @@ interface ServiceFeature {
 }
 
 interface ServiceDetailCardProps {
+  id: string;
   title: string;
   description: string;
   icon: IconName;
@@ -21,6 +22,7 @@ interface ServiceDetailCardProps {
 }
 
 export default function ServiceDetailCard({
+  id,
   title,
   description,
   icon,
@@ -40,6 +42,7 @@ export default function ServiceDetailCard({
           : 'glass glass-hover hover:shadow-xl hover:shadow-nebula-purple/10'
         }
       `}
+      id={id}
     >
       {popular && (
         <div className="absolute -top-3 -right-3 px-4 py-2 bg-gradient-to-br from-nebula-violet to-nebula-purple text-white text-sm font-bold rounded-lg shadow-lg transform rotate-12 border-2 border-white/20">
