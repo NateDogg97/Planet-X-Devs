@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/config/theme';
 import Link from 'next/link';
+import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import StarField from '@/components/ui/StarField';
 import Section from '@/components/layout/Section';
@@ -484,9 +485,16 @@ export default function AboutPageClient() {
                 
                 {/* Avatar content container */}
                 <div className="avatar-content relative z-10 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                  {/* Profile image placeholder */}
-                  <div className="avatar-image w-full h-full flex items-center justify-center text-5xl md:text-6xl filter hover:brightness-110 transition-all duration-300">
-                    👨‍💻
+                  {/* Profile image */}
+                  <div className="avatar-image w-full h-full overflow-hidden bg-gradient-to-br from-nebula-violet/20 to-nebula-purple/20">
+                    <Image
+                      src="/images/nathaniel-mays.webp"
+                      alt="Nathaniel Mays - Founder & Lead Developer"
+                      width={160}
+                      height={160}
+                      className="w-full h-full object-cover filter hover:brightness-110 transition-all duration-300"
+                      priority
+                    />
                   </div>
                   
                   {/* Hover overlay */}
@@ -608,14 +616,14 @@ export default function AboutPageClient() {
               <p className="text-text-secondary mb-4">Ready to work together?</p>
               <div className="flex justify-center space-x-6">
                 <a 
-                  href="/contact" 
+                  href="/contact#contact-form" 
                   className="inline-flex items-center space-x-2 text-text-accent hover:text-text-accent-alt transition-colors"
                 >
                   <Icon name="mail" className="w-5 h-5" />
                   <span>Get in touch</span>
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/in/planet-x-devs/" 
                   className="inline-flex items-center space-x-2 text-text-accent hover:text-text-accent-alt transition-colors"
                 >
                   <Icon name="linkedin" className="w-5 h-5" />

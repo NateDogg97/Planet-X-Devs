@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   title: "Planet X Devs - Web Development Partner for Marketing Agencies",
   description: "Your trusted technical partner for custom WordPress development and white-label web services. Help your marketing agency deliver exceptional websites without the technical overhead.",
   keywords: "agency development partner, custom wordpress development, white label web development, marketing agency technical partner, wordpress developer for agencies, web development partnership, agency overflow support",
+  icons: {
+    icon: '/images/brand/favicon/512x512_white_3.png',
+    shortcut: '/images/brand/favicon/512x512_white_3.png',
+    apple: '/images/brand/favicon/512x512_white_3.png',
+  },
   openGraph: {
     title: "Technical Development Partner for Marketing Agencies",
     description: "Expert WordPress development and technical partnership services. Scale your marketing agency with a trusted development partner.",
@@ -177,7 +182,7 @@ export default function RootLayout({
       >
         <PerformanceProvider enabled={false}>
           <Header />
-          <main className="pt-[72px]">{children}</main>
+          <main className="pt-24">{children}</main>
         </PerformanceProvider>
       </body>
     </html>

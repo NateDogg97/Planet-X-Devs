@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { footerNavigation, socialLinks } from '@/constants';
 import Icon from '../ui/Icon';
 
@@ -11,11 +12,16 @@ export default function Footer() {
             <Link href="/" className="flex items-center mb-4 group">
               <div className="relative">
                 <div className="absolute inset-0 bg-nebula-violet opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
-                <div className="relative z-10 w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-                  <span className="text-white font-bold text-xl">X</span>
+                <div className="relative z-10">
+                  <Image
+                    src="/images/brand/horizontal/2000x500_white_black planet_2.png"
+                    alt="Planet X Devs"
+                    width={320}
+                    height={80}
+                    className="h-16 w-auto"
+                  />
                 </div>
               </div>
-              <span className="text-xl font-bold text-nebula-white">Planet X Devs</span>
             </Link>
             <p className="text-nebula-white/70">
               Premium white-label web development for agencies who refuse to compromise on quality

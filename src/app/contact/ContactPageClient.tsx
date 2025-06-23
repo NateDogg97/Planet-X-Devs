@@ -112,7 +112,7 @@ function ContactPageContent() {
       </Section>
 
       {/* Main Contact Section with Grid Layout */}
-      <Section container className="relative" background='secondary' id="contact-form">
+      <Section container className="relative" background='secondary' spacing="xlarge" id="contact-form">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Left: TabInterface with forms - 2/3 width */}
           <div className="lg:col-span-2">

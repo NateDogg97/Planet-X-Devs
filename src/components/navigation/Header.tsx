@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import Icon from '../ui/Icon';
 import { mainNavigation } from '@/constants';
@@ -24,12 +25,14 @@ export default function Header() {
                 className="flex items-center"
                 aria-label="Planet X Devs Home"
               >
-                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3" aria-hidden="true">
-                  <span className="text-white font-bold text-xl">X</span>
-                </div>
-                <span className="text-xl font-bold text-nebula-white">
-                  Planet X Devs
-                </span>
+                <Image
+                  alt="Planet X Devs"
+                  src="/images/brand/horizontal/2000x500_white_black planet_2.png"
+                  width={320}
+                  height={80}
+                  className="h-16 w-auto"
+                  priority
+                />
               </Link>
             </div>
           </div>

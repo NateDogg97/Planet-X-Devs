@@ -78,7 +78,7 @@ export default function AboutPage() {
           "url": "https://planetxdevs.com/about",
           "image": {
             "@type": "ImageObject",
-            "url": "https://planetxdevs.com/images/nathaniel-Mays.jpg",
+            "url": "https://planetxdevs.com/images/nathaniel-mays.webp",
             "width": 600,
             "height": 600
           },
