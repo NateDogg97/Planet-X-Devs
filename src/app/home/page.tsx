@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description: "Professional WordPress development and white-label services exclusively for marketing agencies.",
     site: '@planetxdevs',
     creator: '@planetxdevs',
-    images: ['/images/og-image.jpg'] // Use same image as OG
+    images: ['/images/og-image.jpg'] 
   },
   alternates: {
     canonical: "https://planetxdevs.com"
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'google-site-verification-code', // Add your actual verification code
-    yandex: 'yandex-verification-code',
-    yahoo: 'yahoo-verification-code',
+    // google: 'google-site-verification-code', 
+    // yandex: 'yandex-verification-code',
+    // yahoo: 'yahoo-verification-code',
   }
 };
 
