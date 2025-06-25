@@ -23,7 +23,6 @@ export default function SupportMaintenanceForm() {
   const [submitMessage, setSubmitMessage] = useState<string>('');
   
   const issueTypes = [
-    { value: '', label: 'Select issue type...' },
     { value: 'bug-fix', label: 'Bug Fix' },
     { value: 'performance', label: 'Performance Issue' },
     { value: 'security', label: 'Security Concern' },
@@ -35,7 +34,6 @@ export default function SupportMaintenanceForm() {
   ];
   
   const priorities = [
-    { value: '', label: 'Select priority...' },
     { value: 'urgent', label: 'Urgent (Site Down/Critical)' },
     { value: 'high', label: 'High (Affects Business)' },
     { value: 'medium', label: 'Medium (Needs Attention)' },
@@ -43,7 +41,6 @@ export default function SupportMaintenanceForm() {
   ];
   
   const platformOptions = [
-    { value: '', label: 'Select platform/CMS...' },
     { value: 'wordpress', label: 'WordPress' },
     { value: 'shopify', label: 'Shopify' },
     { value: 'woocommerce', label: 'WooCommerce' },
@@ -191,10 +188,10 @@ export default function SupportMaintenanceForm() {
             name="support-platform"
             type="select"
             label="Current Platform/CMS"
-            value={formData.currentPlatform || ''}
-            onChange={(e) => handleChange('currentPlatform', e.target.value)}
+            value={formData.platform || ''}
+            onChange={(e) => handleChange('platform', e.target.value)}
             options={platformOptions}
-            error={errors.currentPlatform}
+            error={errors.platform}
             required
           />
           

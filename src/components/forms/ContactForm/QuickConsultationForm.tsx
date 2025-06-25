@@ -23,7 +23,6 @@ export default function QuickConsultationForm() {
   const [submitMessage, setSubmitMessage] = useState<string>('');
   
   const consultationTypes = [
-    { value: '', label: 'Select consultation type...' },
     { value: 'technical-feasibility', label: 'Technical Feasibility' },
     { value: 'platform-recommendation', label: 'Platform Recommendation' },
     { value: 'performance-optimization', label: 'Performance Issues' },

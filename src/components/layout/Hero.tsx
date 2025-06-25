@@ -41,7 +41,8 @@ export default function Hero({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="inline"
+                className="inline-block"
+                style={{ marginRight: index < array.length - 1 ? '0.5rem' : '0' }}
               >
                 {word}{index < array.length - 1 ? ' ' : ''}
               </motion.span>
