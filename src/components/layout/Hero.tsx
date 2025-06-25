@@ -35,15 +35,15 @@ export default function Hero({
       <div className="relative z-10 container mx-auto px-6 py-24">
         <div className={`max-w-4xl ${centered ? 'mx-auto text-center' : ''}`}>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-nebula-white mb-6">
-            {title.split(' ').map((word, index) => (
+            {title.split(' ').map((word, index, array) => (
               <motion.span
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="inline-block mr-2"
+                className="inline"
               >
-                {word}
+                {word}{index < array.length - 1 ? ' ' : ''}
               </motion.span>
             ))}
           </h1>
