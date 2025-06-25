@@ -89,7 +89,7 @@ const organizationSchema = {
   "sameAs": [
     "https://linkedin.com/company/planetxdevs",
     "https://github.com/NateDogg97",
-    "https://twitter.com/planetxdevs"
+    "https://x.com/planetxdevs"
   ],
   "makesOffer": [
     {

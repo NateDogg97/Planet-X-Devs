@@ -32,25 +32,22 @@ export default function RetainerPlanCard({
         relative p-8 rounded-2xl border transition-all duration-300 flex flex-col
         ${popular 
           ? `
-            /* Light mode: Strong contrast with white background */
-            bg-gradient-nebula
+            glass-gradient-nebula
             border-nebula-violet 
             shadow-2xl shadow-nebula-violet/30 
             scale-105
             
-            /* Dark mode: Original subtle gradient on dark background */
+            dark:glass-gradient-cyan
             dark:from-nebula-violet/20 dark:to-nebula-purple/20
             dark:border-nebula-violet
             dark:shadow-nebula-violet/30
           ` 
           : `
-            /* Light mode: Lighter background for contrast */
             bg-gradient-to-br from-gray-50 to-gray-100
             border-gray-300
             hover:border-nebula-purple 
             hover:shadow-xl hover:shadow-nebula-purple/20
             
-            /* Dark mode: Original dark gradient */
             dark:from-gray-900 dark:to-nebula-black 
             dark:border-nebula-purple/30 
             dark:hover:border-nebula-purple/50 
@@ -86,7 +83,7 @@ export default function RetainerPlanCard({
         <h3 className={`
           text-2xl font-bold mb-3
           ${popular 
-            ? 'text-white' 
+            ? 'text-text-primary' 
             : 'text-gray-900 dark:text-white'
           }
         `}>
@@ -95,7 +92,7 @@ export default function RetainerPlanCard({
         <p className={`
           mb-6
           ${popular 
-            ? 'text-white/90 dark:text-gray-400' 
+            ? 'text-text-secondary' 
             : 'text-gray-600 dark:text-gray-400'
           }
         `}>
@@ -108,7 +105,7 @@ export default function RetainerPlanCard({
               className={`
                 text-5xl font-bold 
                 ${popular 
-                  ? 'text-white dark:bg-gradient-to-r dark:from-nebula-cyan dark:to-nebula-violet dark:bg-clip-text dark:text-transparent' 
+                  ? 'bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent' 
                   : 'text-gray-900 dark:text-nebula-white'
                 }
               `}
@@ -118,7 +115,7 @@ export default function RetainerPlanCard({
             <span className={`
               text-lg
               ${popular 
-                ? 'text-white/80 dark:text-gray-400' 
+                ? 'text-text-secondary' 
                 : 'text-gray-600 dark:text-gray-400'
               }
             `}>
@@ -135,12 +132,12 @@ export default function RetainerPlanCard({
               <Icon 
                 name="check" 
                 size="small" 
-                className={popular ? 'text-white dark:text-nebula-cyan' : 'text-nebula-cyan'}
+                className={popular ? 'text-text-accent dark:text-text-accent-alt' : 'text-nebula-cyan'}
               />
             </div>
             <span className={`
               ${popular 
-                ? 'text-white/90 dark:text-gray-300' 
+                ? 'text-text-primary' 
                 : 'text-gray-700 dark:text-gray-300'
               }
             `}>
