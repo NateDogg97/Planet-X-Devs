@@ -17,13 +17,17 @@ interface PerformanceProviderProps {
 }
 
 export function PerformanceProvider({ children, enabled = true }: PerformanceProviderProps) {
+  // Only enable performance monitoring in development
+  const isDevelopment = process.env.NODE_ENV === 'development';
+  const isEnabled = enabled && isDevelopment;
+  
   const { measureFirstInteraction } = usePerformanceMonitoring({
     trackPageView: true,
     trackInteractions: true
   });
 
   useEffect(() => {
-    if (!enabled || typeof window === 'undefined') return;
+    if (!isEnabled || typeof window === 'undefined') return;
 
     try {
       // Initialize performance monitoring
@@ -121,10 +125,10 @@ export function PerformanceProvider({ children, enabled = true }: PerformancePro
     } catch (e) {
       console.warn('Error initializing performance provider:', e);
     }
-  }, [enabled, measureFirstInteraction]);
+  }, [isEnabled, measureFirstInteraction]);
 
   const contextValue: PerformanceContextType = {
-    isMonitoring: enabled,
+    isMonitoring: isEnabled,
     getPerformanceSummary: () => performanceMonitor.getPerformanceSummary()
   };
 

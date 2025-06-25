@@ -54,9 +54,11 @@ class PerformanceMonitor {
   private metrics: PerformanceMetric[] = [];
   private vitals: WebVitalsMetric[] = [];
   private readonly isProduction = process.env.NODE_ENV === 'production';
+  private readonly isDevelopment = process.env.NODE_ENV === 'development';
   
   constructor() {
-    if (typeof window !== 'undefined') {
+    // Only initialize performance monitoring in development
+    if (typeof window !== 'undefined' && this.isDevelopment) {
       this.initializeWebVitals();
       this.setupPerformanceObserver();
       this.addPageVisibilityListener();
@@ -183,6 +185,9 @@ class PerformanceMonitor {
    * Handle Web Vitals metrics
    */
   private handleWebVital(metric: any) {
+    // Only handle web vitals in development
+    if (!this.isDevelopment) return;
+    
     const webVitalMetric: WebVitalsMetric = {
       name: metric.name,
       value: metric.value,
@@ -321,6 +326,9 @@ class PerformanceMonitor {
    * Record a custom performance metric
    */
   recordMetric(metric: Omit<PerformanceMetric, 'timestamp' | 'url' | 'userAgent'>) {
+    // Only record metrics in development
+    if (!this.isDevelopment) return;
+    
     const fullMetric: PerformanceMetric = {
       ...metric,
       timestamp: Date.now(),
@@ -340,7 +348,8 @@ class PerformanceMonitor {
    * Mark the start of a performance measurement
    */
   markStart(name: string) {
-    if (typeof window === 'undefined') return;
+    // Only track performance in development
+    if (typeof window === 'undefined' || !this.isDevelopment) return;
     
     try {
       if ('performance' in window && 'mark' in performance) {
@@ -355,7 +364,8 @@ class PerformanceMonitor {
    * Mark the end of a performance measurement and calculate duration
    */
   markEnd(name: string) {
-    if (typeof window === 'undefined') return;
+    // Only track performance in development
+    if (typeof window === 'undefined' || !this.isDevelopment) return;
     
     try {
       if ('performance' in window && 'mark' in performance && 'measure' in performance) {

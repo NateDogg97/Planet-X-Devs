@@ -180,7 +180,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <PerformanceProvider enabled={false}>
+        <PerformanceProvider enabled={true}>
           <Header />
           <main className="pt-24">{children}</main>
         </PerformanceProvider>

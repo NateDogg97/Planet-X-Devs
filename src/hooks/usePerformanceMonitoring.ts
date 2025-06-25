@@ -22,10 +22,13 @@ export function usePerformanceMonitoring(options: UsePerformanceMonitoringOption
 
   const renderStartTime = useRef<number | undefined>(undefined);
   const interactionTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
+  
+  // Only enable performance monitoring in development
+  const isDevelopment = process.env.NODE_ENV === 'development';
 
   // Track component render performance
   useEffect(() => {
-    if (trackComponentRender) {
+    if (trackComponentRender && isDevelopment) {
       renderStartTime.current = performance.now();
       
       return () => {
@@ -38,11 +41,11 @@ export function usePerformanceMonitoring(options: UsePerformanceMonitoringOption
         }
       };
     }
-  }, [trackComponentRender, componentName]);
+  }, [trackComponentRender, componentName, isDevelopment]);
 
   // Track page view performance
   useEffect(() => {
-    if (!trackPageView || typeof window === 'undefined') return;
+    if (!trackPageView || !isDevelopment || typeof window === 'undefined') return;
     
     try {
       markStart('page-load');
@@ -86,11 +89,11 @@ export function usePerformanceMonitoring(options: UsePerformanceMonitoringOption
     } catch (e) {
       console.warn('Error setting up page view tracking:', e);
     }
-  }, [trackPageView]);
+  }, [trackPageView, isDevelopment]);
 
   // Utility functions for manual performance tracking
   const trackInteraction = useCallback((name: string, callback?: () => void) => {
-    if (!trackInteractions || typeof window === 'undefined') return callback?.();
+    if (!trackInteractions || !isDevelopment || typeof window === 'undefined') return callback?.();
 
     try {
       const startTime = 'performance' in window ? performance.now() : Date.now();
@@ -140,12 +143,14 @@ export function usePerformanceMonitoring(options: UsePerformanceMonitoringOption
       console.warn(`Error tracking interaction ${name}:`, e);
       return callback?.();
     }
-  }, [trackInteractions]);
+  }, [trackInteractions, isDevelopment]);
 
   const trackAsyncOperation = useCallback(async <T>(
     name: string,
     operation: () => Promise<T>
   ): Promise<T> => {
+    if (!isDevelopment) return operation();
+    
     const startTime = performance.now();
     markStart(`async-${name}`);
 
@@ -170,10 +175,10 @@ export function usePerformanceMonitoring(options: UsePerformanceMonitoringOption
       
       throw error;
     }
-  }, []);
+  }, [isDevelopment]);
 
   const trackResourceLoad = useCallback((resourceName: string, resourceUrl: string) => {
-    if (typeof window === 'undefined' || !('PerformanceObserver' in window)) return;
+    if (!isDevelopment || typeof window === 'undefined' || !('PerformanceObserver' in window)) return;
 
     try {
       const observer = new PerformanceObserver((list) => {
@@ -211,10 +216,10 @@ export function usePerformanceMonitoring(options: UsePerformanceMonitoringOption
     } catch (e) {
       console.warn(`Failed to observe resource ${resourceName}:`, e);
     }
-  }, []);
+  }, [isDevelopment]);
 
   const measureFirstInteraction = useCallback(() => {
-    if (typeof window === 'undefined' || typeof document === 'undefined') {
+    if (!isDevelopment || typeof window === 'undefined' || typeof document === 'undefined') {
       return () => {}; // Return empty cleanup function
     }
 
@@ -259,7 +264,7 @@ export function usePerformanceMonitoring(options: UsePerformanceMonitoringOption
     }
 
     return cleanupListeners;
-  }, []);
+  }, [isDevelopment]);
 
   return {
     trackInteraction,
@@ -307,7 +312,7 @@ export function useParticlePerformanceTracking() {
       name: 'PARTICLES_COUNT',
       value: particleCount
     });
-  }, []);
+  }, [recordMetric]);
 
   return {
     trackParticleLoad,
