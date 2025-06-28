@@ -1,19 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-
-interface TimelineStep {
-  number: number;
-  title: string;
-  description: string;
-  details?: string[];
-}
-
-interface VerticalTimelineProps {
-  steps: TimelineStep[];
-  layout?: 'vertical' | 'horizontal';
-  className?: string;
-}
+import { VerticalTimelineProps } from '@/types';
 
 export default function VerticalTimeline({ steps, layout = 'vertical', className = '' }: VerticalTimelineProps) {
   const timelineRef = useRef<HTMLDivElement>(null);

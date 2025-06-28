@@ -51,7 +51,7 @@ export const services: Service[] = [
     id: 'custom-development',
     title: 'Custom Website Development',
     price: '$5,000 - $15,000',
-    description: 'White-label custom websites that elevate your agency\'s portfolio. Built from scratch with unique functionality and distinctive design that makes your clients think you\'re a development powerhouse.',
+    description: 'White-label custom websites that elevate your agency\'s portfolio. Built from scratch with cutting-edge tech and distinctive design that makes your clients think you\'re a development powerhouse.',
     features: [
       'Hand-coded for perfect performance',
       'Unique designs that stand out',

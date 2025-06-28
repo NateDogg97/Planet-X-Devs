@@ -11,25 +11,24 @@ export const testimonials: Testimonial[] = [
   {
     id: 'testimonial-1',
     quote: 'Finally, a developer who actually communicates! Updates without asking, realistic timelines, and work that exceeds expectations.',
-    author: 'Agency Owner',
+    author: 'Sarah M.',
+    role: 'Agency Owner',
     rating: 5
   },
   {
     id: 'testimonial-2',
     quote: 'They transformed our client\'s dated site into something modern while keeping their brand personality intact. Our client was thrilled.',
-    author: 'Creative Director',
+    author: "Mike R.",
+    role: "Creative Director",
     rating: 5
   },
   {
     id: 'testimonial-3',
-    quote: 'From solo projects to our enterprise clients, they scale with us. It\'s like having a senior developer on the team.',
-    author: 'Digital Marketing Director',
+    quote: 'They cover all the technical gaps for me. Nathaniel answers my questions with non-technical language which is perfect for me!',
+    author: "Jessica L.",
+    role: "Digital Marketing Director",
     rating: 5
-  }
-];
-
-// Additional testimonials for future use
-export const extendedTestimonials: Testimonial[] = [
+  },
   {
     id: 'testimonial-4',
     quote: 'The white-label service is seamless. Our clients think we have an in-house dev team, and we get to focus on strategy and growth.',

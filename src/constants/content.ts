@@ -1,6 +1,6 @@
 // Content-related constants for UI components
 
-import { FAQItem, ProcessStep } from '@/types';
+import { FAQItem, TimelineStep } from '@/types';
 
 // Features for home page services section
 export interface Feature {
@@ -119,31 +119,31 @@ export const faqItems: FAQItem[] = [
 ];
 
 // Process steps for how we work section
-export const processSteps: ProcessStep[] = [
+export const processSteps: TimelineStep[] = [
   {
     id: 'brief-quote',
-    step: 1,
+    number: 1,
     title: 'Brief & Quote',
     description: 'Send your project requirements. Get a detailed quote within 24 hours.',
     icon: 'document-text'
   },
   {
     id: 'development',
-    step: 2,
+    number: 2,
     title: 'Development',
     description: 'I build while keeping you updated with regular progress reports.',
     icon: 'code'
   },
   {
     id: 'review-refine',
-    step: 3,
+    number: 3,
     title: 'Review & Refine',
     description: 'Test on staging environment. Make revisions until perfect.',
     icon: 'eye'
   },
   {
     id: 'launch-support',
-    step: 4,
+    number: 4,
     title: 'Launch & Support',
     description: 'Deploy to production. Ongoing support included for 30 days.',
     icon: 'rocket'

@@ -164,13 +164,20 @@ export interface FAQItem {
   category?: string;
 }
 
-// Process related types
-export interface ProcessStep {
-  id: string;
-  step: number;
+// Timeline related types
+export interface TimelineStep {
+  id?: string;
+  number: number;
   title: string;
   description: string;
+  details?: string[];
   icon?: string;
+}
+
+export interface VerticalTimelineProps {
+  steps: TimelineStep[];
+  layout?: 'vertical' | 'horizontal';
+  className?: string;
 }
 
 // Content related types

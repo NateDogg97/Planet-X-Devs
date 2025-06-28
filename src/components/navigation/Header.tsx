@@ -67,7 +67,7 @@ export default function Header() {
             aria-expanded={isMobileMenuOpen}
           >
             <Icon 
-              name={isMobileMenuOpen ? 'x' : 'menu'} 
+              name={isMobileMenuOpen ? 'x-close' : 'menu'} 
               className="text-nebula-white" 
               aria-hidden="true"
             />

@@ -42,9 +42,9 @@ export default function FloatingParticles() {
 
     // Check for reduced motion or mobile
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    // const isMobile = window.matchMedia('(max-width: 768px)').matches;
     
-    if (prefersReducedMotion || isMobile) return;
+    if (prefersReducedMotion) return;
 
     const spawnInterval = 400; // Spawn a new particle every 400ms
 

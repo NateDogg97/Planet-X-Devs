@@ -8,7 +8,7 @@ import Section from '@/components/layout/Section';
 import ServiceCard from '@/components/ui/ServiceCard';
 import NebulaGraphic from '@/components/ui/NebulaGraphic';
 import Icon from '@/components/ui/Icon';
-import { services } from '@/constants/services';
+import { services, testimonials, processSteps } from '@/constants/index';
 
 const TestimonialCarousel = dynamic(() => import('@/components/ui/TestimonialCarousel'), {
   ssr: false,
@@ -76,50 +76,8 @@ const Footer = dynamic(() => import('@/components/navigation/Footer'), {
   )
 });
 
-const testimonials = [
-  {
-    quote: "Finally, a developer who actually communicates! Updates without asking, realistic timelines, and work that exceeds expectations.",
-    author: "Sarah M.",
-    role: "Agency Owner"
-  },
-  {
-    quote: "They transformed our client's dated site into something modern while keeping their brand personality intact. Our client was thrilled.",
-    author: "Mike R.",
-    role: "Creative Director"
-  },
-  {
-    quote: "From solo projects to our enterprise clients, they scale with us. It's like having a senior developer on the team.",
-    author: "Jessica L.",
-    role: "Digital Marketing Director"
-  }
-];
-
 // Only show featured services on homepage for better performance
 const featuredServices = services.slice(0, 6);
-
-// Concise process steps for home page (more detailed version is on /services)
-const homeProcessSteps = [
-  {
-    number: 1,
-    title: "Discovery",
-    description: "We understand your client's needs and plan the perfect solution"
-  },
-  {
-    number: 2,
-    title: "Development", 
-    description: "Clean, efficient code brings your vision to life"
-  },
-  {
-    number: 3,
-    title: "Testing",
-    description: "Rigorous testing ensures everything works perfectly"
-  },
-  {
-    number: 4,
-    title: "Launch",
-    description: "We handle deployment and provide ongoing support"
-  }
-];
 
 export default function HomePageClient() {
   // Animation state
@@ -324,7 +282,7 @@ export default function HomePageClient() {
               I created Planet X Devs to be the perfect development partner for effective marketing agencies without fulltime developers - reliable, communicative, and focused on making agencies look good.
             </p>
             <Link
-              href="/contact"
+              href="/contact#contact-form"
               className="inline-block px-8 py-4 rounded-full bg-gradient-nebula text-white font-semibold shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300"
             >
               Start Partnership
@@ -353,7 +311,7 @@ export default function HomePageClient() {
               From discovery to launch, we follow a proven process that ensures success
             </p>
           </div>
-          <VerticalTimeline steps={homeProcessSteps} layout="horizontal" />
+          <VerticalTimeline steps={processSteps} layout="horizontal" />
         </div>
       </Section>
 
@@ -552,7 +510,7 @@ export default function HomePageClient() {
             </p>
           </div>
           
-          <TestimonialCarousel testimonials={testimonials} />
+          <TestimonialCarousel testimonials={testimonials.slice(0, 3)} />
         </div>
       </Section>
 
