@@ -134,7 +134,7 @@ export default function ProjectInquiryForm() {
             formData={{
               timeline: formData.timeline || '',
               budget: formData.budget || '',
-              monthlyHoursNeeded: formData.monthlyHoursNeeded || ''
+              monthlyHours: formData.monthlyHours || ''
             }}
             onChange={handleChange}
             errors={errors}

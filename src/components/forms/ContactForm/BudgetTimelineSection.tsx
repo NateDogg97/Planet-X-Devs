@@ -48,11 +48,11 @@ export default function BudgetTimelineSection({
       
       <FormField
         label="Monthly Development Hours Needed (for ongoing partnerships)"
-        name="monthlyHoursNeeded"
+        name="monthlyHours"
         type="select"
         options={monthlyHours}
         value={formData.monthlyHours || ''}
-        onChange={(e) => onChange('monthlyHoursNeeded', e.target.value)}
+        onChange={(e) => onChange('monthlyHours', e.target.value)}
         error={errors.monthlyHours}
       />
       

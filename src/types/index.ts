@@ -75,7 +75,7 @@ export interface FormData {
   maintenanceInterest?: boolean;
   
   // Agency Partnership fields
-  monthlyHoursNeeded?: string;
+  monthlyHours?: string;
   
   // Form type identifier
   formType?: 'project-inquiry' | 'quick-consultation' | 'support-maintenance';
