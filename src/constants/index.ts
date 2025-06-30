@@ -17,12 +17,14 @@ export {
   projectTypes,
   timelines,
   budgetRanges,
+  monthlyHours,
   howHeardOptions,
   formValidationMessages,
   formLabels,
   type ProjectTypeOption,
   type TimelineOption,
   type BudgetRangeOption,
+  type MonthlyHoursOption,
   type HowHeardOption
 } from './forms';
 

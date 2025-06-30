@@ -5,7 +5,7 @@ import { contactInfo } from '@/constants';
 
 export default function ContactInfo() {
   return (
-    <Card>
+    <Card className='glass-elevated'>
       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
         Quick Contact
       </h3>
@@ -22,6 +22,13 @@ export default function ContactInfo() {
           <div>
             <p className="font-medium text-gray-900 dark:text-white">Response Time</p>
             <p className="text-gray-600 dark:text-gray-300">{contactInfo.responseTime}</p>
+          </div>
+        </div>
+        <div className="flex items-start">
+          <Icon name="calendar" className="text-nebula-violet mr-3 mt-0.5" />
+          <div>
+            <p className="font-medium text-gray-900 dark:text-white">Availability</p>
+            <p className="text-gray-600 dark:text-gray-300">Mon - Sun: 8am - 10pm CST</p>
           </div>
         </div>
       </div>

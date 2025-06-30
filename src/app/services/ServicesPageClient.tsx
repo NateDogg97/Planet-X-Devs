@@ -271,7 +271,7 @@ export default function ServicesPageClient() {
               Want early access to these services or have a specific need?
             </p>
             <a 
-              href="/contact" 
+              href="/contact?form=quick-consultation" 
               className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-nebula-cyan to-nebula-purple text-nebula-white font-bold rounded-lg transition-all duration-200 transform hover:scale-105"
             >
               Get Early Access
@@ -296,7 +296,7 @@ export default function ServicesPageClient() {
         </div>
 
         <div className="max-w-4xl mx-auto space-y-6">
-          {faqItems.map((faq, index) => (
+          {faqItems.slice(0,5).map((faq, index) => (
             <FAQItem key={index} {...faq} />
           ))}
         </div>
@@ -312,7 +312,7 @@ export default function ServicesPageClient() {
             Let's discuss how I can help your agency deliver exceptional websites without the headaches
           </p>
           <Link
-            href="/contact"
+            href="/contact?form=agency-partnership"
             className="inline-block px-10 py-5 rounded-full bg-gradient-nebula text-white font-bold text-lg shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300 animate-pulse-slow"
           >
             Begin Your Mission

@@ -524,7 +524,7 @@ export default function HomePageClient() {
                 Let's discuss how I can help your agency deliver exceptional websites without the headaches
             </p>
             <Link
-                href="/contact"
+                href="/contact?form=agency-partnership"
                 className="inline-block px-10 py-5 rounded-full bg-gradient-nebula text-white font-bold text-lg shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300 animate-pulse-slow"
             >
                 Begin Your Mission

@@ -317,7 +317,7 @@ export default function Services() {
             "name": "What if I need more hours than my plan includes?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Additional hours are available at preferred partner rates. You can also upgrade your plan at any time, and unused hours roll over for up to 60 days to ensure flexibility."
+              "text": "No problem! Additional hours are billed at $100/hour for all retainer clients. You can also upgrade your plan at any time, and unused hours roll over for up to 60 days."
             }
           },
           {
@@ -325,23 +325,15 @@ export default function Services() {
             "name": "What platforms and technologies do you work with?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "I specialize in WordPress (including Elementor, Divi, Gutenberg, and custom themes), React/Next.js applications, and e-commerce platforms like WooCommerce and Shopify. I adapt to your marketing agency's preferred tech stack."
+              "text": "I specialize in WordPress (including Elementor, Divi, and custom themes), React/Next.js applications, and popular e-commerce platforms like WooCommerce and Shopify. I also work with various page builders and can adapt to your preferred tech stack."
             }
           },
           {
             "@type": "Question",
-            "name": "How do you handle project communication?",
+            "name": "How do you handle project communication and updates?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "I integrate with your existing workflow using your preferred tools (Slack, email, Asana, ClickUp, etc.). Partners receive weekly status reports and milestone updates throughout projects."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What makes you different from other developers?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "I focus exclusively on marketing agency partnerships, not competing for direct clients. With experience in both development and agency operations, I understand the unique challenges you face and deliver accordingly."
+              "text": "I provide regular updates through your preferred channel (email, Slack, or project management tool). Retainer clients get weekly status reports, and all clients receive milestone updates throughout their projects."
             }
           }
         ]

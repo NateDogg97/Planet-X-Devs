@@ -29,7 +29,7 @@ export default function SupportMaintenanceForm() {
     { value: 'content-update', label: 'Content Update' },
     { value: 'feature-request', label: 'Feature Request' },
     { value: 'hosting', label: 'Hosting/Server Issue' },
-    { value: 'seo', label: 'SEO Optimization' },
+    { value: 'seo', label: 'SEO Related' },
     { value: 'other', label: 'Other' }
   ];
   
@@ -45,7 +45,10 @@ export default function SupportMaintenanceForm() {
     { value: 'shopify', label: 'Shopify' },
     { value: 'woocommerce', label: 'WooCommerce' },
     { value: 'squarespace', label: 'Squarespace' },
+    { value: 'wix', label: 'Wix' },
     { value: 'webflow', label: 'Webflow' },
+    { value: 'weebly', label: 'Weebly' },
+    { value: 'duda', label: 'Duda' },
     { value: 'react', label: 'React/Next.js' },
     { value: 'vue', label: 'Vue.js' },
     { value: 'angular', label: 'Angular' },

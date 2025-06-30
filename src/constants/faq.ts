@@ -11,7 +11,7 @@ export const faqItems = [
   },
   {
     id: 'faq-3',
-    question: 'What if I need more hours than my retainer includes?',
+    question: 'What if I need more hours than my plan includes?',
     answer: 'No problem! Additional hours are billed at $100/hour for all retainer clients. You can also upgrade your plan at any time, and unused hours roll over for up to 60 days.'
   },
   {

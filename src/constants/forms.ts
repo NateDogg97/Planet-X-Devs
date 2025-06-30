@@ -100,6 +100,21 @@ export const budgetRanges: BudgetRangeOption[] = [
   { value: 'retainer', label: 'Monthly Retainer' }
 ];
 
+// Monthly hours needed options
+export interface MonthlyHoursOption {
+  value: string;
+  label: string;
+}
+
+export const monthlyHours: MonthlyHoursOption[] = [
+  { value: 'not-applicable', label: 'Not applicable - one-time project' },
+  { value: '10-20', label: '10-20 hours/month' },
+  { value: '20-40', label: '20-40 hours/month' },
+  { value: '40-60', label: '40-60 hours/month' },
+  { value: '60-80', label: '60-80 hours/month' },
+  { value: '80+', label: '80+ hours/month' }
+]
+
 // How did you hear about us options
 export interface HowHeardOption {
   value: string;
