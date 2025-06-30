@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: "Planet X Devs is the technical partnership that helps marketing agencies deliver exceptional websites. True white-label service from an experienced developer.",
     images: ['/images/og-image.jpg'],
     type: 'website',
-    url: 'https://planetxdevs.com/about'
+    url: 'https://www.planetxdevs.com/about'
   },
   twitter: {
     card: 'summary_large_image',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     images: ['/images/og-image.jpg']
   },
   alternates: {
-    canonical: 'https://planetxdevs.com/about'
+    canonical: 'https://www.planetxdevs.com/about'
   }
 };
 
@@ -29,61 +29,61 @@ export default function AboutPage() {
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": "https://planetxdevs.com/about#webpage",
-        "url": "https://planetxdevs.com/about",
+        "@id": "https://www.planetxdevs.com/about#webpage",
+        "url": "https://www.planetxdevs.com/about",
         "name": "About Planet X Devs | Web Development Partner for Marketing Agencies",
         "isPartOf": {
-          "@id": "https://planetxdevs.com/#website"
+          "@id": "https://www.planetxdevs.com/#website"
         },
         "about": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "description": "Learn about Planet X Devs and how we help marketing agencies deliver exceptional websites through reliable technical partnerships.",
         "breadcrumb": {
-          "@id": "https://planetxdevs.com/about#breadcrumb"
+          "@id": "https://www.planetxdevs.com/about#breadcrumb"
         },
         "inLanguage": "en-US"
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://planetxdevs.com/about#breadcrumb",
+        "@id": "https://www.planetxdevs.com/about#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://planetxdevs.com"
+            "item": "https://www.planetxdevs.com"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "About",
-            "item": "https://planetxdevs.com/about"
+            "item": "https://www.planetxdevs.com/about"
           }
         ]
       },
       {
         "@type": "ProfilePage",
-        "@id": "https://planetxdevs.com/about#profile",
+        "@id": "https://www.planetxdevs.com/about#profile",
         "dateCreated": "2024-01-01",
         "dateModified": "2024-01-01",
         "about": {
           "@type": "Person",
-          "@id": "https://planetxdevs.com/#nathaniel-mays",
+          "@id": "https://www.planetxdevs.com/#nathaniel-mays",
           "name": "Nathaniel Mays",
           "givenName": "Nathaniel",
           "familyName": "Mays",
           "jobTitle": "Founder & Lead Developer",
           "description": "Technical partner for marketing agencies. Founder of Planet X Devs, providing white-label development services and agency partnerships.",
-          "url": "https://planetxdevs.com/about",
+          "url": "https://www.planetxdevs.com/about",
           "image": {
             "@type": "ImageObject",
-            "url": "https://planetxdevs.com/images/nathaniel-mays.webp",
+            "url": "https://www.planetxdevs.com/images/nathaniel-mays.webp",
             "width": 600,
             "height": 600
           },
           "worksFor": {
-            "@id": "https://planetxdevs.com/#organization"
+            "@id": "https://www.planetxdevs.com/#organization"
           },
           "address": {
             "@type": "PostalAddress",
@@ -113,7 +113,7 @@ export default function AboutPage() {
       },
       {
         "@type": "ItemList",
-        "@id": "https://planetxdevs.com/about#timeline",
+        "@id": "https://www.planetxdevs.com/about#timeline",
         "name": "Professional Journey",
         "itemListElement": [
           {

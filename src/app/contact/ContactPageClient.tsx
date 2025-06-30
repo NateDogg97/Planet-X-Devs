@@ -5,7 +5,6 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, Suspense } from 'react';
 import ContactForm from '@/components/forms/ContactForm';
 import ContactInfo from '@/components/forms/ContactForm/ContactInfo';
-import SocialLinks from '@/components/forms/ContactForm/SocialLinks';
 import Section from '@/components/layout/Section';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import Button from '@/components/ui/Button';
@@ -122,7 +121,82 @@ function ContactPageContent() {
           {/* Right: Contact Info and Social - 1/3 width */}
           <div className="space-y-8">
             <ContactInfo />
-            <SocialLinks />
+            
+            {/* Process Overview */}
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold mb-4 text-text-primary">Our Proven Development Process</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="w-8 h-8 rounded-full bg-gradient-to-br from-nebula-violet to-nebula-purple flex items-center justify-center flex-shrink-0 text-white text-sm font-semibold">1</span>
+                    <div>
+                      <h4 className="font-medium text-text-primary mb-1">Discovery & Strategy Session</h4>
+                      <p className="text-sm text-text-secondary">Free 30-minute consultation where we deep-dive into your project goals, technical requirements, and business objectives. We'll provide honest feedback and actionable recommendations, even if we're not the right fit.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-8 h-8 rounded-full bg-gradient-to-br from-nebula-violet to-nebula-purple flex items-center justify-center flex-shrink-0 text-white text-sm font-semibold">2</span>
+                    <div>
+                      <h4 className="font-medium text-text-primary mb-1">Transparent Project Proposal</h4>
+                      <p className="text-sm text-text-secondary">Within 48 hours, receive a detailed scope document with fixed pricing, realistic timelines, and clear deliverables. No hidden fees, no surprise costs – everything laid out upfront for your peace of mind.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-8 h-8 rounded-full bg-gradient-to-br from-nebula-violet to-nebula-purple flex items-center justify-center flex-shrink-0 text-white text-sm font-semibold">3</span>
+                    <div>
+                      <h4 className="font-medium text-text-primary mb-1">Agile Development & Communication</h4>
+                      <p className="text-sm text-text-secondary">Weekly progress updates with live demos, daily Slack availability, and milestone-based development. You'll always know exactly where your project stands with our transparent project management approach.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-8 h-8 rounded-full bg-gradient-to-br from-nebula-violet to-nebula-purple flex items-center justify-center flex-shrink-0 text-white text-sm font-semibold">4</span>
+                    <div>
+                      <h4 className="font-medium text-text-primary mb-1">Launch Support & Partnership</h4>
+                      <p className="text-sm text-text-secondary">30 days of post-launch support included with every project. We handle bug fixes, minor adjustments, and provide training documentation. Plus, ongoing maintenance packages to keep your site running smoothly.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Trust Indicators */}
+              <div className="space-y-4 pt-6 border-t border-white/10 dark:border-white/10">
+                <h4 className="text-sm font-semibold text-text-primary uppercase tracking-wider">Why Agencies Choose Planet X Devs</h4>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <Icon name="shield" className="w-5 h-5 text-nebula-cyan flex-shrink-0" />
+                    <p className="text-sm text-text-secondary">
+                      <span className="font-medium text-text-primary">100% Project Completion Rate</span> – Every project we start gets delivered on time and on budget
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Icon name="clock" className="w-5 h-5 text-nebula-cyan flex-shrink-0" />
+                    <p className="text-sm text-text-secondary">
+                      <span className="font-medium text-text-primary">4-Hour Response Guarantee</span> – Critical issues addressed immediately, standard requests within one business day
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Icon name="code" className="w-5 h-5 text-nebula-cyan flex-shrink-0" />
+                    <p className="text-sm text-text-secondary">
+                      <span className="font-medium text-text-primary">Modern Tech Stack</span> – Next.js, React, TypeScript, and enterprise-grade solutions that scale with your business
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Icon name="users" className="w-5 h-5 text-nebula-cyan flex-shrink-0" />
+                    <p className="text-sm text-text-secondary">
+                      <span className="font-medium text-text-primary">White-Label Ready</span> – We work behind the scenes, letting you maintain client relationships while we handle the technical execution
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Social Proof Alternative */}
+              <div className="bg-gradient-to-br from-nebula-purple/10 to-nebula-violet/10 rounded-lg p-4 border border-nebula-purple/20">
+                <p className="text-sm text-text-secondary italic">
+                  "As a newly launched agency partner, we're offering <span className="text-text-primary font-medium">20% off your first project</span> to demonstrate our commitment to quality and build lasting partnerships. Let's grow together!"
+                </p>
+                <p className="text-xs text-text-tertiary mt-2">– Nathaniel, Founder of Planet X Devs</p>
+              </div>
+            </div>
           </div>
         </div>
       </Section>

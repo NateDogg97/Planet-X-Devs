@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Planet X Devs | Your Agency's Technical Partner",
     description: "Professional web development and technical support for marketing agencies. Get your project quote today.",
-    url: "https://planetxdevs.com/contact",
+    url: "https://www.planetxdevs.com/contact",
     siteName: "Planet X Devs",
     images: [
       {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     images: ['/images/og-image.jpg']
   },
   alternates: {
-    canonical: "https://planetxdevs.com/contact"
+    canonical: "https://www.planetxdevs.com/contact"
   }
 };
 
@@ -38,56 +38,56 @@ export default function Contact() {
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": "https://planetxdevs.com/contact#webpage",
-        "url": "https://planetxdevs.com/contact",
+        "@id": "https://www.planetxdevs.com/contact#webpage",
+        "url": "https://www.planetxdevs.com/contact",
         "name": "Contact Planet X Devs | Your Agency's Technical Partner",
         "isPartOf": {
-          "@id": "https://planetxdevs.com/#website"
+          "@id": "https://www.planetxdevs.com/#website"
         },
         "about": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "description": "Contact Planet X Devs for white-label web development, technical partnerships, and support services for marketing agencies.",
         "breadcrumb": {
-          "@id": "https://planetxdevs.com/contact#breadcrumb"
+          "@id": "https://www.planetxdevs.com/contact#breadcrumb"
         },
         "inLanguage": "en-US"
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://planetxdevs.com/contact#breadcrumb",
+        "@id": "https://www.planetxdevs.com/contact#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://planetxdevs.com"
+            "item": "https://www.planetxdevs.com"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Contact",
-            "item": "https://planetxdevs.com/contact"
+            "item": "https://www.planetxdevs.com/contact"
           }
         ]
       },
       {
         "@type": "ContactPage",
-        "@id": "https://planetxdevs.com/contact#contact-form",
+        "@id": "https://www.planetxdevs.com/contact#contact-form",
         "name": "Contact Planet X Devs",
         "description": "Multiple ways to connect with Planet X Devs for your marketing agency's web development needs.",
-        "url": "https://planetxdevs.com/contact",
+        "url": "https://www.planetxdevs.com/contact",
         "mainEntity": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         }
       },
       {
         "@type": "ContactPoint",
-        "@id": "https://planetxdevs.com/contact#contactpoint",
+        "@id": "https://www.planetxdevs.com/contact#contactpoint",
         "contactType": "Customer Service",
         "telephone": "+1-512-789-8844",
         "email": "nathaniel@planetxdevs.com",
-        "url": "https://planetxdevs.com/contact",
+        "url": "https://www.planetxdevs.com/contact",
         "availableLanguage": ["English"],
         "areaServed": {
           "@type": "Place",
@@ -103,7 +103,7 @@ export default function Contact() {
       },
       {
         "@type": "FAQPage",
-        "@id": "https://planetxdevs.com/contact#faq",
+        "@id": "https://www.planetxdevs.com/contact#faq",
         "mainEntity": [
           {
             "@type": "Question",

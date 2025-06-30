@@ -79,12 +79,12 @@ router.push('/contact?form=support-maintenance');
 ### Marketing Campaigns
 ```html
 <!-- Email campaign for consultations -->
-<a href="https://planetxdevs.com/contact?form=quick-consultation">
+<a href="https://www.planetxdevs.com/contact?form=quick-consultation">
   Get Your Free Technical Consultation
 </a>
 
 <!-- Blog CTA for project inquiries -->
-<a href="https://planetxdevs.com/contact">
+<a href="https://www.planetxdevs.com/contact">
   Ready to Start Your Project?
 </a>
 ```

@@ -63,8 +63,8 @@ export function getFormDisplayName(formType: ContactFormType): string {
  * getContactFormUrl('support-maintenance')  // '/contact?form=support-maintenance'
  * 
  * // Absolute URLs
- * getContactFormUrl('quick-consultation', 'https://planetxdevs.com')
- * // 'https://planetxdevs.com/contact?form=quick-consultation'
+ * getContactFormUrl('quick-consultation', 'https://www.planetxdevs.com')
+ * // 'https://www.planetxdevs.com/contact?form=quick-consultation'
  * 
  * // Use predefined constants
  * <Link href={CONTACT_FORM_URLS.AGENCY_PARTNERSHIP}>Start Partnership</Link>

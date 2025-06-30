@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Technical Development Partner for Marketing Agencies",
     description: "Expert WordPress development and technical partnership services. Scale your marketing agency with a trusted development partner.",
     images: ['/images/og-image.jpg'],
-    url: 'https://planetxdevs.com/services',
+    url: 'https://www.planetxdevs.com/services',
     type: 'website',
   },
   twitter: {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     images: ['/images/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://planetxdevs.com/services',
+    canonical: 'https://www.planetxdevs.com/services',
   }
 };
 
@@ -29,47 +29,47 @@ export default function Services() {
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": "https://planetxdevs.com/services#webpage",
-        "url": "https://planetxdevs.com/services",
+        "@id": "https://www.planetxdevs.com/services#webpage",
+        "url": "https://www.planetxdevs.com/services",
         "name": "Web Development Services for Marketing Agencies | Planet X Devs",
         "isPartOf": {
-          "@id": "https://planetxdevs.com/#website"
+          "@id": "https://www.planetxdevs.com/#website"
         },
         "about": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "description": "Professional web development services and partnership plans for marketing agencies.",
         "breadcrumb": {
-          "@id": "https://planetxdevs.com/services#breadcrumb"
+          "@id": "https://www.planetxdevs.com/services#breadcrumb"
         },
         "inLanguage": "en-US"
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://planetxdevs.com/services#breadcrumb",
+        "@id": "https://www.planetxdevs.com/services#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://planetxdevs.com"
+            "item": "https://www.planetxdevs.com"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Services",
-            "item": "https://planetxdevs.com/services"
+            "item": "https://www.planetxdevs.com/services"
           }
         ]
       },
       {
         "@type": "Service",
-        "@id": "https://planetxdevs.com/services#white-label-development",
+        "@id": "https://www.planetxdevs.com/services#white-label-development",
         "name": "Agency Development Partnership",
         "alternateName": "White-Label Development Partnership",
         "description": "Become your marketing agency's dedicated technical partner. We handle the development while you focus on strategy and client relationships. True white-label service with flexible engagement models.",
         "provider": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "serviceType": "Web Development Partnership",
         "areaServed": {
@@ -101,11 +101,11 @@ export default function Services() {
       },
       {
         "@type": "Service",
-        "@id": "https://planetxdevs.com/services#wordpress",
+        "@id": "https://www.planetxdevs.com/services#wordpress",
         "name": "Custom WordPress Development",
         "description": "Professional WordPress development tailored to your marketing agency's needs. Custom themes, plugins, performance optimization, and security hardening for clients who need more than templates.",
         "provider": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "serviceType": "WordPress Development",
         "areaServed": {
@@ -145,11 +145,11 @@ export default function Services() {
       },
       {
         "@type": "Service",
-        "@id": "https://planetxdevs.com/services#website-maintenance",
+        "@id": "https://www.planetxdevs.com/services#website-maintenance",
         "name": "Website Maintenance & Support",
         "description": "Keep your clients' websites running smoothly with regular updates, security monitoring, and performance optimization. Available through our partnership plans.",
         "provider": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "serviceType": "Website Maintenance",
         "areaServed": {
@@ -159,12 +159,12 @@ export default function Services() {
       },
       {
         "@type": "Service",
-        "@id": "https://planetxdevs.com/services#emergency-support",
+        "@id": "https://www.planetxdevs.com/services#emergency-support",
         "name": "Emergency Website Support",
         "alternateName": "Emergency Support & Fixes",
         "description": "When your client's website breaks and they're breathing down your neck, we've got you covered. 24-hour response time to save your reputation and their business.",
         "provider": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "serviceType": "Emergency Technical Support",
         "areaServed": {
@@ -174,12 +174,12 @@ export default function Services() {
       },
       {
         "@type": "Service",
-        "@id": "https://planetxdevs.com/services#ecommerce",
+        "@id": "https://www.planetxdevs.com/services#ecommerce",
         "name": "E-Commerce Development",
         "alternateName": "E-Commerce Builds & Migrations",
         "description": "Professional e-commerce solutions that help your marketing agency win high-value retail clients. Complete white-label builds on Shopify, WooCommerce, and custom platforms.",
         "provider": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "serviceType": "E-commerce Development",
         "areaServed": {
@@ -189,11 +189,11 @@ export default function Services() {
       },
       {
         "@type": "Service",
-        "@id": "https://planetxdevs.com/services#custom-development",
+        "@id": "https://www.planetxdevs.com/services#custom-development",
         "name": "Custom Website Development",
         "description": "White-label custom websites that elevate your agency's portfolio. Built from scratch with unique functionality and distinctive design that makes your clients think you're a development powerhouse.",
         "provider": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "serviceType": "Custom Web Development",
         "areaServed": {
@@ -203,11 +203,11 @@ export default function Services() {
       },
       {
         "@type": "Service",
-        "@id": "https://planetxdevs.com/services#performance",
+        "@id": "https://www.planetxdevs.com/services#performance",
         "name": "Performance Optimization Audit",
         "description": "Performance optimization that makes your agency the hero. Fix slow websites and deliver dramatic speed improvements that your clients will notice immediately.",
         "provider": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "serviceType": "Website Performance Optimization",
         "areaServed": {
@@ -217,11 +217,11 @@ export default function Services() {
       },
       {
         "@type": "Service",
-        "@id": "https://planetxdevs.com/services#platform-consultation",
+        "@id": "https://www.planetxdevs.com/services#platform-consultation",
         "name": "Platform Selection Consultation",
         "description": "Expert guidance to help your agency choose the perfect platform for each client project. Avoid costly mistakes and recommend solutions that actually fit the client's needs.",
         "provider": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "serviceType": "Technical Consultation",
         "areaServed": {
@@ -231,11 +231,11 @@ export default function Services() {
       },
       {
         "@type": "Service",
-        "@id": "https://planetxdevs.com/services#technical-seo",
+        "@id": "https://www.planetxdevs.com/services#technical-seo",
         "name": "Technical SEO Implementation",
         "description": "Technical SEO implementation that amplifies your agency's marketing efforts. White-label services that complement your content strategy and deliver measurable ranking improvements.",
         "provider": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "serviceType": "Technical SEO",
         "areaServed": {
@@ -245,7 +245,7 @@ export default function Services() {
       },
       {
         "@type": "OfferCatalog",
-        "@id": "https://planetxdevs.com/services#partnership-plans",
+        "@id": "https://www.planetxdevs.com/services#partnership-plans",
         "name": "Agency Partnership Plans",
         "itemListElement": [
           {
@@ -259,7 +259,7 @@ export default function Services() {
               "unitText": "MONTH"
             },
             "seller": {
-              "@id": "https://planetxdevs.com/#organization"
+              "@id": "https://www.planetxdevs.com/#organization"
             }
           },
           {
@@ -273,7 +273,7 @@ export default function Services() {
               "unitText": "MONTH"
             },
             "seller": {
-              "@id": "https://planetxdevs.com/#organization"
+              "@id": "https://www.planetxdevs.com/#organization"
             }
           },
           {
@@ -287,14 +287,14 @@ export default function Services() {
               "unitText": "MONTH"
             },
             "seller": {
-              "@id": "https://planetxdevs.com/#organization"
+              "@id": "https://www.planetxdevs.com/#organization"
             }
           }
         ]
       },
       {
         "@type": "FAQPage",
-        "@id": "https://planetxdevs.com/services#faq",
+        "@id": "https://www.planetxdevs.com/services#faq",
         "mainEntity": [
           {
             "@type": "Question",

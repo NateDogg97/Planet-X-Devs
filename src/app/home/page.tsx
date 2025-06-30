@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Planet X Devs | Your Agency's Technical Partner",
     description: "Expert WordPress development and technical partnership services. Scale your marketing agency with a trusted development partner.",
-    url: "https://planetxdevs.com",
+    url: "https://www.planetxdevs.com",
     siteName: "Planet X Devs",
     images: [
       {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     images: ['/images/og-image.jpg'] 
   },
   alternates: {
-    canonical: "https://planetxdevs.com"
+    canonical: "https://www.planetxdevs.com"
   },
   robots: {
     index: true,
@@ -56,19 +56,19 @@ export default function Home() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://planetxdevs.com/#website",
-        "url": "https://planetxdevs.com",
+        "@id": "https://www.planetxdevs.com/#website",
+        "url": "https://www.planetxdevs.com",
         "name": "Planet X Devs",
         "description": "Professional web development partner for marketing agencies",
         "publisher": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "potentialAction": [
           {
             "@type": "SearchAction",
             "target": {
               "@type": "EntryPoint",
-              "urlTemplate": "https://planetxdevs.com/search?q={search_term_string}"
+              "urlTemplate": "https://www.planetxdevs.com/search?q={search_term_string}"
             },
             "query-input": "required name=search_term_string"
           }
@@ -77,47 +77,47 @@ export default function Home() {
       },
       {
         "@type": "WebPage",
-        "@id": "https://planetxdevs.com/#webpage",
-        "url": "https://planetxdevs.com",
+        "@id": "https://www.planetxdevs.com/#webpage",
+        "url": "https://www.planetxdevs.com",
         "name": "Planet X Devs | Web Development Partner for Marketing Agencies",
         "isPartOf": {
-          "@id": "https://planetxdevs.com/#website"
+          "@id": "https://www.planetxdevs.com/#website"
         },
         "about": {
-          "@id": "https://planetxdevs.com/#organization"
+          "@id": "https://www.planetxdevs.com/#organization"
         },
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://planetxdevs.com/images/logo.png",
+          "url": "https://www.planetxdevs.com/images/logo.png",
           "width": 600,
           "height": 600
         },
         "description": "Your agency's technical partner. Professional WordPress development and white-label services that make your marketing agency shine.",
         "breadcrumb": {
-          "@id": "https://planetxdevs.com/#breadcrumb"
+          "@id": "https://www.planetxdevs.com/#breadcrumb"
         },
         "inLanguage": "en-US"
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://planetxdevs.com/#breadcrumb",
+        "@id": "https://www.planetxdevs.com/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://planetxdevs.com"
+            "item": "https://www.planetxdevs.com"
           }
         ]
       },
       {
         "@type": "CollectionPage",
-        "@id": "https://planetxdevs.com/#services",
+        "@id": "https://www.planetxdevs.com/#services",
         "name": "Web Development Services",
         "description": "Professional web development services for marketing agencies",
-        "url": "https://planetxdevs.com",
+        "url": "https://www.planetxdevs.com",
         "isPartOf": {
-          "@id": "https://planetxdevs.com/#website"
+          "@id": "https://www.planetxdevs.com/#website"
         },
         "hasPart": [
           {
@@ -125,7 +125,7 @@ export default function Home() {
             "name": "Agency Development Partnership",
             "description": "Dedicated technical partnership for marketing agencies",
             "provider": {
-              "@id": "https://planetxdevs.com/#organization"
+              "@id": "https://www.planetxdevs.com/#organization"
             }
           },
           {
@@ -133,7 +133,7 @@ export default function Home() {
             "name": "Custom WordPress Development",
             "description": "Professional WordPress development tailored to your agency's needs",
             "provider": {
-              "@id": "https://planetxdevs.com/#organization"
+              "@id": "https://www.planetxdevs.com/#organization"
             }
           }
         ]

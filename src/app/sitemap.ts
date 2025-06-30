@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://planetxdevs.com';
+  const baseUrl = 'https://www.planetxdevs.com';
   const currentDate = new Date();
   
   return [
@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date('2024-12-19'), // Update this when about page changes
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/style-guide`,
-      lastModified: new Date('2024-12-19'),
+      lastModified: new Date('2025-06-20'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },

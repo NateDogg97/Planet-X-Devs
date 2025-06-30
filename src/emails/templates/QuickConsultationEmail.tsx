@@ -167,7 +167,7 @@ export const QuickConsultationEmail: React.FC<QuickConsultationEmailProps> = ({
         </p>
         
         <div style={{ textAlign: 'center', margin: '40px 0' }}>
-          <EmailButton href="https://planetxdevs.com/services">
+          <EmailButton href="https://www.planetxdevs.com/services">
             View Our Services
           </EmailButton>
         </div>

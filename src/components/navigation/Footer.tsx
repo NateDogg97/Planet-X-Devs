@@ -1,24 +1,23 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { footerNavigation, socialLinks } from '@/constants';
-import Icon from '../ui/Icon';
+import { footerNavigation } from '@/constants';
 
 export default function Footer() {
   return (
     <footer className="bg-nebula-black text-white py-12 border-t border-nebula-purple-30">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           <div>
             <Link href="/" className="flex items-center mb-4 group">
               <div className="relative">
                 <div className="absolute inset-0 bg-nebula-violet opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
-                <div className="relative z-10">
+                <div className="relative z-10 max-w-fit">
                   <Image
                     src="/images/brand/horizontal/2000x500_white_black planet_2.png"
                     alt="Planet X Devs"
                     width={320}
                     height={80}
-                    className="h-16 w-auto"
+                    className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto w-auto"
                   />
                 </div>
               </div>
@@ -51,7 +50,7 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-          <div>
+          {/* <div>
             <h4 className="text-lg font-semibold mb-4 text-nebula-white">Connect</h4>
             <div className="flex flex-wrap gap-3">
               {socialLinks.map((social) => (
@@ -67,7 +66,7 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="border-t border-nebula-purple-30 mt-8 pt-8 text-center text-nebula-white/70">
           <p>&copy; 2025 Planet X Devs. All rights reserved.</p>

@@ -40,7 +40,7 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://planetxdevs.com${item.href}`
+      "item": `https://www.planetxdevs.com${item.href}`
     }))
   };
 

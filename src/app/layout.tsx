@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Technical Development Partner for Marketing Agencies",
     description: "Expert WordPress development and technical partnership services. Scale your marketing agency with a trusted development partner.",
     images: ['/images/og-image.jpg'],
-    url: 'https://planetxdevs.com',
+    url: 'https://www.planetxdevs.com',
     type: 'website',
   },
   twitter: {
@@ -41,25 +41,25 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://planetxdevs.com',
+    canonical: 'https://www.planetxdevs.com',
   }
 };
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://planetxdevs.com/#organization",
+  "@id": "https://www.planetxdevs.com/#organization",
   "name": "Planet X Devs",
   "alternateName": "Planet X Development Services",
   "description": "Professional web development partner for marketing agencies. Custom WordPress development, white-label services, and technical expertise.",
-  "url": "https://planetxdevs.com",
+  "url": "https://www.planetxdevs.com",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://planetxdevs.com/images/logo.png",
+    "url": "https://www.planetxdevs.com/images/logo.png",
     "width": 600,
     "height": 600
   },
-  "image": "https://planetxdevs.com/images/og-image.jpg",
+  "image": "https://www.planetxdevs.com/images/og-image.jpg",
   "foundingDate": "2025",
   "founder": {
     "@type": "Person",
@@ -115,10 +115,10 @@ const organizationSchema = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "@id": "https://planetxdevs.com/#localbusiness",
+  "@id": "https://www.planetxdevs.com/#localbusiness",
   "name": "Planet X Devs",
   "description": "Web development services for marketing agencies in the Lakeway/Austin area and worldwide.",
-  "url": "https://planetxdevs.com",
+  "url": "https://www.planetxdevs.com",
   "telephone": "+1-512-789-8844",
   "email": "nathaniel@planetxdevs.com",
   "address": {
