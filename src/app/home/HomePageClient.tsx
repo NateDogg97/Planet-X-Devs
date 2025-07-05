@@ -279,7 +279,7 @@ export default function HomePageClient() {
               After years of working with digital marketing agencies, I noticed a pattern: talented agencies were losing opportunities because they couldn't find reliable development partners.
             </p>
             <p className="text-lg text-text-primary/70 mb-8">
-              I created Planet X Devs to be the perfect development partner for effective marketing agencies without fulltime developers - reliable, communicative, and focused on making agencies look good.
+              I created Planet X Devs to be the perfect development partner for effective marketing agencies without full time developers - reliable, communicative, and focused on making agencies look good.
             </p>
             <Link
               href="/contact#contact-form"
@@ -380,7 +380,7 @@ export default function HomePageClient() {
                         Quality You Can Stake Your Reputation On
                       </h3>
                       <p className="text-text-primary/70 transition-colors duration-300 group-hover:text-text-primary/90">
-                        We build websites that make your agency shine
+                        We don't settle when it comes to quality. A job well done is the only acceptible criteria.
                       </p>
                     </div>
                   </div>
@@ -403,7 +403,7 @@ export default function HomePageClient() {
                         Flexible Solutions
                       </h3>
                       <p className="text-text-primary/70 transition-colors duration-300 group-hover:text-text-primary/90">
-                        Custom development, Elementor, WordPress - we adapt to your project needs
+                        We work with any platform so we can easily adjust our strategy to fit your project needs
                       </p>
                     </div>
                   </div>
@@ -460,7 +460,7 @@ export default function HomePageClient() {
                     <div className="relative inline-block">
                       <div className="absolute inset-0 bg-nebula-cyan blur-2xl opacity-50 animate-pulse-slow" style={{ animationDelay: '0.5s' }} />
                       <div className="relative text-5xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent">
-                        200+
+                        100+
                       </div>
                     </div>
                     <p className="text-text-primary/70 mt-2">Projects Delivered</p>
@@ -471,7 +471,7 @@ export default function HomePageClient() {
                     <div className="relative inline-block">
                       <div className="absolute inset-0 bg-nebula-cyan blur-2xl opacity-50 animate-pulse-slow" style={{ animationDelay: '1s' }} />
                       <div className="relative text-5xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent">
-                        48hrs
+                        24hrs
                       </div>
                     </div>
                     <p className="text-text-primary/70 mt-2">Average Response Time</p>

@@ -5,10 +5,6 @@ const nextConfig: NextConfig = {
     // Skip ESLint during builds
     ignoreDuringBuilds: true,
   },
-  typescript: {
-    // Skip TypeScript errors during builds (use with caution)
-    // ignoreBuildErrors: true,
-  },
   async redirects() {
     return [
       {

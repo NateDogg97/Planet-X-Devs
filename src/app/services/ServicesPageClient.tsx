@@ -95,7 +95,7 @@ export default function ServicesPageClient() {
       <Section container background='secondary'>
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-text-primary mb-6">
-            What We Build
+            What We Do
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
             From simple landing pages to complex web applications, we deliver the technical solutions your clients need.

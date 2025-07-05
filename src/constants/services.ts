@@ -8,9 +8,9 @@ export const services: Service[] = [
     description: 'Complete white-label development partnership that makes your agency unstoppable. From strategy to launch, we work invisibly behind the scenes while you take all the credit.',
     features: [
       'Your agency name on all deliverables',
-      'Direct client communication if needed',
       'Project management in your style',
       'Custom proposals using your branding',
+      'Direct client communication if needed',
       'Ongoing maintenance and support options'
     ],
     timeline: '1-8 weeks depending on scope',
@@ -21,13 +21,13 @@ export const services: Service[] = [
     id: 'wordpress',
     title: 'Custom WordPress Development',
     price: '$1,500 - $8,000',
-    description: 'White-label WordPress development that makes your agency look like WordPress experts. Professional sites your clients can actually manage, from corporate sites to complex membership platforms.',
+    description: 'White-label WordPress development that elevates your agency\'s technical reputation. Professional sites your clients can actually manage, from corporate sites to complex membership platforms.',
     features: [
-      'Custom theme development from your designs',
-      'Advanced Custom Fields (ACF) implementation',
-      'Page builder setup (Elementor, Gutenberg)',
+      'Custom theme development',
+      'Works with any page builder setup',
+      'Advanced Custom Fields (ACF) experts',
       'Plugin development & customization',
-      'Multisite configuration & management'
+      'e-Commerce configuration & management'
     ],
     timeline: '1-4 weeks depending on features',
     icon: 'globe'
@@ -51,7 +51,7 @@ export const services: Service[] = [
     id: 'custom-development',
     title: 'Custom Website Development',
     price: '$5,000 - $15,000',
-    description: 'White-label custom websites that elevate your agency\'s portfolio. Built from scratch with cutting-edge tech and distinctive design that makes your clients think you\'re a development powerhouse.',
+    description: 'White-label custom websites that distinguish your agency from the competition. Built from scratch with cutting-edge tech and distinctive design that showcases your commitment to excellence.',
     features: [
       'Hand-coded for perfect performance',
       'Unique designs that stand out',
@@ -65,7 +65,7 @@ export const services: Service[] = [
     id: 'ecommerce',
     title: 'E-Commerce Builds & Migrations',
     price: '$3,000 - $12,000',
-    description: 'Professional e-commerce solutions that help your agency win high-value retail clients. Complete white-label builds that make you the go-to agency for online sales growth.',
+    description: 'Professional e-commerce solutions that help your agency win high-value retail clients. Complete white-label builds that position you as the trusted choice for online sales growth.',
     features: [
       'Shopify, WooCommerce, or custom solutions',
       'Payment gateway integration (Stripe, PayPal, etc.)',
@@ -80,7 +80,7 @@ export const services: Service[] = [
     id: 'performance',
     title: 'Performance Optimization Audit',
     price: '$500 - $1,500',
-    description: 'Performance optimization that makes your agency the hero. Fix slow websites and deliver dramatic speed improvements that your clients will notice immediately.',
+    description: 'Performance optimization that turns your agency into the client\'s favorite problem-solver. Fix slow websites and deliver dramatic speed improvements that your clients will notice immediately.',
     features: [
       'PageSpeed Insights analysis & fixes',
       'Image optimization & lazy loading',
