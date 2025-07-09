@@ -5,7 +5,6 @@ import Icon from '../ui/Icon';
 import StarField from '../ui/StarField';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import CountUp from 'react-countup';
 import { HeroProps } from '@/types';
 
 const FloatingPlanet = dynamic(() => import('../ui/FloatingPlanet'), {
@@ -78,7 +77,7 @@ export default function Hero({
                   className={`px-8 py-4 font-semibold rounded-full transition-all duration-300 inline-block ${
                     action.variant === 'primary'
                       ? 'bg-gradient-nebula text-white shadow-glow hover:shadow-nebula-lg hover:scale-105'
-                      : 'border-2 border-nebula-purple text-nebula-violet hover:bg-nebula-purple hover:text-white'
+                      : 'border-2 border-nebula-white text-nebula-white hover:bg-nebula-purple'
                   }`}
                 >
                   {action.text}
@@ -86,27 +85,6 @@ export default function Hero({
               ))}
             </div>
           )}
-          
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12 mt-16 pt-16 border-t border-nebula-purple-30">
-            <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-purple bg-clip-text text-transparent">
-                <CountUp end={50} duration={2.5} suffix="+" />
-              </div>
-              <p className="text-nebula-white/70 mt-2">Agencies Served</p>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-purple bg-clip-text text-transparent">
-                <CountUp end={200} duration={2.5} suffix="+" />
-              </div>
-              <p className="text-nebula-white/70 mt-2">Projects Delivered</p>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-purple bg-clip-text text-transparent">
-                <CountUp end={10} duration={2.5} suffix="+" />
-              </div>
-              <p className="text-nebula-white/70 mt-2">Platforms Mastered</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

@@ -201,12 +201,12 @@ export default function HomePageClient() {
   return (
     <div className="min-h-screen overflow-hidden">
       <Hero
-        title="Your Agency's Technical Partner"
-        subtitle="Professional white-label development that makes your agency shine. Custom designs, flawless execution, and communication that actually works."
+        title="Your Agency's Development Partner"
+        subtitle="Web development agency partner based in Austin, TX specializing in white-label solutions for marketing agencies. Skip the hiring, keep the quality."
         actions={[
           {
             text: "View Services & Pricing",
-            href: "/services",
+            href: "/services#breadcrumb",
             variant: "primary"
           },
           {
@@ -217,6 +217,38 @@ export default function HomePageClient() {
         ]}
         showPlanets={false}
       />
+
+      {/* Partnership Section */}
+      <Section background="secondary" container>
+        <div 
+          ref={partnershipRef}
+          className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-1000 ${
+            partnershipVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{
+            willChange: !partnershipVisible ? 'transform, opacity' : 'auto'
+          }}
+        >
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+              Web Development Partner for Marketing Agencies
+            </h2>
+            <p className="text-lg text-text-primary/70 mb-6">
+              Hiring full-time developers is expensive and time-consuming for growing agencies. Planet X Devs offers a flexible alternative - seasoned development talent when you need it.
+            </p>
+            <p className="text-lg text-text-primary/70 mb-8">
+              We work directly with marketing agencies to oversee their tech projects, from custom sites to web applications, so you can expand your services without expanding your payroll.
+            </p>
+            <Link
+              href="/contact#contact-form"
+              className="inline-block px-8 py-4 rounded-full bg-gradient-nebula text-white font-semibold shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300"
+            >
+              Start Partnership
+            </Link>
+          </div>
+          <NebulaGraphic />
+        </div>
+      </Section>
 
       {/* Services Section */}
       <Section background="secondary" container>
@@ -257,38 +289,6 @@ export default function HomePageClient() {
               );
             })}
           </div>
-        </div>
-      </Section>
-
-      {/* Partnership Section */}
-      <Section background="secondary" container>
-        <div 
-          ref={partnershipRef}
-          className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-1000 ${
-            partnershipVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-          style={{
-            willChange: !partnershipVisible ? 'transform, opacity' : 'auto'
-          }}
-        >
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
-              Your Technical Co-Pilot
-            </h2>
-            <p className="text-lg text-text-primary/70 mb-6">
-              After years of working with digital marketing agencies, I noticed a pattern: talented agencies were losing opportunities because they couldn't find reliable development partners.
-            </p>
-            <p className="text-lg text-text-primary/70 mb-8">
-              I created Planet X Devs to be the perfect development partner for effective marketing agencies without full time developers - reliable, communicative, and focused on making agencies look good.
-            </p>
-            <Link
-              href="/contact#contact-form"
-              className="inline-block px-8 py-4 rounded-full bg-gradient-nebula text-white font-semibold shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300"
-            >
-              Start Partnership
-            </Link>
-          </div>
-          <NebulaGraphic />
         </div>
       </Section>
 
@@ -515,21 +515,22 @@ export default function HomePageClient() {
       </Section>
 
       {/* Final CTA Section */}
-      <Section container className="overflow-hidden bg-gradient-radial-nebula relative" background='dark'>
+      <Section container className="overflow-hidden relative" background='dark'>
         <div className="relative z-10 container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
-                Ready to Launch Your Next Project?
-            </h2>
-            <p className="text-xl text-nebula-white/70 mb-10 max-w-2xl mx-auto">
-                Let's discuss how I can help your agency deliver exceptional websites without the headaches
-            </p>
-            <Link
-                href="/contact?form=agency-partnership"
-                className="inline-block px-10 py-5 rounded-full bg-gradient-nebula text-white font-bold text-lg shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300 animate-pulse-slow"
-            >
-                Begin Your Mission
-            </Link>
+          <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
+              Ready to Launch Your Next Project?
+          </h2>
+          <p className="text-xl text-nebula-white/70 mb-10 max-w-2xl mx-auto">
+              Let's discuss how I can help your agency deliver exceptional websites without the headaches
+          </p>
+          <Link
+              href="/contact?form=agency-partnership"
+              className="inline-block px-10 py-5 rounded-full bg-gradient-nebula text-white font-bold text-lg shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300 animate-pulse-slow"
+          >
+              Begin Your Mission
+          </Link>
         </div>
+
         <FloatingParticles />
       </Section>
 

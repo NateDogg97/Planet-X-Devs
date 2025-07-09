@@ -11,6 +11,7 @@ import ValueCard from '@/components/ui/ValueCard';
 import TimelineItem from '@/components/ui/TimelineItem';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import Icon, { IconName } from '@/components/ui/Icon';
+import ParallaxGraphic from '@/components/ui/ParallaxGraphic';
 
 // Lazy load below-fold components
 const FloatingParticles = dynamic(() => import('@/components/ui/FloatingParticles'), {
@@ -42,27 +43,27 @@ const Footer = dynamic(() => import('@/components/navigation/Footer'), {
 // Timeline data array
 const timelineData = [
   {
-    year: '2015',
-    title: 'Started Web Development Journey',
-    description: 'Began coding websites and quickly discovered a passion for solving complex technical challenges and creating seamless user experiences.'
-  },
-  {
-    year: '2016', 
-    title: 'First Agency Experience',
-    description: 'Joined a digital marketing agency as a developer, learning firsthand the fast-paced environment and unique pressures agencies face.'
-  },
-  {
     year: '2020',
-    title: 'Became Lead Developer', 
-    description: 'Promoted to lead development teams across multiple high-profile accounts, mastering the art of balancing quality with tight deadlines.'
+    title: 'Started Web Development Journey',
+    description: 'Began coding websites and quickly discovered a passion for solving complex challenges and creating seamless user experiences.'
   },
   {
-    year: '2022',
+    year: '2022', 
+    title: 'First Agency Experience',
+    description: 'Joined a well-established SaaS/eCommerce company as a web developer, learning firsthand the fast-paced environment and unique pressures agencies face.'
+  },
+  {
+    year: '2023',
+    title: 'Became Lead Developer', 
+    description: 'Entrusted to lead the development team with multiple high-profile accounts, mastering the balancing act between quality and tight deadlines.'
+  },
+  {
+    year: '2024',
     title: 'Identified the Problem',
     description: 'After years of watching agencies struggle with unreliable freelancers and overpriced dev shops, realized there had to be a better way.'
   },
   {
-    year: '2024',
+    year: '2025',
     title: 'Launched Planet X Devs',
     description: 'Founded a white-label development service built specifically for agencies - combining technical excellence with the reliability agencies need.'
   }
@@ -81,8 +82,8 @@ const valuesData: Array<{
   },
   {
     icon: 'users',
-    title: 'Agency Native',
-    description: 'Built by an agency veteran who gets it. I understand your workflows, speak your language, and know exactly how to make your team shine.'
+    title: 'Enterprise Experience',
+    description: 'Built by a SaaS expert with years building professional websites and landing pages. I understand your workflows, speak your language, and know exactly how to make your team shine.'
   },
   {
     icon: 'lightning',
@@ -91,18 +92,18 @@ const valuesData: Array<{
   },
   {
     icon: 'chat',
-    title: 'Communication Clarity',
+    title: 'Clear Communication',
     description: 'No tech jargon or confusing updates. Clear progress reports, quick responses, and honest timelines. Communication that keeps projects on track.'
   },
   {
     icon: 'puzzle',
-    title: 'Perfect Integration',
-    description: 'I work as an extension of your team. White-label everything, adapt to your processes, and make you look great to your clients. Seamless collaboration.'
+    title: 'Seemless Collaboration',
+    description: 'I work as an extension of your team. White-label everything, adapt to your processes, and make you look great to your clients. Perfect Integration.'
   },
   {
     icon: 'trending-up',
     title: 'Growth Partnership',
-    description: 'When you win more clients and grow your agency, I grow too. I\'m invested in your long-term success, not just individual projects. Let\'s build something great together.'
+    description: 'When you win more clients and grow your agency, I grow too. I\'m invested in your long-term success, not just individual projects. Let\'s build it together.'
   }
 ];
 
@@ -316,10 +317,10 @@ export default function AboutPageClient() {
         </div>
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Your Agency's Technical Co-Pilot
+            The Agency-First Development Partner
           </h1>
           <p className="text-xl text-nebula-white/80">
-            Built by an agency veteran who understands the unique challenges of delivering exceptional websites for demanding clients.
+            We specialize in white-label web development that makes your agency look good and keeps your clients happy.
           </p>
         </div>
       </Section>
@@ -338,39 +339,49 @@ export default function AboutPageClient() {
           }`}>
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary">
-              From Technical Frustration to Streamlined Solution
+              A Different Kind of Development Partnership
             </h2>
             <p className="text-lg text-text-primary/80 leading-relaxed">
-              After years of working within digital marketing agencies, I witnessed a recurring problem: talented agencies losing opportunities because they couldn't find reliable development partners.
+              You shouldn't have to gamble on finding a developer for your agency. With over 3 years of experience on enterprise-level SaaS development teams and direct dlient relationships, I've learned what distinguishes a vendor from a partner.
             </p>
             <p className="text-lg text-text-primary/80 leading-relaxed">
-              Freelancers would disappear mid-project. Development shops would over-promise and under-deliver. In-house developers were too expensive to maintain. Agencies were stuck choosing between bad options.
+              Vendors are concerned about themselves. Partners are concerned about you winning. I believe that landing the perfect client is about helping you land <i>your</i> dream clients. This is a marathon, not a sprint.
+            </p>
+            
+            <div className="space-y-4">
+              <p className="text-lg text-text-primary/80 leading-relaxed">
+                Planet X Devs exists because I believe agencies can do better than disappearing freelancers or costly dev shops. You're due for a web development partner who:
+              </p>
+              <ul className="space-y-3 ml-6">
+                <li className="flex items-start">
+                  <span className="text-nebula-purple mr-3">•</span>
+                  <span className="text-lg text-text-primary/80">Understands that deadlines aren't suggestions</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nebula-purple mr-3">•</span>
+                  <span className="text-lg text-text-primary/80">Knows how to translate client requests into technical solutions</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nebula-purple mr-3">•</span>
+                  <span className="text-lg text-text-primary/80">Can explain complex technical concepts in client-friendly language</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nebula-purple mr-3">•</span>
+                  <span className="text-lg text-text-primary/80">always responds in under 24 hours</span>
+                </li>
+              </ul>
+            </div>
+            
+            <p className="text-lg text-text-primary/80 leading-relaxed">
+              Your clients always come first. What makes this partnership special is that not only do I deliver quality work and let you take the credit—I'm invested in your growth and ready to scale with you every step of the way.
             </p>
             <p className="text-lg text-text-primary/80 leading-relaxed">
-              I created Planet X Devs to be the development partner I wished existed when I was on the agency side - reliable, communicative, and genuinely invested in making agencies successful.
+              Whether you're scaling your agency or need reliable overflow support, I'm here to handle the technical heavy lifting so you can focus on what you do best—growing your clients' businesses.
             </p>
           </div>
           <div className="relative h-full flex items-center justify-center">
-            {/* Floating nebula graphic with layered effects */}
-            <div className="relative w-full max-w-md mx-auto">
-              {/* Background glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-nebula-purple/30 to-nebula-violet/30 rounded-full blur-3xl animate-pulse" />
-              
-              {/* Middle layer */}
-              <div className="absolute inset-4 bg-gradient-to-tr from-stellar-blue/20 to-nebula-cyan/20 rounded-full blur-2xl animate-pulse" 
-                    style={{ animationDelay: '1s' }} />
-              
-              {/* Core */}
-              <div className="relative aspect-square bg-gradient-radial from-nebula-purple/40 via-nebula-violet/20 to-transparent rounded-full">
-                {/* Floating particles effect using CSS */}
-                <div className="absolute inset-0 overflow-hidden rounded-full">
-                  <div className="absolute w-2 h-2 bg-nebula-cyan/50 rounded-full top-1/4 left-1/4 animate-float" />
-                  <div className="absolute w-3 h-3 bg-nebula-purple/50 rounded-full top-3/4 right-1/3 animate-float-delayed" />
-                  <div className="absolute w-2 h-2 bg-stellar-blue/50 rounded-full bottom-1/3 left-1/2 animate-float" 
-                        style={{ animationDelay: '2s' }} />
-                </div>
-              </div>
-            </div>
+            {/* Parallax Galaxy graphic with 3D mouse tracking */}
+            <ParallaxGraphic />
           </div>
         </div>
       </Section>
@@ -391,13 +402,13 @@ export default function AboutPageClient() {
         >
           {valuesData.map((value, index) => {
             const isVisible = visibleCards.has(index);
-            const isAnimating = !isVisible; // Only use will-change when animating
+            const isAnimating = !isVisible;
             
             return (
               <div
                 key={index}
                 ref={(el) => { cardRefs.current[index] = el; }}
-                className={`transform transition-all duration-700 ease-out ${
+                className={`transform transition-all duration-700 ease-out flex ${
                   isVisible
                     ? 'translate-y-0 opacity-100'
                     : 'translate-y-8 opacity-0'
@@ -520,11 +531,11 @@ export default function AboutPageClient() {
                 Founder & Lead Developer
               </p>
               <div className="flex justify-center space-x-4 text-sm text-text-secondary">
-                <span>10+ Years Experience</span>
+                <span>5+ Years Experience</span>
                 <span>•</span>
-                <span>Agency Veteran</span>
+                <span>Enterprise Software Engineer</span>
                 <span>•</span>
-                <span>Full-Stack Developer</span>
+                <span>Committed to Your Success</span>
               </div>
             </div>
 
@@ -537,7 +548,7 @@ export default function AboutPageClient() {
                 I founded Planet X Devs to solve this exact problem. Having been in the trenches myself, I understand the pressure agencies face - the late-night client emergencies, the "can you make this work by tomorrow?" requests, and the need for a developer who just gets it.
               </p>
               <p className="text-lg text-text-secondary leading-relaxed">
-                Today, I partner with agencies as their dedicated technical expert, handling everything from complex e-commerce builds to quick landing pages. My goal? To be the developer you can count on, so you can focus on what you do best - creating amazing campaigns and growing your agency.
+                Today, I partner with agencies as their dedicated technical expert, handling everything from complex e-commerce builds to quick landing pages. My goal? To be the developer you can count on, so you can focus on what you do best - creating amazing campaigns and delivering impressive results.
               </p>
             </div>
 
@@ -561,7 +572,7 @@ export default function AboutPageClient() {
                 <div className="w-12 h-12 bg-text-accent/10 rounded-full flex items-center justify-center text-text-accent mx-auto">
                   <Icon name="lightning" className="w-6 h-6" />
                 </div>
-                <h4 className="font-semibold text-text-primary">Fast Delivery</h4>
+                <h4 className="font-semibold text-text-primary">On-time Delivery</h4>
                 <p className="text-sm text-text-secondary">Quick turnarounds without compromising quality</p>
               </div>
             </div>
@@ -636,7 +647,7 @@ export default function AboutPageClient() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="relative bg-gradient-radial-nebula overflow-hidden" background='dark'>
+      <Section container className="relative overflow-hidden" background='dark'>
         <div className="relative z-10 container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-nebula-white mb-6">
             Ready to Launch Your Next Project?

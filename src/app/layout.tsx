@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Planet X Devs - Web Development Partner for Marketing Agencies",
-  description: "Your trusted technical partner for custom WordPress development and white-label web services. Help your marketing agency deliver exceptional websites without the technical overhead.",
+  title: "Planet X Devs - Your Agency Development Partner in Austin, TX",
+  description: "Your trusted agency development partner in Austin, TX for white-label web services. We handle the technical work so you focus on campaigns.",
   keywords: "agency development partner, custom wordpress development, white label web development, marketing agency technical partner, wordpress developer for agencies, web development partnership, agency overflow support",
   icons: {
     icon: '/images/brand/favicon/512x512_white_3.png',

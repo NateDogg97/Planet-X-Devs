@@ -87,7 +87,7 @@ export default function ServicesPageClient() {
       </Section>
 
       {/* Breadcrumbs */}
-      <Section container spacing='xsmall' background='secondary'>
+      <Section container spacing='xsmall' background='secondary' id='breadcrumb'>
         <Breadcrumbs />
       </Section>
 
