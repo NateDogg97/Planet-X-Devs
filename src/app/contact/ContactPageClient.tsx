@@ -60,7 +60,7 @@ const contactFAQs = [
   },
   {
     question: "Do you work with agencies outside the US?",
-    answer: "Absolutely! I work with agencies worldwide. All communication is handled via email, Slack, or your preferred platform, making timezone differences manageable.",
+    answer: "Absolutely! I work with agencies worldwide. All communication is handled via email or your preferred platform, making timezone differences manageable.",
   },
   {
     question: "What if I need changes after the project is complete?",
@@ -145,7 +145,7 @@ function ContactPageContent() {
                     <span className="w-8 h-8 rounded-full bg-gradient-to-br from-nebula-violet to-nebula-purple flex items-center justify-center flex-shrink-0 text-white text-sm font-semibold">3</span>
                     <div>
                       <h4 className="font-medium text-text-primary mb-1">Agile Development & Communication</h4>
-                      <p className="text-sm text-text-secondary">Weekly progress updates with live demos, daily Slack availability, and milestone-based development. You'll always know exactly where your project stands with our transparent project management approach.</p>
+                      <p className="text-sm text-text-secondary">Weekly progress updates with live demos and milestone-based development. You'll always know exactly where your project stands with our transparent project management approach.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
