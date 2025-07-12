@@ -5,27 +5,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Business Context
 
 **Planet X Devs** is a web development agency that provides:
-- General tech support to digital marketing agencies (primary target)
-- Website services: building, maintenance, single page development
-- Basic SEO services
-- eCommerce development
-- Platform-agnostic development (WordPress/Elementor, Next.js/React, other builders as needed)
+- Modern web application development (React, Next.js, Node.js)
+- Full-stack JavaScript development services
+- API development and integrations
+- E-commerce solutions (headless commerce, custom platforms)
+- WordPress development when specifically needed
+- Technical support and maintenance
+- Performance optimization services
 
 ### Target Audience
-1. **Primary**: Digital marketing agencies needing developer support
-2. **Secondary**: Small businesses needing web services
+1. **Primary**: Digital marketing agencies needing technical development support
+2. **Secondary**: Small businesses needing modern web solutions
 
 ### Brand Identity
 - **Theme**: Deep Space / Distant Planet (nebula-inspired)
 - **Colors**: Deep Space Black (#0A0A0B), Nebula Purple (#6B46C1), Cosmic Violet (#9333EA), Stellar Blue (#312E81)
 - **Voice**: Professional yet approachable, technically competent without being intimidating
 - **Tagline**: "Your Agency's Technical Partner"
+- **Tech Focus**: JavaScript-first, modern web technologies
 
-### Content Update Frequency
-- Testimonials/Case studies: 1-2 times per month
-- Service descriptions: Several times per year (more frequent initially)
-- Team/About section: Periodic updates needed
-- Contact forms: May need updates based on business needs
+### Current Repositioning Project
+**IMPORTANT**: We are transitioning from WordPress-focused messaging to modern JavaScript/full-stack development positioning. See `white-label-page-implementation-plan.md` for detailed conversion instructions. See `white-label-page-content.md` for exact text to be used.
 
 ## Development Philosophy
 
@@ -41,7 +41,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **USE COMPONENTS FOR:**
 - Interactive elements (ContactForm, TabInterface, navigation with mobile menu)
 - Truly reusable UI elements used across multiple pages (Button, Card)
-- Content that updates frequently (testimonials, if displayed in multiple places)
+- Content that updates frequently
 - Layout elements that must be reused for each section (Containers, Sections)
 - Animated elements (StarField, FloatingPlanet, ProcessTimeline)
 - Form logic and validation
@@ -53,172 +53,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Static content sections without animations
 - Trust badges and simple info sections
 
-## Contact Page Implementation Guidelines
+## Current Task: White Label Page Conversion
 
-### Page Structure ✅ **COMPLETED**
-The contact page uses a three-form tabbed interface to segment different user intents:
-1. **Project Inquiry Form** - Primary revenue driver ✅
-2. **Quick Consultation Form** - Low-friction lead capture ✅
-3. **Support/Maintenance Form** - Existing client support ✅
+### Reference Documentation
+For detailed implementation instructions, see: `white-label-page-implementation-plan.md`
+For deatiled text content and sections to be implemented, see `white-label-page-content.md`
 
-**Implementation Status**: Fully implemented with TabInterface component, form validation, email integration, and responsive design.
+### Key Objectives
+1. Reposition from WordPress-specialist to modern web development
+2. Lead with JavaScript technologies (React, Node.js, Next.js)
+3. Maintain WordPress as a service option, not primary focus
+4. Update all messaging, keywords, and service hierarchy
 
-### Key Components ✅ **COMPLETED**
-
-#### 1. TabInterface Component ✅
-- Manages switching between three forms ✅
-- CSS-based transitions, no heavy JavaScript ✅
-- Accessible keyboard navigation ✅
-- Mobile-responsive design ✅
-
-#### 2. Enhanced ContactForm Components ✅
-- Three distinct form variations implemented ✅
-- Conditional field visibility and validation ✅
-- Form-specific validation rules ✅
-- Email integration with form-specific templates ✅
-
-#### 3. SocialLinks Component ✅
-- Maintained existing implementation ✅
-- Integrated into new sidebar layout ✅
-
-### Performance Requirements
-- **Initial Load**: < 3s on 3G
-- **Form Interactions**: Instant feedback (< 100ms)
-- **Tab Switching**: CSS transitions only
-- **Bundle Size**: Keep form JavaScript under 50KB
-
-### SEO Optimization
-1. **Meta Tags**:
-   - Unique title for each form type (consider URL params)
-   - Rich snippets for contact information
-   - Local business schema markup
-
-2. **Content Structure**:
-   - H1: Clear value proposition
-   - H2s: Form types and trust indicators
-   - Alt text for all decorative elements
-
-3. **Performance SEO**:
-   - Lazy load below-fold content
-   - Optimize critical rendering path
-   - Implement proper caching headers
-
-### Accessibility Requirements
-- **WCAG 2.1 AA Compliance**
-- Tab navigation for all interactive elements
-- ARIA labels for form fields and tabs
-- Error messages announced to screen readers
-- Color contrast ratio of at least 4.5:1
-
-### Form Analytics & Tracking
-Implement tracking for:
-- Form views by type
-- Field abandonment rates
-- Submission success/failure
-- Time to complete each form
-- Source/medium attribution
-
-### Testing Strategy
-
-#### Terminal-Based Testing
-```bash
-# TypeScript compilation
-npx tsc --noEmit
-
-# ESLint checks
-npm run lint
-
-# Build size analysis
-npm run build && npm run analyze
-
-# Accessibility testing
-npx pa11y http://localhost:3000/contact
-
-# SEO testing
-npx lighthouse http://localhost:3000/contact --only-categories=seo
-
-# Bundle size check
-npx bundlephobia ./out/_next/static/chunks/*.js
-```
-
-#### Visual Testing
-- Use browser DevTools for responsive testing
-- Test tab keyboard navigation manually
-- Verify form validation messages appear correctly
-- Check animations at different frame rates
-
-### Implementation Phases ✅ **ALL COMPLETED**
-
-#### Phase 1: Structure & Layout ✅
-- Tab interface component created ✅
-- Three form variations set up ✅  
-- Responsive grid layout implemented ✅
-- Social links added to sidebar ✅
-
-#### Phase 2: Form Logic ✅
-- Field validation implemented ✅
-- Conditional logic added ✅
-- Form submission handlers set up ✅
-- Email integration tested and working ✅
-
-#### Phase 3: Polish & Optimize ✅
-- Animations and transitions added ✅
-- Lazy loading implemented ✅
-- Images and assets optimized ✅
-- Analytics tracking ready ✅
-
-#### Phase 4: SEO & Performance ✅
-- Performance audit completed ✅
-- SEO improvements implemented ✅
-- Schema markup added (LocalBusiness, ContactPoint) ✅
-- Core Web Vitals optimized ✅
-
-#### Phase 5-8: Complete Implementation ✅
-- **Phase 5**: Email system with form-specific templates ✅
-- **Phase 6**: Accessibility and testing ✅
-- **Phase 7**: SEO implementation with enhanced metadata ✅
-- **Phase 8**: Cleanup and polish with type safety ✅
-
-## Final Implementation Summary
-
-The contact page redesign has been **fully completed** with all phases implemented:
-
-### ✅ **Completed Features**
-- **Three-form tabbed interface** with Project Inquiry, Quick Consultation, and Support forms
-- **Form-specific email templates** with proper routing and validation
-- **Enhanced SEO** with LocalBusiness schema, rich metadata, and Open Graph tags
-- **Accessibility compliant** with WCAG 2.1 AA standards
-- **Performance optimized** with lazy loading and bundle size optimization
-- **Type-safe implementation** with comprehensive TypeScript interfaces
-- **Responsive design** that works across all device sizes
-- **Component cleanup** with unused code removed
-
-### **Technical Specifications Met**
-- Bundle size kept under performance targets
-- Form interactions provide instant feedback (< 100ms)
-- TypeScript compilation passes without errors
-- SEO audit shows improved scores
-- All forms submit successfully with proper email routing
-
-### State Management
-- Use React's built-in useState for form state
-- Consider useReducer for complex form logic
-- No external state management libraries needed
-- Persist form data in sessionStorage (not localStorage)
-
-### Error Handling
-- Client-side validation before submission
-- Clear error messages next to fields
-- Global error state for submission failures
-- Fallback email link if form fails
-- Log errors to monitoring service (if available)
-
-### Mobile Considerations
-- Touch-friendly form inputs (min 44x44px)
-- Simplified navigation on mobile
-- Single-column layout for forms
-- Reduced animations on low-power devices
-- Test on real devices, not just DevTools
+### Implementation Approach
+- Work section by section as outlined in the implementation plan
+- Create new sections before removing old ones
+- Preserve valuable content by moving rather than deleting
+- Test each section after implementation
+- Maintain SEO value during transition
 
 ## Technical Guidelines
 
@@ -245,32 +97,18 @@ The contact page redesign has been **fully completed** with all phases implement
 ### Git Workflow
 ```bash
 # Feature branch naming
-git checkout -b feature/contact-page-redesign
+git checkout -b feature/white-label-modernization
 
 # Commit message format
 # type(scope): subject
-# Example: feat(contact): add tabbed form interface
+# Example: feat(white-label): update hero to modern tech focus
 
 # Before pushing
 npm run lint
 npm run build
 git add .
-git commit -m "feat(contact): implement three-form tab interface"
+git commit -m "feat(white-label): modernize service offerings section"
 ```
-
-### Monitoring & Analytics
-- Set up Google Analytics 4 events for form interactions
-- Monitor Core Web Vitals in Google Search Console
-- Track form conversion rates by type
-- Set up alerts for form submission failures
-- Monitor 404s and other errors
-
-### Documentation Requirements
-- Update this file with any new patterns
-- Document complex form logic inline
-- Add JSDoc comments to utility functions
-- Create user guide for form management
-- Document email template variables
 
 ## Commands
 
@@ -289,22 +127,13 @@ npm run type-check   # Run TypeScript compiler check
 npm run build && npm run analyze
 
 # Accessibility audit
-npx pa11y http://localhost:3000/contact
+npx pa11y http://localhost:3000/white-label-web-development
 
 # Performance audit
-npx lighthouse http://localhost:3000/contact
+npx lighthouse http://localhost:3000/white-label-web-development
 
 # SEO audit
-npx @sitespeed.io/sitespeed.io http://localhost:3000/contact
-```
-
-### Deployment
-```bash
-# Pre-deployment checklist
-npm run preflight    # Runs lint, type-check, and build
-
-# Deploy to production
-npm run deploy       # Platform-specific deployment command
+npx @sitespeed.io/sitespeed.io http://localhost:3000/white-label-web-development
 ```
 
 ## Environment Variables
@@ -322,34 +151,31 @@ NEXT_PUBLIC_GTM_ID=      # Google Tag Manager ID
 NEXT_PUBLIC_ENABLE_CHAT= # Enable/disable chat widget
 ```
 
-## Troubleshooting Guide
+## State Management
+- Use React's built-in useState for form state
+- Consider useReducer for complex form logic
+- No external state management libraries needed
+- Persist form data in sessionStorage (not localStorage)
 
-### Common Issues
+## Error Handling
+- Client-side validation before submission
+- Clear error messages next to fields
+- Global error state for submission failures
+- Fallback email link if form fails
+- Log errors to monitoring service (if available)
 
-#### Form Not Submitting
-1. Check browser console for errors
-2. Verify environment variables are set
-3. Check network tab for failed requests
-4. Ensure CORS is properly configured
-
-#### Poor Performance Scores
-1. Run `npm run analyze` to check bundle size
-2. Look for large dependencies
-3. Ensure images are optimized
-4. Check for render-blocking resources
-
-#### TypeScript Errors
-1. Run `npx tsc --noEmit` for detailed errors
-2. Check for missing type definitions
-3. Ensure all imports have proper types
-4. Update @types packages if needed
+## Mobile Considerations
+- Touch-friendly form inputs (min 44x44px)
+- Simplified navigation on mobile
+- Single-column layout for forms
+- Reduced animations on low-power devices
+- Test on real devices, not just DevTools
 
 ## Future Enhancements
-- A/B testing for form variations
-- Progressive form disclosure
-- Appointment scheduling integration
-- Live chat integration
+- Technology stack showcase page
+- Interactive project portfolio
+- Client portal for existing customers
+- Advanced performance monitoring
+- A/B testing for conversion optimization
 - Multi-language support
-- Advanced analytics dashboard
-- Automated lead scoring
-- CRM integration
+- API documentation portal

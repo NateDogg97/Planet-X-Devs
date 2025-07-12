@@ -50,3 +50,6 @@ export const faqItems = [
     answer: 'Each project includes 2 rounds of revisions. I provide staging environments for review, and you can consolidate feedback from your clients before sending it to me. Additional revision rounds are billed hourly or can use retainer hours.'
   }
 ];
+
+// White label specific FAQs (imported from page constants)
+export { whiteLabelFAQs } from './pages/white-label-web-development';
