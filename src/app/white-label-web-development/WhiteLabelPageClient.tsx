@@ -1,22 +1,13 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
 import Button from '@/components/ui/Button';
 import Section from '@/components/layout/Section';
 import StarField from '@/components/ui/StarField';
+import HowItWorksSection from './HowItWorks';
 import {
-  whiteLabelStats,
   whiteLabelFeatures,
-  modernWebServices,
-  customWebServices,
-  eCommerceServices,
-  wordpressServices,
-  whiteLabelServices,
-  whiteLabelContentServices,
-  whiteLabelPricingPlans,
   whiteLabelProcessSteps,
-  whiteLabelTestimonials,
   whiteLabelFAQs
 } from '@/constants';
 import Icon from '@/components/ui/Icon';
@@ -137,9 +128,9 @@ export default function WhiteLabelPageClient() {
           </h2>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-3 gap-16">
           {/* Scrollable Content Area */}
-          <div className="space-y-12 pr-4">
+          <div className="lg:col-span-2 space-y-12 pr-4">
             {/* Modern Web Application Development */}
             <div>
               <h3 className="text-2xl font-bold text-text-primary mb-4">
@@ -149,14 +140,14 @@ export default function WhiteLabelPageClient() {
               <p className="text-lg text-text-secondary mb-6">
                 White label web development using cutting-edge technologies. I build modern applications that set your agency apart.
               </p>
-              <div className="glass p-6 rounded-xl">
-                <p className="text-text-secondary mb-4">
+              <div className="px-6 border-l-2 border-nebula-violet-2 border-nebula-violet">
+                <p className="text-text-primary mb-4">
                   For React development, I build single-page applications (SPAs), Progressive Web Apps (PWAs), and component library development. I handle state management with Redux or Context API, implement real-time features with WebSockets, and integrate with headless CMS platforms for modern content management.
                 </p>
-                <p className="text-text-secondary mb-4">
+                <p className="text-text-primary mb-4">
                   My Next.js solutions include server-side rendering (SSR) for SEO optimization, static site generation (SSG) for blazing-fast performance, API routes and serverless functions, performance optimization, SEO-friendly applications, and e-commerce with Next.js Commerce.
                 </p>
-                <p className="text-text-secondary">
+                <p className="text-text-primary">
                   I also provide full-stack capabilities including Node.js backend development, RESTful API design, GraphQL implementation, database design with MySQL, PostgreSQL, or MongoDB, authentication systems, and cloud deployment on AWS, Vercel, or Netlify.
                 </p>
               </div>
@@ -171,22 +162,22 @@ export default function WhiteLabelPageClient() {
               <p className="text-lg text-text-secondary mb-6">
                 Beyond frameworks, I create custom solutions that solve specific business problems:
               </p>
-              <div className="grid gap-4">
-                <div className="glass p-4 rounded-xl">
+              <div className="grid gap-4 border-l-2 border-nebula-violet-2 border-nebula-violet">
+                <div className="p-4 rounded-xl">
                   <h5 className="font-bold text-text-primary mb-2">API Development & Integration</h5>
-                  <p className="text-text-secondary text-sm">RESTful and GraphQL APIs, third-party integrations, webhook implementations, and microservices architecture</p>
+                  <p className="text-text-primary text-sm">RESTful and GraphQL APIs, third-party integrations, webhook implementations, and microservices architecture</p>
                 </div>
-                <div className="glass p-4 rounded-xl">
+                <div className="p-4 rounded-xl">
                   <h5 className="font-bold text-text-primary mb-2">Database Architecture</h5>
-                  <p className="text-text-secondary text-sm">Schema design, optimization, migration strategies, and NoSQL solutions</p>
+                  <p className="text-text-primary text-sm">Schema design, optimization, migration strategies, and NoSQL solutions</p>
                 </div>
-                <div className="glass p-4 rounded-xl">
+                <div className="p-4 rounded-xl">
                   <h5 className="font-bold text-text-primary mb-2">Real-time Applications</h5>
-                  <p className="text-text-secondary text-sm">WebSocket implementations, live chat systems, collaborative tools, and real-time dashboards</p>
+                  <p className="text-text-primary text-sm">WebSocket implementations, live chat systems, collaborative tools, and real-time dashboards</p>
                 </div>
-                <div className="glass p-4 rounded-xl">
+                <div className="p-4 rounded-xl">
                   <h5 className="font-bold text-text-primary mb-2">Cloud-Native Development</h5>
-                  <p className="text-text-secondary text-sm">Serverless functions, containerized applications, CI/CD pipelines, and scalable architectures</p>
+                  <p className="text-text-primary text-sm">Serverless functions, containerized applications, CI/CD pipelines, and scalable architectures</p>
                 </div>
               </div>
             </div>
@@ -200,14 +191,14 @@ export default function WhiteLabelPageClient() {
               <p className="text-lg text-text-secondary mb-6">
                 White label web development for e-commerce that converts browsers into buyers. I build online stores that are fast, secure, and easy to manage:
               </p>
-              <div className="glass p-6 rounded-xl">
-                <p className="text-text-secondary mb-4">
+              <div className="px-6 border-l-2 border-nebula-violet">
+                <p className="text-text-primary mb-4">
                   For custom e-commerce projects, I create headless commerce architectures, API-first implementations, custom shopping cart solutions, advanced inventory systems, B2B portal development, and integration with ERPs and CRMs.
                 </p>
-                <p className="text-text-secondary mb-4">
+                <p className="text-text-primary mb-4">
                   My Shopify solutions encompass theme customization and development, private app development, Shopify Plus implementations, multi-channel setup, custom checkout for Shopify Plus stores, app integration and configuration, migration from other platforms, and headless Shopify builds.
                 </p>
-                <p className="text-text-secondary">
+                <p className="text-text-primary">
                   I also work with WooCommerce when it's the right fit: custom store setup and configuration, payment gateway integration, shipping method configuration, and product variation management.
                 </p>
               </div>
@@ -216,12 +207,21 @@ export default function WhiteLabelPageClient() {
             {/* WordPress Development */}
             <div>
               <h3 className="text-2xl font-bold text-text-primary mb-4">
-                4. WordPress Development (When Needed)
+                4. WordPress Development
               </h3>
-              <h4 className="text-xl font-semibold text-text-primary mb-4">Professional WordPress Solutions</h4>
-              <div className="glass p-6 rounded-xl">
-                <p className="text-text-secondary">
-                  While not my primary focus, I do provide WordPress development when it's the right tool for the job. This includes custom theme development, plugin creation, performance optimization, and migrations. I work with all major page builders and can handle complex WordPress projects when your clients specifically need this platform.
+              <h4 className="text-xl font-semibold text-text-primary mb-4">Enterprise WordPress Solutions - A Core Competency</h4>
+              <div className="px-6 border-l-2 border-nebula-violet">
+                <p className="text-text-primary mb-4">
+                  WordPress powers 43% of the web, and it's one of our native languages. While we lead with modern JavaScript frameworks, WordPress remains an integral part of our agency's service offering. We've been building WordPress solutions since 2012, and our deep expertise means we can handle everything from simple business sites to complex enterprise applications.
+                </p>
+                <p className="text-text-primary mb-4">
+                  Our WordPress development services include custom theme development from design files (Figma, Adobe XD, Sketch), advanced plugin development for custom functionality, WooCommerce and e-commerce solutions, multisite networks for franchises and enterprises, performance optimization and Core Web Vitals, security hardening and compliance (GDPR, HIPAA), and seamless migrations from any platform.
+                </p>
+                <p className="text-text-primary mb-4">
+                  We're fluent in all major WordPress ecosystems: Gutenberg block development and full site editing, Advanced Custom Fields (ACF) implementation, page builders (Elementor, Divi, Beaver Builder) when required, WordPress REST API for headless implementations, membership and learning management systems (LMS), and multilingual sites with WPML or Polylang.
+                </p>
+                <p className="text-text-primary">
+                  What sets us apart is our hybrid approach - we can build traditional WordPress sites when that's the best solution, create headless WordPress backends with React frontends, or integrate WordPress with modern JavaScript applications. This flexibility means your clients get the best tool for their specific needs, not a one-size-fits-all solution.
                 </p>
               </div>
             </div>
@@ -231,11 +231,11 @@ export default function WhiteLabelPageClient() {
               <h3 className="text-2xl font-bold text-text-primary mb-4">
                 5. Technical Support & Maintenance
               </h3>
-              <div className="glass p-6 rounded-xl">
-                <p className="text-text-secondary mb-4">
+              <div className="px-6 border-l-2 border-nebula-violet">
+                <p className="text-text-primary mb-4">
                   When client sites break, I'm your rapid response team. White label web development includes being there when things go wrong. My 24-hour emergency support covers site down troubleshooting, security breach response, performance crisis resolution, database corruption fixes, server migration assistance, SSL certificate issues, domain and DNS problems, and backup restoration. I understand that when a client's site is down, every minute costs money and damages relationships.
                 </p>
-                <p className="text-text-secondary">
+                <p className="text-text-primary">
                   Keep client sites running smoothly with proactive maintenance. Monthly maintenance includes security monitoring, performance monitoring, uptime monitoring, daily backups, monthly reports, and content updates within agreed limits. This proactive approach prevents problems before they impact your clients.
                 </p>
               </div>
@@ -246,8 +246,8 @@ export default function WhiteLabelPageClient() {
               <h3 className="text-2xl font-bold text-text-primary mb-4">
                 6. Performance Optimization
               </h3>
-              <div className="glass p-6 rounded-xl">
-                <p className="text-text-secondary">
+              <div className="px-6 border-l-2 border-nebula-violet">
+                <p className="text-text-primary">
                   Slow sites kill conversions. My white label web development services include comprehensive performance optimization. I conduct thorough performance audits addressing Core Web Vitals optimization, PageSpeed Insights improvements, and GTmetrix score enhancement. This includes image optimization and lazy loading, critical CSS implementation, JavaScript optimization, database optimization, caching strategy implementation, CDN setup and configuration, and third-party script optimization.
                 </p>
               </div>
@@ -256,7 +256,10 @@ export default function WhiteLabelPageClient() {
 
           {/* Sticky Image Area */}
           <div className="relative lg:sticky lg:top-28 h-fit">
-            <div className="w-full h-[600px] bg-gradient-to-br from-stellar-blue/20 to-nebula-black/40 rounded-2xl border border-nebula-cyan/30 backdrop-blur-sm flex items-center justify-center">
+            {/* Glowing background effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-nebula-purple/20 via-cosmic-violet/15 to-nebula-cyan/20 rounded-3xl blur-xl transform scale-110 animate-pulse"></div>
+            
+            <div className="relative w-full h-[600px] bg-gradient-to-br from-stellar-blue/20 to-nebula-black/40 rounded-2xl border border-nebula-cyan/30 backdrop-blur-sm flex items-center justify-center shadow-2xl">
               <div className="text-center">
                 <div className="w-32 h-32 bg-nebula-cyan/20 rounded-full mx-auto mb-4 animate-pulse"></div>
                 <p className="text-nebula-white/60 text-lg">Service Image Placeholder</p>
@@ -268,22 +271,7 @@ export default function WhiteLabelPageClient() {
 
       {/* Process Section */}
       <Section container background="secondary">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
-            How White Label Web Development Works
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {whiteLabelProcessSteps.map((step, index) => (
-            <div key={index} className="glass glass-hover p-6 rounded-xl text-center transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-nebula-purple to-cosmic-violet text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">
-                {step.number}
-              </div>
-              <h4 className="text-lg font-bold text-text-primary mb-4">{step.title}</h4>
-              <p className="text-sm text-text-secondary">{step.description}</p>
-            </div>
-          ))}
-        </div>
+        <HowItWorksSection />
       </Section>
 
       {/* Why Agencies Choose Planet X Devs */}
