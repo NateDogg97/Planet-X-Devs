@@ -241,22 +241,27 @@ export const whiteLabelProcessSteps: WhiteLabelStep[] = [
   {
     number: "1",
     title: "Project Discovery & Quote",
-    description: "Share your project requirements - rough scope is fine. I'll ask the right questions to understand technical needs, timeline, and budget. You receive a detailed quote within 24 hours."
+    description: "Share your project requirements - rough scope is fine. I'll ask the right questions to understand technical needs, timeline, and budget. Whether you have detailed specs or just a general idea, I translate client needs into actionable development plans. You receive a detailed quote within 24 hours with clear deliverables and timeline."
   },
   {
     number: "2", 
     title: "Seamless Onboarding",
-    description: "Once approved, we establish communication preferences. Slack, email, project management tools - I adapt to your workflow. Simple agreement that protects both parties."
+    description: "Once approved, we establish communication preferences. Slack, email, project management tools - I adapt to your workflow. You'll receive a project kickoff document outlining milestones, communication schedule, and everything needed from your end. No lengthy contracts, just a simple agreement that protects both parties."
   },
   {
     number: "3",
     title: "Development & Updates",
-    description: "I build while keeping you informed. Regular updates in your preferred format - technical for those who want details, simplified for easy client sharing. Access to staging environments throughout development."
+    description: "I build while keeping you informed. Regular updates in your preferred format - technical for those who want details, simplified for easy client sharing. Access to staging environments throughout development. Unlimited revisions within scope because pixel-perfect matters."
   },
   {
     number: "4",
     title: "Testing & Quality Assurance",
-    description: "Comprehensive testing across devices and browsers. Performance optimization built into every project. Security scanning and hardening. Your clients receive a polished product that works flawlessly."
+    description: "Comprehensive testing across devices and browsers. Performance optimization built into every project. Security scanning and hardening. Accessibility compliance checking. Your clients receive a polished product that works flawlessly from day one."
+  },
+  {
+    number: "5",
+    title: "Launch & Handoff",
+    description: "Smooth deployment to production with zero downtime. Comprehensive documentation for your team. Video walkthroughs if requested. 30-day post-launch support included. Everything you need to confidently support your client moving forward."
   }
 ];
 
