@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, Suspense } from 'react';
 import ContactForm from '@/components/forms/ContactForm';
@@ -95,7 +96,7 @@ function ContactPageContent() {
         <div className="absolute inset-0">
           <StarField />
         </div>
-        <div className="max-w-3xl">
+        <div className="max-w-3xl relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Let's Build Something Great Together
           </h1>
@@ -183,7 +184,7 @@ function ContactPageContent() {
                   <div className="flex items-center gap-3">
                     <Icon name="users" className="w-5 h-5 text-nebula-cyan flex-shrink-0" />
                     <p className="text-sm text-text-secondary">
-                      <span className="font-medium text-text-primary">White-Label Ready</span> – We work behind the scenes, letting you maintain client relationships while we handle the technical execution
+                      <Link href="/white-label-web-development" className="font-medium text-text-primary hover:underline">White-Label Ready</Link> – We work behind the scenes, letting you maintain client relationships while we handle the technical execution
                     </p>
                   </div>
                 </div>

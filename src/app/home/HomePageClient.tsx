@@ -423,10 +423,12 @@ export default function HomePageClient() {
                     
                     <div className="ml-4">
                       <h3 className="text-lg font-semibold text-nebula-purple dark:text-nebula-white mb-2 transition-colors duration-300 group-hover:text-nebula-violet dark:group-hover:text-nebula-cyan">
-                        True White-Label Partnership
+                        <Link href="/white-label-web-development" className="hover:underline">
+                          True White-Label Partnership
+                        </Link>
                       </h3>
                       <p className="text-text-primary/70 transition-colors duration-300 group-hover:text-text-primary/90">
-                        Your clients never know we exist unless you want them to
+                        Your clients never know we exist unless you want them to. <Link href="/white-label-web-development" className="text-nebula-cyan hover:underline">Learn more about our white-label services</Link>.
                       </p>
                     </div>
                   </div>

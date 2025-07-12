@@ -23,7 +23,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-nebula-white/70">
-              Premium white-label web development for agencies who refuse to compromise on quality
+              Premium <Link href="/white-label-web-development" className="text-nebula-cyan hover:underline">white-label web development</Link> for agencies who refuse to compromise on quality
             </p>
           </div>
           <div>

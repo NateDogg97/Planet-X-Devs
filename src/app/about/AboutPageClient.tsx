@@ -315,12 +315,12 @@ export default function AboutPageClient() {
         <div className="absolute inset-0">
           <StarField />
         </div>
-        <div className="max-w-3xl">
+        <div className="max-w-3xl relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             The Agency-First Development Partner
           </h1>
           <p className="text-xl text-nebula-white/80">
-            We specialize in white-label web development that makes your agency look good and keeps your clients happy.
+            We specialize in <Link href="/white-label-web-development" className="text-nebula-cyan hover:underline">white-label web development</Link> that makes your agency look good and keeps your clients happy.
           </p>
         </div>
       </Section>

@@ -27,6 +27,10 @@ export const mainNavigation: NavItem[] = [
 export const footerNavigation = {
   services: [
     {
+      label: 'White Label Development',
+      href: '/white-label-web-development'
+    },
+    {
       label: 'E-Commerce Development',
       href: '/services#ecommerce'
     },

@@ -76,12 +76,12 @@ export default function ServicesPageClient() {
         <div className="absolute inset-0">
           <StarField />
         </div>
-        <div className="max-w-3xl">
+        <div className="max-w-3xl relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Premium Web Development Services
           </h1>
           <p className="text-xl text-nebula-white/80">
-            White-label development partnerships that make your agency look great. From WordPress to React, we've got the technical expertise you need.
+            <Link href="/white-label-web-development" className="text-nebula-cyan hover:underline">White-label development partnerships</Link> that make your agency look great. From WordPress to React, we've got the technical expertise you need.
           </p>
         </div>
       </Section>
@@ -128,7 +128,7 @@ export default function ServicesPageClient() {
             Agency Partnership Plans
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            True white-label partnerships designed specifically for digital marketing agencies. Your clients never know we exist unless you want them to.
+            True <Link href="/white-label-web-development" className="text-nebula-cyan hover:underline">white-label partnerships</Link> designed specifically for digital marketing agencies. Your clients never know we exist unless you want them to.
           </p>
         </div>
 
