@@ -82,18 +82,18 @@ export default function WebsiteAuditChecklistPageClient() {
       });
   
       // Optionally notify yourself via Resend
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          formType: 'website-audit',
-          email: email,
-          message: `Website audit completed. Score: ${checkedCount}/50`,
-          auditScore: checkedCount,
-        }),
-      });
+      // await fetch('/api/contact', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     formType: 'website-audit',
+      //     email: email,
+      //     message: `Website audit completed. Score: ${checkedCount}/50`,
+      //     auditScore: checkedCount,
+      //   }),
+      // });
   
       // Show success message
       setShowSuccess(true);
