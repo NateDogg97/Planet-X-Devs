@@ -2,7 +2,6 @@
 
 import { theme } from '@/config/theme';
 import Section from '@/components/layout/Section';
-import Container from '@/components/layout/Container';
 import Heading from '@/components/ui/Heading';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -10,21 +9,18 @@ import Button from '@/components/ui/Button';
 export default function StyleGuide() {
   return (
     <div className="min-h-screen">
-      <Section background="gradient">
-        <Container>
-          <Heading as="h1" centered color="default">
-            Style Guide
-          </Heading>
-          <p className="text-center text-xl text-gray-600 dark:text-gray-300 mt-4">
-            Theme configuration and design system reference
-          </p>
-        </Container>
+      <Section background="gradient" container>
+        <Heading as="h1" centered color="default">
+          Style Guide
+        </Heading>
+        <p className="text-center text-xl text-gray-600 dark:text-gray-300 mt-4">
+          Theme configuration and design system reference
+        </p>
       </Section>
 
       {/* Colors */}
-      <Section>
-        <Container>
-          <Heading as="h2" className="mb-8">Colors</Heading>
+      <Section container>
+        <Heading as="h2" className="mb-8">Colors</Heading>
           
           <div className="space-y-8">
             <div>
@@ -53,13 +49,11 @@ export default function StyleGuide() {
               </div>
             </div>
           </div>
-        </Container>
       </Section>
 
       {/* Typography */}
-      <Section background="secondary">
-        <Container>
-          <Heading as="h2" className="mb-8">Typography</Heading>
+      <Section background="secondary" container>
+        <Heading as="h2" className="mb-8">Typography</Heading>
           
           <div className="space-y-6">
             <Card>
@@ -79,13 +73,11 @@ export default function StyleGuide() {
               <p className={theme.typography.paragraph.xlarge}>Extra large paragraph text</p>
             </Card>
           </div>
-        </Container>
       </Section>
 
       {/* Buttons */}
-      <Section>
-        <Container>
-          <Heading as="h2" className="mb-8">Buttons</Heading>
+      <Section container>
+        <Heading as="h2" className="mb-8">Buttons</Heading>
           
           <div className="space-y-6">
             <Card>
@@ -115,13 +107,11 @@ export default function StyleGuide() {
               </div>
             </Card>
           </div>
-        </Container>
       </Section>
 
       {/* Spacing */}
-      <Section background="secondary">
-        <Container>
-          <Heading as="h2" className="mb-8">Spacing</Heading>
+      <Section background="secondary" container>
+        <Heading as="h2" className="mb-8">Spacing</Heading>
           
           <Card>
             <h3 className="text-xl font-semibold mb-4">Section Padding</h3>
@@ -136,13 +126,11 @@ export default function StyleGuide() {
               ))}
             </div>
           </Card>
-        </Container>
       </Section>
 
       {/* Cards & Shadows */}
-      <Section>
-        <Container>
-          <Heading as="h2" className="mb-8">Cards & Shadows</Heading>
+      <Section container>
+        <Heading as="h2" className="mb-8">Cards & Shadows</Heading>
           
           <div className="grid md:grid-cols-3 gap-6">
             <Card shadow="small">
@@ -160,13 +148,11 @@ export default function StyleGuide() {
               <p className="text-gray-600">Card with large shadow and hover effect</p>
             </Card>
           </div>
-        </Container>
       </Section>
 
       {/* Gradients */}
-      <Section background="secondary">
-        <Container>
-          <Heading as="h2" className="mb-8">Gradients</Heading>
+      <Section background="secondary" container>
+        <Heading as="h2" className="mb-8">Gradients</Heading>
           
           <div className="grid md:grid-cols-2 gap-6">
             {Object.entries(theme.gradients).map(([name, value]) => (
@@ -176,7 +162,6 @@ export default function StyleGuide() {
               </div>
             ))}
           </div>
-        </Container>
       </Section>
 
     </div>
