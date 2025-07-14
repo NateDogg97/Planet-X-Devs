@@ -182,7 +182,7 @@ export default function HomePageClient() {
     <div className="min-h-screen overflow-hidden">
       <Hero
         title="Your Agency's Development Partner"
-        subtitle="Web development agency partner based in Austin, TX specializing in white-label solutions for marketing agencies. Skip the hiring, keep the quality."
+        subtitle="White-label web development agency based in Austin, TX specializing in website solutions for marketing agencies. Skip the hiring, keep the quality."
         actions={[
           {
             text: "View Services & Pricing",
