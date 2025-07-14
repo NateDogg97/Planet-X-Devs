@@ -81,7 +81,7 @@ export default function ServicesPageClient() {
             Premium Web Development Services
           </h1>
           <p className="text-xl text-nebula-white/80">
-            <Link href="/white-label-web-development" className="text-nebula-cyan hover:underline">White-label development partnerships</Link> that make your agency look great. From WordPress to React, we've got the technical expertise you need.
+            White-label development partnerships that make your agency look great. From WordPress to React, we've got the technical expertise you need.
           </p>
         </div>
       </Section>

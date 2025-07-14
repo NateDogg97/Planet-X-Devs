@@ -56,6 +56,7 @@
   --color-text-tertiary: rgb(163 163 163);
   --color-text-accent: var(--color-nebula-violet);
   --color-text-accent-alt: var(--color-nebula-cyan);
+  --color-text-reverse: var(--color-background);
   
   --color-bg-primary: var(--background);
   --color-bg-secondary: rgb(250 250 250);
@@ -100,6 +101,7 @@
   --color-text-tertiary: rgb(115 115 115);
   --color-text-accent: var(--color-nebula-cyan);
   --color-text-accent-alt: var(--color-nebula-violet);
+  --color-text-reverse: var(--color-background);
   
   --color-bg-primary: var(--color-nebula-black);
   --color-bg-secondary: rgb(23 23 23);

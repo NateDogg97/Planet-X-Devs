@@ -74,7 +74,7 @@ export const websiteAuditChecklistData: WebsiteAuditCategory[] = [
         id: 'perf5',
         title: 'Content Delivery Network (CDN) is used',
         description: 'Serves your site from servers closer to your visitors',
-        tip: 'Consider Cloudflare, AWS CloudFront, or your hosting provider&apos;s CDN'
+        tip: 'Consider Cloudflare, AWS CloudFront, or your hosting provider\'s CDN'
       }
     ]
   },

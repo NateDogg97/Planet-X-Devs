@@ -320,7 +320,7 @@ export default function AboutPageClient() {
             The Agency-First Development Partner
           </h1>
           <p className="text-xl text-nebula-white/80">
-            We specialize in <Link href="/white-label-web-development" className="text-nebula-cyan hover:underline">white-label web development</Link> that makes your agency look good and keeps your clients happy.
+            We specialize in white-label web development that makes your agency look good and keeps your clients happy.
           </p>
         </div>
       </Section>
@@ -377,6 +377,9 @@ export default function AboutPageClient() {
             </p>
             <p className="text-lg text-text-primary/80 leading-relaxed">
               Whether you're scaling your agency or need reliable overflow support, I'm here to handle the technical heavy lifting so you can focus on what you do best—growing your clients' businesses.
+            </p>
+            <p className="text-lg text-text-primary/80 leading-relaxed mt-4">
+              Want to ensure your clients' sites meet modern standards? Try our <Link href="/website-audit-checklist" className="text-nebula-cyan hover:underline">free 30-point website audit checklist</Link> to spot opportunities for improvement.
             </p>
           </div>
           <div className="relative h-full flex items-center justify-center">

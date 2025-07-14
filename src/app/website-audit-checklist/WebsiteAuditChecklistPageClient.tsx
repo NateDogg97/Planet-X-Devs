@@ -6,6 +6,7 @@ import Icon from '@/components/ui/Icon';
 import Footer from '@/components/navigation/Footer';
 import EmailSignupForm from '@/components/forms/EmailSignupForm';
 import { websiteAuditChecklistData } from '@/constants';
+import Link from 'next/link';
 
 export default function WebsiteAuditChecklistPageClient() {
   const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set());
@@ -44,11 +45,53 @@ export default function WebsiteAuditChecklistPageClient() {
     });
   };
 
-  const handleSkipToChecklist = () => {
-    document.getElementById('checklist')?.scrollIntoView({ 
-      behavior: 'smooth',
-      block: 'start'
+  const handleClearChecklist = () => {
+    if (window.confirm('Are you sure you want to clear all checked items? This action cannot be undone.')) {
+      setCheckedItems(new Set());
+    }
+  };
+
+  const getChecklistResults = (): { score: string; results: string } => {
+    const checkedByCategory: { [key: string]: string[] } = {};
+    const uncheckedByCategory: { [key: string]: string[] } = {};
+    let totalItems = 0;
+    
+    websiteAuditChecklistData.forEach((category) => {
+      category.items.forEach((item) => {
+        totalItems++;
+        if (checkedItems.has(item.id)) {
+          if (!checkedByCategory[category.title]) {
+            checkedByCategory[category.title] = [];
+          }
+          checkedByCategory[category.title].push(`✓ ${item.title}`);
+        } else {
+          if (!uncheckedByCategory[category.title]) {
+            uncheckedByCategory[category.title] = [];
+          }
+          uncheckedByCategory[category.title].push(`✗ ${item.title}`);
+        }
+      });
     });
+    
+    const formatCategorySections = (categoryData: { [key: string]: string[] }, sectionTitle: string) => {
+      const sections: string[] = [];
+      
+      Object.entries(categoryData).forEach(([categoryTitle, items]) => {
+        if (items.length > 0) {
+          sections.push(`${categoryTitle}:\n${items.join('\n')}`);
+        }
+      });
+      
+      return sections.length > 0 ? `${sectionTitle} (${Object.values(categoryData).flat().length}):\n\n${sections.join('\n\n')}` : '';
+    };
+    
+    const checkedSection = formatCategorySections(checkedByCategory, 'Checked items');
+    const uncheckedSection = formatCategorySections(uncheckedByCategory, 'Unchecked items');
+    
+    const score = `${checkedItems.size}/${totalItems}`;
+    const results = [checkedSection, uncheckedSection].filter(section => section).join('\n\n');
+    
+    return { score, results };
   };
 
   return (
@@ -60,7 +103,7 @@ export default function WebsiteAuditChecklistPageClient() {
               Is Your Website Costing You Customers?
             </h1>
             <p className="text-xl md:text-2xl mb-12 opacity-95 max-w-3xl mx-auto">
-              Use our 50-point audit checklist to uncover hidden issues affecting your site's performance, security, and conversions
+              Use our 30-point audit checklist to uncover hidden issues affecting your site's performance, security, and conversions
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
@@ -85,7 +128,7 @@ export default function WebsiteAuditChecklistPageClient() {
       <Section container id="checklist">
           <div className="text-center max-w-4xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-              Your 50-Point Website Audit
+              Your 30-Point Website Audit
             </h2>
             <p className="text-xl text-text-secondary">
               Check off items as you review your site. Most businesses score between 15-25 on their first audit.
@@ -121,6 +164,17 @@ export default function WebsiteAuditChecklistPageClient() {
                 style={{ width: `${progressPercentage}%` }}
               />
             </div>
+            
+            {checkedCount > 0 && (
+              <div className="flex justify-center mt-4">
+                <button
+                  onClick={handleClearChecklist}
+                  className="text-sm text-text-secondary hover:text-text-primary border border-border-secondary hover:border-border-primary px-4 py-2 rounded-lg transition-colors duration-200"
+                >
+                  Clear Checklist
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Checklist Categories */}
@@ -185,59 +239,69 @@ export default function WebsiteAuditChecklistPageClient() {
           </div>
       </Section>
 
-      {/* Email Capture Section */}
-      <Section container className='pt-0 pb-24'>
-        <div className="glass rounded-xl p-8 max-w-3xl mx-auto relative z-10">
-          <h3 className="text-2xl font-bold text-text-primary text-center mb-2">
-            Want Personalized Recommendations?
-          </h3>
-          <p className="text-text-secondary text-center mb-6">
-            Enter your email to get a custom analysis of your results
-          </p>
-          
-          <EmailSignupForm
-            formId="website-audit"
-            submitButtonText="Get Custom Analysis"
-            successMessage="Thanks! Check your email for personalized tips based on your audit results."
-            gtmEventData={{
-              email_list: 'website-audit',
-              source: 'audit-checklist',
-              audit_score: checkedCount,
-            }}
-          />
-          
-          <p className="text-center mt-4 text-text-secondary">
-            Or{' '}
-            <button
-              onClick={handleSkipToChecklist}
-              className="text-text-accent hover:underline font-medium"
-            >
-              skip to the free checklist below
-            </button>
-            {' '}→
-          </p>
-        </div>
-      </Section>
+      {/* Combined CTA Section - Email + Consultation */}
+      <Section container className="bg-gradient-nebula text-white">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          Your Score: {checkedCount}/30 - Now What?
+        </h2>
+        
+        <p className="text-xl mb-8 opacity-95">
+          Most agencies struggle with the same technical issues. Let me help you fix them.
+        </p>
 
-      {/* CTA Section */}
-      <Section className="bg-gradient-nebula text-white">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Need Help Fixing These Issues?
-            </h2>
-            <p className="text-xl mb-8 opacity-95">
-              Most businesses score between 15-25 on their first audit. If that's you, you're leaving money on the table.
+        {/* Two-column layout for options */}
+        <div className="grid md:grid-cols-2 gap-8 mb-8 text-text-primary">
+          {/* Option 1: Email */}
+          <div className="glass rounded-xl p-8">
+            <h3 className="text-2xl font-bold mb-3">
+              Option 1: Get Free Advice
+            </h3>
+            <p className="mb-6 opacity-90">
+              I'll review your results and send you specific tips for your situation
             </p>
-            <a
-              href="mailto:nathaniel@planetxdevs.com"
-              className="inline-block bg-white text-text-accent px-8 py-4 rounded-lg font-semibold text-lg hover:transform hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
-            >
-              Let's Fix Your Site →
-            </a>
-            <p className="mt-6 text-lg opacity-90">
-              Free 15-minute consultation to review your results
-            </p>
+            <EmailSignupForm
+              formId="website-audit"
+              submitButtonText="Send My Results →"
+              successMessage="Thanks! I'll review your audit and reach out within 24 hours with some quick tips."
+              
+              // GTM tracking
+              gtmEventData={{
+                email_list: 'website-audit',
+                source: 'audit-checklist',
+                audit_score: checkedCount,
+              }}
+              
+              sendResendNotification={true}
+              resendFormType="website-audit-results"
+              resendMessage={`Audit completed - Score: ${getChecklistResults().score}\n\n${getChecklistResults().results}`}
+              
+              // Optional: Add tags for ConvertKit segmentation
+              tags={[
+                'website-audit'
+              ]}
+            />
           </div>
+
+          {/* Option 2: Consultation */}
+          <div className="glass rounded-xl p-8">
+            <h3 className="text-2xl font-bold mb-3">
+              Option 2: Let's Talk Now
+            </h3>
+            <p className="mb-6 opacity-90">
+              Skip the wait - book a free 15-minute call to discuss your specific needs
+            </p>
+            <Link
+              href="/contact?form=quick-consultation"
+              className="inline-block bg-white text-nebula-black px-8 py-4 rounded-lg font-semibold hover:transform hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
+            >
+              Book Free Consultation →
+            </Link>
+          </div>
+        </div>
+
+        <p className="text-sm opacity-75">
+          No spam, no automated emails. I personally review every audit submission.
+        </p>
       </Section>
 
       <Footer />

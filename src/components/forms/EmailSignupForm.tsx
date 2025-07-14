@@ -182,7 +182,7 @@ export default function EmailSignupForm({
         <button
           type="submit"
           disabled={isLoading}
-          className="bg-gradient-nebula text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 cursor-pointer hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-gradient-nebula text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 cursor-pointer hover:transform hover:-translate-y-1 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? 'Submitting...' : submitButtonText}
         </button>

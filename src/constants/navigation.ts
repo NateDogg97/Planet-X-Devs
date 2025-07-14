@@ -65,6 +65,10 @@ export const footerNavigation = {
       href: '/services'
     },
     {
+      label: 'Website Audit Checklist',
+      href: '/website-audit-checklist'
+    },
+    {
       label: 'Contact',
       href: '/contact'
     },

@@ -247,8 +247,11 @@ export default function WhiteLabelPageClient() {
                 6. Performance Optimization
               </h3>
               <div className="px-6 border-l-2 border-nebula-violet">
-                <p className="text-text-primary">
+                <p className="text-text-primary mb-4">
                   Slow sites kill conversions. My white label web development services include comprehensive performance optimization. I conduct thorough performance audits addressing Core Web Vitals optimization, PageSpeed Insights improvements, and GTmetrix score enhancement. This includes image optimization and lazy loading, critical CSS implementation, JavaScript optimization, database optimization, caching strategy implementation, CDN setup and configuration, and third-party script optimization.
+                </p>
+                <p className="text-text-primary">
+                  Want to see how your current site measures up? Check out our <Link href="/website-audit-checklist" className="text-nebula-cyan hover:underline">free 30-point website audit checklist</Link> to identify areas for improvement.
                 </p>
               </div>
             </div>
