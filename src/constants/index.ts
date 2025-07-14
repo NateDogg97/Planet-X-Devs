@@ -82,3 +82,9 @@ export {
   type WhiteLabelCaseStudy,
   type WhiteLabelFAQ
 } from './pages/white-label-web-development';
+
+export {
+  websiteAuditChecklistData,
+  type WebsiteAuditChecklistItem,
+  type WebsiteAuditCategory
+} from './pages/website-audit-checklist';

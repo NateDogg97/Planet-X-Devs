@@ -288,6 +288,37 @@ const icons = {
     <svg className={props.className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={props.strokeWidth || 2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
     </svg>
+  ),
+  // Website audit specific icons
+  'check-small': (props: IconProps) => (
+    <svg className={props.className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+    </svg>
+  ),
+  'speedometer': (props: IconProps) => (
+    <svg className={props.className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 4.42-3.58 8-8 8s-8-3.58-8-8c0-4.08 3.05-7.44 7-7.93V2.05C5.94 2.55 2 6.81 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10c0-5.19-3.94-9.45-9-9.95zM11 2v11l1 1 4.24-4.24-.71-.71L12 11.59V2h-1z"/>
+    </svg>
+  ),
+  'shield-full': (props: IconProps) => (
+    <svg className={props.className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+    </svg>
+  ),
+  'phone': (props: IconProps) => (
+    <svg className={props.className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+    </svg>
+  ),
+  'search': (props: IconProps) => (
+    <svg className={props.className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    </svg>
+  ),
+  'wrench': (props: IconProps) => (
+    <svg className={props.className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+    </svg>
   )
 };
 
