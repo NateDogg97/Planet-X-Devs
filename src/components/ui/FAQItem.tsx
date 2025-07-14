@@ -44,7 +44,7 @@ export default function FAQItem({
   return (
     <div 
       className={`
-        group relative overflow-hidden
+        group relative overflow-hidden text-text-primary
         
         /* Light mode styles */
         bg-white
@@ -101,7 +101,7 @@ export default function FAQItem({
         `}
       >
         <h3 className={`
-          text-lg font-semibold pr-8 text-text-reverse
+          text-lg font-semibold pr-8 
           
           /* Hover effect */
           transition-colors duration-200

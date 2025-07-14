@@ -13,10 +13,6 @@ import {
 import Icon from '@/components/ui/Icon';
 import Link from 'next/link';
 
-// Lazy load footer
-const Footer = dynamic(() => import('@/components/navigation/Footer'), {
-  loading: () => <div className="bg-nebula-black h-64 animate-pulse" />
-});
 
 const FloatingParticles = dynamic(() => import('@/components/ui/FloatingParticles'), {
   ssr: false,
@@ -516,7 +512,6 @@ export default function WhiteLabelPageClient() {
         </div>
       </Section>
 
-      <Footer />
     </div>
   );
 }

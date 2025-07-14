@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Section from '@/components/layout/Section';
 import Heading from '@/components/ui/Heading';
-import Footer from '@/components/navigation/Footer';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Planet X Devs',
@@ -146,7 +145,6 @@ export default function PrivacyPolicyPage() {
         </div>
       </Section>
 
-      <Footer />
     </main>
   );
 }

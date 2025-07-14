@@ -3,25 +3,27 @@
 import { useState, useEffect } from 'react';
 import Section from '@/components/layout/Section';
 import Icon from '@/components/ui/Icon';
-import Footer from '@/components/navigation/Footer';
 import EmailSignupForm from '@/components/forms/EmailSignupForm';
 import { websiteAuditChecklistData } from '@/constants';
 import Link from 'next/link';
 
+type AuditItemStatus = 'passed' | 'failed' | 'unknown';
+
 export default function WebsiteAuditChecklistPageClient() {
-  const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set());
+  const [itemStatuses, setItemStatuses] = useState<Map<string, AuditItemStatus>>(new Map());
 
   const totalItems = websiteAuditChecklistData.reduce((total, category) => total + category.items.length, 0);
-  const checkedCount = checkedItems.size;
-  const progressPercentage = Math.round((checkedCount / totalItems) * 100);
+  const completedCount = Array.from(itemStatuses.values()).length;
+  const passedCount = Array.from(itemStatuses.values()).filter(status => status === 'passed').length;
+  const progressPercentage = Math.round((completedCount / totalItems) * 100);
 
   // Load saved progress from localStorage
   useEffect(() => {
     const savedProgress = localStorage.getItem('auditProgress');
     if (savedProgress) {
       try {
-        const checkedIds = JSON.parse(savedProgress);
-        setCheckedItems(new Set(checkedIds));
+        const statusData = JSON.parse(savedProgress);
+        setItemStatuses(new Map(Object.entries(statusData)));
       } catch (error) {
         console.error('Error loading saved progress:', error);
       }
@@ -30,45 +32,50 @@ export default function WebsiteAuditChecklistPageClient() {
 
   // Save progress to localStorage
   useEffect(() => {
-    localStorage.setItem('auditProgress', JSON.stringify(Array.from(checkedItems)));
-  }, [checkedItems]);
+    const statusObject = Object.fromEntries(itemStatuses);
+    localStorage.setItem('auditProgress', JSON.stringify(statusObject));
+  }, [itemStatuses]);
 
-  const handleCheckboxChange = (itemId: string) => {
-    setCheckedItems(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(itemId)) {
-        newSet.delete(itemId);
-      } else {
-        newSet.add(itemId);
-      }
-      return newSet;
+  const handleStatusChange = (itemId: string, status: AuditItemStatus) => {
+    setItemStatuses(prev => {
+      const newMap = new Map(prev);
+      newMap.set(itemId, status);
+      return newMap;
     });
   };
 
   const handleClearChecklist = () => {
-    if (window.confirm('Are you sure you want to clear all checked items? This action cannot be undone.')) {
-      setCheckedItems(new Set());
+    if (window.confirm('Are you sure you want to clear all responses? This action cannot be undone.')) {
+      setItemStatuses(new Map());
     }
   };
 
   const getChecklistResults = (): { score: string; results: string } => {
-    const checkedByCategory: { [key: string]: string[] } = {};
-    const uncheckedByCategory: { [key: string]: string[] } = {};
+    const passedByCategory: { [key: string]: string[] } = {};
+    const failedByCategory: { [key: string]: string[] } = {};
+    const unknownByCategory: { [key: string]: string[] } = {};
     let totalItems = 0;
     
     websiteAuditChecklistData.forEach((category) => {
       category.items.forEach((item) => {
         totalItems++;
-        if (checkedItems.has(item.id)) {
-          if (!checkedByCategory[category.title]) {
-            checkedByCategory[category.title] = [];
+        const status = itemStatuses.get(item.id);
+        
+        if (status === 'passed') {
+          if (!passedByCategory[category.title]) {
+            passedByCategory[category.title] = [];
           }
-          checkedByCategory[category.title].push(`✓ ${item.title}`);
+          passedByCategory[category.title].push(`✓ ${item.title}`);
+        } else if (status === 'failed') {
+          if (!failedByCategory[category.title]) {
+            failedByCategory[category.title] = [];
+          }
+          failedByCategory[category.title].push(`✗ ${item.title}`);
         } else {
-          if (!uncheckedByCategory[category.title]) {
-            uncheckedByCategory[category.title] = [];
+          if (!unknownByCategory[category.title]) {
+            unknownByCategory[category.title] = [];
           }
-          uncheckedByCategory[category.title].push(`✗ ${item.title}`);
+          unknownByCategory[category.title].push(`? ${item.title}`);
         }
       });
     });
@@ -85,11 +92,12 @@ export default function WebsiteAuditChecklistPageClient() {
       return sections.length > 0 ? `${sectionTitle} (${Object.values(categoryData).flat().length}):\n\n${sections.join('\n\n')}` : '';
     };
     
-    const checkedSection = formatCategorySections(checkedByCategory, 'Checked items');
-    const uncheckedSection = formatCategorySections(uncheckedByCategory, 'Unchecked items');
+    const passedSection = formatCategorySections(passedByCategory, 'Passed items');
+    const failedSection = formatCategorySections(failedByCategory, 'Failed items');
+    const unknownSection = formatCategorySections(unknownByCategory, 'Unknown/Not checked items');
     
-    const score = `${checkedItems.size}/${totalItems}`;
-    const results = [checkedSection, uncheckedSection].filter(section => section).join('\n\n');
+    const score = `${passedCount}/${totalItems}`;
+    const results = [passedSection, failedSection, unknownSection].filter(section => section).join('\n\n');
     
     return { score, results };
   };
@@ -140,9 +148,9 @@ export default function WebsiteAuditChecklistPageClient() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
               <div className="text-center">
                 <div className="text-4xl font-bold text-text-accent mb-2">
-                  {checkedCount}
+                  {passedCount}
                 </div>
-                <div className="text-text-secondary">Items Checked</div>
+                <div className="text-text-secondary">Items Passed</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-text-accent mb-2">
@@ -165,13 +173,13 @@ export default function WebsiteAuditChecklistPageClient() {
               />
             </div>
             
-            {checkedCount > 0 && (
+            {completedCount > 0 && (
               <div className="flex justify-center mt-4">
                 <button
                   onClick={handleClearChecklist}
                   className="text-sm text-text-secondary hover:text-text-primary border border-border-secondary hover:border-border-primary px-4 py-2 rounded-lg transition-colors duration-200"
                 >
-                  Clear Checklist
+                  Clear All Responses
                 </button>
               </div>
             )}
@@ -190,49 +198,85 @@ export default function WebsiteAuditChecklistPageClient() {
                 </div>
                 
                 <div className="p-6 space-y-6">
-                  {category.items.map((item, index) => (
-                    <div key={item.id} className={`flex items-start gap-4 pb-6 ${index < category.items.length - 1 ? 'border-b border-border-primary' : ''}`}>
-                      <div className="mt-1">
-                        <input
-                          type="checkbox"
-                          id={item.id}
-                          checked={checkedItems.has(item.id)}
-                          onChange={() => handleCheckboxChange(item.id)}
-                          className="w-5 h-5 text-text-accent bg-bg-primary border-border-secondary rounded focus:ring-text-accent focus:ring-2 cursor-pointer"
-                        />
-                      </div>
-                      
-                      <div className="flex-1">
-                        <h4 className="text-lg font-semibold text-text-primary mb-2">
-                          {item.title}
-                        </h4>
-                        <p className="text-text-secondary mb-2">
-                          {item.description}
-                        </p>
-                        {item.tip && (
-                          <div className="bg-nebula-purple/10 border border-nebula-purple/20 text-nebula-purple dark:bg-nebula-cyan/10 dark:border-nebula-cyan/20 dark:text-nebula-white p-3 rounded-lg text-sm">
-                            {item.tip}
+                  {category.items.map((item, index) => {
+                    const currentStatus = itemStatuses.get(item.id);
+                    return (
+                      <div key={item.id} className={`pb-6 ${index < category.items.length - 1 ? 'border-b border-border-primary' : ''}`}>
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className="flex-1">
+                            <h4 className="text-lg font-semibold text-text-primary mb-2">
+                              {item.title}
+                            </h4>
+                            <p className="text-text-secondary mb-3">
+                              {item.description}
+                            </p>
                           </div>
-                        )}
-                        {item.links && item.links.length > 0 && (
-                          <div className="mt-3 flex flex-wrap gap-2">
-                            {item.links.map((link, linkIndex) => (
-                              <a
-                                key={linkIndex}
-                                href={link.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-sm text-text-accent hover:text-text-accent-alt font-medium hover:underline transition-colors"
-                              >
-                                {link.text}
-                                <Icon name="external-link" className="w-3 h-3" />
-                              </a>
-                            ))}
-                          </div>
-                        )}
+                        </div>
+                        
+                        <div className="flex gap-6 mb-3">
+                          <label className="flex items-center gap-2 cursor-pointer">
+                            <input
+                              type="radio"
+                              name={item.id}
+                              value="passed"
+                              checked={currentStatus === 'passed'}
+                              onChange={() => handleStatusChange(item.id, 'passed')}
+                              className="w-4 h-4 text-green-600 bg-bg-primary border-border-secondary focus:ring-green-500 focus:ring-2"
+                            />
+                            <span className="text-sm font-medium text-green-600">Passed</span>
+                          </label>
+                          
+                          <label className="flex items-center gap-2 cursor-pointer">
+                            <input
+                              type="radio"
+                              name={item.id}
+                              value="failed"
+                              checked={currentStatus === 'failed'}
+                              onChange={() => handleStatusChange(item.id, 'failed')}
+                              className="w-4 h-4 text-red-600 bg-bg-primary border-border-secondary focus:ring-red-500 focus:ring-2"
+                            />
+                            <span className="text-sm font-medium text-red-600">Failed</span>
+                          </label>
+                          
+                          <label className="flex items-center gap-2 cursor-pointer">
+                            <input
+                              type="radio"
+                              name={item.id}
+                              value="unknown"
+                              checked={currentStatus === 'unknown'}
+                              onChange={() => handleStatusChange(item.id, 'unknown')}
+                              className="w-4 h-4 text-text-secondary bg-bg-primary border-border-secondary focus:ring-text-accent focus:ring-2"
+                            />
+                            <span className="text-sm font-medium text-text-secondary">I don't know</span>
+                          </label>
+                        </div>
+                        
+                        <div>
+                          {item.tip && (
+                            <div className="bg-nebula-purple/10 border border-nebula-purple/20 text-nebula-purple dark:bg-nebula-cyan/10 dark:border-nebula-cyan/20 dark:text-nebula-white p-3 rounded-lg text-sm mb-3">
+                              {item.tip}
+                            </div>
+                          )}
+                          {item.links && item.links.length > 0 && (
+                            <div className="flex flex-wrap gap-2">
+                              {item.links.map((link, linkIndex) => (
+                                <a
+                                  key={linkIndex}
+                                  href={link.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1 text-sm text-text-accent hover:text-text-accent-alt font-medium hover:underline transition-colors"
+                                >
+                                  {link.text}
+                                  <Icon name="external-link" className="w-3 h-3" />
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             ))}
@@ -242,7 +286,7 @@ export default function WebsiteAuditChecklistPageClient() {
       {/* Combined CTA Section - Email + Consultation */}
       <Section container className="bg-gradient-nebula text-white">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          Your Score: {checkedCount}/30 - Now What?
+          Your Score: {passedCount}/30 - Now What?
         </h2>
         
         <p className="text-xl mb-8 opacity-95">
@@ -268,7 +312,7 @@ export default function WebsiteAuditChecklistPageClient() {
               gtmEventData={{
                 email_list: 'website-audit',
                 source: 'audit-checklist',
-                audit_score: checkedCount,
+                audit_score: passedCount,
               }}
               
               sendResendNotification={true}
@@ -304,7 +348,6 @@ export default function WebsiteAuditChecklistPageClient() {
         </p>
       </Section>
 
-      <Footer />
     </div>
   );
 }

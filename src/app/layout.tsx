@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/navigation/Header";
+import Footer from "@/components/navigation/Footer";
 import { PerformanceProvider } from "@/components/providers/PerformanceProvider";
 import { GoogleTagManager } from "@next/third-parties/google";
 
@@ -185,6 +186,7 @@ export default function RootLayout({
           <GoogleTagManager gtmId="GTM-WCRL2WXZ"/>
           <Header />
           <main className="pt-24">{children}</main>
+          <Footer />
         </PerformanceProvider>
       </body>
     </html>

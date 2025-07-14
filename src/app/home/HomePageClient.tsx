@@ -55,26 +55,6 @@ const VerticalTimeline = dynamic(() => import('@/components/ui/VerticalTimeline'
   )
 });
 
-const Footer = dynamic(() => import('@/components/navigation/Footer'), {
-  loading: () => (
-    <div className="bg-nebula-black h-64 animate-pulse border-t border-nebula-purple-30">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="space-y-4">
-              <div className="h-6 bg-nebula-purple-30 rounded w-24"></div>
-              <div className="space-y-2">
-                <div className="h-4 bg-nebula-purple-20 rounded w-32"></div>
-                <div className="h-4 bg-nebula-purple-20 rounded w-28"></div>
-                <div className="h-4 bg-nebula-purple-20 rounded w-36"></div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-});
 
 // Only show featured services on homepage for better performance
 const featuredServices = services.slice(0, 6);
@@ -536,7 +516,6 @@ export default function HomePageClient() {
         <FloatingParticles />
       </Section>
 
-      <Footer />
     </div>
   );
 }

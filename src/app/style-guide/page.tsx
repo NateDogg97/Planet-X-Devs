@@ -6,7 +6,6 @@ import Container from '@/components/layout/Container';
 import Heading from '@/components/ui/Heading';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
-import Footer from '@/components/navigation/Footer';
 
 export default function StyleGuide() {
   return (
@@ -180,7 +179,6 @@ export default function StyleGuide() {
         </Container>
       </Section>
 
-      <Footer />
     </div>
   );
 }

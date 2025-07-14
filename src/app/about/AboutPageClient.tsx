@@ -19,26 +19,6 @@ const FloatingParticles = dynamic(() => import('@/components/ui/FloatingParticle
   loading: () => <div className="absolute inset-0" />
 });
 
-const Footer = dynamic(() => import('@/components/navigation/Footer'), {
-  loading: () => (
-    <div className="bg-nebula-black h-64 animate-pulse border-t border-nebula-purple-30">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="space-y-4">
-              <div className="h-6 bg-nebula-purple-30 rounded w-24"></div>
-              <div className="space-y-2">
-                <div className="h-4 bg-nebula-purple-20 rounded w-32"></div>
-                <div className="h-4 bg-nebula-purple-20 rounded w-28"></div>
-                <div className="h-4 bg-nebula-purple-20 rounded w-36"></div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-});
 
 // Timeline data array
 const timelineData = [
@@ -669,7 +649,6 @@ export default function AboutPageClient() {
         <FloatingParticles />
       </Section>
 
-      <Footer />
     </div>
   );
 }
