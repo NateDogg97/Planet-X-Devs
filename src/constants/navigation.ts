@@ -72,6 +72,10 @@ export const footerNavigation = {
       label: 'Contact',
       href: '/contact'
     },
+    {
+      label: 'Privacy Policy',
+      href: '/privacy-policy'
+    }
   ]
 };
 
