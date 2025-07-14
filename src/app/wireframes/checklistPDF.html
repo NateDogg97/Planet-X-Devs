@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Critical Website Issues Costing You Customers</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.75in;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: white;
+            font-size: 11pt;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h1 {
+            font-size: 28pt;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 14pt;
+            color: #7f8c8d;
+            font-weight: 400;
+        }
+        
+        .intro {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .intro p {
+            font-size: 11pt;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .issue {
+            margin-bottom: 35px;
+            page-break-inside: avoid;
+        }
+        
+        .issue-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .issue-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18pt;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .issue-content h2 {
+            font-size: 16pt;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .severity {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 9pt;
+            font-weight: 600;
+        }
+        
+        .severity.medium {
+            background: #f39c12;
+        }
+        
+        .checklist {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .checklist li {
+            list-style: none;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            font-size: 14pt;
+        }
+        
+        .impact-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 12px 0;
+        }
+        
+        .impact-box strong {
+            color: #856404;
+        }
+        
+        .fix-box {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 12px 0;
+        }
+        
+        .fix-box strong {
+            color: #155724;
+        }
+        
+        .cta-section {
+            background: #667eea;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 40px;
+            page-break-inside: avoid;
+        }
+        
+        .cta-section h2 {
+            font-size: 20pt;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section p {
+            font-size: 12pt;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+        
+        .cta-url {
+            background: white;
+            color: #667eea;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14pt;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 10pt;
+        }
+        
+        @media print {
+            .issue {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>5 Critical Website Issues Costing You Customers</h1>
+            <p class="subtitle">A quick audit checklist from someone who fixes these daily</p>
+        </header>
+        
+        <div class="intro">
+            <p><strong>Hi there!</strong> I'm a web developer who reviews dozens of business websites each month. These are the 5 most common (and costly) issues I find.</p>
+            <p>Check off what applies to your site. If you can't check at least 3 boxes, we should talk.</p>
+        </div>
+        
+        <!-- Issue 1 -->
+        <div class="issue">
+            <div class="issue-header">
+                <div class="issue-number">1</div>
+                <div class="issue-content">
+                    <h2>Your Site Takes Forever to Load</h2>
+                    <span class="severity">CRITICAL IMPACT</span>
+                </div>
+            </div>
+            
+            <ul class="checklist">
+                <li>Homepage loads in under 3 seconds</li>
+                <li>Mobile loading feels fast</li>
+                <li>Images don't take forever to appear</li>
+            </ul>
+            
+            <div class="impact-box">
+                <strong>Business Impact:</strong> Amazon found that every 1-second delay costs them $1.6 billion in sales annually. For small businesses, I've seen 3-second load times cut conversions in half.
+            </div>
+            
+            <div class="fix-box">
+                <strong>Quick Fix:</strong> 90% of speed issues come from unoptimized images. Compress them and you'll see immediate improvement.
+            </div>
+        </div>
+        
+        <!-- Issue 2 -->
+        <div class="issue">
+            <div class="issue-header">
+                <div class="issue-number">2</div>
+                <div class="issue-content">
+                    <h2>Google Says Your Site is "Not Secure"</h2>
+                    <span class="severity">CRITICAL IMPACT</span>
+                </div>
+            </div>
+            
+            <ul class="checklist">
+                <li>Padlock icon shows in browser bar</li>
+                <li>No security warnings appear</li>
+                <li>URL starts with https:// (not http://)</li>
+            </ul>
+            
+            <div class="impact-box">
+                <strong>Business Impact:</strong> 85% of online shoppers avoid unsecured websites. Plus, Google penalizes non-secure sites in search rankings.
+            </div>
+            
+            <div class="fix-box">
+                <strong>Quick Fix:</strong> Most hosting providers offer free SSL certificates. It's usually a one-click install in your hosting control panel.
+            </div>
+        </div>
+        
+        <!-- Issue 3 -->
+        <div class="issue">
+            <div class="issue-header">
+                <div class="issue-number">3</div>
+                <div class="issue-content">
+                    <h2>Mobile Visitors Can't Use Your Site</h2>
+                    <span class="severity">CRITICAL IMPACT</span>
+                </div>
+            </div>
+            
+            <ul class="checklist">
+                <li>Site looks good on smartphones</li>
+                <li>Buttons are big enough to tap</li>
+                <li>Text is readable without zooming</li>
+                <li>Menu works on mobile devices</li>
+            </ul>
+            
+            <div class="impact-box">
+                <strong>Business Impact:</strong> 67% of users are more likely to buy from a mobile-friendly site. With 60%+ of traffic from mobile, this is make-or-break.
+            </div>
+            
+            <div class="fix-box">
+                <strong>Quick Fix:</strong> Test your site on your phone right now. If you're pinching to zoom or can't tap buttons, your customers are struggling too.
+            </div>
+        </div>
+        
+        <!-- Issue 4 -->
+        <div class="issue">
+            <div class="issue-header">
+                <div class="issue-number">4</div>
+                <div class="issue-content">
+                    <h2>Nobody Can Find You on Google</h2>
+                    <span class="severity medium">HIGH IMPACT</span>
+                </div>
+            </div>
+            
+            <ul class="checklist">
+                <li>Each page has a unique title</li>
+                <li>Your business shows up when searched</li>
+                <li>Page descriptions make sense</li>
+            </ul>
+            
+            <div class="impact-box">
+                <strong>Business Impact:</strong> 93% of online experiences begin with a search engine. If you're not showing up, you're invisible to potential customers.
+            </div>
+            
+            <div class="fix-box">
+                <strong>Quick Fix:</strong> Start with unique page titles and descriptions. It's basic SEO that many sites completely miss.
+            </div>
+        </div>
+        
+        <!-- Issue 5 -->
+        <div class="issue">
+            <div class="issue-header">
+                <div class="issue-number">5</div>
+                <div class="issue-content">
+                    <h2>Visitors Don't Know What to Do Next</h2>
+                    <span class="severity medium">HIGH IMPACT</span>
+                </div>
+            </div>
+            
+            <ul class="checklist">
+                <li>Clear "Contact Us" or "Get Started" buttons</li>
+                <li>Phone number is clickable on mobile</li>
+                <li>Forms are simple and actually work</li>
+                <li>Each page has an obvious next step</li>
+            </ul>
+            
+            <div class="impact-box">
+                <strong>Business Impact:</strong> You can have thousands of visitors, but without clear calls-to-action, they leave without converting. It's like having a store with no checkout.
+            </div>
+            
+            <div class="fix-box">
+                <strong>Quick Fix:</strong> Look at each page and ask "What do I want visitors to do here?" Then make that action impossible to miss.
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Want the Complete 50-Point Audit?</h2>
+            <p>This is just the tip of the iceberg. Get the full interactive checklist with 45 more items that could be holding your site back.</p>
+            <div class="cta-url">planetxdevs.com/website-audit</div>
+            <p style="margin-top: 15px; font-size: 11pt;">Or reply to my email - I personally read every response!</p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Planet X Devs | nathaniel@planetxdevs.com | +1 (512) 789 - 8844</p>
+            <p>This checklist is based on real issues found in 100+ client website audits.</p>
+        </div>
+    </div>
+</body>
+</html>

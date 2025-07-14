@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Website Audit Checklist - Find Hidden Issues Instantly</title>
+    <meta name="description" content="Use our 50-point website audit checklist to find issues affecting your speed, security, SEO, and conversions. Get personalized recommendations.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: left;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .benefit-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .benefit-icon svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+        }
+        
+        /* Email Capture Bar */
+        .email-capture {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: -40px auto 60px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .email-capture h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .email-capture p {
+            color: #7f8c8d;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .email-form {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .email-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 16px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .email-form input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .email-form button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .email-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .skip-link {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .skip-link a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .skip-link a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Checklist Section */
+        .checklist-section {
+            padding: 60px 20px;
+            background: white;
+        }
+        
+        .checklist-intro {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+        
+        .checklist-intro h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .checklist-intro p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+        
+        /* Progress and Score */
+        .progress-container {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .progress-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .progress-bar {
+            height: 20px;
+            background: #e1e8ed;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #667eea);
+            width: 0;
+            transition: width 0.3s ease;
+        }
+        
+        /* Checklist Items */
+        .checklist-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .checklist-category {
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e1e8ed;
+            overflow: hidden;
+        }
+        
+        .category-header {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e1e8ed;
+        }
+        
+        .category-header h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .category-icon {
+            width: 24px;
+            height: 24px;
+            fill: #667eea;
+        }
+        
+        .category-description {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            margin-top: 0.5rem;
+        }
+        
+        .checklist-items {
+            padding: 1.5rem;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .checkbox-wrapper {
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+        }
+        
+        .checkbox-wrapper input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #3498db;
+        }
+        
+        .item-content {
+            flex: 1;
+        }
+        
+        .item-content h4 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .item-content p {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .item-tip {
+            background: #e8f4fd;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #2980b9;
+            margin-top: 0.5rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .cta-subtitle {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        /* Success message */
+        .success-message {
+            display: none;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .email-form {
+                flex-direction: column;
+            }
+            
+            .email-form input,
+            .email-form button {
+                width: 100%;
+            }
+            
+            .checklist-intro h2,
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Is Your Website Costing You Customers?</h1>
+            <p class="hero-subtitle">Use our 50-point audit checklist to uncover hidden issues affecting your site's performance, security, and conversions</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <span>Find speed issues killing conversions</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <span>Discover security vulnerabilities</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <span>Identify SEO problems</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <span>Fix mobile experience issues</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Email Capture Bar -->
+    <div class="email-capture">
+        <h3>Want Personalized Recommendations?</h3>
+        <p>Enter your email to get a custom analysis of your results</p>
+        
+        <div class="success-message" id="successMessage">
+            Thanks! Check your email for personalized tips based on your audit results.
+        </div>
+        
+        <form id="emailForm" class="email-form">
+            <input type="email" placeholder="your@email.com" required id="emailInput">
+            <button type="submit">Get Custom Analysis</button>
+        </form>
+        
+        <p class="skip-link">
+            Or <a href="#checklist">skip to the free checklist below</a> →
+        </p>
+    </div>
+    
+    <!-- Checklist Section -->
+    <section class="checklist-section" id="checklist">
+        <div class="checklist-intro">
+            <h2>Your 50-Point Website Audit</h2>
+            <p>Check off items as you review your site. Most businesses score between 15-25 on their first audit.</p>
+        </div>
+        
+        <!-- Progress Tracking -->
+        <div class="progress-container">
+            <div class="progress-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="checkedCount">0</div>
+                    <div class="stat-label">Items Checked</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="totalCount">50</div>
+                    <div class="stat-label">Total Items</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="scorePercent">0%</div>
+                    <div class="stat-label">Your Score</div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+        
+        <div class="checklist-container">
+            <!-- Performance & Speed -->
+            <div class="checklist-category">
+                <div class="category-header">
+                    <h3>
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 4.42-3.58 8-8 8s-8-3.58-8-8c0-4.08 3.05-7.44 7-7.93V2.05C5.94 2.55 2 6.81 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10c0-5.19-3.94-9.45-9-9.95zM11 2v11l1 1 4.24-4.24-.71-.71L12 11.59V2h-1z"/>
+                        </svg>
+                        Performance & Speed
+                    </h3>
+                    <p class="category-description">Critical factors affecting user experience and SEO rankings</p>
+                </div>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="perf1" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Homepage loads in under 3 seconds</h4>
+                            <p>53% of mobile users abandon sites that take over 3 seconds to load</p>
+                            <div class="item-tip">💡 Test your speed at PageSpeed Insights</div>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="perf2" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Images are optimized and compressed</h4>
+                            <p>Large images are the #1 cause of slow websites</p>
+                            <div class="item-tip">💡 Use TinyPNG or similar tools to compress images</div>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="perf3" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Browser caching is enabled</h4>
+                            <p>Makes return visits significantly faster</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="perf4" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>JavaScript and CSS files are minified</h4>
+                            <p>Reduces file sizes by removing unnecessary characters</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="perf5" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Content Delivery Network (CDN) is used</h4>
+                            <p>Serves your site from servers closer to your visitors</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Security & Trust -->
+            <div class="checklist-category">
+                <div class="category-header">
+                    <h3>
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                        </svg>
+                        Security & Trust
+                    </h3>
+                    <p class="category-description">Essential for protecting your business and building customer confidence</p>
+                </div>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="sec1" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>SSL certificate installed (HTTPS)</h4>
+                            <p>Google marks non-secure sites and penalizes rankings</p>
+                            <div class="item-tip">💡 Most hosting providers offer free SSL certificates</div>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="sec2" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Contact forms have spam protection</h4>
+                            <p>Prevents bot submissions and maintains inbox sanity</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="sec3" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Regular backups are configured</h4>
+                            <p>Your insurance policy against data loss or hacking</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="sec4" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Software and plugins are up to date</h4>
+                            <p>Outdated software is the #1 security vulnerability</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="sec5" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Privacy policy and terms are present</h4>
+                            <p>Legal requirements in many jurisdictions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Experience -->
+            <div class="checklist-category">
+                <div class="category-header">
+                    <h3>
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+                        </svg>
+                        Mobile Experience
+                    </h3>
+                    <p class="category-description">Over 60% of web traffic comes from mobile devices</p>
+                </div>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="mob1" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Site is fully responsive on all devices</h4>
+                            <p>Content adapts seamlessly to different screen sizes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="mob2" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Touch targets are at least 48px</h4>
+                            <p>Buttons and links are easy to tap with a finger</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="mob3" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Text is readable without zooming</h4>
+                            <p>Font size is at least 16px on mobile</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="mob4" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Mobile menu is easy to use</h4>
+                            <p>Navigation is accessible and intuitive on small screens</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="mob5" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Forms are mobile-optimized</h4>
+                            <p>Input fields are properly sized and keyboard-friendly</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SEO Fundamentals -->
+            <div class="checklist-category">
+                <div class="category-header">
+                    <h3>
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                        SEO Fundamentals
+                    </h3>
+                    <p class="category-description">Help search engines understand and rank your site</p>
+                </div>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="seo1" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Each page has a unique title tag</h4>
+                            <p>The most important on-page SEO element</p>
+                            <div class="item-tip">💡 Keep titles under 60 characters</div>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="seo2" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Meta descriptions are compelling</h4>
+                            <p>Your search result "ad copy" - make it count</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="seo3" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>URL structure is clean and descriptive</h4>
+                            <p>example.com/services not example.com/page?id=123</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="seo4" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>XML sitemap exists and is submitted</h4>
+                            <p>Helps search engines find all your pages</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="seo5" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Google Analytics or similar installed</h4>
+                            <p>Can't improve what you don't measure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content & Engagement -->
+            <div class="checklist-category">
+                <div class="category-header">
+                    <h3>
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        Content & Engagement
+                    </h3>
+                    <p class="category-description">Keep visitors on your site and encourage action</p>
+                </div>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="cont1" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Clear calls-to-action on every page</h4>
+                            <p>Tell visitors exactly what you want them to do next</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="cont2" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Contact information is easy to find</h4>
+                            <p>Phone, email, and address visible within 2 clicks</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="cont3" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Content is up-to-date</h4>
+                            <p>No outdated prices, old events, or stale information</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="cont4" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Social proof is displayed</h4>
+                            <p>Testimonials, reviews, or case studies build trust</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="cont5" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>404 errors are handled gracefully</h4>
+                            <p>Custom 404 page helps lost visitors find their way</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Advanced Optimization -->
+            <div class="checklist-category">
+                <div class="category-header">
+                    <h3>
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                        </svg>
+                        Advanced Optimization
+                    </h3>
+                    <p class="category-description">Take your website to the next level</p>
+                </div>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="adv1" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Schema markup implemented</h4>
+                            <p>Helps search engines understand your content better</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="adv2" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Core Web Vitals pass</h4>
+                            <p>Google's key metrics for user experience</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="adv3" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Accessibility standards met</h4>
+                            <p>Site is usable by people with disabilities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="adv4" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>A/B testing implemented</h4>
+                            <p>Data-driven improvements to conversion rates</p>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="adv5" class="check-item">
+                        </div>
+                        <div class="item-content">
+                            <h4>Progressive Web App features</h4>
+                            <p>Offline functionality and app-like experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need Help Fixing These Issues?</h2>
+            <p>Most businesses score between 15-25 on their first audit. If that's you, you're leaving money on the table.</p>
+            <a href="mailto:your-email@example.com" class="cta-button">Let's Fix Your Site →</a>
+            <p class="cta-subtitle">Free 15-minute consultation to review your results</p>
+        </div>
+    </section>
+    
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Email form handling
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('emailInput').value;
+            const checkedItems = document.querySelectorAll('.check-item:checked').length;
+            
+            // Here you would send this data to your email service
+            console.log('Email:', email);
+            console.log('Score:', checkedItems);
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            this.style.display = 'none';
+            
+            // In production, you'd send an email with personalized tips based on their score
+        });
+        
+        // Progress tracking
+        const checkboxes = document.querySelectorAll('.check-item');
+        const totalItems = checkboxes.length;
+        
+        function updateProgress() {
+            const checkedItems = document.querySelectorAll('.check-item:checked').length;
+            const percentage = Math.round((checkedItems / totalItems) * 100);
+            
+            document.getElementById('checkedCount').textContent = checkedItems;
+            document.getElementById('totalCount').textContent = totalItems;
+            document.getElementById('scorePercent').textContent = percentage + '%';
+            document.getElementById('progressFill').style.width = percentage + '%';
+            
+            // Save progress
+            const checkedIds = Array.from(checkboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.id);
+            localStorage.setItem('auditProgress', JSON.stringify(checkedIds));
+            
+            // If they've checked items and email form is still visible, 
+            // add a gentle reminder
+            if (checkedItems > 5 && document.getElementById('emailForm').style.display !== 'none') {
+                // Could add a subtle animation or highlight to the email form
+            }
+        }
+        
+        // Load saved progress
+        const savedProgress = localStorage.getItem('auditProgress');
+        if (savedProgress) {
+            const checkedIds = JSON.parse(savedProgress);
+            checkedIds.forEach(id => {
+                const checkbox = document.getElementById(id);
+                if (checkbox) {
+                    checkbox.checked = true;
+                }
+            });
+            updateProgress();
+        }
+        
+        // Add event listeners
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateProgress);
+        });
+        
+        // Initialize
+        updateProgress();
+    </script>
+</body>
+</html>

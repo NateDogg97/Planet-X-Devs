@@ -1,17 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { sendGTMEvent } from '@next/third-parties/google'
 import Section from '@/components/layout/Section';
 import Icon from '@/components/ui/Icon';
 import Footer from '@/components/navigation/Footer';
+import EmailSignupForm from '@/components/forms/EmailSignupForm';
 import { websiteAuditChecklistData } from '@/constants';
 
 export default function WebsiteAuditChecklistPageClient() {
-  const [email, setEmail] = useState('');
   const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set());
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [showEmailForm, setShowEmailForm] = useState(true);
 
   const totalItems = websiteAuditChecklistData.reduce((total, category) => total + category.items.length, 0);
   const checkedCount = checkedItems.size;
@@ -45,75 +42,6 @@ export default function WebsiteAuditChecklistPageClient() {
       }
       return newSet;
     });
-  };
-
-  const handleEmailSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      // Subscribe to ConvertKit
-      const response = await fetch('/api/convertkit-subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email,
-          firstName: '',
-          auditScore: checkedCount,
-          websiteUrl: window.location.href,
-        }),
-      });
-  
-      const data = await response.json();
-  
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to subscribe');
-      }
-  
-      // Track email subscription event in GTM
-      sendGTMEvent({
-        event: 'email_subscription',  // Matches your GTM custom event name
-        value: {
-          email_list: 'website-audit',
-          source: 'audit-checklist',
-          audit_score: checkedCount,
-        }
-      });
-  
-      // Optionally notify yourself via Resend
-      // await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     formType: 'website-audit',
-      //     email: email,
-      //     message: `Website audit completed. Score: ${checkedCount}/50`,
-      //     auditScore: checkedCount,
-      //   }),
-      // });
-  
-      // Show success message
-      setShowSuccess(true);
-      setShowEmailForm(false);
-  
-    } catch (error) {
-      console.error('Error submitting email:', error);
-      
-      // Track the error
-      sendGTMEvent({
-        event: 'form_error',
-        value: {
-          error_type: 'email_subscription_error',
-          form_type: 'website-audit',
-          error_message: error instanceof Error ? error.message : 'Unknown error'
-        }
-      });
-      
-      alert('Sorry, there was an error. Please try again.');
-    }
   };
 
   const handleSkipToChecklist = () => {
@@ -150,56 +78,6 @@ export default function WebsiteAuditChecklistPageClient() {
                 </div>
               ))}
             </div>
-          </div>
-      </Section>
-
-      {/* Email Capture Section */}
-      <Section container>
-          <div className="glass rounded-xl p-8 max-w-3xl mx-auto relative z-10">
-            {showSuccess ? (
-              <div className="text-center">
-                <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-green-800 dark:text-green-300 p-4 rounded-lg mb-6">
-                  Thanks! Check your email for personalized tips based on your audit results.
-                </div>
-              </div>
-            ) : showEmailForm ? (
-              <>
-                <h3 className="text-2xl font-bold text-text-primary text-center mb-2">
-                  Want Personalized Recommendations?
-                </h3>
-                <p className="text-text-secondary text-center mb-6">
-                  Enter your email to get a custom analysis of your results
-                </p>
-                
-                <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="your@email.com"
-                    required
-                    className="flex-1 min-w-0 sm:max-w-xs px-4 py-3 border-2 border-border-primary rounded-lg text-text-primary bg-bg-primary focus:outline-none focus:border-text-accent transition-colors"
-                  />
-                  <button
-                    type="submit"
-                    className="bg-gradient-nebula text-white px-6 py-3 rounded-lg font-semibold hover:transform hover:-translate-y-1 hover:shadow-nebula transition-all duration-200"
-                  >
-                    Get Custom Analysis
-                  </button>
-                </form>
-              </>
-            ) : null}
-            
-            <p className="text-center mt-4 text-text-secondary">
-              Or{' '}
-              <button
-                onClick={handleSkipToChecklist}
-                className="text-text-accent hover:underline font-medium"
-              >
-                skip to the free checklist below
-              </button>
-              {' '}→
-            </p>
           </div>
       </Section>
 
@@ -307,8 +185,42 @@ export default function WebsiteAuditChecklistPageClient() {
           </div>
       </Section>
 
+      {/* Email Capture Section */}
+      <Section container className='pt-0 pb-24'>
+        <div className="glass rounded-xl p-8 max-w-3xl mx-auto relative z-10">
+          <h3 className="text-2xl font-bold text-text-primary text-center mb-2">
+            Want Personalized Recommendations?
+          </h3>
+          <p className="text-text-secondary text-center mb-6">
+            Enter your email to get a custom analysis of your results
+          </p>
+          
+          <EmailSignupForm
+            formId="website-audit"
+            submitButtonText="Get Custom Analysis"
+            successMessage="Thanks! Check your email for personalized tips based on your audit results."
+            gtmEventData={{
+              email_list: 'website-audit',
+              source: 'audit-checklist',
+              audit_score: checkedCount,
+            }}
+          />
+          
+          <p className="text-center mt-4 text-text-secondary">
+            Or{' '}
+            <button
+              onClick={handleSkipToChecklist}
+              className="text-text-accent hover:underline font-medium"
+            >
+              skip to the free checklist below
+            </button>
+            {' '}→
+          </p>
+        </div>
+      </Section>
+
       {/* CTA Section */}
-      <Section className="bg-gradient-nebula text-white py-20">
+      <Section className="bg-gradient-nebula text-white">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Need Help Fixing These Issues?
