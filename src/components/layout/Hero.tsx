@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Icon from '../ui/Icon';
 import StarField from '../ui/StarField';
 import FloatingPlanet from '../ui/FloatingPlanet';
+import { motion } from 'framer-motion';
 import { HeroProps } from '@/types';
 
 export default function Hero({
@@ -26,7 +27,18 @@ export default function Hero({
       <div className="relative z-10 container mx-auto px-6 py-24">
         <div className={`max-w-4xl ${centered ? 'mx-auto text-center' : ''}`}>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-nebula-white mb-6">
-            {title}
+            {title.split(' ').map((word, index, array) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="inline-block"
+                style={{ marginRight: index < array.length - 1 ? '0.5rem' : '0' }}
+              >
+                {word}{index < array.length - 1 ? ' ' : ''}
+              </motion.span>
+            ))}
           </h1>
           <p className="text-xl md:text-2xl text-nebula-white opacity-90 mb-8">
             {subtitle}
@@ -35,14 +47,16 @@ export default function Hero({
           {bullets && bullets.length > 0 && (
             <div className={`space-y-3 mb-8 ${centered ? 'text-left max-w-2xl mx-auto' : ''}`}>
               {bullets.map((bullet, index) => (
-                <div 
+                <motion.div 
                   key={index} 
-                  className="flex items-center text-lg text-nebula-white animate-slide-in-left"
-                  style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                  className="flex items-center text-lg text-nebula-white"
                 >
                   <Icon name="check" className="text-nebula-cyan mr-3 flex-shrink-0" />
                   <span>{bullet}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
           )}
