@@ -26,19 +26,7 @@ export default function Hero({
       <div className="relative z-10 container mx-auto px-6 py-24">
         <div className={`max-w-4xl ${centered ? 'mx-auto text-center' : ''}`}>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-nebula-white mb-6">
-            {title.split(' ').map((word, index) => (
-              <span
-                key={index}
-                className="inline-block animate-flipInX opacity-0"
-                style={{ 
-                  animationDelay: `${index * 0.15}s`,
-                  animationFillMode: 'forwards'
-                }}
-              >
-                {word}
-                {index < title.split(' ').length - 1 ? '\u00A0' : ''}
-              </span>
-            ))}
+            {title}
           </h1>
           <p className="text-xl md:text-2xl text-nebula-white opacity-90 mb-8">
             {subtitle}
