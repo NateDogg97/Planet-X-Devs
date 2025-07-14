@@ -11,6 +11,7 @@ import {
   whiteLabelFAQs
 } from '@/constants';
 import Icon from '@/components/ui/Icon';
+import Link from 'next/link';
 
 // Lazy load footer
 const Footer = dynamic(() => import('@/components/navigation/Footer'), {
