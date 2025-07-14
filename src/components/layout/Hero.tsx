@@ -1,16 +1,9 @@
-'use client';
-
 import Link from 'next/link';
 import Icon from '../ui/Icon';
 import StarField from '../ui/StarField';
-import dynamic from 'next/dynamic';
+import FloatingPlanet from '../ui/FloatingPlanet';
 import { motion } from 'framer-motion';
 import { HeroProps } from '@/types';
-
-const FloatingPlanet = dynamic(() => import('../ui/FloatingPlanet'), {
-  ssr: false,
-  loading: () => null
-});
 
 export default function Hero({
   title,

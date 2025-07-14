@@ -24,9 +24,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Tagline**: "Your Agency's Technical Partner"
 - **Tech Focus**: JavaScript-first, modern web technologies
 
-### Current Repositioning Project
-**IMPORTANT**: We are transitioning from WordPress-focused messaging to modern JavaScript/full-stack development positioning. See `white-label-page-implementation-plan.md` for detailed conversion instructions. See `white-label-page-content.md` for exact text to be used.
-
 ## Development Philosophy
 
 ### Core Principles
@@ -56,8 +53,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Current Task: White Label Page Conversion
 
 ### Reference Documentation
-For detailed implementation instructions, see: `white-label-page-implementation-plan.md`
-For deatiled text content and sections to be implemented, see `white-label-page-content.md`
+
 
 ### Key Objectives
 1. Reposition from WordPress-specialist to modern web development
