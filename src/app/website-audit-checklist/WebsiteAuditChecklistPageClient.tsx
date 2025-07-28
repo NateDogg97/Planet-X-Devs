@@ -213,7 +213,7 @@ export default function WebsiteAuditChecklistPageClient() {
                           </div>
                         </div>
                         
-                        <div className="flex gap-6 mb-3">
+                        <div className="flex gap-6 mb-6">
                           <label className="flex items-center gap-2 cursor-pointer">
                             <input
                               type="radio"

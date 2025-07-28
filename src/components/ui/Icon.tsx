@@ -319,6 +319,22 @@ const icons = {
     <svg className={props.className} fill="currentColor" viewBox="0 0 24 24">
       <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
     </svg>
+  ),
+  'gauge': (props: IconProps) => (
+    <svg className={props.className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={props.strokeWidth || 2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 13a1 1 0 100-2 1 1 0 000 2z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13.416 3.195a.75.75 0 01.657 1.237 9 9 0 11-4.149 0 .75.75 0 01.657-1.237l1.414 2.447m-1.414-2.447C11.886 3.065 12.114 3 12 3m-.581.195L12 5m0 0l.581-1.805M15.75 6.75l-1.5 1.5M6.75 17.25l1.5-1.5m0-9l-1.5-1.5m9 9l1.5 1.5M19 12h-2M7 12H5m7 0l-1 5" />
+    </svg>
+  ),
+  'edit': (props: IconProps) => (
+    <svg className={props.className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={props.strokeWidth || 2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+    </svg>
+  ),
+  'smartphone': (props: IconProps) => (
+    <svg className={props.className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={props.strokeWidth || 2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+    </svg>
   )
 };
 

@@ -9,6 +9,7 @@ import ServiceCard from '@/components/ui/ServiceCard';
 import NebulaGraphic from '@/components/ui/NebulaGraphic';
 import Icon from '@/components/ui/Icon';
 import { services, testimonials, processSteps } from '@/constants/index';
+import QuickWins from '@/components/sections/QuickWins';
 
 const TestimonialCarousel = dynamic(() => import('@/components/ui/TestimonialCarousel'), {
   ssr: false,
@@ -181,8 +182,8 @@ export default function HomePageClient() {
   return (
     <div className="min-h-screen overflow-hidden">
       <Hero
-        title="Your Agency's Development Partner"
-        subtitle="White-label web development agency based in Austin, TX specializing in website solutions for marketing agencies. Skip the hiring, keep the quality."
+        title="WordPress Development Partner"
+        subtitle="Austin-based agency helping marketing teams with WordPress development, performance optimization, and maintenance. Quick turnarounds starting at $50/hour."
         actions={[
           {
             text: "View Services & Pricing",
@@ -197,6 +198,9 @@ export default function HomePageClient() {
         ]}
         showPlanets={false}
       />
+
+      {/* Quick Wins Section */}
+      <QuickWins />
 
       {/* Partnership Section */}
       <Section background="secondary" container>

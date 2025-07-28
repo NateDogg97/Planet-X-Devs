@@ -4,174 +4,153 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Business Context
 
-**Planet X Devs** is a web development agency that provides:
-- Modern web application development (React, Next.js, Node.js)
-- Full-stack JavaScript development services
-- API development and integrations
-- E-commerce solutions (headless commerce, custom platforms)
-- WordPress development when specifically needed
-- Technical support and maintenance
-- Performance optimization services
+**Planet X Devs** is a web development service focused on helping marketing agencies with technical implementation. Primary services include WordPress development, performance optimization, and maintenance.
 
-### Target Audience
-1. **Primary**: Digital marketing agencies needing technical development support
-2. **Secondary**: Small businesses needing modern web solutions
+### Tech Stack
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion (minimize usage)
+- **Forms**: React Hook Form + Zod validation
+- **Email**: Resend API
+- **Hosting**: Vercel
+- **Languages**: TypeScript, JavaScript
 
-### Brand Identity
-- **Theme**: Deep Space / Distant Planet (nebula-inspired)
-- **Colors**: Deep Space Black (#0A0A0B), Nebula Purple (#6B46C1), Cosmic Violet (#9333EA), Stellar Blue (#312E81)
-- **Voice**: Professional yet approachable, technically competent without being intimidating
-- **Tagline**: "Your Agency's Technical Partner"
-- **Tech Focus**: JavaScript-first, modern web technologies
+## Development Guidelines
 
-## Development Philosophy
+### Component Architecture
+```
+src/
+  components/
+    ui/           # Reusable UI components (Button, Card, etc.)
+    sections/     # Page sections (Hero, Services, etc.)
+    forms/        # Form components with validation
+    animations/   # Animation components (use sparingly)
+```
 
-### Core Principles
-1. **Performance First**: This is primarily a static marketing site. Minimize JavaScript and bundle size.
-2. **Simplicity Over Complexity**: Use static HTML/CSS where possible, components only when truly needed.
-3. **Maintainability**: Keep it simple since it's a solo developer project.
-4. **Animation Balance**: Subtle, performant animations that enhance without overwhelming.
-5. **SEO Focus**: Implement best practices for search engine visibility.
+### Performance Requirements
+- **Target**: 95+ Lighthouse score
+- **Load Time**: <3s on 3G
+- **Bundle Size**: Keep main bundle under 150KB
+- **Images**: Use next/image with proper sizing
+- **Fonts**: Subset and preload critical fonts
 
-### When to Use Components vs Static Content
+### Code Style
+```typescript
+// Import order
+import { useState } from 'react';              // React
+import Image from 'next/image';                // Next.js
+import { motion } from 'framer-motion';        // External libs
+import { Button } from '@/components/ui';      // Internal components
+import type { ServiceProps } from '@/types';   // Types
 
-**USE COMPONENTS FOR:**
-- Interactive elements (ContactForm, TabInterface, navigation with mobile menu)
-- Truly reusable UI elements used across multiple pages (Button, Card)
-- Content that updates frequently
-- Layout elements that must be reused for each section (Containers, Sections)
-- Animated elements (StarField, FloatingPlanet, ProcessTimeline)
-- Form logic and validation
+// Component structure
+export function ComponentName({ prop1, prop2 }: ComponentProps) {
+  // State and hooks first
+  const [state, setState] = useState(false);
+  
+  // Event handlers
+  const handleClick = () => {};
+  
+  // Render
+  return <div>...</div>;
+}
+```
 
-**USE STATIC HTML/CSS FOR:**
-- Page sections that rarely change
-- Content-heavy areas with minimal interactivity
-- One-off layouts or designs
-- Static content sections without animations
-- Trust badges and simple info sections
+### CSS/Tailwind Guidelines
+- Use Tailwind classes for styling
+- Avoid custom CSS unless absolutely necessary
+- Responsive design: mobile-first approach
+- Common breakpoints: sm (640px), md (768px), lg (1024px)
 
-## Current Task: White Label Page Conversion
+### SEO Checklist
+- [ ] Unique meta title/description per page
+- [ ] Proper heading hierarchy (h1 → h2 → h3)
+- [ ] Image alt text
+- [ ] Structured data for local business
+- [ ] XML sitemap
+- [ ] Canonical URLs
 
-### Reference Documentation
+### Form Implementation
+```typescript
+// Use React Hook Form + Zod
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 
+const schema = z.object({
+  name: z.string().min(2),
+  email: z.string().email(),
+  message: z.string().min(10)
+});
+```
 
-### Key Objectives
-1. Reposition from WordPress-specialist to modern web development
-2. Lead with JavaScript technologies (React, Node.js, Next.js)
-3. Maintain WordPress as a service option, not primary focus
-4. Update all messaging, keywords, and service hierarchy
-
-### Implementation Approach
-- Work section by section as outlined in the implementation plan
-- Create new sections before removing old ones
-- Preserve valuable content by moving rather than deleting
-- Test each section after implementation
-- Maintain SEO value during transition
-
-## Technical Guidelines
-
-### Code Quality Standards
-1. **Type Safety**: Full TypeScript coverage, no `any` types
-2. **Component Size**: Keep under 200 lines, split if larger
-3. **Function Complexity**: Max cyclomatic complexity of 10
-4. **Import Order**: React → Next → External → Internal → Types → Styles
-5. **Naming Conventions**: 
-   - Components: PascalCase
-   - Functions/variables: camelCase
-   - Constants: UPPER_SNAKE_CASE
-   - CSS classes: kebab-case
-
-### Performance Optimization Checklist
-- [ ] Images optimized and using next/image
-- [ ] Fonts subset and preloaded
-- [ ] Critical CSS inlined
-- [ ] JavaScript code-split appropriately
-- [ ] Third-party scripts loaded asynchronously
-- [ ] Animations use CSS transforms only
-- [ ] No layout shifts from lazy-loaded content
-
-### Git Workflow
+### Environment Variables
 ```bash
-# Feature branch naming
-git checkout -b feature/white-label-modernization
+# Required
+RESEND_API_KEY=
+RESEND_FROM_EMAIL=
+RESEND_TO_EMAIL=
 
-# Commit message format
-# type(scope): subject
-# Example: feat(white-label): update hero to modern tech focus
+# Optional
+NEXT_PUBLIC_GA_ID=
+```
 
-# Before pushing
-npm run lint
-npm run build
+## Common Tasks
+
+### Update Hero Content
+```typescript
+// Location: src/app/page.tsx
+<Hero
+  title="Short, punchy headline"
+  subtitle="Longer descriptive text with key benefits and details"
+  actions={[...]}
+/>
+```
+
+### Add New Service
+1. Update `src/constants/services.ts`
+2. Add to pricing table if needed
+3. Update sitemap
+4. Add schema markup
+
+### Deploy Changes
+```bash
 git add .
-git commit -m "feat(white-label): modernize service offerings section"
+git commit -m "feat: update hero messaging"
+git push origin main
+# Vercel auto-deploys from main
 ```
 
-## Commands
-
-### Development
+## Testing Commands
 ```bash
-npm run dev          # Start development server with Turbopack
-npm run build        # Build production bundle
-npm run start        # Start production server
-npm run lint         # Run ESLint checks
-npm run type-check   # Run TypeScript compiler check
+npm run dev          # Local development
+npm run build        # Test production build
+npm run lint         # Check for issues
+npm run type-check   # TypeScript validation
 ```
 
-### Testing & Analysis
-```bash
-# Bundle analysis
-npm run build && npm run analyze
+## Performance Monitoring
+- Use Vercel Analytics for Web Vitals
+- Check GTmetrix weekly
+- Monitor form submission success rate
+- Track Core Web Vitals in Search Console
 
-# Accessibility audit
-npx pa11y http://localhost:3000/white-label-web-development
+## Quick Fixes
 
-# Performance audit
-npx lighthouse http://localhost:3000/white-label-web-development
+### Reduce Bundle Size
+- Check with `npm run analyze`
+- Remove unused dependencies
+- Lazy load below-fold components
+- Use dynamic imports for heavy components
 
-# SEO audit
-npx @sitespeed.io/sitespeed.io http://localhost:3000/white-label-web-development
-```
+### Improve Load Speed
+- Optimize images (WebP format)
+- Reduce font weights
+- Remove unused CSS
+- Minimize third-party scripts
 
-## Environment Variables
-```bash
-# Email Service
-RESEND_API_KEY=          # Resend API key
-RESEND_FROM_EMAIL=       # From email address
-RESEND_TO_EMAIL=         # To email address for form submissions
-
-# Analytics (Optional)
-NEXT_PUBLIC_GA_ID=       # Google Analytics ID
-NEXT_PUBLIC_GTM_ID=      # Google Tag Manager ID
-
-# Feature Flags (Optional)
-NEXT_PUBLIC_ENABLE_CHAT= # Enable/disable chat widget
-```
-
-## State Management
-- Use React's built-in useState for form state
-- Consider useReducer for complex form logic
-- No external state management libraries needed
-- Persist form data in sessionStorage (not localStorage)
-
-## Error Handling
-- Client-side validation before submission
-- Clear error messages next to fields
-- Global error state for submission failures
-- Fallback email link if form fails
-- Log errors to monitoring service (if available)
-
-## Mobile Considerations
-- Touch-friendly form inputs (min 44x44px)
-- Simplified navigation on mobile
-- Single-column layout for forms
-- Reduced animations on low-power devices
-- Test on real devices, not just DevTools
-
-## Future Enhancements
-- Technology stack showcase page
-- Interactive project portfolio
-- Client portal for existing customers
-- Advanced performance monitoring
-- A/B testing for conversion optimization
-- Multi-language support
-- API documentation portal
+### Better Conversions
+- Clear CTAs above fold
+- Reduce form fields
+- Add trust indicators
+- Show pricing transparently

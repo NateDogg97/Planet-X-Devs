@@ -5,6 +5,7 @@ import { TabItem } from '../../ui/TabInterface';
 import ProjectInquiryForm from './ProjectInquiryForm';
 import QuickConsultationForm from './QuickConsultationForm';
 import SupportMaintenanceForm from './SupportMaintenanceForm';
+import QuickWinContactForm from './QuickWinContactForm';
 
 export default function ContactForm() {
   const tabs: TabItem[] = [
@@ -22,6 +23,11 @@ export default function ContactForm() {
       id: 'support-maintenance',
       label: 'Support',
       content: <SupportMaintenanceForm />
+    },
+    {
+      id: 'quick-win',
+      label: 'Quick Win',
+      content: <QuickWinContactForm />
     }
   ];
 

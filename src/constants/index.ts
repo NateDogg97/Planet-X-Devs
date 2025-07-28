@@ -43,7 +43,9 @@ export {
 
 // Service-related exports
 export {
-  services
+  services,
+  quickWinServices,
+  type QuickWinService
 } from './services';
 
 // Social/Contact-related exports

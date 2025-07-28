@@ -3,8 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/navigation/Header";
 import Footer from "@/components/navigation/Footer";
+import AlertBanner from "@/components/ui/AlertBanner";
 import { PerformanceProvider } from "@/components/providers/PerformanceProvider";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { ALERT_BANNER_CONFIG } from "@/config/alertBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -185,6 +187,7 @@ export default function RootLayout({
         <PerformanceProvider enabled={true}>
           <GoogleTagManager gtmId="GTM-WCRL2WXZ"/>
           <Header />
+          <AlertBanner />
           <main className="pt-24">{children}</main>
           <Footer />
         </PerformanceProvider>

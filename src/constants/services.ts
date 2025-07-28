@@ -1,4 +1,39 @@
 import { Service } from '@/types';
+import { IconName } from '@/components/ui/Icon';
+
+export interface QuickWinService {
+  title: string;
+  price: string;
+  description: string;
+  icon: IconName;
+}
+
+export const quickWinServices: QuickWinService[] = [
+  {
+    title: 'Performance Audits',
+    price: '$299',
+    description: 'Comprehensive analysis of your site\'s speed with actionable recommendations',
+    icon: 'gauge'
+  },
+  {
+    title: '2-Hour Quick Fixes',
+    price: '$199',
+    description: 'Fast turnaround on urgent issues or small updates',
+    icon: 'wrench'
+  },
+  {
+    title: 'Landing Page Updates',
+    price: '$499',
+    description: 'Refresh your existing landing pages with modern design and copy',
+    icon: 'edit'
+  },
+  {
+    title: 'Mobile Responsiveness Fix',
+    price: '$399',
+    description: 'Make your site look perfect on all devices',
+    icon: 'smartphone'
+  }
+];
 
 export const services: Service[] = [
   {

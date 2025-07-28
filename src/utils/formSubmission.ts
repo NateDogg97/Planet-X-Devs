@@ -131,6 +131,13 @@ export function getInitialFormData(formType?: string): FormData {
         maintenanceInterest: false
       };
       
+    case 'quick-win':
+      return {
+        ...baseData,
+        projectType: '',
+        projectScope: ''
+      };
+      
     default:
       return {
         ...baseData,
