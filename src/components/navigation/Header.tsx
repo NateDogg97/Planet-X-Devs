@@ -10,7 +10,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full bg-nebula-black border-b border-nebula-purple-30 backdrop-blur-sm shadow-md z-50">
+    <header className="fixed top-0 w-full bg-nebula-black/50 border-b border-nebula-purple-30 backdrop-blur-sm shadow-md z-50">
       <nav 
         className="container mx-auto px-6 py-4"
         aria-label="Main navigation"
