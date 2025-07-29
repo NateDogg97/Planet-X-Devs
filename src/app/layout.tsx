@@ -19,6 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.planetxdevs.com'),
   title: "Planet X Devs - Your Agency Development Partner in Austin, TX",
   description: "Your trusted agency development partner in Austin, TX for white-label web services. We handle the technical work so you focus on campaigns.",
   keywords: "agency development partner, custom wordpress development, white label web development, marketing agency technical partner, wordpress developer for agencies, web development partnership, agency overflow support",
