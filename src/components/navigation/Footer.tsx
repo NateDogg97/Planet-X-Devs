@@ -13,7 +13,7 @@ export default function Footer() {
                 <div className="absolute inset-0 bg-nebula-violet opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
                 <div className="relative z-10 max-w-fit">
                   <Image
-                    src="/images/brand/horizontal/2000x500_white_black planet_2.png"
+                    src="/images/brand/horizontal/2000x500_white_black_planet_2.png"
                     alt="Planet X Devs"
                     width={320}
                     height={80}

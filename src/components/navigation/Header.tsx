@@ -27,7 +27,7 @@ export default function Header() {
               >
                 <Image
                   alt="Planet X Devs"
-                  src="/images/brand/horizontal/2000x500_white_black planet_2.png"
+                  src="/images/brand/horizontal/2000x500_white_black_planet_2.png"
                   width={320}
                   height={80}
                   className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto"
