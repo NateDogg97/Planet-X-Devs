@@ -1,49 +1,17 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import Button from '@/components/ui/Button';
 import Section from '@/components/layout/Section';
 import StarField from '@/components/ui/StarField';
 import HowItWorksSection from './HowItWorks';
+import FAQItem from '@/components/ui/FAQItem';
 import {
   whiteLabelFeatures,
-  whiteLabelProcessSteps,
   whiteLabelFAQs
 } from '@/constants';
-import Icon from '@/components/ui/Icon';
 import Link from 'next/link';
 
-
-const FloatingParticles = dynamic(() => import('@/components/ui/FloatingParticles'), {
-  ssr: false,
-  loading: () => <div className="absolute inset-0" />
-});
-
-const FAQItem = dynamic(() => import('@/components/ui/FAQItem'), {
-  loading: () => (
-    <div className="border border-stellar-blue/10 rounded-lg p-6 animate-pulse">
-      <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
-      <div className="space-y-2">
-        <div className="h-4 bg-gray-100 rounded w-full"></div>
-        <div className="h-4 bg-gray-100 rounded w-5/6"></div>
-      </div>
-    </div>
-  )
-});
-
-
 export default function WhiteLabelPageClient() {
-
-  // Icon mapping for WordPress services
-  const serviceIcons = {
-    "Custom WordPress Development": "wordpress",
-    "WordPress Plugin Development": "plugin", 
-    "Performance Optimization": "performance",
-    "WordPress Security Hardening": "shield-security",
-    "WordPress Multisite Management": "multisite",
-    "Theme Customization": "theme"
-  } as const;
-
 
   return (
     <div className="min-h-screen">
