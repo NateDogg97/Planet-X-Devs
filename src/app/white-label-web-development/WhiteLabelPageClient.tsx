@@ -462,11 +462,11 @@ export default function WhiteLabelPageClient() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
               <div className="text-center">
                 <p className="text-white font-semibold">Email</p>
-                <p className="text-nebula-white/90">hello@planetxdevs.com</p>
+                <p className="text-nebula-white/90">nathaniel@planetxdevs.com</p>
               </div>
               <div className="text-center">
                 <p className="text-white font-semibold">Phone</p>
-                <p className="text-nebula-white/90">(512) 555-0100</p>
+                <p className="text-nebula-white/90">(512) 789-8844</p>
               </div>
               <div className="text-center">
                 <p className="text-white font-semibold">Based in</p>
