@@ -11,7 +11,7 @@
   "dependencies": {
     "@next/third-parties": "^15.3.5",
     "framer-motion": "^12.18.1",
-    "next": "15.3.8",
+    "next": "^15.5.20",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.1.0",
@@ -28,5 +28,8 @@
     "eslint-config-next": "15.3.2",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
   }
 }
