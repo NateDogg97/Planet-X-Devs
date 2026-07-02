@@ -22,7 +22,7 @@ export default function Heading({
   const colorClasses = {
     default: 'text-gray-900 dark:text-white',
     white: 'text-white',
-    primary: `text-${theme.colors.primary.DEFAULT}`
+    primary: 'text-nebula-violet dark:text-nebula-cyan'
   };
   
   const alignmentClass = centered ? 'text-center' : '';

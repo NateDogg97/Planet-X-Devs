@@ -15,6 +15,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Hosting**: Vercel
 - **Languages**: TypeScript, JavaScript
 
+## Design System
+
+**See [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) for the canonical design reference.**
+Follow it for all styling work. Key rules:
+- Raw values (colors, gradients, glass, shadows, animations) live in `src/app/globals.css` (`@theme` + utilities). Semantic Tailwind-class presets live in `src/config/theme.ts` — never hardcode hex there.
+- Accent convention: violet in light mode, cyan in dark mode (`text-nebula-violet dark:text-nebula-cyan`).
+- Never build class names dynamically (`` `bg-${x}` ``) — Tailwind v4 won't compile them.
+- New tokens/components should render on `/style-guide` (the living demo page).
+
 ## Development Guidelines
 
 ### Component Architecture
