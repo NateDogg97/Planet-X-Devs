@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "audit:check": "node scripts/health-check.mjs --audit-only",
+    "health": "node scripts/health-check.mjs",
+    "health:running": "node scripts/health-check.mjs --no-server"
   },
   "dependencies": {
     "@next/third-parties": "^15.3.5",

@@ -20,6 +20,22 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Health check
+
+`scripts/health-check.mjs` automates the post-dependency-change verification
+(dependency audit, every public route returns 200, Tailwind/postcss CSS
+compiles, and the contact API validates input). No extra dependencies — it uses
+Node's built-in `fetch`.
+
+```bash
+npm run audit:check      # fast gate: npm audit only, no server (great for CI/pre-commit)
+npm run health           # full check: boots a dev server, verifies routes/CSS/API, tears down
+npm run health:running   # full check against an already-running server (e.g. npm run dev)
+```
+
+Exits non-zero if any check fails. Options: `--base-url <url>`,
+`--audit-level <low|moderate|high|critical>`.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
