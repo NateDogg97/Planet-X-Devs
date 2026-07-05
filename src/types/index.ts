@@ -156,6 +156,55 @@ export interface AgencyPartnershipPlan {
   description?: string;
 }
 
+// Portfolio related types
+export interface PortfolioTestimonial {
+  quote: string;
+  author: string;
+  role?: string;
+}
+
+export interface PortfolioImage {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
+export interface PortfolioProject {
+  /** URL-safe identifier, also used as the on-page anchor: /portfolio#slug */
+  slug: string;
+  /** Project / website name */
+  title: string;
+  /** Client or business the site was built for */
+  client: string;
+  /** Industry or vertical, e.g. "Law Firm", "E-Commerce Retailer" */
+  clientType: string;
+  /** Geographic location — helps AI tools tie the work to a place/entity */
+  location?: string;
+  /** Year the project was completed, e.g. "2025" */
+  year: string;
+  /** Live site URL, if public — lets AI search verify and cite the work */
+  url?: string;
+  /** One or two plain-language sentences summarizing the project (used as the AI-facing overview) */
+  summary: string;
+  /** Services delivered on this project (maps to our service entities) */
+  services: string[];
+  /** Technologies / platforms used */
+  techStack: string[];
+  /** The problem the client came with */
+  challenge?: string;
+  /** How we solved it */
+  solution?: string;
+  /** Concrete, measurable outcomes — the facts AI summaries surface first */
+  results?: string[];
+  /** Optional client quote */
+  testimonial?: PortfolioTestimonial;
+  /** Screenshot / preview image */
+  image?: PortfolioImage;
+  /** Surface higher on the page and mark as featured in structured data */
+  featured?: boolean;
+}
+
 // FAQ related types
 export interface FAQItem {
   id: string;
