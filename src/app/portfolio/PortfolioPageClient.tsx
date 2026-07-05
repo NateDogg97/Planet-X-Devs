@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Section from '@/components/layout/Section';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import StarField from '@/components/ui/StarField';
-import ProjectCard from '@/components/ui/ProjectCard';
+import ProjectSummaryCard from '@/components/ui/ProjectSummaryCard';
 import { portfolioProjects, portfolioPageContent } from '@/constants/portfolio';
 
 export default function PortfolioPageClient() {
@@ -40,9 +40,9 @@ export default function PortfolioPageClient() {
       {/* Projects */}
       <Section container background="secondary">
         {projects.length > 0 ? (
-          <div className="space-y-12 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
+              <ProjectSummaryCard key={project.slug} project={project} />
             ))}
           </div>
         ) : (

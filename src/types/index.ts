@@ -171,37 +171,41 @@ export interface PortfolioImage {
 }
 
 export interface PortfolioProject {
-  /** URL-safe identifier, also used as the on-page anchor: /portfolio#slug */
+  /** URL-safe identifier — becomes the project page route: /portfolio/slug */
   slug: string;
   /** Project / website name */
   title: string;
+  /** One-line subtitle describing the engagement */
+  tagline: string;
   /** Client or business the site was built for */
   client: string;
   /** Industry or vertical, e.g. "Law Firm", "E-Commerce Retailer" */
   clientType: string;
   /** Geographic location — helps AI tools tie the work to a place/entity */
   location?: string;
-  /** Year the project was completed, e.g. "2025" */
-  year: string;
+  /** Year the project was completed, e.g. "2025" (optional — omit if unknown) */
+  year?: string;
   /** Live site URL, if public — lets AI search verify and cite the work */
   url?: string;
-  /** One or two plain-language sentences summarizing the project (used as the AI-facing overview) */
+  /** One or two plain-language sentences summarizing the project (used on cards and as the meta description) */
   summary: string;
+  /** "The Client" — who they are and what they needed */
+  clientDescription: string;
+  /** "The Project" — what we built, one paragraph per array entry */
+  projectDescription: string[];
+  /** "Design & Development Highlights" — the standout decisions/features */
+  highlights: string[];
   /** Services delivered on this project (maps to our service entities) */
   services: string[];
   /** Technologies / platforms used */
   techStack: string[];
-  /** The problem the client came with */
-  challenge?: string;
-  /** How we solved it */
-  solution?: string;
-  /** Concrete, measurable outcomes — the facts AI summaries surface first */
+  /** Concrete, measurable outcomes, when available */
   results?: string[];
   /** Optional client quote */
   testimonial?: PortfolioTestimonial;
   /** Screenshot / preview image */
   image?: PortfolioImage;
-  /** Surface higher on the page and mark as featured in structured data */
+  /** Surface higher on the archive and mark as featured in structured data */
   featured?: boolean;
 }
 

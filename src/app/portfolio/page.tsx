@@ -73,13 +73,14 @@ export default function Portfolio() {
         itemListElement: portfolioProjects.map((project, index) => ({
           '@type': 'ListItem',
           position: index + 1,
+          url: `${PAGE_URL}/${project.slug}`,
           item: {
             '@type': 'CreativeWork',
-            '@id': `${PAGE_URL}#${project.slug}`,
+            '@id': `${PAGE_URL}/${project.slug}#project`,
+            url: `${PAGE_URL}/${project.slug}`,
             name: project.title,
             description: project.summary,
-            ...(project.url && { url: project.url }),
-            dateCreated: project.year,
+            ...(project.year && { dateCreated: project.year }),
             creator: { '@id': `${BASE_URL}/#organization` },
             ...(project.image && {
               image: `${BASE_URL}${project.image.src}`,
