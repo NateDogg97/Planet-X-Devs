@@ -1,9 +1,19 @@
 import { MetadataRoute } from 'next';
+import { portfolioProjects } from '@/constants/portfolio';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.planetxdevs.com';
   const currentDate = new Date();
-  
+
+  const portfolioProjectPages: MetadataRoute.Sitemap = portfolioProjects.map(
+    (project) => ({
+      url: `${baseUrl}/portfolio/${project.slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    })
+  );
+
   return [
     {
       url: baseUrl,
@@ -29,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    ...portfolioProjectPages,
     {
       url: `${baseUrl}/contact`,
       lastModified: currentDate,
