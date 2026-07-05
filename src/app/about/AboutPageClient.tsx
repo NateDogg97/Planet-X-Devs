@@ -87,6 +87,223 @@ const valuesData: Array<{
   }
 ];
 
+// Team member data
+type SkillColor = 'purple' | 'violet' | 'cyan' | 'blue';
+
+interface TeamMember {
+  name: string;
+  title: string;
+  image: string;
+  alt: string;
+  priority?: boolean;
+  highlights: string[];
+  bio: string[];
+  expertise: Array<{ icon: IconName; title: string; description: string }>;
+  skills: Array<{ name: string; color: SkillColor }>;
+}
+
+const teamMembersData: TeamMember[] = [
+  {
+    name: 'Nathaniel Mays',
+    title: 'Founder & Lead Developer',
+    image: '/images/nathaniel-mays.webp',
+    alt: 'Nathaniel Mays - Founder & Lead Developer',
+    priority: true,
+    highlights: ['5+ Years Experience', 'Enterprise Software Engineer', 'Committed to Your Success'],
+    bio: [
+      "Hi, I'm Nathaniel. After spending years as a lead developer in fast-paced software companies and digital marketing agencies, I witnessed a pattern: brilliant creative teams struggling with unreliable developers, broken sites, and technical bottlenecks that cost them clients.",
+      "I founded Planet X Devs to become the technical partner agencies can actually count on. I handle the ongoing website support most developers avoid - the maintenance, performance fixes, updates, and late-night \"the site's down and the client's calling\" emergencies - so your projects stay healthy long after launch.",
+      "Working alongside Sebastian, we've built the bandwidth to cover both new builds and continuous support without ever dropping a ball. We tackle projects together as one team - which means faster turnarounds, more reliable coverage, and a partner you can trust to keep your clients' sites running at their best."
+    ],
+    expertise: [
+      { icon: 'code', title: 'Technical Expertise', description: 'React, Next.js, WordPress, Shopify & more' },
+      { icon: 'users', title: 'Agency Experience', description: 'Led teams, managed workflows, delivered results' },
+      { icon: 'lightning', title: 'On-time Delivery', description: 'Quick turnarounds without compromising quality' }
+    ],
+    skills: [
+      { name: 'React', color: 'purple' },
+      { name: 'Next.js', color: 'violet' },
+      { name: 'TypeScript', color: 'cyan' },
+      { name: 'JavaScript', color: 'blue' },
+      { name: 'HTML5/CSS3', color: 'purple' },
+      { name: 'Tailwind CSS', color: 'violet' },
+      { name: 'WordPress', color: 'cyan' },
+      { name: 'Elementor', color: 'blue' },
+      { name: 'Shopify', color: 'purple' },
+      { name: 'WooCommerce', color: 'violet' },
+      { name: 'Git', color: 'cyan' },
+      { name: 'Figma', color: 'blue' },
+      { name: 'SEO', color: 'purple' },
+      { name: 'Performance Optimization', color: 'violet' },
+      { name: 'Responsive Design', color: 'cyan' }
+    ]
+  },
+  {
+    name: 'Sebastian Perrone',
+    title: 'Frontend Developer',
+    image: '/images/SebastianProfilePic.webp',
+    alt: 'Sebastian Perrone - Frontend Developer',
+    highlights: ['4+ Years Experience', 'Frontend Developer', 'Conversion-Focused'],
+    bio: [
+      "Hi, I'm Sebastian. I'm a frontend developer who obsesses over one thing: building web components that actually convert. Not just pages that look good in a mockup, but sections, layouts, and flows that hold attention and move people to act.",
+      "With 4+ years of experience in web development, I bring the kind of technical depth that makes a real difference, whether that's a pixel-perfect template, a performance tweak, or a last-minute build that has to ship tonight.",
+      "Alongside Nate, I help make sure Planet X Devs always has the bandwidth and the bench strength to deliver, no dropped balls, no excuses."
+    ],
+    expertise: [
+      { icon: 'trending-up', title: 'Conversion-Focused', description: 'Components and flows that hold attention and move people to act' },
+      { icon: 'code', title: 'Frontend Craft', description: 'Pixel-perfect templates, sections, and layouts built with depth' },
+      { icon: 'lightning', title: 'Ships on Time', description: 'Bandwidth and bench strength - no dropped balls, no excuses' }
+    ],
+    skills: [
+      { name: 'React', color: 'purple' },
+      { name: 'Next.js', color: 'violet' },
+      { name: 'TypeScript', color: 'cyan' },
+      { name: 'JavaScript', color: 'blue' },
+      { name: 'HTML5/CSS3', color: 'purple' },
+      { name: 'Tailwind CSS', color: 'violet' },
+      { name: 'Responsive Design', color: 'cyan' },
+      { name: 'Performance Optimization', color: 'blue' },
+      { name: 'Web Components', color: 'purple' },
+      { name: 'UI/UX Design', color: 'violet' },
+      { name: 'Figma', color: 'cyan' },
+      { name: 'Git', color: 'blue' }
+    ]
+  }
+];
+
+function TeamMemberCard({
+  member,
+  isVisible,
+  delay
+}: {
+  member: TeamMember;
+  isVisible: boolean;
+  delay: number;
+}) {
+  return (
+    <div
+      className={cn(
+        'glass-elevated glass-strong rounded-3xl p-8 md:p-10 text-center h-full',
+        'transition-all duration-1000',
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      )}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {/* Profile Avatar with Animated Border */}
+      <div className="relative mb-8 flex justify-center">
+        <div className="avatar-container relative group">
+          {/* Outer rotating gradient border */}
+          <div className="avatar-border absolute inset-0 rounded-full animate-spin-slow will-change-transform">
+            <div className="w-full h-full rounded-full bg-gradient-conic p-1">
+              <div className="w-full h-full bg-bg-primary dark:bg-nebula-black rounded-full"></div>
+            </div>
+          </div>
+
+          {/* Inner glow effect */}
+          <div className="avatar-glow absolute inset-2 rounded-full bg-gradient-radial from-text-accent/20 via-text-accent/10 to-transparent animate-pulse-slow"></div>
+
+          {/* Avatar content container */}
+          <div className="avatar-content relative z-10 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+            {/* Profile image */}
+            <div className="avatar-image w-full h-full overflow-hidden bg-gradient-to-br from-nebula-violet/20 to-nebula-purple/20">
+              <Image
+                src={member.image}
+                alt={member.alt}
+                width={160}
+                height={160}
+                className="w-full h-full object-cover filter hover:brightness-110 transition-all duration-300"
+                priority={member.priority}
+              />
+            </div>
+
+            {/* Hover overlay */}
+            <div className="avatar-overlay absolute inset-0 bg-text-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+          </div>
+
+          {/* Floating particles with theme colors */}
+          <div className="avatar-particles absolute inset-0 pointer-events-none">
+            <div className="particle absolute w-1 h-1 bg-text-accent-alt rounded-full top-4 left-8 animate-float opacity-70"></div>
+            <div className="particle absolute w-1.5 h-1.5 bg-text-accent rounded-full top-12 right-6 animate-float-delayed opacity-60"></div>
+            <div className="particle absolute w-1 h-1 bg-stellar-blue dark:bg-stellar-blue rounded-full bottom-8 left-12 animate-float opacity-50" style={{ animationDelay: '4s' }}></div>
+            <div className="particle absolute w-1 h-1 bg-text-accent rounded-full bottom-6 right-10 animate-float opacity-80" style={{ animationDelay: '6s' }}></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Name and Title */}
+      <div className="mb-8">
+        <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">
+          {member.name}
+        </h3>
+        <p className="text-lg text-text-accent font-semibold mb-3">
+          {member.title}
+        </p>
+        <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-sm text-text-secondary">
+          {member.highlights.map((highlight, i) => (
+            <span key={highlight} className="flex items-center gap-x-3">
+              {i > 0 && <span aria-hidden="true">•</span>}
+              <span>{highlight}</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Bio */}
+      <div className="text-center mb-8">
+        {member.bio.map((paragraph, i) => (
+          <p
+            key={i}
+            className={cn(
+              'text-lg text-text-secondary leading-relaxed',
+              i < member.bio.length - 1 && 'mb-6'
+            )}
+          >
+            {paragraph}
+          </p>
+        ))}
+      </div>
+
+      {/* Skills & Expertise */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center mb-12">
+        {member.expertise.map((item) => (
+          <div key={item.title} className="space-y-3">
+            <div className="w-12 h-12 bg-text-accent/10 rounded-full flex items-center justify-center text-text-accent mx-auto">
+              <Icon name={item.icon} className="w-6 h-6" />
+            </div>
+            <h4 className="font-semibold text-text-primary">{item.title}</h4>
+            <p className="text-sm text-text-secondary">{item.description}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Skills Tags */}
+      <div>
+        <h4 className="text-lg font-semibold text-text-primary mb-6 text-center">Technical Skills</h4>
+        <div className="flex flex-wrap justify-center gap-3">
+          {member.skills.map((skill) => (
+            <span
+              key={skill.name}
+              className={cn(
+                'px-4 py-2 rounded-full text-sm transition-all duration-300',
+                'border backdrop-blur-sm',
+                // Light mode
+                skill.color === 'purple' && 'bg-nebula-purple/10 border-nebula-purple/20 text-nebula-purple hover:bg-nebula-purple/20',
+                skill.color === 'violet' && 'bg-nebula-violet/10 border-nebula-violet/20 text-nebula-violet hover:bg-nebula-violet/20',
+                skill.color === 'cyan' && 'bg-nebula-cyan/10 border-nebula-cyan/20 text-nebula-cyan hover:bg-nebula-cyan/20',
+                skill.color === 'blue' && 'bg-stellar-blue/10 border-stellar-blue/20 text-stellar-blue hover:bg-stellar-blue/20',
+                // Dark mode
+                'dark:bg-opacity-20 dark:border-opacity-30 dark:text-nebula-white dark:hover:bg-opacity-30'
+              )}
+            >
+              {skill.name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function AboutPageClient() {
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
   const [visibleTimelineItems, setVisibleTimelineItems] = useState<Set<number>>(new Set());
@@ -450,180 +667,44 @@ export default function AboutPageClient() {
       <Section container background='gradient-radial'>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-            Meet Your Developer
+            Meet Your Developers
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto">
-            The person behind Planet X Devs who understands your agency challenges
+            The people behind Planet X Devs who understand your agency challenges
           </p>
         </div>
 
-        {/* Single Team Member - Centered Layout */}
-        <div ref={teamRef} className="max-w-4xl mx-auto">
-          <div className={cn(
-            'glass-elevated glass-strong rounded-3xl p-8 md:p-12 text-center',
-            'transition-all duration-1000',
-            teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          )}>
-            {/* Profile Avatar with Animated Border */}
-            <div className="relative mb-8 flex justify-center">
-              <div className="avatar-container relative group">
-                {/* Outer rotating gradient border */}
-                <div className="avatar-border absolute inset-0 rounded-full animate-spin-slow will-change-transform">
-                  <div className="w-full h-full rounded-full bg-gradient-conic p-1">
-                    <div className="w-full h-full bg-bg-primary dark:bg-nebula-black rounded-full"></div>
-                  </div>
-                </div>
-                
-                {/* Inner glow effect */}
-                <div className="avatar-glow absolute inset-2 rounded-full bg-gradient-radial from-text-accent/20 via-text-accent/10 to-transparent animate-pulse-slow"></div>
-                
-                {/* Avatar content container */}
-                <div className="avatar-content relative z-10 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                  {/* Profile image */}
-                  <div className="avatar-image w-full h-full overflow-hidden bg-gradient-to-br from-nebula-violet/20 to-nebula-purple/20">
-                    <Image
-                      src="/images/nathaniel-mays.webp"
-                      alt="Nathaniel Mays - Founder & Lead Developer"
-                      width={160}
-                      height={160}
-                      className="w-full h-full object-cover filter hover:brightness-110 transition-all duration-300"
-                      priority
-                    />
-                  </div>
-                  
-                  {/* Hover overlay */}
-                  <div className="avatar-overlay absolute inset-0 bg-text-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
-                </div>
-                
-                {/* Floating particles with theme colors */}
-                <div className="avatar-particles absolute inset-0 pointer-events-none">
-                  <div className="particle absolute w-1 h-1 bg-text-accent-alt rounded-full top-4 left-8 animate-float opacity-70"></div>
-                  <div className="particle absolute w-1.5 h-1.5 bg-text-accent rounded-full top-12 right-6 animate-float-delayed opacity-60"></div>
-                  <div className="particle absolute w-1 h-1 bg-stellar-blue dark:bg-stellar-blue rounded-full bottom-8 left-12 animate-float opacity-50" style={{ animationDelay: '4s' }}></div>
-                  <div className="particle absolute w-1 h-1 bg-text-accent rounded-full bottom-6 right-10 animate-float opacity-80" style={{ animationDelay: '6s' }}></div>
-                </div>
-              </div>
-            </div>
+        {/* Team Members - Two Column Layout (single column on mobile) */}
+        <div ref={teamRef} className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+            {teamMembersData.map((member, index) => (
+              <TeamMemberCard
+                key={member.name}
+                member={member}
+                isVisible={teamVisible}
+                delay={index * 150}
+              />
+            ))}
+          </div>
 
-            {/* Name and Title */}
-            <div className="mb-8">
-              <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">
-                Nathaniel Mays
-              </h3>
-              <p className="text-lg text-text-accent font-semibold mb-3">
-                Founder & Lead Developer
-              </p>
-              <div className="flex justify-center space-x-4 text-sm text-text-secondary">
-                <span>5+ Years Experience</span>
-                <span>•</span>
-                <span>Enterprise Software Engineer</span>
-                <span>•</span>
-                <span>Committed to Your Success</span>
-              </div>
-            </div>
-
-            {/* Bio */}
-            <div className="text-center max-w-3xl mx-auto mb-8">
-              <p className="text-lg text-text-secondary leading-relaxed mb-6">
-                Hi, I'm Nathaniel. After spending years as a lead developer in fast-paced software companies and digital marketing agencies, I witnessed a pattern: brilliant creative teams struggling with unreliable developers, missed deadlines, and technical bottlenecks that cost them clients.
-              </p>
-              <p className="text-lg text-text-secondary leading-relaxed mb-6">
-                I founded Planet X Devs to solve this exact problem. Having been in the trenches myself, I understand the pressure agencies face - the late-night client emergencies, the "can you make this work by tomorrow?" requests, and the need for a developer who just gets it.
-              </p>
-              <p className="text-lg text-text-secondary leading-relaxed">
-                Today, I partner with agencies as their dedicated technical expert, handling everything from complex e-commerce builds to quick landing pages. My goal? To be the developer you can count on, so you can focus on what you do best - creating amazing campaigns and delivering impressive results.
-              </p>
-            </div>
-
-            {/* Skills & Expertise */}
-            <div className="grid md:grid-cols-3 gap-6 text-center mb-12">
-              <div className="space-y-3">
-                <div className="w-12 h-12 bg-text-accent/10 rounded-full flex items-center justify-center text-text-accent mx-auto">
-                  <Icon name="code" className="w-6 h-6" />
-                </div>
-                <h4 className="font-semibold text-text-primary">Technical Expertise</h4>
-                <p className="text-sm text-text-secondary">React, Next.js, WordPress, Shopify & more</p>
-              </div>
-              <div className="space-y-3">
-                <div className="w-12 h-12 bg-text-accent/10 rounded-full flex items-center justify-center text-text-accent mx-auto">
-                  <Icon name="users" className="w-6 h-6" />
-                </div>
-                <h4 className="font-semibold text-text-primary">Agency Experience</h4>
-                <p className="text-sm text-text-secondary">Led teams, managed workflows, delivered results</p>
-              </div>
-              <div className="space-y-3">
-                <div className="w-12 h-12 bg-text-accent/10 rounded-full flex items-center justify-center text-text-accent mx-auto">
-                  <Icon name="lightning" className="w-6 h-6" />
-                </div>
-                <h4 className="font-semibold text-text-primary">On-time Delivery</h4>
-                <p className="text-sm text-text-secondary">Quick turnarounds without compromising quality</p>
-              </div>
-            </div>
-
-            {/* Skills Tags */}
-            <div className="mb-8">
-              <h4 className="text-lg font-semibold text-text-primary mb-6 text-center">Technical Skills</h4>
-              <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-                {/* Using a map for cleaner code */}
-                {[
-                  // Frontend
-                  { name: 'React', color: 'purple' },
-                  { name: 'Next.js', color: 'violet' },
-                  { name: 'TypeScript', color: 'cyan' },
-                  { name: 'JavaScript', color: 'blue' },
-                  { name: 'HTML5/CSS3', color: 'purple' },
-                  { name: 'Tailwind CSS', color: 'violet' },
-                  // CMS
-                  { name: 'WordPress', color: 'cyan' },
-                  { name: 'Elementor', color: 'blue' },
-                  { name: 'Shopify', color: 'purple' },
-                  { name: 'WooCommerce', color: 'violet' },
-                  // Tools
-                  { name: 'Git', color: 'cyan' },
-                  { name: 'Figma', color: 'blue' },
-                  { name: 'SEO', color: 'purple' },
-                  { name: 'Performance Optimization', color: 'violet' },
-                  { name: 'Responsive Design', color: 'cyan' }
-                ].map((skill) => (
-                  <span 
-                    key={skill.name}
-                    className={cn(
-                      'px-4 py-2 rounded-full text-sm transition-all duration-300',
-                      'border backdrop-blur-sm',
-                      // Light mode
-                      skill.color === 'purple' && 'bg-nebula-purple/10 border-nebula-purple/20 text-nebula-purple hover:bg-nebula-purple/20',
-                      skill.color === 'violet' && 'bg-nebula-violet/10 border-nebula-violet/20 text-nebula-violet hover:bg-nebula-violet/20',
-                      skill.color === 'cyan' && 'bg-nebula-cyan/10 border-nebula-cyan/20 text-nebula-cyan hover:bg-nebula-cyan/20',
-                      skill.color === 'blue' && 'bg-stellar-blue/10 border-stellar-blue/20 text-stellar-blue hover:bg-stellar-blue/20',
-                      // Dark mode
-                      'dark:bg-opacity-20 dark:border-opacity-30 dark:text-nebula-white dark:hover:bg-opacity-30'
-                    )}
-                  >
-                    {skill.name}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Contact Info */}
-            <div className="mt-8 pt-8 border-t border-border-primary">
-              <p className="text-text-secondary mb-4">Ready to work together?</p>
-              <div className="flex justify-center space-x-6">
-                <a 
-                  href="/contact#contact-form" 
-                  className="inline-flex items-center space-x-2 text-text-accent hover:text-text-accent-alt transition-colors"
-                >
-                  <Icon name="mail" className="w-5 h-5" />
-                  <span>Get in touch</span>
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/planet-x-devs/" 
-                  className="inline-flex items-center space-x-2 text-text-accent hover:text-text-accent-alt transition-colors"
-                >
-                  <Icon name="linkedin" className="w-5 h-5" />
-                  <span>Connect</span>
-                </a>
-              </div>
+          {/* Shared Contact Info */}
+          <div className="mt-12 pt-8 border-t border-border-primary text-center">
+            <p className="text-text-secondary mb-4">Ready to work together?</p>
+            <div className="flex justify-center space-x-6">
+              <a
+                href="/contact#contact-form"
+                className="inline-flex items-center space-x-2 text-text-accent hover:text-text-accent-alt transition-colors"
+              >
+                <Icon name="mail" className="w-5 h-5" />
+                <span>Get in touch</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/planet-x-devs/"
+                className="inline-flex items-center space-x-2 text-text-accent hover:text-text-accent-alt transition-colors"
+              >
+                <Icon name="linkedin" className="w-5 h-5" />
+                <span>Connect</span>
+              </a>
             </div>
           </div>
         </div>
