@@ -19,6 +19,7 @@ const pathNameMap: Record<string, string> = {
   'services': 'Services',
   'about': 'About',
   'contact': 'Contact',
+  'portfolio': 'Portfolio',
   'style-guide': 'Style Guide'
 };
 

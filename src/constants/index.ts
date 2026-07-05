@@ -48,6 +48,12 @@ export {
   type QuickWinService
 } from './services';
 
+// Portfolio-related exports
+export {
+  portfolioProjects,
+  portfolioPageContent
+} from './portfolio';
+
 // Social/Contact-related exports
 export {
   socialLinks,
