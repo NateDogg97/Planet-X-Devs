@@ -63,16 +63,6 @@ export default function Home() {
         "publisher": {
           "@id": "https://www.planetxdevs.com/#organization"
         },
-        "potentialAction": [
-          {
-            "@type": "SearchAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://www.planetxdevs.com/search?q={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
-          }
-        ],
         "inLanguage": "en-US"
       },
       {

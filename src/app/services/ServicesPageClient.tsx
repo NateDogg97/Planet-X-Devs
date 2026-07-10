@@ -297,6 +297,12 @@ export default function ServicesPageClient() {
           >
             Begin Your Mission
           </Link>
+          <p className="text-nebula-white/60 mt-8">
+            Want to see this work in action first?{' '}
+            <Link href="/portfolio" className="text-nebula-cyan hover:underline">
+              Browse our portfolio
+            </Link>
+          </p>
         </div>
 
         <FloatingParticles />

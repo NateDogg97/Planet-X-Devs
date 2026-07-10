@@ -698,6 +698,13 @@ export default function AboutPageClient() {
                 <Icon name="mail" className="w-5 h-5" />
                 <span>Get in touch</span>
               </a>
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center space-x-2 text-text-accent hover:text-text-accent-alt transition-colors"
+              >
+                <Icon name="briefcase" className="w-5 h-5" />
+                <span>See our work</span>
+              </Link>
               <a
                 href="https://www.linkedin.com/in/planet-x-devs/"
                 className="inline-flex items-center space-x-2 text-text-accent hover:text-text-accent-alt transition-colors"

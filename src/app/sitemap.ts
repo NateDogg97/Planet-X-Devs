@@ -64,12 +64,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
-    {
-      url: `${baseUrl}/style-guide`,
-      lastModified: new Date('2025-06-20'),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
     // Future pages that might be added
     // {
     //   url: `${baseUrl}/blog`,

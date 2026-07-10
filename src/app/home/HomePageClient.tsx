@@ -2,14 +2,15 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import Hero from '@/components/layout/Hero';
 import Section from '@/components/layout/Section';
 import ServiceCard from '@/components/ui/ServiceCard';
-import NebulaGraphic from '@/components/ui/NebulaGraphic';
+import ProjectSummaryCard from '@/components/ui/ProjectSummaryCard';
 import Icon from '@/components/ui/Icon';
 import { services, testimonials, processSteps } from '@/constants/index';
-import QuickWins from '@/components/sections/QuickWins';
+import { portfolioProjects } from '@/constants/portfolio';
 
 const TestimonialCarousel = dynamic(() => import('@/components/ui/TestimonialCarousel'), {
   ssr: false,
@@ -60,18 +61,47 @@ const VerticalTimeline = dynamic(() => import('@/components/ui/VerticalTimeline'
 // Only show featured services on homepage for better performance
 const featuredServices = services.slice(0, 6);
 
+// Featured portfolio projects for the homepage showcase
+const featuredProjects = portfolioProjects
+  .filter((project) => project.featured)
+  .slice(0, 3);
+
+// Condensed team intros — full bios live on the About page
+const teamMembers = [
+  {
+    name: 'Nathaniel Mays',
+    title: 'Founder & Lead Developer',
+    image: '/images/nathaniel-mays.webp',
+    alt: 'Nathaniel Mays - Founder & Lead Developer',
+    highlights: ['5+ Years Experience', 'Enterprise Software Engineer'],
+    blurb:
+      'After years leading development teams at fast-paced software companies and digital marketing agencies, Nathaniel founded Planet X Devs to be the technical partner agencies can actually count on — from new builds to the maintenance and emergency fixes most developers avoid.'
+  },
+  {
+    name: 'Sebastian Perrone',
+    title: 'Frontend Developer',
+    image: '/images/SebastianProfilePic.webp',
+    alt: 'Sebastian Perrone - Frontend Developer',
+    highlights: ['4+ Years Experience', 'Conversion-Focused'],
+    blurb:
+      'Sebastian builds web components that actually convert — pixel-perfect templates, sections, and flows that hold attention and move people to act, delivered on agency timelines.'
+  }
+];
+
 export default function HomePageClient() {
   // Animation state
   const [visibleServices, setVisibleServices] = useState<Set<number>>(new Set());
-  const [partnershipVisible, setPartnershipVisible] = useState(false);
+  const [teamVisible, setTeamVisible] = useState(false);
+  const [portfolioVisible, setPortfolioVisible] = useState(false);
   const [processVisible, setProcessVisible] = useState(false);
   const [statsVisible, setStatsVisible] = useState(false);
   const [testimonialVisible, setTestimonialVisible] = useState(false);
-  
+
   // Refs for sections
   const servicesRef = useRef<HTMLDivElement>(null);
   const serviceRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const partnershipRef = useRef<HTMLDivElement>(null);
+  const teamRef = useRef<HTMLDivElement>(null);
+  const portfolioRef = useRef<HTMLDivElement>(null);
   const processRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const testimonialRef = useRef<HTMLDivElement>(null);
@@ -119,8 +149,11 @@ export default function HomePageClient() {
     sectionObserverRef.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          if (entry.target === partnershipRef.current) {
-            setPartnershipVisible(true);
+          if (entry.target === teamRef.current) {
+            setTeamVisible(true);
+            sectionObserverRef.current?.unobserve(entry.target);
+          } else if (entry.target === portfolioRef.current) {
+            setPortfolioVisible(true);
             sectionObserverRef.current?.unobserve(entry.target);
           } else if (entry.target === processRef.current) {
             setProcessVisible(true);
@@ -146,8 +179,11 @@ export default function HomePageClient() {
       });
 
       // Start observing section elements
-      if (partnershipRef.current && sectionObserverRef.current) {
-        sectionObserverRef.current.observe(partnershipRef.current);
+      if (teamRef.current && sectionObserverRef.current) {
+        sectionObserverRef.current.observe(teamRef.current);
+      }
+      if (portfolioRef.current && sectionObserverRef.current) {
+        sectionObserverRef.current.observe(portfolioRef.current);
       }
       if (processRef.current && sectionObserverRef.current) {
         sectionObserverRef.current.observe(processRef.current);
@@ -199,38 +235,71 @@ export default function HomePageClient() {
         showPlanets={false}
       />
 
-      {/* Quick Wins Section */}
-      <QuickWins />
-
-      {/* Partnership Section */}
+      {/* Team Section */}
       <Section background="secondary" container>
-        <div 
-          ref={partnershipRef}
-          className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-1000 ${
-            partnershipVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        <div
+          ref={teamRef}
+          className={`transition-all duration-1000 ${
+            teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
           style={{
-            willChange: !partnershipVisible ? 'transform, opacity' : 'auto'
+            willChange: !teamVisible ? 'transform, opacity' : 'auto'
           }}
         >
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
-              Web Development Partner for Marketing Agencies
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+              The Developers Behind Planet X Devs
             </h2>
-            <p className="text-lg text-text-primary/70 mb-6">
-              Hiring full-time developers is expensive and time-consuming for growing agencies. Planet X Devs offers a flexible alternative - seasoned development talent when you need it.
+            <p className="text-xl text-text-primary/70 max-w-2xl mx-auto">
+              Real people, not a ticket queue — a two-developer team that works as an extension of your agency
             </p>
-            <p className="text-lg text-text-primary/70 mb-8">
-              We work directly with marketing agencies to oversee their tech projects, from custom sites to web applications, so you can expand your services without expanding your payroll.
-            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {teamMembers.map((member) => (
+              <div
+                key={member.name}
+                className="glass glass-hover rounded-3xl p-8 text-center flex flex-col"
+              >
+                <div className="w-28 h-28 md:w-32 md:h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gradient-to-br from-nebula-violet/20 to-nebula-purple/20 ring-2 ring-nebula-violet-30">
+                  <Image
+                    src={member.image}
+                    alt={member.alt}
+                    width={128}
+                    height={128}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-text-primary mb-1">
+                  {member.name}
+                </h3>
+                <p className="text-lg font-semibold text-nebula-violet dark:text-nebula-cyan mb-3">
+                  {member.title}
+                </p>
+                <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-sm text-text-primary/60 mb-5">
+                  {member.highlights.map((highlight, i) => (
+                    <span key={highlight} className="flex items-center gap-x-3">
+                      {i > 0 && <span aria-hidden="true">•</span>}
+                      <span>{highlight}</span>
+                    </span>
+                  ))}
+                </div>
+                <p className="text-text-primary/70 leading-relaxed">
+                  {member.blurb}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
             <Link
-              href="/contact#contact-form"
-              className="inline-block px-8 py-4 rounded-full bg-gradient-nebula text-white font-semibold shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300"
+              href="/about"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-nebula text-white font-semibold shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300"
             >
-              Start Partnership
+              Meet the Team
+              <Icon name="arrow-right" className="w-5 h-5" />
             </Link>
           </div>
-          <NebulaGraphic />
         </div>
       </Section>
 
@@ -272,6 +341,44 @@ export default function HomePageClient() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </Section>
+
+      {/* Portfolio Showcase Section */}
+      <Section background="secondary" container>
+        <div
+          ref={portfolioRef}
+          className={`transition-all duration-1000 ${
+            portfolioVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{
+            willChange: !portfolioVisible ? 'transform, opacity' : 'auto'
+          }}
+        >
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+              Featured Web Development Projects
+            </h2>
+            <p className="text-xl text-text-primary/70 max-w-3xl mx-auto">
+              Real websites we&apos;ve designed and built — custom WordPress builds, e-commerce, and lead-generation sites
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {featuredProjects.map((project) => (
+              <ProjectSummaryCard key={project.slug} project={project} />
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-nebula text-white font-semibold shadow-glow hover:shadow-nebula-lg hover:scale-105 transition-all duration-300"
+            >
+              View the Full Portfolio
+              <Icon name="arrow-right" className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </Section>
