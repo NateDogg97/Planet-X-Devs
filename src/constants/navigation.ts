@@ -18,6 +18,10 @@ export const mainNavigation: NavItem[] = [
     href: '/services'
   },
   {
+    label: 'Portfolio',
+    href: '/portfolio'
+  },
+  {
     label: 'Contact',
     href: '/contact',
     isButton: true
@@ -63,6 +67,10 @@ export const footerNavigation = {
     {
       label: 'Services & Pricing',
       href: '/services'
+    },
+    {
+      label: 'Portfolio',
+      href: '/portfolio'
     },
     {
       label: 'Website Audit Checklist',
