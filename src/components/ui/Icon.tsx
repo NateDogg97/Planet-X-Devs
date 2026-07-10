@@ -129,6 +129,26 @@ const icons = {
       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
     </svg>
   ),
+  'chevron-left': (props: IconProps) => (
+    <svg className={props.className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={props.strokeWidth || 2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+  ),
+  'chevron-right': (props: IconProps) => (
+    <svg className={props.className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={props.strokeWidth || 2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  ),
+  'image': (props: IconProps) => (
+    <svg className={props.className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={props.strokeWidth || 2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+  ),
+  'images': (props: IconProps) => (
+    <svg className={props.className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={props.strokeWidth || 2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 8H2v12a2 2 0 002 2h12v-2H4V8zm16-4H8a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2zm-9 4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM8 16l3-4 2 3 3-4 4 5H8z" />
+    </svg>
+  ),
   'external-link': (props: IconProps) => (
     <svg className={props.className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={props.strokeWidth || 2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

@@ -168,6 +168,27 @@ export interface PortfolioImage {
   alt: string;
   width?: number;
   height?: number;
+  /** Optional call-to-action link shown with this image in the gallery
+   *  (e.g. "See live animation" pointing at the live page). */
+  link?: {
+    href: string;
+    label: string;
+  };
+}
+
+/**
+ * Placeholder guidance for the images we still need to capture for a project
+ * page. Each string is shown inside the on-page image placeholder so we know
+ * exactly what asset to grab and how many. Delete a field once the matching
+ * real image (`logo`, `heroImage`, `gallery`) has been added.
+ */
+export interface PortfolioMediaPlan {
+  /** What logo to capture (client logo, transparent PNG/SVG). */
+  logo?: string;
+  /** What the hero / feature image should be. */
+  hero?: string;
+  /** One entry per slideshow slide — the specific screenshot to capture. */
+  gallery?: string[];
 }
 
 export interface PortfolioProject {
@@ -203,8 +224,16 @@ export interface PortfolioProject {
   results?: string[];
   /** Optional client quote */
   testimonial?: PortfolioTestimonial;
-  /** Screenshot / preview image */
+  /** Screenshot / preview image (used on the archive card + OG image) */
   image?: PortfolioImage;
+  /** Client logo shown in the project header. */
+  logo?: PortfolioImage;
+  /** Large hero / feature image at the top of the project page. */
+  heroImage?: PortfolioImage;
+  /** Screenshots shown in the project-page slideshow. */
+  gallery?: PortfolioImage[];
+  /** Guidance for images still to capture — drives on-page placeholders. */
+  mediaPlan?: PortfolioMediaPlan;
   /** Surface higher on the archive and mark as featured in structured data */
   featured?: boolean;
 }
