@@ -542,10 +542,10 @@ export default function HomePageClient() {
                     <div className="relative inline-block">
                       <div className="absolute inset-0 bg-nebula-cyan blur-2xl opacity-50 animate-pulse-slow" />
                       <div className="relative text-5xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent">
-                        95%
+                        1000+
                       </div>
                     </div>
-                    <p className="text-text-primary/70 mt-2">Client Satisfaction Rate</p>
+                    <p className="text-text-primary/70 mt-2">Combined Career Websites Built</p>
                   </div>
                   
                   {/* Stat 2 */}
@@ -553,7 +553,7 @@ export default function HomePageClient() {
                     <div className="relative inline-block">
                       <div className="absolute inset-0 bg-nebula-cyan blur-2xl opacity-50 animate-pulse-slow" style={{ animationDelay: '0.5s' }} />
                       <div className="relative text-5xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent">
-                        100+
+                        20+
                       </div>
                     </div>
                     <p className="text-text-primary/70 mt-2">Projects Delivered</p>
@@ -564,7 +564,7 @@ export default function HomePageClient() {
                     <div className="relative inline-block">
                       <div className="absolute inset-0 bg-nebula-cyan blur-2xl opacity-50 animate-pulse-slow" style={{ animationDelay: '1s' }} />
                       <div className="relative text-5xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent">
-                        24hrs
+                        4hrs
                       </div>
                     </div>
                     <p className="text-text-primary/70 mt-2">Average Response Time</p>
