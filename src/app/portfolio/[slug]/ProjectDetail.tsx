@@ -4,6 +4,9 @@ import Section from '@/components/layout/Section';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import StarField from '@/components/ui/StarField';
 import Icon from '@/components/ui/Icon';
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder';
+import ProjectGallery, { type GallerySlide } from '@/components/ui/ProjectGallery';
+import { liveSiteDisclaimer } from '@/constants/portfolio';
 import type { PortfolioProject } from '@/types';
 
 /**
@@ -28,7 +31,27 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
     results,
     testimonial,
     image,
+    logo,
+    heroImage,
+    gallery,
+    mediaPlan,
   } = project;
+
+  // The header hero image: a real feature image once captured, otherwise the
+  // archive `image`, otherwise a labeled placeholder describing what to grab.
+  const hero = heroImage ?? image;
+
+  // Slideshow slides — zip captured screenshots (`gallery`) with the capture
+  // guidance (`mediaPlan.gallery`) so empty slots still show what's needed.
+  const galleryCaptions = mediaPlan?.gallery ?? [];
+  const galleryLength = Math.max(galleryCaptions.length, gallery?.length ?? 0);
+  const gallerySlides: GallerySlide[] = Array.from(
+    { length: galleryLength },
+    (_, i) => ({
+      image: gallery?.[i],
+      caption: galleryCaptions[i] ?? '',
+    })
+  );
 
   return (
     <div className="min-h-screen">
@@ -38,6 +61,30 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
           <StarField />
         </div>
         <div className="max-w-3xl relative z-10">
+          {/* Client logo */}
+          <div className="mb-6">
+            {logo ? (
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width ?? 200}
+                height={logo.height ?? 64}
+                className="h-14 w-auto object-contain"
+              />
+            ) : (
+              <ImagePlaceholder
+                label="Client Logo"
+                caption={
+                  mediaPlan?.logo ??
+                  `${client} logo — transparent PNG or SVG, ideally light/white version for this dark header.`
+                }
+                icon="image"
+                compact
+                className="inline-flex w-full max-w-sm"
+              />
+            )}
+          </div>
+
           <p className="text-sm font-semibold uppercase tracking-wide text-nebula-cyan mb-3">
             {clientType}
           </p>
@@ -72,6 +119,12 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
               <Icon name="external-link" size="small" aria-hidden="true" />
             </a>
           )}
+
+          {url && (
+            <p className="mt-4 max-w-xl text-sm text-nebula-white/50">
+              {liveSiteDisclaimer}
+            </p>
+          )}
         </div>
       </Section>
 
@@ -86,21 +139,33 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
         />
       </Section>
 
-      {/* Screenshot */}
-      {image && (
-        <Section container background="secondary" spacing="small">
-          <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden glass">
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={image.width ?? 1600}
-              height={image.height ?? 1000}
-              className="w-full h-auto"
-              priority
+      {/* Hero / feature image */}
+      <Section container background="secondary" spacing="small">
+        <div className="max-w-5xl mx-auto">
+          {hero ? (
+            <div className="rounded-2xl overflow-hidden glass">
+              <Image
+                src={hero.src}
+                alt={hero.alt}
+                width={hero.width ?? 1600}
+                height={hero.height ?? 1000}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          ) : (
+            <ImagePlaceholder
+              label="Hero Image"
+              caption={
+                mediaPlan?.hero ??
+                `Full-width desktop screenshot of the ${title} homepage hero (~1600×1000). This is the lead image for the page.`
+              }
+              icon="image"
+              className="aspect-[16/10] w-full"
             />
-          </div>
-        </Section>
-      )}
+          )}
+        </div>
+      </Section>
 
       {/* Body */}
       <Section container background="secondary" spacing="medium">
@@ -126,7 +191,27 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
               ))}
             </div>
           </div>
+        </div>
+      </Section>
 
+      {/* Gallery slideshow — screenshots / feature images from the live site */}
+      {gallerySlides.length > 0 && (
+        <Section container background="secondary" spacing="small">
+          <div className="max-w-5xl mx-auto mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-text-primary">
+              A Closer Look
+            </h2>
+            <p className="text-text-muted mt-1">
+              Screenshots and feature sections from the live site.
+            </p>
+          </div>
+          <ProjectGallery slides={gallerySlides} />
+        </Section>
+      )}
+
+      {/* Body (continued) */}
+      <Section container background="secondary" spacing="medium">
+        <div className="max-w-3xl mx-auto">
           {/* Highlights */}
           {highlights.length > 0 && (
             <div className="mb-12">
