@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
-import AboutPageClient from './AboutPageClient';
+import AboutPage from '@/features/about/AboutPage';
 
 export const metadata: Metadata = {
   title: "About Planet X Devs | Web Development Partner for Marketing Agencies",
   description: "Meet Nathaniel Mays, founder of Planet X Devs - your trusted marketing agency partner. Creating reliable technical partnerships that help agencies deliver exceptional websites without the overhead.",
-  keywords: "white label web development, marketing agency partner, agency developer, Nathaniel Mays, Planet X Devs, web development for agencies, reliable developer partner, agency technical partner, WordPress developer for agencies, React developer for agencies",
+  keywords: "white label web development, marketing agency partner, agency developer, Nathaniel Mays, Planet X Devs, custom web development for agencies, reliable developer partner, agency technical partner, Next.js developer for agencies, React developer for agencies",
   openGraph: {
     title: "About Planet X Devs | Your Agency's Technical Partner",
     description: "Planet X Devs is the technical partnership that helps marketing agencies deliver exceptional websites. True white-label service from an experienced developer.",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   }
 };
 
-export default function AboutPage() {
+export default function About() {
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -65,8 +65,8 @@ export default function AboutPage() {
       {
         "@type": "ProfilePage",
         "@id": "https://www.planetxdevs.com/about#profile",
-        "dateCreated": "2024-01-01",
-        "dateModified": "2024-01-01",
+        "dateCreated": "2025-01-01",
+        "dateModified": "2026-07-13",
         "about": {
           "@type": "Person",
           "@id": "https://www.planetxdevs.com/#nathaniel-mays",
@@ -98,13 +98,14 @@ export default function AboutPage() {
             "https://github.com/NateDogg97"
           ],
           "knowsAbout": [
-            "Web Development",
+            "Custom Web Development",
             "JavaScript",
             "React",
             "Next.js",
-            "WordPress Development",
+            "Headless CMS Development",
             "E-commerce Development",
             "White-label Services",
+            "WordPress Support and Maintenance",
             "Marketing Agency Operations",
             "Technical SEO",
             "Performance Optimization"
@@ -119,32 +120,32 @@ export default function AboutPage() {
           {
             "@type": "ListItem",
             "position": 1,
-            "name": "2014",
+            "name": "2020",
             "description": "Started web development journey"
           },
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "2016",
-            "description": "Joined first marketing agency"
+            "name": "2022",
+            "description": "First agency experience"
           },
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "2018",
-            "description": "Became lead developer at agency"
+            "name": "2023",
+            "description": "Became lead developer"
           },
           {
             "@type": "ListItem",
             "position": 4,
-            "name": "2020",
-            "description": "Founded Planet X Devs"
+            "name": "2024",
+            "description": "Identified the agency development problem"
           },
           {
             "@type": "ListItem",
             "position": 5,
-            "name": "2024",
-            "description": "Expanding agency partnerships"
+            "name": "2025",
+            "description": "Launched Planet X Devs"
           }
         ]
       }
@@ -159,7 +160,7 @@ export default function AboutPage() {
           __html: JSON.stringify(structuredData)
         }}
       />
-      <AboutPageClient />
+      <AboutPage />
     </>
   );
 }

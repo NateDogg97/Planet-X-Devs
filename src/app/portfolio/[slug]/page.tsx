@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import ProjectDetail from './ProjectDetail';
+import ProjectDetail from '@/features/portfolio/ProjectDetail';
 import { portfolioProjects, getProjectBySlug } from '@/constants/portfolio';
 
 const BASE_URL = 'https://www.planetxdevs.com';

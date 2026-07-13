@@ -1,0 +1,38 @@
+# Planet X Devs
+
+> Planet X Devs is a white-label web development partner for marketing and digital agencies, based in Austin, TX and serving agencies worldwide. We build fast, custom websites that clients can manage themselves, and we support existing WordPress sites — all delivered under the agency's brand.
+
+## What we do
+
+- **Custom website development**: Hand-coded sites and client-friendly CMS builds (React, Next.js, headless CMS). Fast, distinctive, and easy for non-technical clients to hand off and manage themselves.
+- **White-label agency partnership**: We work invisibly behind the scenes. Every deliverable is branded as the agency's work; we never contact the agency's clients directly.
+- **E-commerce development**: Shopify, WooCommerce, and headless commerce builds and migrations.
+- **Performance optimization**: Core Web Vitals and page-speed improvements for measurable results.
+- **Technical SEO implementation**: Schema markup, Core Web Vitals, indexing, and site structure.
+- **WordPress support & migrations**: We no longer take on *new* WordPress builds, but we bring deep WordPress expertise to supporting, optimizing, securing, and migrating the WordPress sites agencies already manage — including migrations off WordPress onto faster custom builds.
+- **Emergency support & maintenance**: 24-hour response for broken sites, plus ongoing maintenance plans.
+
+## Key facts
+
+- Founder & lead developer: Nathaniel Mays
+- Location: Lakeway / Austin, TX, USA; serves marketing agencies worldwide
+- Founded: 2025
+- Engagement models: project-based quotes (delivered within 24 hours) or monthly partnership retainers
+- Monthly partnership plans start at $900–1,100/month for 25 hours of white-label development
+- Positioning: modern custom builds first; WordPress as support/maintenance, not new builds
+- 100% white-label; no long-term contracts required
+
+## Important pages
+
+- Home: https://www.planetxdevs.com
+- Services: https://www.planetxdevs.com/services
+- White-Label Web Development: https://www.planetxdevs.com/white-label-web-development
+- Portfolio: https://www.planetxdevs.com/portfolio
+- About: https://www.planetxdevs.com/about
+- Free Website Audit Checklist: https://www.planetxdevs.com/website-audit-checklist
+- Contact: https://www.planetxdevs.com/contact
+
+## Contact
+
+- Email: nathaniel@planetxdevs.com
+- Phone: +1-512-789-8844

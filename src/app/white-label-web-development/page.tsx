@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
-import WhiteLabelPageClient from './WhiteLabelPageClient';
+import WhiteLabelPage from '@/features/white-label/WhiteLabelPage';
 
 export const metadata: Metadata = {
-  title: "White Label Web Development for Digital Agencies | Planet X Devs",
-  description: "WordPress powers 40% of the web. We power your agency's WordPress development. Add our expert developers to your team and scale without limits. Get quote in 24 hours.",
-  keywords: "white label web development, WordPress agency partner, outsource WordPress development, private label WordPress, WordPress reseller program, wholesale website development, B2B WordPress development, WordPress fulfillment services, WordPress partner program",
+  title: "White-Label Web Development for Agencies | Planet X Devs",
+  description: "Your agency's invisible development team. We build fast, custom websites — React, Next.js, headless CMS, and e-commerce — under your brand, plus WordPress support and maintenance. Project-based or ongoing. Get a quote in 24 hours.",
+  keywords: "white label web development, white label web development for agencies, outsource web development, custom web development for agencies, white label React development, white label Next.js development, wholesale website development, agency development partner, white label WordPress support",
   openGraph: {
-    title: "White Label WordPress Development for Digital Agencies | Planet X Devs",
-    description: "Unlimited WordPress projects. Unlimited revisions. No contracts. Your clients never know we exist. Join 500+ agencies scaling with our white label services.",
+    title: "White-Label Web Development for Agencies | Planet X Devs",
+    description: "Custom websites built under your brand — React, Next.js, headless CMS, and e-commerce — plus WordPress support. No contracts. Your clients never know we exist.",
     url: "https://www.planetxdevs.com/white-label-web-development",
     siteName: "Planet X Devs",
     images: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Planet X Devs - White Label WordPress Development Services'
+        alt: 'Planet X Devs - White-Label Web Development for Agencies'
       }
     ],
     locale: 'en_US',
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "White Label WordPress Development for Digital Agencies | Planet X Devs",
-    description: "Scale your agency with professional white label WordPress development services.",
+    title: "White-Label Web Development for Agencies | Planet X Devs",
+    description: "Scale your agency with professional white-label custom web development, e-commerce, and WordPress support.",
     images: ['/images/og-image.jpg']
   },
   alternates: {
@@ -40,14 +40,14 @@ export default function WhiteLabelWebDevelopment() {
         "@type": "WebPage",
         "@id": "https://www.planetxdevs.com/white-label-web-development#webpage",
         "url": "https://www.planetxdevs.com/white-label-web-development",
-        "name": "White Label WordPress Development for Digital Agencies",
+        "name": "White-Label Web Development for Agencies",
         "isPartOf": {
           "@id": "https://www.planetxdevs.com/#website"
         },
         "about": {
           "@id": "https://www.planetxdevs.com/#organization"
         },
-        "description": "Professional white label WordPress development services for digital agencies. Unlimited projects, unlimited revisions, no contracts.",
+        "description": "White-label web development for marketing and digital agencies: custom React and Next.js builds, headless CMS, e-commerce, and WordPress support — all under your brand. No contracts.",
         "breadcrumb": {
           "@id": "https://www.planetxdevs.com/white-label-web-development#breadcrumb"
         },
@@ -72,7 +72,7 @@ export default function WhiteLabelWebDevelopment() {
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "White Label WordPress Development",
+            "name": "White-Label Web Development",
             "item": "https://www.planetxdevs.com/white-label-web-development"
           }
         ]
@@ -80,8 +80,8 @@ export default function WhiteLabelWebDevelopment() {
       {
         "@type": "Service",
         "@id": "https://www.planetxdevs.com/white-label-web-development#service",
-        "name": "White Label WordPress Development",
-        "description": "Professional WordPress development services for digital agencies",
+        "name": "White-Label Web Development",
+        "description": "White-label web development for digital agencies — custom builds, e-commerce, and ongoing support under your brand",
         "provider": {
           "@id": "https://www.planetxdevs.com/#organization"
         },
@@ -91,22 +91,27 @@ export default function WhiteLabelWebDevelopment() {
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "WordPress Development Services",
+          "name": "White-Label Development Services",
           "itemListElement": [
             {
               "@type": "Offer",
-              "name": "Custom WordPress Development",
-              "description": "Custom-coded WordPress websites delivered on time and to your exact specifications"
-            },
-            {
-              "@type": "Offer", 
-              "name": "WordPress Plugin Development",
-              "description": "Custom plugins and extensions including membership systems, booking platforms, API integrations"
+              "name": "Custom Website Development",
+              "description": "Custom-coded and CMS-based websites built to your specifications and easy for clients to manage"
             },
             {
               "@type": "Offer",
-              "name": "WordPress Maintenance",
-              "description": "24/7 monitoring, security updates, daily backups, unlimited content edits"
+              "name": "React & Next.js Development",
+              "description": "Modern web applications, SPAs, and fast, SEO-friendly sites built with React and Next.js"
+            },
+            {
+              "@type": "Offer",
+              "name": "E-Commerce Development",
+              "description": "Shopify, WooCommerce, and headless commerce builds and migrations"
+            },
+            {
+              "@type": "Offer",
+              "name": "WordPress Support & Maintenance",
+              "description": "Monitoring, security, updates, and performance for existing WordPress sites"
             }
           ]
         }
@@ -117,26 +122,26 @@ export default function WhiteLabelWebDevelopment() {
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What is white label web development?",
+            "name": "What is white-label web development?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "White label web development is when agencies outsource WordPress development to a partner who works under their brand. Your clients never know we exist - we're your invisible development team."
+              "text": "White-label web development is when an agency outsources website builds and technical work to a partner who works entirely under the agency's brand. Your clients never know we exist — we're your invisible development team."
             }
           },
           {
             "@type": "Question",
-            "name": "How does white label WordPress development work?",
+            "name": "How does white-label web development work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "You send us project requirements, we provide a quote within 24 hours, and upon approval, we build under your brand. All communication goes through you, we never contact your clients."
+              "text": "You send us project requirements, we provide a quote within 24 hours, and upon approval we build under your brand. All communication goes through you — we never contact your clients directly."
             }
           },
           {
             "@type": "Question",
-            "name": "How much does white label development cost?",
+            "name": "How much does white-label web development cost?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Project-based work starts at custom quotes delivered in 24 hours. Monthly plans begin at $699 for maintenance (15-20 hours), dedicated developers from $2,999/month (160 hours)."
+              "text": "Project-based work is quoted per project, with quotes delivered within 24 hours. Monthly partnership plans start at $900–1,100/month for 25 hours of white-label development, with larger plans for agencies that need more capacity."
             }
           }
         ]
@@ -152,7 +157,7 @@ export default function WhiteLabelWebDevelopment() {
           __html: JSON.stringify(structuredData)
         }}
       />
-      <WhiteLabelPageClient />
+      <WhiteLabelPage />
     </>
   );
 }

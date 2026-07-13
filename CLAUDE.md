@@ -27,14 +27,33 @@ Follow it for all styling work. Key rules:
 ## Development Guidelines
 
 ### Component Architecture
+
+Feature-based colocation. Route files stay thin (metadata + JSON-LD + render a
+feature component); everything a single feature needs lives under `features/`.
+Only genuinely shared code lives under `components/`.
+
 ```
 src/
-  components/
-    ui/           # Reusable UI components (Button, Card, etc.)
-    sections/     # Page sections (Hero, Services, etc.)
-    forms/        # Form components with validation
-    animations/   # Animation components (use sparingly)
+  app/                    # Routing only: page.tsx (server: metadata + JSON-LD), route handlers, sitemap/robots
+  features/               # One folder per feature/route
+    <feature>/
+      <Feature>Page.tsx   # The 'use client' page component (e.g. HomePage, ContactPage)
+      components/         # Components used only by this feature
+  components/             # Shared across features
+    ui/                   # Primitives: Button, Card, Icon, Heading, FAQItem, AlertBanner, Tabs, VerticalTimeline
+    animations/           # Decorative: StarField, FloatingParticles, FloatingPlanet, ParallaxGraphic
+    layout/               # Section, Hero
+    navigation/           # Header, Footer, Breadcrumbs
+    forms/                # Shared form primitives (FormField)
+    providers/            # Context providers (PerformanceProvider)
+  utils/forms/            # Form utilities: validators, validation, submission, formatting, urls (barrel: @/utils)
+  constants/              # Content data (services, portfolio, faq, ...)
+  config/                 # App settings/tokens (theme, alertBanner) — not content
 ```
+
+Placement rule: a component used by exactly one feature is colocated in that
+feature's `components/`; anything shared by 2+ features (or a generic primitive)
+goes under `components/`. Prefer explicit imports over barrels for components.
 
 ### Performance Requirements
 - **Target**: 95+ Lighthouse score

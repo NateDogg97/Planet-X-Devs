@@ -68,26 +68,10 @@ export {
 } from './testimonials';
 
 // Page-specific exports
+// Note: whiteLabelFAQs is re-exported above via the './faq' block.
 export {
-  whiteLabelStats,
   whiteLabelFeatures,
-  modernWebServices,
-  customWebServices,
-  eCommerceServices,
-  wordpressServices,
-  whiteLabelServices,
-  whiteLabelContentServices,
-  whiteLabelPricingPlans,
-  whiteLabelProcessSteps,
-  whiteLabelTestimonials,
-  whiteLabelCaseStudies,
-  type WhiteLabelStat,
   type WhiteLabelFeature,
-  type WhiteLabelService,
-  type WhiteLabelPlan,
-  type WhiteLabelStep,
-  type WhiteLabelTestimonial,
-  type WhiteLabelCaseStudy,
   type WhiteLabelFAQ
 } from './pages/white-label-web-development';
 

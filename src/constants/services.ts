@@ -53,18 +53,33 @@ export const services: Service[] = [
     popular: true
   },
   {
-    id: 'wordpress',
-    title: 'Custom WordPress Development',
-    price: '$1,500 - $8,000',
-    description: 'White-label WordPress development that elevates your agency\'s technical reputation. Professional sites your clients can actually manage, from corporate sites to complex membership platforms.',
+    id: 'custom-development',
+    title: 'Custom Website Development',
+    price: '$5,000 - $15,000',
+    description: 'White-label custom websites built from scratch — fast, distinctive, and easy to hand off. We build on client-friendly CMS platforms so your clients can manage their own content, or hand-code for maximum performance when that\'s the better fit.',
     features: [
-      'Custom theme development',
-      'Works with any page builder setup',
-      'Advanced Custom Fields (ACF) experts',
-      'Plugin development & customization',
-      'e-Commerce configuration & management'
+      'Hand-coded or client-manageable CMS',
+      'Easy for clients to update themselves',
+      'Unique designs that stand out',
+      'Advanced functionality and integrations',
+      'Full ownership of clean, documented code'
     ],
-    timeline: '1-4 weeks depending on features',
+    timeline: '4-8 weeks',
+    icon: 'code'
+  },
+  {
+    id: 'wordpress',
+    title: 'WordPress Support & Migrations',
+    price: '$200 - $4,000',
+    description: 'Deep WordPress expertise for the sites your agency already manages. We handle performance, security, migrations, and fixes on existing WordPress sites — and can migrate clients off WordPress to a faster custom build when it\'s time.',
+    features: [
+      'Performance & Core Web Vitals optimization',
+      'Security hardening & malware cleanup',
+      'Works with any page builder setup',
+      'Migrations to and from WordPress',
+      'Bug fixes, updates & maintenance'
+    ],
+    timeline: '1-4 weeks depending on scope',
     icon: 'globe'
   },
   {
@@ -81,20 +96,6 @@ export const services: Service[] = [
     ],
     timeline: '24-48 hours',
     icon: 'shield'
-  },
-  {
-    id: 'custom-development',
-    title: 'Custom Website Development',
-    price: '$5,000 - $15,000',
-    description: 'White-label custom websites that distinguish your agency from the competition. Built from scratch with cutting-edge tech and distinctive design that showcases your commitment to excellence.',
-    features: [
-      'Hand-coded for perfect performance',
-      'Unique designs that stand out',
-      'Advanced functionality and integrations',
-      'Full ownership of clean, documented code'
-    ],
-    timeline: '4-8 weeks',
-    icon: 'code'
   },
   {
     id: 'ecommerce',

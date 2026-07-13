@@ -3,10 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/navigation/Header";
 import Footer from "@/components/navigation/Footer";
-import AlertBanner from "@/components/ui/AlertBanner";
 import { PerformanceProvider } from "@/components/providers/PerformanceProvider";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { ALERT_BANNER_CONFIG } from "@/config/alertBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,30 +18,46 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.planetxdevs.com'),
-  title: "Planet X Devs - Your Agency Development Partner in Austin, TX",
-  description: "Your trusted agency development partner in Austin, TX for white-label web services. We handle the technical work so you focus on campaigns.",
-  keywords: "agency development partner, custom wordpress development, white label web development, marketing agency technical partner, wordpress developer for agencies, web development partnership, agency overflow support",
+  title: "Planet X Devs | White-Label Web Development Partner for Agencies",
+  description: "White-label web development partner for marketing agencies in Austin, TX. We build fast, custom websites your clients can manage themselves — plus WordPress support, performance, and maintenance. You keep the client relationship; we handle the code.",
+  keywords: "white label web development, custom web development for agencies, agency development partner, marketing agency technical partner, custom website development, Next.js developer for agencies, React developer for agencies, headless CMS development, WordPress support and maintenance, agency overflow development",
+  applicationName: "Planet X Devs",
+  authors: [{ name: "Nathaniel Mays", url: "https://www.planetxdevs.com/about" }],
+  creator: "Nathaniel Mays",
+  publisher: "Planet X Devs",
+  category: "Web Development",
   icons: {
     icon: '/images/brand/favicon/512x512_white_3.png',
     shortcut: '/images/brand/favicon/512x512_white_3.png',
     apple: '/images/brand/favicon/512x512_white_3.png',
   },
   openGraph: {
-    title: "Technical Development Partner for Marketing Agencies",
-    description: "Expert WordPress development and technical partnership services. Scale your marketing agency with a trusted development partner.",
+    title: "White-Label Web Development Partner for Marketing Agencies",
+    description: "Custom, easy-to-manage websites built under your agency's brand — plus WordPress support, performance optimization, and maintenance. Scale your agency without hiring.",
     images: ['/images/og-image.jpg'],
     url: 'https://www.planetxdevs.com',
+    siteName: 'Planet X Devs',
+    locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Technical Development Partner for Marketing Agencies",
-    description: "Expert WordPress development and technical partnership services.",
+    title: "White-Label Web Development Partner for Marketing Agencies",
+    description: "Custom, easy-to-manage websites built under your agency's brand — plus WordPress support and maintenance.",
+    site: '@planetxdevs',
+    creator: '@planetxdevs',
     images: ['/images/og-image.jpg'],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   alternates: {
     canonical: 'https://www.planetxdevs.com',
@@ -56,7 +70,20 @@ const organizationSchema = {
   "@id": "https://www.planetxdevs.com/#organization",
   "name": "Planet X Devs",
   "alternateName": "Planet X Development Services",
-  "description": "Professional web development partner for marketing agencies. Custom WordPress development, white-label services, and technical expertise.",
+  "description": "White-label web development partner for marketing agencies. We build fast, custom websites that clients can manage themselves, and provide WordPress support, performance optimization, and ongoing maintenance — all under your agency's brand.",
+  "slogan": "Your agency's technical partner.",
+  "knowsAbout": [
+    "Custom Web Development",
+    "White-Label Web Development",
+    "Next.js Development",
+    "React Development",
+    "Headless CMS Development",
+    "E-commerce Development",
+    "Website Performance Optimization",
+    "Technical SEO",
+    "WordPress Support and Maintenance",
+    "Website Migrations"
+  ],
   "url": "https://www.planetxdevs.com",
   "logo": {
     "@type": "ImageObject",
@@ -101,16 +128,24 @@ const organizationSchema = {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
+        "name": "Custom Website Development",
+        "description": "Fast, custom websites built for marketing agencies and their clients — hand-coded or on a client-friendly CMS that's easy to hand off and manage."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
         "name": "Agency Development Partnership",
         "description": "Become your marketing agency's dedicated technical partner. We handle the development while you focus on strategy and client relationships."
       }
     },
     {
-      "@type": "Offer", 
+      "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "name": "Custom WordPress Development",
-        "description": "Professional WordPress development tailored to your marketing agency's needs. Custom themes, plugins, performance optimization."
+        "name": "WordPress Support & Maintenance",
+        "description": "Ongoing support, performance optimization, security, and migrations for existing WordPress sites your agency manages."
       }
     }
   ]
@@ -188,7 +223,6 @@ export default function RootLayout({
         <PerformanceProvider enabled={true}>
           <GoogleTagManager gtmId="GTM-WCRL2WXZ"/>
           <Header />
-          <AlertBanner />
           <main className="pt-24">{children}</main>
           <Footer />
         </PerformanceProvider>
