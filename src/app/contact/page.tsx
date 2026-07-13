@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ContactPageClient from './ContactPageClient';
+import ContactPage from '@/features/contact/ContactPage';
 
 export const metadata: Metadata = {
   title: "Contact Planet X Devs | Your Agency's Technical Partner",
@@ -158,7 +158,7 @@ export default function Contact() {
           __html: JSON.stringify(structuredData)
         }}
       />
-      <ContactPageClient />
+      <ContactPage />
     </>
   );
 }

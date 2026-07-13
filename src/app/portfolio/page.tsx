@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import PortfolioPageClient from './PortfolioPageClient';
+import PortfolioPage from '@/features/portfolio/PortfolioPage';
 import { portfolioProjects } from '@/constants/portfolio';
 
 const BASE_URL = 'https://www.planetxdevs.com';
@@ -101,7 +101,7 @@ export default function Portfolio() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <PortfolioPageClient />
+      <PortfolioPage />
     </>
   );
 }

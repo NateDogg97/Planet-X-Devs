@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Icon from '../ui/Icon';
-import StarField from '../ui/StarField';
-import FloatingPlanet from '../ui/FloatingPlanet';
+import StarField from '@/components/animations/StarField';
+import FloatingPlanet from '@/components/animations/FloatingPlanet';
 import { motion } from 'framer-motion';
 import { HeroProps } from '@/types';
 

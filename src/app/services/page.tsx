@@ -1,21 +1,21 @@
 import { Metadata } from 'next';
-import ServicesPageClient from './ServicesPageClient';
+import ServicesPage from '@/features/services/ServicesPage';
 
 export const metadata: Metadata = {
   title: "Web Development Services for Marketing Agencies | Planet X Devs",
-  description: "Your technical partner for custom WordPress development and white-label web services. Help your marketing agency deliver exceptional websites without the technical overhead.",
-  keywords: "agency development partner, custom wordpress development, white label web development, marketing agency technical partner, wordpress developer for agencies, web development partnership, agency overflow support",
+  description: "White-label web development services for marketing agencies: custom website builds, e-commerce, performance optimization, technical SEO, plus WordPress support and maintenance. Deliver exceptional websites without the technical overhead.",
+  keywords: "white label web development services, custom web development for agencies, agency development partner, marketing agency technical partner, custom website development, e-commerce development, website performance optimization, technical SEO, WordPress support and maintenance",
   openGraph: {
-    title: "Technical Development Partner for Marketing Agencies",
-    description: "Expert WordPress development and technical partnership services. Scale your marketing agency with a trusted development partner.",
+    title: "White-Label Web Development Services for Marketing Agencies",
+    description: "Custom website builds, e-commerce, performance, and technical SEO — plus WordPress support. Scale your marketing agency with a trusted development partner.",
     images: ['/images/og-image.jpg'],
     url: 'https://www.planetxdevs.com/services',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Technical Development Partner for Marketing Agencies",
-    description: "Expert WordPress development and technical partnership services.",
+    title: "White-Label Web Development Services for Marketing Agencies",
+    description: "Custom builds, e-commerce, performance, and technical SEO — plus WordPress support and maintenance.",
     images: ['/images/og-image.jpg'],
   },
   alternates: {
@@ -102,28 +102,20 @@ export default function Services() {
       {
         "@type": "Service",
         "@id": "https://www.planetxdevs.com/services#wordpress",
-        "name": "Custom WordPress Development",
-        "description": "Professional WordPress development tailored to your marketing agency's needs. Custom themes, plugins, performance optimization, and security hardening for clients who need more than templates.",
+        "name": "WordPress Support & Maintenance",
+        "description": "Ongoing support for the WordPress sites your agency already manages: performance optimization, security hardening, updates, bug fixes, and migrations. We keep existing WordPress sites fast and healthy.",
         "provider": {
           "@id": "https://www.planetxdevs.com/#organization"
         },
-        "serviceType": "WordPress Development",
+        "serviceType": "WordPress Support and Maintenance",
         "areaServed": {
           "@type": "Place",
           "name": "Worldwide"
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "WordPress Services",
+          "name": "WordPress Support Services",
           "itemListElement": [
-            {
-              "@type": "Service",
-              "name": "Custom theme development"
-            },
-            {
-              "@type": "Service",
-              "name": "Plugin development"
-            },
             {
               "@type": "Service",
               "name": "Performance optimization"
@@ -134,11 +126,19 @@ export default function Services() {
             },
             {
               "@type": "Service",
-              "name": "WooCommerce setup"
+              "name": "Updates & maintenance"
             },
             {
               "@type": "Service",
-              "name": "Gutenberg block development"
+              "name": "Site migrations"
+            },
+            {
+              "@type": "Service",
+              "name": "WooCommerce support"
+            },
+            {
+              "@type": "Service",
+              "name": "Bug fixes & troubleshooting"
             }
           ]
         }
@@ -325,7 +325,7 @@ export default function Services() {
             "name": "What platforms and technologies do you work with?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "I specialize in WordPress (including Elementor, Divi, and custom themes), React/Next.js applications, and popular e-commerce platforms like WooCommerce and Shopify. I also work with various page builders and can adapt to your preferred tech stack."
+              "text": "I build custom sites with React and Next.js, and on client-friendly CMS platforms when a non-technical client needs to manage their own content. I also handle e-commerce on Shopify and WooCommerce, and provide ongoing support and maintenance for existing WordPress sites. I adapt to your preferred stack rather than forcing one solution."
             }
           },
           {
@@ -349,7 +349,7 @@ export default function Services() {
           __html: JSON.stringify(structuredData)
         }}
       />
-      <ServicesPageClient />
+      <ServicesPage />
     </>
   );
 }

@@ -17,7 +17,7 @@ export const faqItems = [
   {
     id: 'faq-4',
     question: 'What platforms and technologies do you work with?',
-    answer: 'I specialize in WordPress (including Elementor, Divi, and custom themes), React/Next.js applications, and popular e-commerce platforms like WooCommerce and Shopify. I also work with various page builders and can adapt to your preferred tech stack.'
+    answer: 'I build custom sites with React and Next.js, and on client-friendly CMS platforms when a non-technical client needs to manage their own content. I handle e-commerce on Shopify and WooCommerce, and provide ongoing support and maintenance for existing WordPress sites. I adapt to your preferred stack rather than forcing one solution.'
   },
   {
     id: 'faq-5',

@@ -73,7 +73,7 @@ export const benefits: Benefit[] = [
   {
     id: 'flexible-solutions',
     title: 'Flexible Solutions',
-    description: 'Custom development, Elementor, WordPress - we adapt to your project needs',
+    description: 'Custom builds, headless CMS, modern frameworks - we adapt to your project needs',
     icon: 'refresh'
   },
   {

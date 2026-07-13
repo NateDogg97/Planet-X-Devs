@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import React from 'react';
 import { resend } from '@/lib/resend';
-import { validateContactForm } from '@/utils/contactFormValidation';
+import { validateContactForm } from '@/utils/forms';
 import { formatFormData, createFormSummary } from '@/utils/forms';
 import { FormData } from '@/types';
 import {

@@ -5,6 +5,15 @@ import Heading from '@/components/ui/Heading';
 export const metadata: Metadata = {
   title: 'Privacy Policy | Planet X Devs',
   description: 'Privacy Policy for Planet X Devs. Learn how we protect and handle your personal information.',
+  alternates: {
+    canonical: 'https://www.planetxdevs.com/privacy-policy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | Planet X Devs',
+    description: 'Privacy Policy for Planet X Devs. Learn how we protect and handle your personal information.',
+    url: 'https://www.planetxdevs.com/privacy-policy',
+    type: 'website',
+  },
   robots: {
     index: true,
     follow: true,
@@ -13,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <Section container spacing="xlarge">
         <div className="max-w-4xl mx-auto">
           <Heading as={'h1'} className="text-center mb-8">
@@ -138,13 +147,13 @@ export default function PrivacyPolicyPage() {
               <div className="mt-4 text-text-primary">
                 <p><strong>Planet X Devs</strong></p>
                 <p>Email: <a href="mailto:nathaniel@planetxdevs.com" className="text-nebula-violet hover:underline">nathaniel@planetxdevs.com</a></p>
-                <p>Website: <a href="https://planetxdevs.com/cotnact" className="text-nebula-violet hover:underline">planetxdevs.com</a></p>
+                <p>Website: <a href="https://www.planetxdevs.com/contact" className="text-nebula-violet hover:underline">planetxdevs.com</a></p>
               </div>
             </section>
           </div>
         </div>
       </Section>
 
-    </main>
+    </div>
   );
 }
