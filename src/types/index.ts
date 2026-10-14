@@ -234,6 +234,9 @@ export interface PortfolioProject {
   gallery?: PortfolioImage[];
   /** Guidance for images still to capture — drives on-page placeholders. */
   mediaPlan?: PortfolioMediaPlan;
+  /** Our own product rather than client work: no client-handoff disclaimer,
+   *  and "The Client" reads "Who It's For" */
+  inHouse?: boolean;
   /** Surface higher on the archive and mark as featured in structured data */
   featured?: boolean;
 }

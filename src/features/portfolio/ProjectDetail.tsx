@@ -35,6 +35,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
     heroImage,
     gallery,
     mediaPlan,
+    inHouse,
   } = project;
 
   // The header hero image: a real feature image once captured, otherwise the
@@ -120,7 +121,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
             </a>
           )}
 
-          {url && (
+          {url && !inHouse && (
             <p className="mt-4 max-w-xl text-sm text-nebula-white/50">
               {liveSiteDisclaimer}
             </p>
@@ -173,7 +174,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
           {/* The Client */}
           <div className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">
-              The Client
+              {inHouse ? 'Who It’s For' : 'The Client'}
             </h2>
             <p className="text-lg text-text-secondary">{clientDescription}</p>
           </div>
