@@ -284,20 +284,20 @@ export async function POST(request: NextRequest) {
     const getSuccessMessage = (formType: string) => {
       switch (formType) {
         case 'project-inquiry':
-          return 'Thank you for your project inquiry! I\'ll get back to you within 24 hours with a detailed proposal.';
+          return 'Thank you for your project inquiry! We\'ll get back to you within 24 hours with a detailed proposal.';
         case 'quick-consultation':
-          return 'Thank you for your consultation request! I\'ll reach out within 4-6 hours to schedule our call.';
+          return 'Thank you for your consultation request! We\'ll reach out within 4-6 hours to schedule our call.';
         case 'support-maintenance':
           const priority = body.priority || 'medium';
           if (priority === 'urgent') {
-            return 'Your urgent support request has been received! I\'ll respond within 2-4 hours.';
+            return 'Your urgent support request has been received! We\'ll respond within 4 hours.';
           } else if (priority === 'high') {
-            return 'Your support request has been received! I\'ll respond within 24 hours.';
+            return 'Your support request has been received! We\'ll respond within 24 hours.';
           } else {
-            return 'Your support request has been received! I\'ll respond within 48 hours.';
+            return 'Your support request has been received! We\'ll respond within 24 hours.';
           }
         default:
-          return 'Thank you for your submission! I\'ll get back to you soon.';
+          return 'Thank you for your submission! We\'ll get back to you soon.';
       }
     };
 

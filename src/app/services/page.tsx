@@ -3,11 +3,11 @@ import ServicesPage from '@/features/services/ServicesPage';
 
 export const metadata: Metadata = {
   title: "Web Development Services for Marketing Agencies | Planet X Devs",
-  description: "White-label web development services for marketing agencies: custom website builds, e-commerce, performance optimization, technical SEO, plus WordPress support and maintenance. Deliver exceptional websites without the technical overhead.",
-  keywords: "white label web development services, custom web development for agencies, agency development partner, marketing agency technical partner, custom website development, e-commerce development, website performance optimization, technical SEO, WordPress support and maintenance",
+  description: "White-label web development services for marketing agencies: custom website builds, e-commerce, performance optimization, SEO-safe migrations, plus WordPress support and maintenance. Deliver exceptional websites without the technical overhead.",
+  keywords: "white label web development services, custom web development for agencies, agency development partner, marketing agency technical partner, custom website development, e-commerce development, website performance optimization, SEO-safe website migrations, WordPress support and maintenance",
   openGraph: {
     title: "White-Label Web Development Services for Marketing Agencies",
-    description: "Custom website builds, e-commerce, performance, and technical SEO — plus WordPress support. Scale your marketing agency with a trusted development partner.",
+    description: "Custom website builds, e-commerce, performance, and SEO-safe migrations — plus WordPress support. Scale your marketing agency with a trusted development partner.",
     images: ['/images/og-image.jpg'],
     url: 'https://www.planetxdevs.com/services',
     type: 'website',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "White-Label Web Development Services for Marketing Agencies",
-    description: "Custom builds, e-commerce, performance, and technical SEO — plus WordPress support and maintenance.",
+    description: "Custom builds, e-commerce, performance, and SEO-safe migrations — plus WordPress support and maintenance.",
     images: ['/images/og-image.jpg'],
   },
   alternates: {
@@ -162,7 +162,7 @@ export default function Services() {
         "@id": "https://www.planetxdevs.com/services#emergency-support",
         "name": "Emergency Website Support",
         "alternateName": "Emergency Support & Fixes",
-        "description": "When your client's website breaks and they're breathing down your neck, we've got you covered. 24-hour response time to save your reputation and their business.",
+        "description": "When your client's website breaks and they're breathing down your neck, we've got you covered. 4-hour emergency response to save your reputation and their business.",
         "provider": {
           "@id": "https://www.planetxdevs.com/#organization"
         },
@@ -232,12 +232,12 @@ export default function Services() {
       {
         "@type": "Service",
         "@id": "https://www.planetxdevs.com/services#technical-seo",
-        "name": "Technical SEO Implementation",
-        "description": "Technical SEO implementation that amplifies your agency's marketing efforts. White-label services that complement your content strategy and deliver measurable ranking improvements.",
+        "name": "SEO-Safe Migrations",
+        "description": "Move a client's site to a new platform or design without losing the rankings it has earned. Every URL, page title, and piece of structured data comes across, and we verify nothing broke after launch.",
         "provider": {
           "@id": "https://www.planetxdevs.com/#organization"
         },
-        "serviceType": "Technical SEO",
+        "serviceType": "SEO-Safe Website Migration",
         "areaServed": {
           "@type": "Place",
           "name": "Worldwide"
@@ -301,7 +301,7 @@ export default function Services() {
             "name": "How quickly can you start on my project?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "For new partners, I can typically start within 3-5 business days. Marketing agency partners with active plans get priority scheduling with 24-48 hour response times. Rush projects are available based on current capacity."
+              "text": "For new partners, we can typically start within 3-5 business days. Marketing agency partners with active plans get priority scheduling, and every request gets a response within 24 hours. Rush projects are available based on current capacity."
             }
           },
           {
@@ -325,7 +325,7 @@ export default function Services() {
             "name": "What platforms and technologies do you work with?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "I build custom sites with React and Next.js, and on client-friendly CMS platforms when a non-technical client needs to manage their own content. I also handle e-commerce on Shopify and WooCommerce, and provide ongoing support and maintenance for existing WordPress sites. I adapt to your preferred stack rather than forcing one solution."
+              "text": "We build custom sites with React and Next.js, and on client-friendly CMS platforms when a non-technical client needs to manage their own content. We also handle e-commerce on Shopify and WooCommerce, and provide ongoing support and maintenance for existing WordPress sites. We adapt to your preferred stack rather than forcing one solution."
             }
           },
           {
@@ -333,7 +333,7 @@ export default function Services() {
             "name": "How do you handle project communication and updates?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "I provide regular updates through your preferred channel (email, Slack, or project management tool). Retainer clients get weekly status reports, and all clients receive milestone updates throughout their projects."
+              "text": "We provide regular updates through your preferred channel (email, Slack, or project management tool). Retainer clients get weekly status reports, and all clients receive milestone updates throughout their projects."
             }
           }
         ]

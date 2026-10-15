@@ -34,10 +34,10 @@ export default function ContactForm() {
     <div>
       <div className="mb-8 text-center">
         <h2 className="text-3xl font-bold text-text-primary mb-4">
-          How Can I Help Your Agency?
+          How Can We Help Your Agency?
         </h2>
         <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-          Choose the option that best fits your needs. I&apos;ll get back to you with personalized next steps.
+          Choose the option that best fits your needs. We&apos;ll get back to you with personalized next steps.
         </p>
       </div>
       

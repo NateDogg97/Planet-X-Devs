@@ -66,7 +66,7 @@ export default function QuickConsultationForm() {
       
       await submitContactForm(submissionData);
       setSubmitStatus('success');
-      setSubmitMessage('Thank you for your consultation request! I\'ll reach out within 4-6 hours to schedule our call.');
+      setSubmitMessage('Thank you for your consultation request! We\'ll reach out within 4-6 hours to schedule our call.');
       
       setFormData(getInitialFormData('quick-consultation'));
       setErrors({});
@@ -171,7 +171,7 @@ export default function QuickConsultationForm() {
         <FormField
           name="quick-challenge"
           type="textarea"
-          label="Tell me more about your situation"
+          label="Tell us more about your situation"
           value={formData.challenge || ''}
           onChange={(e) => handleChange('challenge', e.target.value)}
           rows={4}

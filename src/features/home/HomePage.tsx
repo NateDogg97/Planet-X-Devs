@@ -9,29 +9,8 @@ import Section from '@/components/layout/Section';
 import ServiceCard from '@/features/home/components/ServiceCard';
 import ProjectSummaryCard from '@/features/portfolio/components/ProjectSummaryCard';
 import Icon from '@/components/ui/Icon';
-import { services, testimonials, processSteps } from '@/constants/index';
+import { services, processSteps } from '@/constants/index';
 import { portfolioProjects } from '@/constants/portfolio';
-
-const TestimonialCarousel = dynamic(() => import('@/features/home/components/TestimonialCarousel'), {
-  ssr: false,
-  loading: () => (
-    <div className="relative max-w-4xl mx-auto">
-      <div className="absolute -top-8 -left-4 text-6xl text-nebula-violet-30 animate-pulse-slow">"</div>
-      <div className="bg-nebula-violet-10 rounded-3xl p-8 md:p-12">
-        <div className="text-center animate-pulse">
-          <div className="h-6 bg-nebula-violet-20 rounded mx-auto mb-4 max-w-3xl"></div>
-          <div className="h-6 bg-nebula-violet-20 rounded mx-auto mb-6 max-w-2xl"></div>
-          <div className="h-4 bg-nebula-violet-20 rounded mx-auto max-w-xs"></div>
-        </div>
-        <div className="flex justify-center gap-2 mt-6">
-          <div className="w-8 h-2 bg-nebula-violet rounded-full"></div>
-          <div className="w-2 h-2 bg-nebula-violet-30 rounded-full"></div>
-          <div className="w-2 h-2 bg-nebula-violet-30 rounded-full"></div>
-        </div>
-      </div>
-    </div>
-  )
-});
 
 const FloatingParticles = dynamic(() => import('@/components/animations/FloatingParticles'), {
   ssr: false,
@@ -73,9 +52,9 @@ const teamMembers = [
     title: 'Founder & Lead Developer',
     image: '/images/nathaniel-mays.webp',
     alt: 'Nathaniel Mays - Founder & Lead Developer',
-    highlights: ['5+ Years Experience', 'Enterprise Software Engineer'],
+    highlights: ['4+ Years Experience', 'Senior Web Developer'],
     blurb:
-      'After years leading development teams at fast-paced software companies and digital marketing agencies, Nathaniel founded Planet X Devs to be the technical partner agencies can actually count on — from new builds to the maintenance and emergency fixes most developers avoid.'
+      'Nathaniel builds production websites for a living, from custom Next.js builds to performance and maintenance work at software companies and digital marketing agencies. He founded Planet X Devs to be the technical partner agencies can actually count on — from new builds to the maintenance and emergency fixes most developers avoid.'
   },
   {
     name: 'Sebastian Perrone',
@@ -95,7 +74,6 @@ export default function HomePage() {
   const [portfolioVisible, setPortfolioVisible] = useState(false);
   const [processVisible, setProcessVisible] = useState(false);
   const [statsVisible, setStatsVisible] = useState(false);
-  const [testimonialVisible, setTestimonialVisible] = useState(false);
 
   // Refs for sections
   const servicesRef = useRef<HTMLDivElement>(null);
@@ -104,7 +82,6 @@ export default function HomePage() {
   const portfolioRef = useRef<HTMLDivElement>(null);
   const processRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
-  const testimonialRef = useRef<HTMLDivElement>(null);
   
   // Intersection observers
   const servicesObserverRef = useRef<IntersectionObserver | null>(null);
@@ -161,9 +138,6 @@ export default function HomePage() {
           } else if (entry.target === statsRef.current) {
             setStatsVisible(true);
             sectionObserverRef.current?.unobserve(entry.target);
-          } else if (entry.target === testimonialRef.current) {
-            setTestimonialVisible(true);
-            sectionObserverRef.current?.unobserve(entry.target);
           }
         }
       });
@@ -190,9 +164,6 @@ export default function HomePage() {
       }
       if (statsRef.current && sectionObserverRef.current) {
         sectionObserverRef.current.observe(statsRef.current);
-      }
-      if (testimonialRef.current && sectionObserverRef.current) {
-        sectionObserverRef.current.observe(testimonialRef.current);
       }
     };
 
@@ -471,7 +442,7 @@ export default function HomePage() {
                         Quality You Can Stake Your Reputation On
                       </h3>
                       <p className="text-text-primary/70 transition-colors duration-300 group-hover:text-text-primary/90">
-                        We don't settle when it comes to quality. A job well done is the only acceptible criteria.
+                        We don't settle when it comes to quality. A job well done is the only acceptable criteria.
                       </p>
                     </div>
                   </div>
@@ -542,10 +513,10 @@ export default function HomePage() {
                     <div className="relative inline-block">
                       <div className="absolute inset-0 bg-nebula-cyan blur-2xl opacity-50 animate-pulse-slow" />
                       <div className="relative text-5xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent">
-                        1000+
+                        20+
                       </div>
                     </div>
-                    <p className="text-text-primary/70 mt-2">Combined Career Websites Built</p>
+                    <p className="text-text-primary/70 mt-2">Projects Delivered</p>
                   </div>
                   
                   {/* Stat 2 */}
@@ -553,21 +524,10 @@ export default function HomePage() {
                     <div className="relative inline-block">
                       <div className="absolute inset-0 bg-nebula-cyan blur-2xl opacity-50 animate-pulse-slow" style={{ animationDelay: '0.5s' }} />
                       <div className="relative text-5xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent">
-                        20+
-                      </div>
-                    </div>
-                    <p className="text-text-primary/70 mt-2">Projects Delivered</p>
-                  </div>
-                  
-                  {/* Stat 3 */}
-                  <div className="animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-                    <div className="relative inline-block">
-                      <div className="absolute inset-0 bg-nebula-cyan blur-2xl opacity-50 animate-pulse-slow" style={{ animationDelay: '1s' }} />
-                      <div className="relative text-5xl font-bold bg-gradient-to-r from-nebula-cyan to-nebula-violet bg-clip-text text-transparent">
                         4hrs
                       </div>
                     </div>
-                    <p className="text-text-primary/70 mt-2">Average Response Time</p>
+                    <p className="text-text-primary/70 mt-2">Emergency Response Time</p>
                   </div>
                 </div>
                 
@@ -583,29 +543,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Testimonials Section */}
-      <Section background="secondary" container>
-        <div 
-          ref={testimonialRef}
-          className={`transition-all duration-1000 ${
-            testimonialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-          style={{
-            willChange: !testimonialVisible ? 'transform, opacity' : 'auto'
-          }}
-        >
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-              What Agencies Say About Us
-            </h2>
-            <p className="text-xl text-text-primary/70">
-              Don't just take our word for it
-            </p>
-          </div>
-          
-          <TestimonialCarousel testimonials={testimonials.slice(0, 3)} />
-        </div>
-      </Section>
+      {/* TODO: Google Reviews widget goes here once we have reviews */}
 
       {/* Final CTA Section */}
       <Section container className="overflow-hidden relative" background='dark'>
@@ -614,7 +552,7 @@ export default function HomePage() {
               Ready to Launch Your Next Project?
           </h2>
           <p className="text-xl text-nebula-white/70 mb-10 max-w-2xl mx-auto">
-              Let's discuss how I can help your agency deliver exceptional websites without the headaches
+              Let's discuss how we can help your agency deliver exceptional websites without the headaches
           </p>
           <Link
               href="/contact?form=agency-partnership"

@@ -5,7 +5,7 @@ export default function HowItWorksSection() {
     {
       number: 1,
       title: "Project Discovery & Quote",
-      description: "Share your project requirements - rough scope is fine. I'll ask the right questions to understand technical needs, timeline, and budget. Whether you have detailed specs or just a general idea, I translate client needs into actionable development plans. You receive a detailed quote within 24 hours with clear deliverables and timeline.",
+      description: "Share your project requirements - rough scope is fine. We'll ask the right questions to understand technical needs, timeline, and budget. Whether you have detailed specs or just a general idea, I translate client needs into actionable development plans. You receive a detailed quote within 24 hours with clear deliverables and timeline.",
       timeline: "24 hour turnaround",
       tags: ["No contracts required", "Flexible communication"],
       iconName: "chat" as const
@@ -13,7 +13,7 @@ export default function HowItWorksSection() {
     {
       number: 2,
       title: "Seamless Onboarding",
-      description: "Once approved, we establish communication preferences. Slack, email, project management tools - I adapt to your workflow. You'll receive a project kickoff document outlining milestones, communication schedule, and everything needed from your end. No lengthy contracts, just a simple agreement that protects both parties.",
+      description: "Once approved, we establish communication preferences. Slack, email, project management tools - we adapt to your workflow. You'll receive a project kickoff document outlining milestones, communication schedule, and everything needed from your end. No lengthy contracts, just a simple agreement that protects both parties.",
       timeline: "Same day setup",
       tags: ["Wholesale pricing", "Mark up as you wish"],
       iconName: "clipboard" as const
@@ -21,7 +21,7 @@ export default function HowItWorksSection() {
     {
       number: 3,
       title: "Development & Updates",
-      description: "I build while keeping you informed. Regular updates in your preferred format - technical for those who want details, simplified for easy client sharing. Access to staging environments throughout development. Unlimited revisions within scope because pixel-perfect matters.",
+      description: "We build while keeping you informed. Regular updates in your preferred format - technical for those who want details, simplified for easy client sharing. Access to staging environments throughout development. Unlimited revisions within scope because pixel-perfect matters.",
       timeline: "2-6 weeks typical",
       tags: ["100% white label", "Your brand only"],
       iconName: "code" as const

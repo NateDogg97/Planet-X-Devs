@@ -289,7 +289,7 @@ export default function ServicesPage() {
             Ready to Launch Your Next Project?
           </h2>
           <p className="text-xl text-nebula-white/70 mb-10 max-w-2xl mx-auto">
-            Let's discuss how I can help your agency deliver exceptional websites without the headaches
+            Let's discuss how we can help your agency deliver exceptional websites without the headaches
           </p>
           <Link
             href="/contact?form=agency-partnership"

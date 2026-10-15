@@ -62,6 +62,7 @@ export const services: Service[] = [
       'Easy for clients to update themselves',
       'Unique designs that stand out',
       'Advanced functionality and integrations',
+      'Custom scroll animations & interactions (GSAP)',
       'Full ownership of clean, documented code'
     ],
     timeline: '4-8 weeks',
@@ -86,9 +87,9 @@ export const services: Service[] = [
     id: 'emergency-support',
     title: 'Emergency Support & Fixes',
     price: '$500 - $2,000',
-    description: 'When your client\'s website breaks and they\'re breathing down your neck, we\'ve got you covered. 24-hour response time to save your reputation and their business.',
+    description: 'When your client\'s website breaks and they\'re breathing down your neck, we\'ve got you covered. 4-hour emergency response to save your reputation and their business.',
     features: [
-      'Emergency response within 24 hours',
+      'Emergency response within 4 hours',
       'Website downtime resolution',
       'Security breach mitigation',
       'Database recovery and restoration',
@@ -144,15 +145,15 @@ export const services: Service[] = [
   },
   {
     id: 'technical-seo',
-    title: 'Technical SEO Implementation',
+    title: 'SEO-Safe Migrations',
     price: '$1,000 - $4,000',
-    description: 'Technical SEO implementation that amplifies your agency\'s marketing efforts. White-label services that complement your content strategy and deliver measurable ranking improvements.',
+    description: 'Move a client\'s site to a new platform or design without losing the rankings it has earned. Every URL, page title, and piece of structured data comes across, and we verify nothing broke after launch.',
     features: [
-      'Schema markup implementation',
-      'XML sitemap optimization',
-      'Core Web Vitals optimization',
-      'Mobile-first indexing setup',
-      'URL structure & redirect management'
+      'URL mapping & 301 redirects',
+      'Metadata & content carried over',
+      'Schema markup preserved or added',
+      'XML sitemap & Search Console resubmission',
+      'Post-launch crawl & 404 monitoring'
     ],
     timeline: '1-2 weeks',
     icon: 'chart'
@@ -215,7 +216,7 @@ export const agencyPartnershipPlans = [
     features: [
       '100 hours of white-label development', 
       'Dedicated development team',
-      '24-hour emergency response',
+      '4-hour emergency response',
       'Unlimited consultations',
       'Weekly partnership meetings',
       'Custom development workflows',

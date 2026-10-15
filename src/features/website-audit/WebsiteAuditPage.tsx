@@ -290,7 +290,7 @@ export default function WebsiteAuditPage() {
         </h2>
         
         <p className="text-xl mb-8 opacity-95">
-          Most agencies struggle with the same technical issues. Let me help you fix them.
+          Most agencies struggle with the same technical issues. Let us help you fix them.
         </p>
 
         {/* Two-column layout for options */}
@@ -301,12 +301,12 @@ export default function WebsiteAuditPage() {
               Option 1: Get Free Advice
             </h3>
             <p className="mb-6 opacity-90">
-              I'll review your results and send you specific tips for your situation
+              We'll review your results and send you specific tips for your situation
             </p>
             <EmailSignupForm
               formId="website-audit"
               submitButtonText="Send My Results →"
-              successMessage="Thanks! I'll review your audit and reach out within 24 hours with some quick tips."
+              successMessage="Thanks! We'll review your audit and reach out within 24 hours with some quick tips."
               
               // GTM tracking
               gtmEventData={{
@@ -344,7 +344,7 @@ export default function WebsiteAuditPage() {
         </div>
 
         <p className="text-sm opacity-75">
-          No spam, no automated emails. I personally review every audit submission.
+          No spam, no automated emails. We personally review every audit submission.
         </p>
       </Section>
 

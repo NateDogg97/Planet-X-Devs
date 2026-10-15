@@ -107,7 +107,7 @@ export default function About() {
             "White-label Services",
             "WordPress Support and Maintenance",
             "Marketing Agency Operations",
-            "Technical SEO",
+            "SEO-Safe Migrations",
             "Performance Optimization"
           ]
         }

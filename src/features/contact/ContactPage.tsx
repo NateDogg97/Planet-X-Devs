@@ -36,15 +36,15 @@ const FAQItem = dynamic(() => import('@/components/ui/FAQItem'), {
 const contactFAQs = [
   {
     question: "How quickly can you start on my project?",
-    answer: "I typically begin new projects within 3-5 business days after our initial consultation. For urgent requests, I offer expedited timelines.",
+    answer: "We typically begin new projects within 3-5 business days after our initial consultation. For urgent requests, we offer expedited timelines.",
   },
   {
     question: "Do you work with agencies outside the US?",
-    answer: "Absolutely! I work with agencies worldwide. All communication is handled via email or your preferred platform, making timezone differences manageable.",
+    answer: "Absolutely! We work with agencies worldwide. All communication is handled via email or your preferred platform, making timezone differences manageable.",
   },
   {
     question: "What if I need changes after the project is complete?",
-    answer: "I offer post-launch support packages and can handle ongoing maintenance. Small tweaks are often included, and larger changes are billed hourly or through a retainer.",
+    answer: "We offer post-launch support packages and can handle ongoing maintenance. Small tweaks are often included, and larger changes are billed hourly or through a retainer.",
   },
 ];
 
@@ -80,7 +80,7 @@ function ContactPageContent() {
             Let's Build Something Great Together
           </h1>
           <p className="text-xl text-nebula-white/80">
-            Whether you're a solo freelancer or an established agency, let's talk about how I can help you deliver exceptional websites without the development headaches.
+            Whether you're a solo freelancer or an established agency, let's talk about how we can help you deliver exceptional websites without the development headaches.
           </p>
         </div>
       </Section>

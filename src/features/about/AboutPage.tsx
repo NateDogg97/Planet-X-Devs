@@ -58,17 +58,17 @@ const valuesData: Array<{
   {
     icon: 'shield-check',
     title: 'Reliability First',
-    description: 'No more ghosting freelancers or missed deadlines. When I commit to your project, I deliver. Every time. Your clients trust you because you can trust me.'
+    description: 'No more ghosting freelancers or missed deadlines. When we commit to your project, we deliver. Every time. Your clients trust you because you can trust us.'
   },
   {
     icon: 'users',
-    title: 'Enterprise Experience',
-    description: 'Built by a SaaS expert with years building professional websites and landing pages. I understand your workflows, speak your language, and know exactly how to make your team shine.'
+    title: 'SaaS & Agency Experience',
+    description: 'Built by developers who have worked inside SaaS and agency web teams, building professional websites and landing pages. We understand your workflows, speak your language, and know exactly how to make your team shine.'
   },
   {
     icon: 'lightning',
     title: 'Speed Without Sacrifice',
-    description: 'Agency timelines are tight - I get it. My workflow is optimized for rapid delivery without cutting corners. Quality work, delivered when you need it.'
+    description: 'Agency timelines are tight - we get it. Our workflow is optimized for rapid delivery without cutting corners. Quality work, delivered when you need it.'
   },
   {
     icon: 'chat',
@@ -77,13 +77,13 @@ const valuesData: Array<{
   },
   {
     icon: 'puzzle',
-    title: 'Seemless Collaboration',
-    description: 'I work as an extension of your team. White-label everything, adapt to your processes, and make you look great to your clients. Perfect Integration.'
+    title: 'Seamless Collaboration',
+    description: 'We work as an extension of your team. White-label everything, adapt to your processes, and make you look great to your clients. Perfect Integration.'
   },
   {
     icon: 'trending-up',
     title: 'Growth Partnership',
-    description: 'When you win more clients and grow your agency, I grow too. I\'m invested in your long-term success, not just individual projects. Let\'s build it together.'
+    description: 'When you win more clients and grow your agency, we grow too. We\'re invested in your long-term success, not just individual projects. Let\'s build it together.'
   }
 ];
 
@@ -109,15 +109,15 @@ const teamMembersData: TeamMember[] = [
     image: '/images/nathaniel-mays.webp',
     alt: 'Nathaniel Mays - Founder & Lead Developer',
     priority: true,
-    highlights: ['5+ Years Experience', 'Enterprise Software Engineer', 'Committed to Your Success'],
+    highlights: ['4+ Years Experience', 'Senior Web Developer', 'Committed to Your Success'],
     bio: [
-      "Hi, I'm Nathaniel. After spending years as a lead developer in fast-paced software companies and digital marketing agencies, I witnessed a pattern: brilliant creative teams struggling with unreliable developers, broken sites, and technical bottlenecks that cost them clients.",
+      "Hi, I'm Nathaniel. After years building websites for fast-paced software companies and digital marketing agencies, I witnessed a pattern: brilliant creative teams struggling with unreliable developers, broken sites, and technical bottlenecks that cost them clients.",
       "I founded Planet X Devs to become the technical partner agencies can actually count on. I handle the ongoing website support most developers avoid - the maintenance, performance fixes, updates, and late-night \"the site's down and the client's calling\" emergencies - so your projects stay healthy long after launch.",
       "Working alongside Sebastian, we've built the bandwidth to cover both new builds and continuous support without ever dropping a ball. We tackle projects together as one team - which means faster turnarounds, more reliable coverage, and a partner you can trust to keep your clients' sites running at their best."
     ],
     expertise: [
       { icon: 'code', title: 'Technical Expertise', description: 'React, Next.js, WordPress, Shopify & more' },
-      { icon: 'users', title: 'Agency Experience', description: 'Led teams, managed workflows, delivered results' },
+      { icon: 'users', title: 'Agency Experience', description: 'Built for agencies, on agency workflows and timelines' },
       { icon: 'lightning', title: 'On-time Delivery', description: 'Quick turnarounds without compromising quality' }
     ],
     skills: [
@@ -539,15 +539,15 @@ export default function AboutPage() {
               A Different Kind of Development Partnership
             </h2>
             <p className="text-lg text-text-primary/80 leading-relaxed">
-              You shouldn't have to gamble on finding a developer for your agency. With over 3 years of experience on enterprise-level SaaS development teams and direct dlient relationships, I've learned what distinguishes a vendor from a partner.
+              You shouldn't have to gamble on finding a developer for your agency. Our founder spent 3+ years at a SaaS company, working across its web development, marketing, and product engineering teams. Add the direct client work we&apos;ve done since 2024, and we&apos;ve learned what distinguishes a vendor from a partner.
             </p>
             <p className="text-lg text-text-primary/80 leading-relaxed">
-              Vendors are concerned about themselves. Partners are concerned about you winning. I believe that landing the perfect client is about helping you land <i>your</i> dream clients. This is a marathon, not a sprint.
+              Vendors are concerned about themselves. Partners are concerned about you winning. We believe that landing the perfect client is about helping you land <i>your</i> dream clients. This is a marathon, not a sprint.
             </p>
             
             <div className="space-y-4">
               <p className="text-lg text-text-primary/80 leading-relaxed">
-                Planet X Devs exists because I believe agencies can do better than disappearing freelancers or costly dev shops. You're due for a web development partner who:
+                Planet X Devs exists because we believe agencies can do better than disappearing freelancers or costly dev shops. You're due for a web development partner who:
               </p>
               <ul className="space-y-3 ml-6">
                 <li className="flex items-start">
@@ -564,16 +564,16 @@ export default function AboutPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-nebula-purple mr-3">•</span>
-                  <span className="text-lg text-text-primary/80">always responds in under 24 hours</span>
+                  <span className="text-lg text-text-primary/80">Always responds in under 24 hours</span>
                 </li>
               </ul>
             </div>
             
             <p className="text-lg text-text-primary/80 leading-relaxed">
-              Your clients always come first. What makes this partnership special is that not only do I deliver quality work and let you take the credit—I'm invested in your growth and ready to scale with you every step of the way.
+              Your clients always come first. What makes this partnership special is that not only do we deliver quality work and let you take the credit—we're invested in your growth and ready to scale with you every step of the way.
             </p>
             <p className="text-lg text-text-primary/80 leading-relaxed">
-              Whether you're scaling your agency or need reliable overflow support, I'm here to handle the technical heavy lifting so you can focus on what you do best—growing your clients' businesses.
+              Whether you're scaling your agency or need reliable overflow support, we're here to handle the technical heavy lifting so you can focus on what you do best—growing your clients' businesses.
             </p>
             <p className="text-lg text-text-primary/80 leading-relaxed mt-4">
               Want to ensure your clients' sites meet modern standards? Try our <Link href="/website-audit-checklist" className="text-nebula-cyan hover:underline">free 30-point website audit checklist</Link> to spot opportunities for improvement.
@@ -724,7 +724,7 @@ export default function AboutPage() {
             Ready to Launch Your Next Project?
           </h2>
           <p className="text-xl text-nebula-white/70 mb-10 max-w-2xl mx-auto">
-            Let's discuss how I can help your agency deliver exceptional websites without the headaches
+            Let's discuss how we can help your agency deliver exceptional websites without the headaches
           </p>
           <Link
             href="/contact?form=agency-partnership"

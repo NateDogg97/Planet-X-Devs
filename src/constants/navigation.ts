@@ -43,7 +43,7 @@ export const footerNavigation = {
       href: '/services#wordpress'
     },
     {
-      label: 'Technical SEO',
+      label: 'SEO-Safe Migrations',
       href: '/services#seo'
     },
     {

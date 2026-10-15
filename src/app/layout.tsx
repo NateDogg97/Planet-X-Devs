@@ -80,9 +80,8 @@ const organizationSchema = {
     "Headless CMS Development",
     "E-commerce Development",
     "Website Performance Optimization",
-    "Technical SEO",
     "WordPress Support and Maintenance",
-    "Website Migrations"
+    "SEO-Safe Website Migrations"
   ],
   "url": "https://www.planetxdevs.com",
   "logo": {

@@ -89,31 +89,31 @@ export const faqItems: FAQItem[] = [
   {
     id: 'design-files',
     question: 'Can you work with our existing design files?',
-    answer: 'Absolutely! I work with Figma, Adobe XD, Sketch, or even PSD files. I can also collaborate directly with your design team to ensure pixel-perfect implementation.',
+    answer: 'Absolutely! We work with Figma, Adobe XD, Sketch, or even PSD files. We can also collaborate directly with your design team to ensure pixel-perfect implementation.',
     category: 'design'
   },
   {
     id: 'white-label',
     question: 'Do you offer white-label services?',
-    answer: 'Yes! All work is delivered under your agency\'s brand. I never contact your clients directly, and all deliverables can be presented as your own work.',
+    answer: 'Yes! All work is delivered under your agency\'s brand. We never contact your clients directly, and all deliverables can be presented as your own work.',
     category: 'business'
   },
   {
     id: 'turnaround',
     question: 'What\'s your typical turnaround time?',
-    answer: 'For retainer clients: 24-48 hours for most requests. For project work: I provide detailed timelines with each quote, typically ranging from 1-6 weeks depending on complexity.',
+    answer: 'For retainer clients: 24-48 hours for most requests. For project work: we provide detailed timelines with each quote, typically ranging from 1-6 weeks depending on complexity.',
     category: 'timeline'
   },
   {
     id: 'hosting',
     question: 'Do you handle hosting and maintenance?',
-    answer: 'I can manage hosting setup and provide maintenance through retainer plans. However, I\'m also happy to hand off completed projects to your team or preferred hosting provider.',
+    answer: 'We can manage hosting setup and provide maintenance through retainer plans. However, we\'re also happy to hand off completed projects to your team or preferred hosting provider.',
     category: 'technical'
   },
   {
     id: 'post-launch',
     question: 'What if we need changes after project completion?',
-    answer: 'All projects include 30 days of post-launch support for bug fixes. For feature additions or ongoing changes, I recommend our retainer plans for the best value and fastest turnaround.',
+    answer: 'All projects include 30 days of post-launch support for bug fixes. For feature additions or ongoing changes, we recommend our retainer plans for the best value and fastest turnaround.',
     category: 'support'
   }
 ];
@@ -131,7 +131,7 @@ export const processSteps: TimelineStep[] = [
     id: 'development',
     number: 2,
     title: 'Development',
-    description: 'I build while keeping you updated with regular progress reports.',
+    description: 'We build while keeping you updated with regular progress reports.',
     icon: 'code'
   },
   {

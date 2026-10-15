@@ -65,7 +65,7 @@ export default function QuickWinContactForm() {
       
       await submitContactForm(submissionData);
       setSubmitStatus('success');
-      setSubmitMessage('Thank you for your Quick Win request! I\'ll reach out within 4-6 hours with next steps and timeline.');
+      setSubmitMessage('Thank you for your Quick Win request! We\'ll reach out within 4-6 hours with next steps and timeline.');
       
       setFormData(getInitialFormData('quick-win'));
       setErrors({});

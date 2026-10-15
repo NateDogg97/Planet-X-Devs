@@ -58,7 +58,7 @@ export default function BudgetTimelineSection({
       
       <div className="bg-nebula-cyan/10 border border-nebula-cyan/30 rounded-lg p-4">
         <p className="text-sm text-nebula-cyan">
-          <strong>Note:</strong> These ranges help me provide accurate quotes. Final pricing depends on specific requirements and project scope.
+          <strong>Note:</strong> These ranges help us provide accurate quotes. Final pricing depends on specific requirements and project scope.
         </p>
       </div>
     </div>

@@ -96,10 +96,10 @@ export default function SupportMaintenanceForm() {
       setSubmitStatus('success');
       
       const priority = formData.priority || 'medium';
-      const responseTime = priority === 'urgent' ? '2-4 hours' : 
-                          priority === 'high' ? '24 hours' : '48 hours';
+      const responseTime = priority === 'urgent' ? '4 hours' : 
+                          '24 hours';
       
-      setSubmitMessage(`Your support request has been received! I'll respond within ${responseTime}.`);
+      setSubmitMessage(`Your support request has been received! We'll respond within ${responseTime}.`);
       
       setFormData(getInitialFormData('support-maintenance'));
       setErrors({});

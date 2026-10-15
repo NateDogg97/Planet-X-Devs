@@ -59,7 +59,7 @@ export default function ProjectInquiryForm() {
       
       const response = await submitContactForm(submissionData);
       setSubmitStatus('success');
-      setSubmitMessage('Thank you for your project inquiry! I\'ll get back to you within 24 hours with a detailed proposal.');
+      setSubmitMessage('Thank you for your project inquiry! We\'ll get back to you within 24 hours with a detailed proposal.');
       
       setFormData(getInitialFormData('project-inquiry'));
       setErrors({});
@@ -181,7 +181,7 @@ export default function ProjectInquiryForm() {
           </Button>
           
           <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
-            * Required fields. I typically respond within 24 hours.
+            * Required fields. We typically respond within 24 hours.
           </p>
         </div>
       </form>

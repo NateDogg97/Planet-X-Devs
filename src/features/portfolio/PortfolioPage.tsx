@@ -8,8 +8,7 @@ import ProjectSummaryCard from '@/features/portfolio/components/ProjectSummaryCa
 import { portfolioProjects, portfolioPageContent } from '@/constants/portfolio';
 
 export default function PortfolioPage() {
-  const { eyebrow, title, intro, emptyState, ctaTitle, ctaSubtitle } =
-    portfolioPageContent;
+  const { title, intro, emptyState, ctaTitle, ctaSubtitle } = portfolioPageContent;
 
   // Featured projects first, otherwise preserve authored order.
   const projects = [...portfolioProjects].sort(
@@ -24,9 +23,6 @@ export default function PortfolioPage() {
           <StarField />
         </div>
         <div className="max-w-3xl relative z-10">
-          <p className="text-sm font-semibold uppercase tracking-wide text-nebula-cyan mb-3">
-            {eyebrow}
-          </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
           <p className="text-xl text-nebula-white/80">{intro}</p>
         </div>

@@ -29,7 +29,7 @@ export default function WhiteLabelPage() {
               Your Agency's Technical Partner in Austin, TX
             </p>
             <p className="text-lg text-nebula-white/80 mb-8">
-              Professional white label web development that makes your agency shine. From modern JavaScript applications to full-stack solutions, I work behind the scenes while you take all the credit. No contracts, no minimums, just reliable technical partnership when you need it.
+              Professional white label web development that makes your agency shine. From modern JavaScript applications to full-stack solutions, we work behind the scenes while you take all the credit. No contracts, no minimums, just reliable technical partnership when you need it.
             </p>
             <Button size="large" href="/contact" variant="secondary">
               Get a custom quote in 24 hours
@@ -72,7 +72,7 @@ export default function WhiteLabelPage() {
             White Label Web Development That Grows Your Agency
           </h2>
           <p className="text-lg text-text-secondary max-w-4xl mx-auto">
-            Marketing agencies face a constant dilemma: turn down technical projects or risk unreliable freelancers. As your white label web development partner, I provide the technical expertise your agency needs to confidently take on any web project.
+            Marketing agencies face a constant dilemma: turn down technical projects or risk unreliable freelancers. As your white label web development partner, we provide the technical expertise your agency needs to confidently take on any web project.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
@@ -103,17 +103,17 @@ export default function WhiteLabelPage() {
               </h3>
               <h4 className="text-xl font-semibold text-text-primary mb-4">JavaScript Framework Expertise</h4>
               <p className="text-lg text-text-secondary mb-6">
-                White label web development using cutting-edge technologies. I build modern applications that set your agency apart.
+                White label web development using cutting-edge technologies. We build modern applications that set your agency apart.
               </p>
               <div className="px-6 border-l-2 border-nebula-violet-2 border-nebula-violet">
                 <p className="text-text-primary mb-4">
-                  For React development, I build single-page applications (SPAs), Progressive Web Apps (PWAs), and component library development. I handle state management with Redux or Context API, implement real-time features with WebSockets, and integrate with headless CMS platforms for modern content management.
+                  For React development, we build single-page applications (SPAs), Progressive Web Apps (PWAs), and component library development. We handle state management with Redux or Context API, implement real-time features with WebSockets, and integrate with headless CMS platforms for modern content management.
                 </p>
                 <p className="text-text-primary mb-4">
-                  My Next.js solutions include server-side rendering (SSR) for SEO optimization, static site generation (SSG) for blazing-fast performance, API routes and serverless functions, performance optimization, SEO-friendly applications, and e-commerce with Next.js Commerce.
+                  Our Next.js solutions include server-side rendering (SSR) for SEO optimization, static site generation (SSG) for blazing-fast performance, API routes and serverless functions, performance optimization, SEO-friendly applications, and e-commerce with Next.js Commerce.
                 </p>
                 <p className="text-text-primary">
-                  I also provide full-stack capabilities including Node.js backend development, RESTful API design, GraphQL implementation, database design with MySQL, PostgreSQL, or MongoDB, authentication systems, and cloud deployment on AWS, Vercel, or Netlify.
+                  We also provide full-stack capabilities including Node.js backend development, RESTful API design, GraphQL implementation, database design with MySQL, PostgreSQL, or MongoDB, authentication systems, and cloud deployment on AWS, Vercel, or Netlify.
                 </p>
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function WhiteLabelPage() {
               </h3>
               <h4 className="text-xl font-semibold text-text-primary mb-4">Tailored Development for Any Need</h4>
               <p className="text-lg text-text-secondary mb-6">
-                Beyond frameworks, I create custom solutions that solve specific business problems:
+                Beyond frameworks, we create custom solutions that solve specific business problems:
               </p>
               <div className="grid gap-4 border-l-2 border-nebula-violet-2 border-nebula-violet">
                 <div className="p-4 rounded-xl">
@@ -154,17 +154,17 @@ export default function WhiteLabelPage() {
               </h3>
               <h4 className="text-xl font-semibold text-text-primary mb-4">Complete Online Store Solutions</h4>
               <p className="text-lg text-text-secondary mb-6">
-                White label web development for e-commerce that converts browsers into buyers. I build online stores that are fast, secure, and easy to manage:
+                White label web development for e-commerce that converts browsers into buyers. We build online stores that are fast, secure, and easy to manage:
               </p>
               <div className="px-6 border-l-2 border-nebula-violet">
                 <p className="text-text-primary mb-4">
-                  For custom e-commerce projects, I create headless commerce architectures, API-first implementations, custom shopping cart solutions, advanced inventory systems, B2B portal development, and integration with ERPs and CRMs.
+                  For custom e-commerce projects, we create headless commerce architectures, API-first implementations, custom shopping cart solutions, advanced inventory systems, B2B portal development, and integration with ERPs and CRMs.
                 </p>
                 <p className="text-text-primary mb-4">
-                  My Shopify solutions encompass theme customization and development, private app development, Shopify Plus implementations, multi-channel setup, custom checkout for Shopify Plus stores, app integration and configuration, migration from other platforms, and headless Shopify builds.
+                  Our Shopify solutions encompass theme customization and development, private app development, Shopify Plus implementations, multi-channel setup, custom checkout for Shopify Plus stores, app integration and configuration, migration from other platforms, and headless Shopify builds.
                 </p>
                 <p className="text-text-primary">
-                  I also work with WooCommerce when it's the right fit: custom store setup and configuration, payment gateway integration, shipping method configuration, and product variation management.
+                  We also work with WooCommerce when it's the right fit: custom store setup and configuration, payment gateway integration, shipping method configuration, and product variation management.
                 </p>
               </div>
             </div>
@@ -195,7 +195,7 @@ export default function WhiteLabelPage() {
               </h3>
               <div className="px-6 border-l-2 border-nebula-violet">
                 <p className="text-text-primary mb-4">
-                  When client sites break, I'm your rapid response team. White label web development includes being there when things go wrong. My 24-hour emergency support covers site down troubleshooting, security breach response, performance crisis resolution, database corruption fixes, server migration assistance, SSL certificate issues, domain and DNS problems, and backup restoration. I understand that when a client's site is down, every minute costs money and damages relationships.
+                  When client sites break, we're your rapid response team. White label web development includes being there when things go wrong. Our emergency support responds within 4 hours and covers site down troubleshooting, security breach response, performance crisis resolution, database corruption fixes, server migration assistance, SSL certificate issues, domain and DNS problems, and backup restoration. We understand that when a client's site is down, every minute costs money and damages relationships.
                 </p>
                 <p className="text-text-primary">
                   Keep client sites running smoothly with proactive maintenance. Monthly maintenance includes security monitoring, performance monitoring, uptime monitoring, daily backups, monthly reports, and content updates within agreed limits. This proactive approach prevents problems before they impact your clients.
@@ -210,7 +210,7 @@ export default function WhiteLabelPage() {
               </h3>
               <div className="px-6 border-l-2 border-nebula-violet">
                 <p className="text-text-primary mb-4">
-                  Slow sites kill conversions. My white label web development services include comprehensive performance optimization. I conduct thorough performance audits addressing Core Web Vitals optimization, PageSpeed Insights improvements, and GTmetrix score enhancement. This includes image optimization and lazy loading, critical CSS implementation, JavaScript optimization, database optimization, caching strategy implementation, CDN setup and configuration, and third-party script optimization.
+                  Slow sites kill conversions. Our white label web development services include comprehensive performance optimization. We conduct thorough performance audits addressing Core Web Vitals optimization, PageSpeed Insights improvements, and GTmetrix score enhancement. This includes image optimization and lazy loading, critical CSS implementation, JavaScript optimization, database optimization, caching strategy implementation, CDN setup and configuration, and third-party script optimization.
                 </p>
                 <p className="text-text-primary">
                   Want to see how your current site measures up? Check out our <Link href="/website-audit-checklist" className="text-nebula-cyan hover:underline">free 30-point website audit checklist</Link> to identify areas for improvement.
@@ -260,7 +260,7 @@ export default function WhiteLabelPage() {
               True White Label Partnership
             </h3>
             <p className="text-text-secondary">
-              I've been behind the scenes for agencies since 2019. I understand that your reputation is everything. That's why I stay invisible, deliver on time, and make you look like the hero. Your brand on everything, your success is my success.
+              We've been working behind the scenes for agencies since 2024. We understand that your reputation is everything. That's why we stay invisible, deliver on time, and make you look like the hero. Your brand on everything, your success is our success.
             </p>
           </div>
           <div className="glass glass-hover p-8 rounded-xl">
@@ -268,7 +268,7 @@ export default function WhiteLabelPage() {
               One Developer, Full Accountability
             </h3>
             <p className="text-text-secondary">
-              No project manager telephone games or offshore communication issues. You work directly with me - the person actually writing the code. Questions answered immediately, changes implemented quickly, problems solved before they become issues.
+              No project manager telephone games or offshore communication issues. You work directly with us - the people actually writing the code. Questions answered immediately, changes implemented quickly, problems solved before they become issues.
             </p>
           </div>
         </div>
@@ -311,7 +311,7 @@ export default function WhiteLabelPage() {
             </ul>
             <div className="border-t border-gray-200 pt-6 mb-8 flex-grow">
               <p className="text-text-secondary text-sm leading-relaxed">
-                Clear quotes for defined projects. No hourly tracking hassles or budget surprises. My quotes include development, testing, revisions, and deployment. Mark up as much as you want - most agencies add 50-100% to my wholesale rates.
+                Clear quotes for defined projects. No hourly tracking hassles or budget surprises. Our quotes include development, testing, revisions, and deployment. Mark up as much as you want - most agencies add 50-100% to our wholesale rates.
               </p>
             </div>
             <Button href="/contact" variant="primary" className="w-full mt-auto">
@@ -359,7 +359,7 @@ export default function WhiteLabelPage() {
             <div className="text-center mb-6">
               <h3 className="text-2xl font-bold text-text-primary mb-4">Emergency Support</h3>
               <div className="text-4xl font-bold text-stellar-blue mb-2">Fixed Rates</div>
-              <p className="text-text-secondary">24/7 Available</p>
+              <p className="text-text-secondary">4-Hour Response</p>
             </div>
             <ul className="space-y-3 mb-6 text-text-secondary">
               <li className="flex items-start">
@@ -368,7 +368,7 @@ export default function WhiteLabelPage() {
               </li>
               <li className="flex items-start">
                 <span className="text-nebula-cyan mr-2">✓</span>
-                <span>24-hour response guarantee</span>
+                <span>4-hour emergency response</span>
               </li>
               <li className="flex items-start">
                 <span className="text-nebula-cyan mr-2">✓</span>
@@ -381,7 +381,7 @@ export default function WhiteLabelPage() {
             </ul>
             <div className="border-t border-gray-200 pt-6 mb-8 flex-grow">
               <p className="text-text-secondary text-sm leading-relaxed">
-                When client sites go down, I'm your emergency response team. Priority support for existing partners. 24-hour response guarantee. Fixed-rate emergency interventions. Because your client relationships matter.
+                When client sites go down, we're your emergency response team. Priority support for existing partners. 4-hour emergency response. Fixed-rate emergency interventions. Because your client relationships matter.
               </p>
             </div>
             <Button href="/contact" variant="primary" className="w-full mt-auto">
@@ -453,7 +453,7 @@ export default function WhiteLabelPage() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-xl hover:bg-white/20 transition-all duration-300">
                 <h4 className="text-lg font-bold text-white mb-3">1. Test Project</h4>
-                <p className="text-white/90">Try me out with a small project</p>
+                <p className="text-white/90">Try us out with a small project</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-xl hover:bg-white/20 transition-all duration-300">
                 <h4 className="text-lg font-bold text-white mb-3">2. Current Project</h4>
@@ -471,7 +471,7 @@ export default function WhiteLabelPage() {
               Planet X Devs - Professional White Label Web Development for Marketing Agencies
             </p>
             <p className="text-nebula-white/70 text-sm">
-              Serving agencies nationwide from Austin, TX • Flexible partnerships • No contracts required • Your success is my success
+              Serving agencies nationwide from Austin, TX • Flexible partnerships • No contracts required • Your success is our success
             </p>
           </div>
         </div>

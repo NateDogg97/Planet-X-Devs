@@ -110,7 +110,7 @@ export default function Contact() {
             "name": "How quickly can you start on my project?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "For new partners, I can typically start within 3-5 business days. Marketing agency partners with active plans get priority scheduling with 24-48 hour response times. Rush projects are available based on current capacity."
+              "text": "For new partners, we can typically start within 3-5 business days. Marketing agency partners with active plans get priority scheduling, and every request gets a response within 24 hours. Rush projects are available based on current capacity."
             }
           },
           {
@@ -118,7 +118,7 @@ export default function Contact() {
             "name": "Do you work with agencies outside the US?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Absolutely! I work with marketing agencies worldwide. All communication is handled via email, Slack, or your preferred platform, making timezone differences manageable."
+              "text": "Absolutely! We work with marketing agencies worldwide. All communication is handled via email, Slack, or your preferred platform, making timezone differences manageable."
             }
           },
           {
@@ -126,7 +126,7 @@ export default function Contact() {
             "name": "What if I need changes after the project is complete?",
             "acceptedAnswer": {
               "@type": "Answer", 
-              "text": "I offer post-launch support through our partnership plans. Small tweaks are often included in the initial project scope, and ongoing changes can be handled through our monthly partnership plans or hourly rates."
+              "text": "We offer post-launch support through our partnership plans. Small tweaks are often included in the initial project scope, and ongoing changes can be handled through our monthly partnership plans or hourly rates."
             }
           },
           {
@@ -134,7 +134,7 @@ export default function Contact() {
             "name": "What makes Planet X Devs different from other developers?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "I focus exclusively on marketing agency partnerships, not competing for direct clients. With experience in both development and agency operations, I understand the unique challenges you face and deliver accordingly."
+              "text": "We focus exclusively on marketing agency partnerships, not competing for direct clients. With experience in both development and agency operations, we understand the unique challenges you face and deliver accordingly."
             }
           },
           {

@@ -63,7 +63,7 @@ export const projectTypes: ProjectTypeOption[] = [
   { value: 'custom', label: 'Custom Website Development' },
   { value: 'ecommerce', label: 'E-Commerce Build/Migration' },
   { value: 'wordpress', label: 'Custom WordPress Development' },
-  { value: 'seo', label: 'Technical SEO Implementation' },
+  { value: 'seo', label: 'SEO-Safe Migration' },
   { value: 'performance', label: 'Performance Optimization' },
   { value: 'retainer', label: 'Ongoing Retainer' },
   { value: 'other', label: 'Other (please specify)' }

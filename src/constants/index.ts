@@ -61,12 +61,6 @@ export {
   type SocialLink
 } from './social';
 
-// Testimonial-related exports
-export {
-  testimonials,
-  type Testimonial
-} from './testimonials';
-
 // Page-specific exports
 // Note: whiteLabelFAQs is re-exported above via the './faq' block.
 export {

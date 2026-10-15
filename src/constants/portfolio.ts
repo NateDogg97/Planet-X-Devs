@@ -114,7 +114,6 @@ export const portfolioProjects: PortfolioProject[] = [
         'The long-form FAQ written for developers, HOAs, and homeowners.',
       ],
     },
-    featured: true,
   },
   {
     slug: 'peak-performance-medical',
@@ -312,7 +311,6 @@ export const portfolioProjects: PortfolioProject[] = [
         'The contact / lead-capture section connecting buyers and distributors with the team.',
       ],
     },
-    featured: true,
   },
   {
     slug: 'lodestar',
@@ -407,6 +405,7 @@ export const portfolioProjects: PortfolioProject[] = [
       ],
     },
     inHouse: true,
+    featured: true,
   },
   {
     slug: 'start-where-we-are-festival',
@@ -498,6 +497,7 @@ export const portfolioProjects: PortfolioProject[] = [
         'The Press & Media section with the founder’s Canvas Rebel interview.',
       ],
     },
+    featured: true,
   },
   {
     slug: 'high-meadow-digital',
@@ -599,7 +599,6 @@ export function getProjectBySlug(slug: string): PortfolioProject | undefined {
 /** Copy for the /portfolio archive header and intro. Kept here so the page
  *  component stays presentational. */
 export const portfolioPageContent = {
-  eyebrow: 'Our Work',
   title: 'Portfolio',
   intro:
     "A selection of websites we've designed and built — from custom WordPress builds and e-commerce integrations to lead-generation funnels and event box offices. Every project below is real work we delivered, with the tech we used and what it was built to do.",
