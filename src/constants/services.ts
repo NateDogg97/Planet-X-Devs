@@ -198,7 +198,6 @@ export const agencyPartnershipPlans = [
     period: '/month',
     features: [
       '50 hours of white-label development',
-      'Dedicated project manager',
       'Emergency support included',
       'Platform consultation included',
       'Bi-weekly partnership calls',
@@ -215,12 +214,10 @@ export const agencyPartnershipPlans = [
     period: '/month',
     features: [
       '100 hours of white-label development', 
-      'Dedicated development team',
       '4-hour emergency response',
       'Unlimited consultations',
       'Weekly partnership meetings',
-      'Custom development workflows',
-      'Co-branded marketing materials'
+      'Custom development workflows'
     ],
     highlighted: false,
     description: 'For established agencies with high-volume development needs'

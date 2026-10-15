@@ -32,7 +32,7 @@ export const faqItems = [
   {
     id: 'faq-7',
     question: 'Do you offer any guarantees on your work?',
-    answer: 'Absolutely. All development work comes with a 30-day bug-fix guarantee. If any issues arise from our code within 30 days of delivery, we\'ll fix them at no charge. We also guarantee on-time delivery or your project fee is reduced by 10%.'
+    answer: 'Absolutely. All development work comes with a 30-day bug-fix guarantee. If any issues arise from our code within 30 days of delivery, we\'ll fix them at no charge. We also commit to delivering projects on time, and we agree on milestones up front so you always know where things stand.'
   },
   {
     id: 'faq-8',
