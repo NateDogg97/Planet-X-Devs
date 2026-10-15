@@ -5,15 +5,12 @@ import Section from '@/components/layout/Section';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import StarField from '@/components/animations/StarField';
 import ProjectSummaryCard from '@/features/portfolio/components/ProjectSummaryCard';
-import { portfolioProjects, portfolioPageContent } from '@/constants/portfolio';
+import { getProjectsFeaturedFirst, portfolioPageContent } from '@/constants/portfolio';
 
 export default function PortfolioPage() {
   const { title, intro, emptyState, ctaTitle, ctaSubtitle } = portfolioPageContent;
 
-  // Featured projects first, otherwise preserve authored order.
-  const projects = [...portfolioProjects].sort(
-    (a, b) => Number(b.featured ?? false) - Number(a.featured ?? false)
-  );
+  const projects = getProjectsFeaturedFirst();
 
   return (
     <div className="min-h-screen">

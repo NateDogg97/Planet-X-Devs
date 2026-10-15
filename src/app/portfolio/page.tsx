@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import PortfolioPage from '@/features/portfolio/PortfolioPage';
-import { portfolioProjects } from '@/constants/portfolio';
+import { getProjectsFeaturedFirst } from '@/constants/portfolio';
 
 const BASE_URL = 'https://www.planetxdevs.com';
 const PAGE_URL = `${BASE_URL}/portfolio`;
@@ -8,13 +8,13 @@ const PAGE_URL = `${BASE_URL}/portfolio`;
 export const metadata: Metadata = {
   title: 'Portfolio — Websites We\'ve Designed & Built | Planet X Devs',
   description:
-    "See a selection of websites Planet X Devs has designed and built for agencies and their clients — custom WordPress builds, performance rescues, and ground-up redesigns, with the tech used and the results delivered.",
+    "See a selection of websites Planet X Devs has designed and built for agencies and their clients — custom Next.js builds, data-driven web apps, and WordPress sites, with the tech used and what each was built to do.",
   keywords:
-    'web development portfolio, wordpress portfolio, agency web development examples, website case studies, white label development portfolio, web design examples',
+    'web development portfolio, Next.js portfolio, wordpress portfolio, agency web development examples, website case studies, white label development portfolio, web design examples',
   openGraph: {
     title: "Portfolio — Websites We've Designed & Built",
     description:
-      'Real websites Planet X Devs has delivered for marketing agencies and their clients, with the technologies used and measurable results.',
+      'Real websites Planet X Devs has delivered for marketing agencies and their clients, with the technologies used and what each was built to do.',
     images: ['/images/og-image.jpg'],
     url: PAGE_URL,
     type: 'website',
@@ -32,6 +32,7 @@ export const metadata: Metadata = {
 };
 
 export default function Portfolio() {
+  const projects = getProjectsFeaturedFirst();
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -69,8 +70,8 @@ export default function Portfolio() {
         '@type': 'ItemList',
         '@id': `${PAGE_URL}#projects`,
         name: 'Planet X Devs Portfolio',
-        numberOfItems: portfolioProjects.length,
-        itemListElement: portfolioProjects.map((project, index) => ({
+        numberOfItems: projects.length,
+        itemListElement: projects.map((project, index) => ({
           '@type': 'ListItem',
           position: index + 1,
           url: `${PAGE_URL}/${project.slug}`,

@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import ContactPage from '@/features/contact/ContactPage';
+import { contactFAQs } from '@/constants/faq';
+import { faqPageSchema } from '@/utils/seo';
 
 export const metadata: Metadata = {
   title: "Contact Planet X Devs | Your Agency's Technical Partner",
@@ -98,55 +100,9 @@ export default function Contact() {
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
           "opens": "08:00",
           "closes": "22:00"
-        },
-        "contactOption": ["TollFree"]
+        }
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.planetxdevs.com/contact#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How quickly can you start on my project?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "For new partners, we can typically start within 3-5 business days. Marketing agency partners with active plans get priority scheduling, and every request gets a response within 24 hours. Rush projects are available based on current capacity."
-            }
-          },
-          {
-            "@type": "Question", 
-            "name": "Do you work with agencies outside the US?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Absolutely! We work with marketing agencies worldwide. All communication is handled via email, Slack, or your preferred platform, making timezone differences manageable."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What if I need changes after the project is complete?",
-            "acceptedAnswer": {
-              "@type": "Answer", 
-              "text": "We offer post-launch support through our partnership plans. Small tweaks are often included in the initial project scope, and ongoing changes can be handled through our monthly partnership plans or hourly rates."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What makes Planet X Devs different from other developers?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We focus exclusively on marketing agency partnerships, not competing for direct clients. With experience in both development and agency operations, we understand the unique challenges you face and deliver accordingly."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you offer white-label services?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes! All our services are 100% white-label. Your clients never know we exist unless you want them to. All work is delivered under your agency's brand."
-            }
-          }
-        ]
-      }
+      faqPageSchema("https://www.planetxdevs.com/contact#faq", contactFAQs)
     ]
   };
 

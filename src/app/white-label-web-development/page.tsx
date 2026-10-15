@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import WhiteLabelPage from '@/features/white-label/WhiteLabelPage';
+import { whiteLabelFAQs } from '@/constants/pages/white-label-web-development';
+import { faqPageSchema } from '@/utils/seo';
 
 export const metadata: Metadata = {
   title: "White-Label Web Development for Agencies | Planet X Devs",
@@ -116,36 +118,7 @@ export default function WhiteLabelWebDevelopment() {
           ]
         }
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.planetxdevs.com/white-label-web-development#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is white-label web development?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "White-label web development is when an agency outsources website builds and technical work to a partner who works entirely under the agency's brand. Your clients never know we exist — we're your invisible development team."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does white-label web development work?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You send us project requirements, we provide a quote within 24 hours, and upon approval we build under your brand. All communication goes through you — we never contact your clients directly."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How much does white-label web development cost?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Project-based work is quoted per project, with quotes delivered within 24 hours. Monthly partnership plans start at $900–1,100/month for 25 hours of white-label development, with larger plans for agencies that need more capacity."
-            }
-          }
-        ]
-      }
+      faqPageSchema("https://www.planetxdevs.com/white-label-web-development#faq", whiteLabelFAQs)
     ]
   };
 

@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import WebsiteAuditPage from '@/features/website-audit/WebsiteAuditPage';
+import { websiteAuditFAQs } from '@/constants/faq';
+import { faqPageSchema } from '@/utils/seo';
 
 const PAGE_URL = 'https://www.planetxdevs.com/website-audit-checklist';
 
@@ -64,36 +66,7 @@ export default function WebsiteAuditChecklistPage() {
           },
         ],
       },
-      {
-        '@type': 'FAQPage',
-        '@id': `${PAGE_URL}#faq`,
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'What is a website audit?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'A website audit is a structured review of a site across performance, security, SEO, mobile experience, and conversion factors. It identifies issues that hurt search rankings, load speed, and the visitor experience so they can be prioritized and fixed.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How many points are in the checklist?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'The Planet X Devs website audit checklist covers 30 points across speed, security, SEO, and mobile usability. You check off each item and get an instant score with personalized recommendations.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is the website audit checklist free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes. The 30-point website audit checklist is completely free to use, with no signup required to score your site.',
-            },
-          },
-        ],
-      },
+      faqPageSchema(`${PAGE_URL}#faq`, websiteAuditFAQs),
     ],
   };
 

@@ -39,17 +39,22 @@ const aiCrawlers = [
   'Bytespider',
 ];
 
+// A crawler that matches its own group ignores the '*' group entirely, so
+// every group repeats these.
+const disallow = ['/api/', '/wireframes/', '/style-guide'];
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/wireframes/', '/style-guide'],
+        disallow,
       },
       ...aiCrawlers.map((userAgent) => ({
         userAgent,
         allow: '/',
+        disallow,
       })),
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

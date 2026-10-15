@@ -12,6 +12,7 @@ import Button from '@/components/ui/Button';
 import Icon from '@/components/ui/Icon';
 import Card from '@/components/ui/Card';
 import StarField from '@/components/animations/StarField';
+import { contactFAQs } from '@/constants/faq';
 import { CONTACT_FORM_URLS } from '@/utils';
 
 
@@ -32,25 +33,12 @@ const FAQItem = dynamic(() => import('@/components/ui/FAQItem'), {
   )
 });
 
-// Sample FAQs for the preview section
-const contactFAQs = [
-  {
-    question: "How quickly can you start on my project?",
-    answer: "We typically begin new projects within 3-5 business days after our initial consultation. For urgent requests, we offer expedited timelines.",
-  },
-  {
-    question: "Do you work with agencies outside the US?",
-    answer: "Absolutely! We work with agencies worldwide. All communication is handled via email or your preferred platform, making timezone differences manageable.",
-  },
-  {
-    question: "What if I need changes after the project is complete?",
-    answer: "We offer post-launch support packages and can handle ongoing maintenance. Small tweaks are often included, and larger changes are billed hourly or through a retainer.",
-  },
-];
-
-function ContactPageContent() {
+// Reading the query string forces client rendering up to the nearest Suspense
+// boundary, so it lives in its own tiny component (and the form tabs get their
+// own boundary below). That keeps the rest of the page in the server HTML.
+function ScrollToFormOnQuery() {
   const searchParams = useSearchParams();
-  
+
   // Auto-scroll to contact form when query parameters exist
   useEffect(() => {
     const hasQueryParams = searchParams.toString().length > 0;
@@ -67,9 +55,17 @@ function ContactPageContent() {
       }, 100);
     }
   }, [searchParams]);
-  
+
+  return null;
+}
+
+export default function ContactPage() {
   return (
     <div className="min-h-screen">
+      <Suspense fallback={null}>
+        <ScrollToFormOnQuery />
+      </Suspense>
+
       {/* Compact Page Header */}
       <Section container background='dark' className="relative bg-gradient-adaptive pt-24 pb-12">
         <div className="absolute inset-0">
@@ -95,7 +91,9 @@ function ContactPageContent() {
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Left: Tabs with forms - 2/3 width */}
           <div className="lg:col-span-2">
-            <ContactForm />
+            <Suspense fallback={<div className="min-h-[600px]" />}>
+              <ContactForm />
+            </Suspense>
           </div>
 
           {/* Right: Contact Info and Social - 1/3 width */}
@@ -289,7 +287,7 @@ function ContactPageContent() {
             </div>
 
             <div className="text-sm text-text-tertiary">
-              <p>Typical response time: Less than 4 hours • Free project consultation • No obligation quotes</p>
+              <p>Every request answered within 24 hours • Free project consultation • No obligation quotes</p>
             </div>
           </div>
 
@@ -298,13 +296,5 @@ function ContactPageContent() {
       </Section>
 
     </div>
-  );
-}
-
-export default function ContactPage() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-bg-primary">Loading...</div>}>
-      <ContactPageContent />
-    </Suspense>
   );
 }

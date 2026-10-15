@@ -7,7 +7,7 @@ import RetainerPlanCard from '@/features/services/components/RetainerPlanCard';
 import Section from '@/components/layout/Section';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import { services, agencyPartnershipPlans, developmentProcessSteps } from '@/constants/services';
-import { faqItems } from '@/constants/faq';
+import { servicesFAQs } from '@/constants/faq';
 import StarField from '@/components/animations/StarField';
 
 // Lazy load below-fold components
@@ -276,7 +276,7 @@ export default function ServicesPage() {
         </div>
 
         <div className="max-w-4xl mx-auto space-y-6">
-          {faqItems.slice(0,5).map((faq, index) => (
+          {servicesFAQs.map((faq, index) => (
             <FAQItem key={index} {...faq} />
           ))}
         </div>

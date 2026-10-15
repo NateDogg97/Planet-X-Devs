@@ -12,6 +12,7 @@ import TimelineItem from '@/features/about/components/TimelineItem';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import Icon, { IconName } from '@/components/ui/Icon';
 import ParallaxGraphic from '@/components/animations/ParallaxGraphic';
+import { timelineData } from '@/constants/about';
 
 // Lazy load below-fold components
 const FloatingParticles = dynamic(() => import('@/components/animations/FloatingParticles'), {
@@ -19,35 +20,6 @@ const FloatingParticles = dynamic(() => import('@/components/animations/Floating
   loading: () => <div className="absolute inset-0" />
 });
 
-
-// Timeline data array
-const timelineData = [
-  {
-    year: '2020',
-    title: 'Started Web Development Journey',
-    description: 'Began coding websites and quickly discovered a passion for solving complex challenges and creating seamless user experiences.'
-  },
-  {
-    year: '2022', 
-    title: 'First Agency Experience',
-    description: 'Joined a well-established SaaS/eCommerce company as a web developer, learning firsthand the fast-paced environment and unique pressures agencies face.'
-  },
-  {
-    year: '2023',
-    title: 'Became Lead Developer', 
-    description: 'Entrusted to lead the development team with multiple high-profile accounts, mastering the balancing act between quality and tight deadlines.'
-  },
-  {
-    year: '2024',
-    title: 'Identified the Problem',
-    description: 'After years of watching agencies struggle with unreliable freelancers and overpriced dev shops, realized there had to be a better way.'
-  },
-  {
-    year: '2025',
-    title: 'Launched Planet X Devs',
-    description: 'Founded a white-label development service built specifically for agencies - combining technical excellence with the reliability agencies need.'
-  }
-];
 
 // Values data array
 const valuesData: Array<{

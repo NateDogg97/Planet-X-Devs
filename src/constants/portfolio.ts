@@ -592,6 +592,13 @@ export const liveSiteDisclaimer =
   'Heads up: once a site launches, the client owns it and can edit everything themselves — and not every client is a web designer. Some of these sites have been changed since we handed them off, so the live version may not match the screenshots on this page. Any later edits, or sections that look broken, generally aren’t part of the work we delivered.';
 
 /** Look up a single project by slug. */
+/** Featured projects first, otherwise authored order. */
+export function getProjectsFeaturedFirst(): PortfolioProject[] {
+  return [...portfolioProjects].sort(
+    (a, b) => Number(b.featured ?? false) - Number(a.featured ?? false)
+  );
+}
+
 export function getProjectBySlug(slug: string): PortfolioProject | undefined {
   return portfolioProjects.find((project) => project.slug === slug);
 }
@@ -601,7 +608,7 @@ export function getProjectBySlug(slug: string): PortfolioProject | undefined {
 export const portfolioPageContent = {
   title: 'Portfolio',
   intro:
-    "A selection of websites we've designed and built — from custom WordPress builds and e-commerce integrations to lead-generation funnels and event box offices. Every project below is real work we delivered, with the tech we used and what it was built to do.",
+    "A selection of websites we've designed and built — from custom Next.js builds and data-driven web apps to WordPress sites, e-commerce integrations, and lead-generation funnels. Every project below is real work we delivered, with the tech we used and what it was built to do.",
   emptyState:
     "We're curating our latest projects for this page. In the meantime, see what we can build for you.",
   ctaTitle: 'Have a project like these?',

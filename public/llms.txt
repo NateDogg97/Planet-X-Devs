@@ -1,26 +1,33 @@
 # Planet X Devs
 
-> Planet X Devs is a white-label web development partner for marketing and digital agencies, based in Austin, TX and serving agencies worldwide. We build fast, custom websites that clients can manage themselves, and we support existing WordPress sites — all delivered under the agency's brand.
+> Planet X Devs is a white-label web development partner for marketing and digital agencies, based in Lakeway / Austin, TX and serving agencies worldwide. We build fast, custom websites (primarily Next.js and React) that clients can manage themselves, and we support the WordPress sites agencies already manage — all delivered under the agency's brand.
 
 ## What we do
 
-- **Custom website development**: Hand-coded sites and client-friendly CMS builds (React, Next.js, headless CMS). Fast, distinctive, and easy for non-technical clients to hand off and manage themselves.
-- **White-label agency partnership**: We work invisibly behind the scenes. Every deliverable is branded as the agency's work; we never contact the agency's clients directly.
+- **Custom website development**: Hand-coded Next.js and React sites, or client-friendly CMS builds that non-technical clients can manage themselves. Includes custom scroll animations and interactions with GSAP.
+- **White-label agency partnership**: We work invisibly behind the scenes. Every deliverable is branded as the agency's work, and we only talk to the agency's clients if the agency wants us to.
 - **E-commerce development**: Shopify, WooCommerce, and headless commerce builds and migrations.
-- **Performance optimization**: Core Web Vitals and page-speed improvements for measurable results.
-- **Technical SEO implementation**: Schema markup, Core Web Vitals, indexing, and site structure.
-- **WordPress support & migrations**: We no longer take on *new* WordPress builds, but we bring deep WordPress expertise to supporting, optimizing, securing, and migrating the WordPress sites agencies already manage — including migrations off WordPress onto faster custom builds.
-- **Emergency support & maintenance**: 24-hour response for broken sites, plus ongoing maintenance plans.
+- **Performance optimization**: Core Web Vitals and page-speed audits and fixes.
+- **SEO-safe migrations**: Moving a site to a new platform or design without losing its rankings — URL mapping and 301 redirects, metadata and structured data carried over, sitemap resubmission, and post-launch crawl monitoring.
+- **WordPress support & migrations**: Performance, security, updates, fixes, and migrations for existing WordPress sites, including migrations off WordPress onto faster custom builds. We lead with custom builds, and build new WordPress sites only when a client specifically needs one.
+- **Emergency support & maintenance**: 4-hour response for site emergencies, plus ongoing maintenance plans.
 
 ## Key facts
 
-- Founder & lead developer: Nathaniel Mays
+- Team: Nathaniel Mays (Founder & Lead Developer, senior web developer, 4+ years) and Sebastian Perrone (Frontend Developer, 4+ years)
 - Location: Lakeway / Austin, TX, USA; serves marketing agencies worldwide
-- Founded: 2025
+- Taking clients since 2024; Planet X Devs officially founded in 2025
+- Response times: every request answered within 24 hours; emergencies within 4 hours
 - Engagement models: project-based quotes (delivered within 24 hours) or monthly partnership retainers
 - Monthly partnership plans start at $900–1,100/month for 25 hours of white-label development
-- Positioning: modern custom builds first; WordPress as support/maintenance, not new builds
 - 100% white-label; no long-term contracts required
+
+## Featured work
+
+- [Lodestar](https://www.planetxdevs.com/portfolio/lodestar): A Next.js progressive web app that scores every US county and 80,000+ neighborhood-sized areas against your own priorities, with a choropleth map and a Python data pipeline that rebuilds monthly.
+- [Start Where We Are Festival](https://www.planetxdevs.com/portfolio/start-where-we-are-festival): A pro-bono custom Next.js and React site for a grassroots Boston-area music and sustainability festival, with GiveButter, Google Maps, and Kit integrations.
+- [Peak Performance Medical Center](https://www.planetxdevs.com/portfolio/peak-performance-medical): A conversion-focused WordPress (Elementor) site with service-line pages and a lead-capture funnel for a Florida health clinic.
+- Full portfolio: https://www.planetxdevs.com/portfolio
 
 ## Important pages
 

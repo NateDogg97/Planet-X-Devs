@@ -77,6 +77,8 @@ const organizationSchema = {
     "White-Label Web Development",
     "Next.js Development",
     "React Development",
+    "TypeScript",
+    "GSAP Animation",
     "Headless CMS Development",
     "E-commerce Development",
     "Website Performance Optimization",
@@ -94,9 +96,26 @@ const organizationSchema = {
   "foundingDate": "2025",
   "founder": {
     "@type": "Person",
+    "@id": "https://www.planetxdevs.com/#nathaniel-mays",
     "name": "Nathaniel Mays",
-    "jobTitle": "Founder & Lead Developer"
+    "jobTitle": "Founder & Lead Developer",
+    "url": "https://www.planetxdevs.com/about"
   },
+  "employee": [
+    {
+      "@type": "Person",
+      "@id": "https://www.planetxdevs.com/#nathaniel-mays",
+      "name": "Nathaniel Mays",
+      "jobTitle": "Founder & Lead Developer"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.planetxdevs.com/#sebastian-perrone",
+      "name": "Sebastian Perrone",
+      "jobTitle": "Frontend Developer"
+    }
+  ],
+  "areaServed": "Worldwide",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Lakeway",
@@ -145,6 +164,22 @@ const organizationSchema = {
         "@type": "Service",
         "name": "WordPress Support & Maintenance",
         "description": "Ongoing support, performance optimization, security, and migrations for existing WordPress sites your agency manages."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "SEO-Safe Migrations",
+        "description": "Move a client's site to a new platform or design without losing the rankings it has earned."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Emergency Website Support",
+        "description": "4-hour emergency response for broken client sites; every other request answered within 24 hours."
       }
     }
   ]

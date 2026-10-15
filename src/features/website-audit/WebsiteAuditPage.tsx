@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react';
 import Section from '@/components/layout/Section';
 import Icon from '@/components/ui/Icon';
+import FAQItem from '@/components/ui/FAQItem';
 import EmailSignupForm from '@/features/website-audit/components/EmailSignupForm';
 import { websiteAuditChecklistData } from '@/constants';
+import { websiteAuditFAQs } from '@/constants/faq';
 import Link from 'next/link';
 
 type AuditItemStatus = 'passed' | 'failed' | 'unknown';
@@ -346,6 +348,18 @@ export default function WebsiteAuditPage() {
         <p className="text-sm opacity-75">
           No spam, no automated emails. We personally review every audit submission.
         </p>
+      </Section>
+
+      {/* FAQ */}
+      <Section background="secondary" id="faq">
+        <h2 className="text-3xl md:text-4xl font-bold text-text-primary text-center mb-12">
+          Frequently Asked Questions
+        </h2>
+        <div className="max-w-4xl mx-auto space-y-6">
+          {websiteAuditFAQs.map((faq) => (
+            <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
+          ))}
+        </div>
       </Section>
 
     </div>

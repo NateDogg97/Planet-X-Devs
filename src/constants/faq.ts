@@ -7,7 +7,7 @@ export const faqItems = [
   {
     id: 'faq-2',
     question: 'Do you work directly with my clients?',
-    answer: 'Never. This is a true white-label partnership. All communication goes through you, and all work is delivered under your agency\'s brand. Your clients will never know we exist unless you want them to.'
+    answer: 'Only if you want us to. By default this is a true white-label partnership: all communication goes through you, and all work is delivered under your agency\'s brand. Your clients will never know we exist unless you want them to.'
   },
   {
     id: 'faq-3',
@@ -49,6 +49,47 @@ export const faqItems = [
     question: 'How do you handle revisions and feedback?',
     answer: 'Each project includes 2 rounds of revisions. We provide staging environments for review, and you can consolidate feedback from your clients before sending it to us. Additional revision rounds are billed hourly or can use retainer hours.'
   }
+];
+
+/** The subset shown on /services (and marked up as its FAQPage). */
+export const servicesFAQs = faqItems.slice(0, 5);
+
+export const contactFAQs = [
+  {
+    question: 'How quickly can you start on my project?',
+    answer: 'We typically begin new projects within 3-5 business days after our initial consultation. For urgent requests, we offer expedited timelines.',
+  },
+  {
+    question: 'Do you work with agencies outside the US?',
+    answer: 'Absolutely! We work with agencies worldwide. All communication is handled via email or your preferred platform, making timezone differences manageable.',
+  },
+  {
+    question: 'What if I need changes after the project is complete?',
+    answer: 'We offer post-launch support packages and can handle ongoing maintenance. Small tweaks are often included, and larger changes are billed hourly or through a retainer.',
+  },
+  {
+    question: 'Do you offer white-label services?',
+    answer: 'Yes! All our services are 100% white-label. Your clients never know we exist unless you want them to. All work is delivered under your agency\'s brand.',
+  },
+  {
+    question: 'What makes Planet X Devs different from other developers?',
+    answer: 'We focus exclusively on marketing agency partnerships, not competing for direct clients. You work directly with the developers writing your code, every request gets a response within 24 hours, and emergencies get a response within 4 hours.',
+  },
+];
+
+export const websiteAuditFAQs = [
+  {
+    question: 'What is a website audit?',
+    answer: 'A website audit is a structured review of a site across performance, security, SEO, mobile experience, and conversion factors. It identifies issues that hurt search rankings, load speed, and the visitor experience so they can be prioritized and fixed.',
+  },
+  {
+    question: 'How many points are in the checklist?',
+    answer: 'The Planet X Devs website audit checklist covers 30 points across speed, security, SEO, and mobile usability. You check off each item and get an instant score with personalized recommendations.',
+  },
+  {
+    question: 'Is the website audit checklist free?',
+    answer: 'Yes. The 30-point website audit checklist is completely free to use, with no signup required to score your site.',
+  },
 ];
 
 // White label specific FAQs (imported from page constants)

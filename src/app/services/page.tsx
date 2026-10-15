@@ -1,5 +1,10 @@
 import { Metadata } from 'next';
 import ServicesPage from '@/features/services/ServicesPage';
+import { services, agencyPartnershipPlans } from '@/constants/services';
+import { servicesFAQs } from '@/constants/faq';
+import { ORGANIZATION_ID, faqPageSchema, priceSpecification } from '@/utils/seo';
+
+const PAGE_URL = 'https://www.planetxdevs.com/services';
 
 export const metadata: Metadata = {
   title: "Web Development Services for Marketing Agencies | Planet X Devs",
@@ -62,282 +67,40 @@ export default function Services() {
           }
         ]
       },
-      {
+      ...services.map((service) => ({
         "@type": "Service",
-        "@id": "https://www.planetxdevs.com/services#white-label-development",
-        "name": "Agency Development Partnership",
-        "alternateName": "White-Label Development Partnership",
-        "description": "Become your marketing agency's dedicated technical partner. We handle the development while you focus on strategy and client relationships. True white-label service with flexible engagement models.",
-        "provider": {
-          "@id": "https://www.planetxdevs.com/#organization"
-        },
-        "serviceType": "Web Development Partnership",
-        "areaServed": {
-          "@type": "Place",
-          "name": "Worldwide"
+        "@id": `${PAGE_URL}#${service.id}`,
+        "name": service.title,
+        "description": service.description,
+        "provider": { "@id": ORGANIZATION_ID },
+        "areaServed": { "@type": "Place", "name": "Worldwide" },
+        "offers": {
+          "@type": "Offer",
+          "priceSpecification": priceSpecification(service.price),
+          "seller": { "@id": ORGANIZATION_ID }
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Partnership Options",
-          "itemListElement": [
-            {
-              "@type": "Service",
-              "name": "White-label development"
-            },
-            {
-              "@type": "Service",
-              "name": "Technical consultation"
-            },
-            {
-              "@type": "Service",
-              "name": "Project overflow support"
-            },
-            {
-              "@type": "Service",
-              "name": "Ongoing maintenance"
-            }
-          ]
+          "name": `${service.title}: what's included`,
+          "itemListElement": service.features.map((feature) => ({
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": feature }
+          }))
         }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://www.planetxdevs.com/services#wordpress",
-        "name": "WordPress Support & Maintenance",
-        "description": "Ongoing support for the WordPress sites your agency already manages: performance optimization, security hardening, updates, bug fixes, and migrations. We keep existing WordPress sites fast and healthy.",
-        "provider": {
-          "@id": "https://www.planetxdevs.com/#organization"
-        },
-        "serviceType": "WordPress Support and Maintenance",
-        "areaServed": {
-          "@type": "Place",
-          "name": "Worldwide"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "WordPress Support Services",
-          "itemListElement": [
-            {
-              "@type": "Service",
-              "name": "Performance optimization"
-            },
-            {
-              "@type": "Service",
-              "name": "Security hardening"
-            },
-            {
-              "@type": "Service",
-              "name": "Updates & maintenance"
-            },
-            {
-              "@type": "Service",
-              "name": "Site migrations"
-            },
-            {
-              "@type": "Service",
-              "name": "WooCommerce support"
-            },
-            {
-              "@type": "Service",
-              "name": "Bug fixes & troubleshooting"
-            }
-          ]
-        }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://www.planetxdevs.com/services#website-maintenance",
-        "name": "Website Maintenance & Support",
-        "description": "Keep your clients' websites running smoothly with regular updates, security monitoring, and performance optimization. Available through our partnership plans.",
-        "provider": {
-          "@id": "https://www.planetxdevs.com/#organization"
-        },
-        "serviceType": "Website Maintenance",
-        "areaServed": {
-          "@type": "Place",
-          "name": "Worldwide"
-        }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://www.planetxdevs.com/services#emergency-support",
-        "name": "Emergency Website Support",
-        "alternateName": "Emergency Support & Fixes",
-        "description": "When your client's website breaks and they're breathing down your neck, we've got you covered. 4-hour emergency response to save your reputation and their business.",
-        "provider": {
-          "@id": "https://www.planetxdevs.com/#organization"
-        },
-        "serviceType": "Emergency Technical Support",
-        "areaServed": {
-          "@type": "Place",
-          "name": "Worldwide"
-        }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://www.planetxdevs.com/services#ecommerce",
-        "name": "E-Commerce Development",
-        "alternateName": "E-Commerce Builds & Migrations",
-        "description": "Professional e-commerce solutions that help your marketing agency win high-value retail clients. Complete white-label builds on Shopify, WooCommerce, and custom platforms.",
-        "provider": {
-          "@id": "https://www.planetxdevs.com/#organization"
-        },
-        "serviceType": "E-commerce Development",
-        "areaServed": {
-          "@type": "Place",
-          "name": "Worldwide"
-        }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://www.planetxdevs.com/services#custom-development",
-        "name": "Custom Website Development",
-        "description": "White-label custom websites that elevate your agency's portfolio. Built from scratch with unique functionality and distinctive design that makes your clients think you're a development powerhouse.",
-        "provider": {
-          "@id": "https://www.planetxdevs.com/#organization"
-        },
-        "serviceType": "Custom Web Development",
-        "areaServed": {
-          "@type": "Place",
-          "name": "Worldwide"
-        }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://www.planetxdevs.com/services#performance",
-        "name": "Performance Optimization Audit",
-        "description": "Performance optimization that makes your agency the hero. Fix slow websites and deliver dramatic speed improvements that your clients will notice immediately.",
-        "provider": {
-          "@id": "https://www.planetxdevs.com/#organization"
-        },
-        "serviceType": "Website Performance Optimization",
-        "areaServed": {
-          "@type": "Place",
-          "name": "Worldwide"
-        }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://www.planetxdevs.com/services#platform-consultation",
-        "name": "Platform Selection Consultation",
-        "description": "Expert guidance to help your agency choose the perfect platform for each client project. Avoid costly mistakes and recommend solutions that actually fit the client's needs.",
-        "provider": {
-          "@id": "https://www.planetxdevs.com/#organization"
-        },
-        "serviceType": "Technical Consultation",
-        "areaServed": {
-          "@type": "Place",
-          "name": "Worldwide"
-        }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://www.planetxdevs.com/services#technical-seo",
-        "name": "SEO-Safe Migrations",
-        "description": "Move a client's site to a new platform or design without losing the rankings it has earned. Every URL, page title, and piece of structured data comes across, and we verify nothing broke after launch.",
-        "provider": {
-          "@id": "https://www.planetxdevs.com/#organization"
-        },
-        "serviceType": "SEO-Safe Website Migration",
-        "areaServed": {
-          "@type": "Place",
-          "name": "Worldwide"
-        }
-      },
+      })),
       {
         "@type": "OfferCatalog",
-        "@id": "https://www.planetxdevs.com/services#partnership-plans",
+        "@id": `${PAGE_URL}#partnership-plans`,
         "name": "Agency Partnership Plans",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "name": "Essential Partnership",
-            "description": "Perfect for agencies handling 2-3 client projects per month. Includes 25 hours of white-label development.",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "price": "900-1100",
-              "priceCurrency": "USD",
-              "unitText": "MONTH"
-            },
-            "seller": {
-              "@id": "https://www.planetxdevs.com/#organization"
-            }
-          },
-          {
-            "@type": "Offer",
-            "name": "Professional Partnership",
-            "description": "Ideal for growing agencies with consistent development needs. Includes 50 hours of white-label development and dedicated project management.",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "price": "1600-2000",
-              "priceCurrency": "USD",
-              "unitText": "MONTH"
-            },
-            "seller": {
-              "@id": "https://www.planetxdevs.com/#organization"
-            }
-          },
-          {
-            "@type": "Offer",
-            "name": "Enterprise Partnership",
-            "description": "For established agencies with high-volume development needs. Includes 100 hours of white-label development and dedicated team.",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "price": "2800-3600",
-              "priceCurrency": "USD",
-              "unitText": "MONTH"
-            },
-            "seller": {
-              "@id": "https://www.planetxdevs.com/#organization"
-            }
-          }
-        ]
+        "itemListElement": agencyPartnershipPlans.map((plan) => ({
+          "@type": "Offer",
+          "name": plan.name,
+          "description": `${plan.description}. Includes: ${plan.features.join('; ')}.`,
+          "priceSpecification": priceSpecification(plan.price, "MONTH"),
+          "seller": { "@id": ORGANIZATION_ID }
+        }))
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.planetxdevs.com/services#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How quickly can you start on my project?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "For new partners, we can typically start within 3-5 business days. Marketing agency partners with active plans get priority scheduling, and every request gets a response within 24 hours. Rush projects are available based on current capacity."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you work directly with my clients?",
-            "acceptedAnswer": {
-              "@type": "Answer", 
-              "text": "Never. This is a true white-label partnership. All communication flows through your agency, and all deliverables are branded as your work. Your clients remain yours."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What if I need more hours than my plan includes?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No problem! Additional hours are billed at $100/hour for all retainer clients. You can also upgrade your plan at any time, and unused hours roll over for up to 60 days."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What platforms and technologies do you work with?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We build custom sites with React and Next.js, and on client-friendly CMS platforms when a non-technical client needs to manage their own content. We also handle e-commerce on Shopify and WooCommerce, and provide ongoing support and maintenance for existing WordPress sites. We adapt to your preferred stack rather than forcing one solution."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do you handle project communication and updates?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We provide regular updates through your preferred channel (email, Slack, or project management tool). Retainer clients get weekly status reports, and all clients receive milestone updates throughout their projects."
-            }
-          }
-        ]
-      }
+      faqPageSchema(`${PAGE_URL}#faq`, servicesFAQs)
     ]
   };
 
